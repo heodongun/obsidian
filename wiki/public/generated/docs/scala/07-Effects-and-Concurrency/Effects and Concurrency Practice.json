@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "id": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice",
+    "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice.md",
+    "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice",
+    "folderSegments": [
+      "scala",
+      "07-Effects-and-Concurrency"
+    ],
+    "title": "Effects and Concurrency Practice (8 questions)",
+    "description": "| Keyword | Answer | | | | | one shot async | |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Effects and Concurrency Practice (8 questions)",
+        "id": "effects-and-concurrency-practice-8-questions"
+      },
+      {
+        "depth": 2,
+        "text": "Related Concepts",
+        "id": "related-concepts"
+      },
+      {
+        "depth": 2,
+        "text": "Question 1 - Future [recall]",
+        "id": "question-1---future-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 2 - IO [recall]",
+        "id": "question-2---io-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 3 - Fiber [recall]",
+        "id": "question-3---fiber-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 4 - ZIO Main [recall]",
+        "id": "question-4---zio-main-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 5 - Resource Safety [recall]",
+        "id": "question-5---resource-safety-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 6 - Library Choice [application]",
+        "id": "question-6---library-choice-application"
+      },
+      {
+        "depth": 2,
+        "text": "Question 7 - Future vs IO [analysis]",
+        "id": "question-7---future-vs-io-analysis"
+      },
+      {
+        "depth": 2,
+        "text": "Question 8 - ZIO vs Cats Effect [analysis]",
+        "id": "question-8---zio-vs-cats-effect-analysis"
+      }
+    ],
+    "tags": [
+      "practice",
+      "effects",
+      "concurrency"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:52:19.094Z",
+    "wordCount": 282,
+    "wikiLinks": [
+      {
+        "label": "Effects and Concurrency",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "title": "Effects and Concurrency (★★★)",
+        "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala3-book/concurrency.md",
+      "sources/ecosystem/cats-effect.md",
+      "sources/ecosystem/zio-getting-started.md",
+      "sources/books/scala-with-cats.pdf"
+    ],
+    "part": [
+      "Scala 3 concurrency",
+      "Cats Effect docs",
+      "ZIO getting started",
+      "Scala with Cats theory"
+    ],
+    "keywords": [
+      "practice",
+      "effects",
+      "concurrency"
+    ]
+  },
+  "content": "# Effects and Concurrency Practice (8 questions)\n\n#practice #effects\n\n## Related Concepts\n\n- [Effects and Concurrency](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency)\n\n> [!hint]- 핵심 패턴 (클릭하여 보기)\n> | Keyword | Answer |\n> |---------|--------|\n> | one-shot async | **`Future`** |\n> | controlled effect | **`IO` / `ZIO`** |\n> | lightweight concurrency | **fiber** |\n\n## Question 1 - Future [recall]\n> Scala Book에서 동시성 입문으로 주로 소개하는 기본 추상화는 무엇인가?\n\n> [!answer]- 정답 보기\n> `Future`다.\n\n## Question 2 - IO [recall]\n> Cats Effect의 `IO`는 계산을 어떤 방식으로 다루는가?\n\n> [!answer]- 정답 보기\n> 즉시 실행되는 작업이 아니라 실행을 기술하는 effect 값으로 다룬다.\n\n## Question 3 - Fiber [recall]\n> Cats Effect에서 고가의 OS thread보다 훨씬 가벼운 동시성 단위를 무엇이라 하는가?\n\n> [!answer]- 정답 보기\n> fiber다.\n\n## Question 4 - ZIO Main [recall]\n> ZIO 애플리케이션의 기본 진입점으로 자주 쓰는 타입은 무엇인가?\n\n> [!answer]- 정답 보기\n> `ZIOAppDefault`다.\n\n## Question 5 - Resource Safety [recall]\n> effect runtime이 전통적 async 추상화보다 강조하는 안전성 중 하나는 무엇인가?\n\n> [!answer]- 정답 보기\n> 예외와 취소 상황에서도 자원을 안전하게 정리하는 resource safety다.\n\n## Question 6 - Library Choice [application]\n> 취소 가능성, 자원 정리, 고수준 동시성 조합이 중요한 서버를 만든다. `Future`만으로 시작하기보다 무엇을 검토해야 하는가?\n\n> [!answer]- 정답 보기\n> Cats Effect나 ZIO 같은 effect runtime을 검토해야 한다.\n\n## Question 7 - Future vs IO [analysis]\n> `Future`와 `IO`의 가장 중요한 모델 차이를 하나 설명하라.\n\n> [!answer]- 정답 보기\n> `Future`는 보통 즉시 시작되는 계산이고, `IO`는 실행 시점을 제어하며 조합할 수 있는 기술값이다.\n\n## Question 8 - ZIO vs Cats Effect [analysis]\n> ZIO와 Cats Effect를 비교할 때 \"생태계 vs 통합 모델\" 관점이 왜 유용한가?\n\n> [!answer]- 정답 보기\n> Cats Effect는 Typelevel 표준 효과 추상화로 생태계 연결성이 강하고, ZIO는 환경/오류/값을 한 타입에 통합해 모델 일관성이 강하기 때문이다.\n\n> [!summary]- 패턴 요약 (클릭하여 보기)\n> | Keyword | Answer |\n> |---------|--------|\n> | `Future` | **간단한 one-shot 비동기** |\n> | `IO` | **조합 가능한 effect 값** |\n> | ZIO | **runtime + environment/error model** |"
+}

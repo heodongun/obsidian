@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "id": "velog/자바-여행-1차시-객체-알아보기",
+    "relativePath": "velog/자바-여행-1차시-객체-알아보기.md",
+    "routePath": "velog/자바-여행-1차시-객체-알아보기",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "자바 여행 1차시 - 객체 알아보기",
+    "description": "??? : 객체는 붕어빵입니다!\n??? : 객체는 붕어빵이 아닙니다!\n\n와우 정말 우리를 헷갈리게 만드는 이 객체라는 녀석 나와함께 자세히 알아보자.\n\n내가 쉽게쉽게 알려줄게 나만 따라오라구.\n\n1. 클래스와 메서드\n클래스는 청사진이다.\n클래스는 데이터와 메서드를 포함",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "자바 여행 1차시 - 객체 알아보기",
+        "id": "자바-여행-1차시---객체-알아보기"
+      },
+      {
+        "depth": 1,
+        "text": "1. 클래스와 메서드",
+        "id": "1-클래스와-메서드"
+      },
+      {
+        "depth": 1,
+        "text": "2. 객체와 인스턴스",
+        "id": "2-객체와-인스턴스"
+      },
+      {
+        "depth": 1,
+        "text": "3. 최종정리",
+        "id": "3-최종정리"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.886Z",
+    "wordCount": 251,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "자바 여행 1차시 - 객체 알아보기",
+    "description": "??? : 객체는 붕어빵입니다!\n??? : 객체는 붕어빵이 아닙니다!\n\n와우 정말 우리를 헷갈리게 만드는 이 객체라는 녀석 나와함께 자세히 알아보자.\n\n내가 쉽게쉽게 알려줄게 나만 따라오라구.\n\n1. 클래스와 메서드\n클래스는 청사진이다.\n클래스는 데이터와 메서드를 포함",
+    "source": "https://velog.io/@pobi/%EC%9E%90%EB%B0%94-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C-%EA%B0%9D%EC%B2%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0",
+    "source_slug": "자바-여행-1차시-객체-알아보기",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-07-31T15:49:32.342Z",
+    "updated_at": "2026-02-10T11:49:10.683Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/c648a7fb-1b07-4ddb-b6b6-c83747995293/image.jpeg",
+    "tags": []
+  },
+  "content": "# 자바 여행 1차시 - 객체 알아보기\n\n> ??? : 객체는 붕어빵입니다!\n??? : 객체는 붕어빵이 아닙니다!\n\n와우 정말 우리를 헷갈리게 만드는 이 객체라는 녀석 나와함께 자세히 알아보자.\n![](https://velog.velcdn.com/images/pobi/post/c3a69ae5-937e-4c3f-a0a6-81e03ccc3bc2/image.png)\n내가 쉽게쉽게 알려줄게 나만 따라오라구.\n<br><br>\n# 1. 클래스와 메서드\n- 클래스는 청사진이다.\n- 클래스는 데이터와 메서드를 포함한다.\n- 메서드는 클래스 내에서 정의된 함수로, 객체가 수행할 수 있는 동작을 정의한다.\n\n예를 들면 우리가 자동차라는 클래스가 있다 치자.\n그렇다면 색상과 모델이라는 데이터를 가지고 있고, 제동과 가속이라는 메서드도 가지고있는것이다. \n<br><br>\n# 2. 객체와 인스턴스\n- 객체는 클래스가 실체화된 즉 클래스의 인스턴스이다.\n- 인스턴스란 클래스를 기반으로 생성된 실질적인 객체를 뜻한다.\n- 객체는 클래스에서 정의된 데이터와 메서드를 실제로 구현하여 사용할 수 있다.\n\n같은 도요타라도 니 도요타랑 내 도요타가 있듯이 특정한 값을 가질수있고, 제동과 가속이라는 메서드를 쓸수있다.\n<br><br>\n# 3. 최종정리\n클래스란 데이터와 메서드를 가지고 있는 청사진(설계도)\n객체는 실질적으로 만들어진 클래스의 인스턴스이고 실질적인 값을 가지고있다.\n예를 들면 자동차라는 설계도가 가속과 감속 그리고 자동차의 데이터를 가지고있는 설계도 느낌이라면\n객체는 실질적으로 만들어진 너의 자동차와 나의 자동차 이런 느낌이다.\n<br>\n\n```\n// Car 클래스 정의\nclass Car {\n    String color;  // 차량의 색상을 나타내는 필드\n    String model;  // 차량의 모델명을 나타내는 필드\n\n    // Car 클래스의 생성자\n    // 이 생성자는 Car 객체가 생성될 때 호출되며, color와 model 값을 초기화함\n    public Car(String color, String model) {\n        this.color = color;  // 인스턴스 변수 color를 생성자 매개변수 color로 초기화\n        this.model = model;  // 인스턴스 변수 model을 생성자 매개변수 model로 초기화\n    }\n\n    // 차량의 가속을 나타내는 메서드\n    // 이 메서드는 차량이 가속 중이라는 메시지를 출력함\n    public void accelerate() {\n        System.out.println(this.model + \" is accelerating\");  // 모델명과 함께 \"가속 중\" 메시지 출력\n    }\n}\n\n// Main 클래스 정의\n// 이 클래스는 프로그램의 진입점(main 메서드)을 포함함\npublic class Main {\n    public static void main(String[] args) {\n        // Car 클래스의 인스턴스 생성\n        // myCar는 Car 클래스의 인스턴스이며, 색상은 \"Red\", 모델명은 \"Toyota\"로 초기화됨\n        Car myCar = new Car(\"Red\", \"Toyota\");\n\n        // 인스턴스의 필드와 메서드 사용\n        // myCar의 color 필드 값(\"Red\")을 출력\n        System.out.println(myCar.color);  // \"Red\" 출력\n        // myCar의 accelerate 메서드를 호출하여 \"Toyota is accelerating\" 메시지 출력\n        myCar.accelerate();  // \"Toyota is accelerating\" 출력\n    }\n}\n```\n<br>\n\n1. Car 클래스 정의:\n\n- Car 클래스는 color와 model이라는 두 개의 필드를 가지고 있다. 이 필드는 각각 차량의 색상과 모델명을 나타낸다.\n\n- Car 클래스의 생성자는 color와 model 값을 매개변수로 받아서 객체 생성 시 해당 필드를 초기화한다.\n\n- accelerate 메서드는 차량이 가속 중이라는 메시지를 출력한다.\n<br>\n2. Main 클래스 정의:\n\n- main 메서드에서는 Car 클래스의 인스턴스를 생성하고, 해당 인스턴스의 필드와 메서드를 사용한다.\n<br>\n\n3. 인스턴스 생성 및 사용:\n- **Car myCar = new Car(\"Red\", \"Toyota\");**\nmyCar라는 Car 클래스의 인스턴스를 생성한다. 생성자는 \"Red\"와 \"Toyota\"를 매개변수로 받아, myCar의 color 필드는 \"Red\"로, model 필드는 \"Toyota\"로 초기화한다.\n\n- **System.out.println(myCar.color);**\nmyCar 인스턴스의 color 필드 값을 출력한다. 이 경우 \"Red\"가 출력된다.\n\n- **myCar.accelerate();**\nmyCar 인스턴스의 accelerate 메서드를 호출하여, \"Toyota is accelerating\" 메시지를 출력한다."
+}

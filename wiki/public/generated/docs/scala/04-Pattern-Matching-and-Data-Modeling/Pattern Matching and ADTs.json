@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "id": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+    "relativePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs.md",
+    "routePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+    "folderSegments": [
+      "scala",
+      "04-Pattern-Matching-and-Data-Modeling"
+    ],
+    "title": "Pattern Matching and ADTs (★★★)",
+    "description": "| Item | Key Point | | | | | pattern matching | 구조를 기준으로 데이터를 분기 | | | 매칭하기 좋은 불변 데이터 |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Pattern Matching and ADTs (★★★)",
+        "id": "pattern-matching-and-adts-"
+      },
+      {
+        "depth": 2,
+        "text": "Overview Table (한눈에 비교)",
+        "id": "overview-table-한눈에-비교"
+      },
+      {
+        "depth": 2,
+        "text": "패턴 매칭",
+        "id": "패턴-매칭"
+      },
+      {
+        "depth": 2,
+        "text": "ADT 감각",
+        "id": "adt-감각"
+      },
+      {
+        "depth": 2,
+        "text": "데이터 모델링에서의 장점",
+        "id": "데이터-모델링에서의-장점"
+      },
+      {
+        "depth": 2,
+        "text": "Exam/Test Patterns (시험 빈출 패턴)",
+        "id": "examtest-patterns-시험-빈출-패턴"
+      },
+      {
+        "depth": 2,
+        "text": "Related Notes",
+        "id": "related-notes"
+      }
+    ],
+    "tags": [
+      "pattern-matching",
+      "adt",
+      "sealed-trait",
+      "case-class",
+      "modeling"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:53:06.182Z",
+    "wordCount": 214,
+    "wikiLinks": [
+      {
+        "label": "Classes and Traits",
+        "target": "scala/02-OOP-Modeling/Classes and Traits",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System and Generics",
+        "target": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching Practice",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/02-OOP-Modeling/Classes and Traits",
+        "title": "Classes and Traits (★★★)",
+        "relativePath": "scala/02-OOP-Modeling/Classes and Traits.md"
+      },
+      {
+        "routePath": "scala/03-Functions-and-Collections/Functions and Collections",
+        "title": "Functions and Collections (★★★)",
+        "relativePath": "scala/03-Functions-and-Collections/Functions and Collections.md"
+      },
+      {
+        "routePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice",
+        "title": "Pattern Matching Practice (8 questions)",
+        "relativePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice.md"
+      },
+      {
+        "routePath": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "title": "Type System and Generics (★★★)",
+        "relativePath": "scala/05-Type-System-and-Generics/Type System and Generics.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/pattern-matching.md",
+      "sources/books/essential-scala.pdf",
+      "sources/books/essential-scala-full.md",
+      "sources/official/scala3-book/types-introduction.md"
+    ],
+    "part": [
+      "Tour pattern matching",
+      "Essential Scala ch3-4 pp74-120",
+      "Scala 3 types intro"
+    ],
+    "keywords": [
+      "pattern-matching",
+      "adt",
+      "sealed-trait",
+      "case-class",
+      "modeling"
+    ]
+  },
+  "content": "# Pattern Matching and ADTs (★★★)\n\n#oop-modeling #adt-modeling\n\n## Overview Table (한눈에 비교)\n\n| Item | Key Point |\n|------|-----------|\n| pattern matching | 구조를 기준으로 데이터를 분기 |\n| `case class` | 매칭하기 좋은 불변 데이터 |\n| `sealed trait` | 닫힌 경우의 수를 표현 |\n| ADT | sum/product 조합으로 도메인 모델링 |\n\n## 패턴 매칭\n\n패턴 매칭은 값의 형태에 따라 분기하는 문법이다.\n\n- 단순 값 비교보다 구조 분해에 강하다\n- case class와 함께 쓸 때 가장 빛난다\n- 누락 케이스를 컴파일러가 찾을 수 있다\n\n## ADT 감각\n\nADT는 \"가능한 상태를 타입으로 고정\"하는 접근이다.\n\n```text\nsealed trait Payment\n   |-- Card(number)\n   |-- Cash\n   `-- Transfer(account)\n```\n\n이렇게 모델링하면 문자열 플래그보다 안전하고, 패턴 매칭으로 모든 경우를 명시적으로 처리할 수 있다.\n\n## 데이터 모델링에서의 장점\n\n| Old Style | ADT Style |\n|------|------|\n| `\"paid\"`, `\"cancelled\"` 문자열 | `sealed trait OrderStatus` |\n| nullable field 조합 | 경우별 case class |\n| 런타임 if/else 체크 | 컴파일 타임 exhaustiveness 체크 |\n\n> [!warning]\n> 가능한 경우의 수가 고정된 도메인인데도 열린 상속 구조나 문자열 상수를 쓰면 누락 케이스를 놓치기 쉽다.\n\n## Exam/Test Patterns (시험 빈출 패턴)\n\n| Scenario/Keyword | Answer |\n|-------------------|--------|\n| \"경우의 수가 닫혀 있음\" | **`sealed trait`** |\n| \"분기와 값 분해\" | **pattern matching** |\n| \"불변 데이터 모델\" | **case class** |\n| \"누락 케이스 점검\" | exhaustiveness |\n\n## Related Notes\n\n- [Classes and Traits](#/docs/scala/02-OOP-Modeling/Classes%20and%20Traits)\n- [Type System and Generics](#/docs/scala/05-Type-System-and-Generics/Type%20System%20and%20Generics)\n- [Pattern Matching Practice](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20Practice)\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)"
+}

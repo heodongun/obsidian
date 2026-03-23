@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "id": "velog/Ktor-Tutorial-프로젝트",
+    "relativePath": "velog/Ktor-Tutorial-프로젝트.md",
+    "routePath": "velog/Ktor-Tutorial-프로젝트",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Ktor Tutorial 프로젝트",
+    "description": "Ktor 튜토리얼 프로젝트에 대한 설명",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Ktor Tutorial 프로젝트",
+        "id": "ktor-tutorial-프로젝트"
+      },
+      {
+        "depth": 2,
+        "text": "프로젝트 개요",
+        "id": "프로젝트-개요"
+      },
+      {
+        "depth": 3,
+        "text": "🔗 프로젝트 정보",
+        "id": "-프로젝트-정보"
+      },
+      {
+        "depth": 3,
+        "text": "왜 Ktor인가? (직접 써보고 느낀점)",
+        "id": "왜-ktor인가-직접-써보고-느낀점"
+      },
+      {
+        "depth": 2,
+        "text": "프로젝트 구조",
+        "id": "프로젝트-구조"
+      },
+      {
+        "depth": 3,
+        "text": "전체 디렉토리 구조",
+        "id": "전체-디렉토리-구조"
+      },
+      {
+        "depth": 3,
+        "text": "계층별 책임 (Layered Responsibility)",
+        "id": "계층별-책임-layered-responsibility"
+      },
+      {
+        "depth": 2,
+        "text": "핵심 아키텍처 개념",
+        "id": "핵심-아키텍처-개념"
+      },
+      {
+        "depth": 3,
+        "text": "1. 의존성 주입 (Dependency Injection)",
+        "id": "1-의존성-주입-dependency-injection"
+      },
+      {
+        "depth": 3,
+        "text": "Spring Boot 방식",
+        "id": "spring-boot-방식"
+      },
+      {
+        "depth": 3,
+        "text": "Ktor + Koin 방식",
+        "id": "ktor--koin-방식"
+      },
+      {
+        "depth": 3,
+        "text": "2. 라우팅 (Routing)",
+        "id": "2-라우팅-routing"
+      },
+      {
+        "depth": 3,
+        "text": "Spring Boot 방식",
+        "id": "spring-boot-방식-1"
+      },
+      {
+        "depth": 3,
+        "text": "Ktor 방식",
+        "id": "ktor-방식"
+      },
+      {
+        "depth": 3,
+        "text": "3. 애플리케이션 설정 (Application Configuration)",
+        "id": "3-애플리케이션-설정-application-configuration"
+      },
+      {
+        "depth": 3,
+        "text": "Spring Boot 방식",
+        "id": "spring-boot-방식-2"
+      },
+      {
+        "depth": 3,
+        "text": "Ktor 방식",
+        "id": "ktor-방식-1"
+      },
+      {
+        "depth": 2,
+        "text": "각 계층 상세 설명",
+        "id": "각-계층-상세-설명"
+      },
+      {
+        "depth": 3,
+        "text": "1. Application.kt - 애플리케이션 진입점",
+        "id": "1-applicationkt---애플리케이션-진입점"
+      },
+      {
+        "depth": 3,
+        "text": "주요 기능:",
+        "id": "주요-기능"
+      },
+      {
+        "depth": 3,
+        "text": "2. KoinModule.kt - 의존성 주입 모듈",
+        "id": "2-koinmodulekt---의존성-주입-모듈"
+      },
+      {
+        "depth": 3,
+        "text": "모듈 정의",
+        "id": "모듈-정의"
+      },
+      {
+        "depth": 3,
+        "text": "Koin 스코프 설명",
+        "id": "koin-스코프-설명"
+      },
+      {
+        "depth": 3,
+        "text": "get() 함수",
+        "id": "get-함수"
+      },
+      {
+        "depth": 3,
+        "text": "모듈 분리 예제",
+        "id": "모듈-분리-예제"
+      },
+      {
+        "depth": 3,
+        "text": "3. Model - 도메인 모델",
+        "id": "3-model---도메인-모델"
+      },
+      {
+        "depth": 3,
+        "text": "User.kt",
+        "id": "userkt"
+      },
+      {
+        "depth": 3,
+        "text": "ApiResponse.kt - 공통 응답 래퍼",
+        "id": "apiresponsekt---공통-응답-래퍼"
+      },
+      {
+        "depth": 3,
+        "text": "4. Repository - 데이터 접근 계층",
+        "id": "4-repository---데이터-접근-계층"
+      },
+      {
+        "depth": 3,
+        "text": "UserRepository.kt - 인터페이스",
+        "id": "userrepositorykt---인터페이스"
+      },
+      {
+        "depth": 3,
+        "text": "UserRepositoryImpl.kt - In-memory 구현체",
+        "id": "userrepositoryimplkt---in-memory-구현체"
+      },
+      {
+        "depth": 3,
+        "text": "5. Service - 비즈니스 로직 계층",
+        "id": "5-service---비즈니스-로직-계층"
+      },
+      {
+        "depth": 3,
+        "text": "UserService.kt - 인터페이스",
+        "id": "userservicekt---인터페이스"
+      },
+      {
+        "depth": 3,
+        "text": "UserServiceImpl.kt - 구현체",
+        "id": "userserviceimplkt---구현체"
+      },
+      {
+        "depth": 3,
+        "text": "6. Route - HTTP 라우트 계층",
+        "id": "6-route---http-라우트-계층"
+      },
+      {
+        "depth": 3,
+        "text": "UserRoutes.kt",
+        "id": "userrouteskt"
+      },
+      {
+        "depth": 3,
+        "text": "라우트 핵심 개념",
+        "id": "라우트-핵심-개념"
+      },
+      {
+        "depth": 2,
+        "text": "테스팅 전략",
+        "id": "테스팅-전략"
+      },
+      {
+        "depth": 3,
+        "text": "1. 단위 테스트 - UserServiceTest.kt",
+        "id": "1-단위-테스트---userservicetestkt"
+      },
+      {
+        "depth": 3,
+        "text": "테스트 설정",
+        "id": "테스트-설정"
+      },
+      {
+        "depth": 3,
+        "text": "Given-When-Then 패턴",
+        "id": "given-when-then-패턴"
+      },
+      {
+        "depth": 3,
+        "text": "예외 테스트",
+        "id": "예외-테스트"
+      },
+      {
+        "depth": 3,
+        "text": "2. 통합 테스트 - UserRoutesTest.kt",
+        "id": "2-통합-테스트---userroutestestkt"
+      },
+      {
+        "depth": 3,
+        "text": "testApplication DSL",
+        "id": "testapplication-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "POST 요청 테스트",
+        "id": "post-요청-테스트"
+      },
+      {
+        "depth": 2,
+        "text": "API 엔드포인트 가이드",
+        "id": "api-엔드포인트-가이드"
+      },
+      {
+        "depth": 3,
+        "text": "User API",
+        "id": "user-api"
+      },
+      {
+        "depth": 3,
+        "text": "cURL 예제",
+        "id": "curl-예제"
+      },
+      {
+        "depth": 3,
+        "text": "Product API (간단한 예제)",
+        "id": "product-api-간단한-예제"
+      },
+      {
+        "depth": 2,
+        "text": "핵심 학습 포인트",
+        "id": "핵심-학습-포인트"
+      },
+      {
+        "depth": 3,
+        "text": "1. Clean Architecture 구현",
+        "id": "1-clean-architecture-구현"
+      },
+      {
+        "depth": 3,
+        "text": "2. Spring Boot vs Ktor 핵심 비교",
+        "id": "2-spring-boot-vs-ktor-핵심-비교"
+      },
+      {
+        "depth": 3,
+        "text": "3. Ktor의 철학",
+        "id": "3-ktor의-철학"
+      },
+      {
+        "depth": 3,
+        "text": "4. 실전 프로젝트로 확장하기",
+        "id": "4-실전-프로젝트로-확장하기"
+      },
+      {
+        "depth": 2,
+        "text": "프로젝트 실행 가이드",
+        "id": "프로젝트-실행-가이드"
+      },
+      {
+        "depth": 3,
+        "text": "1. 프로젝트 열기",
+        "id": "1-프로젝트-열기"
+      },
+      {
+        "depth": 1,
+        "text": "IntelliJ IDEA에서",
+        "id": "intellij-idea에서"
+      },
+      {
+        "depth": 3,
+        "text": "2. Gradle Sync",
+        "id": "2-gradle-sync"
+      },
+      {
+        "depth": 3,
+        "text": "3. 서버 실행",
+        "id": "3-서버-실행"
+      },
+      {
+        "depth": 3,
+        "text": "4. 성공 확인",
+        "id": "4-성공-확인"
+      },
+      {
+        "depth": 3,
+        "text": "5. 테스트 실행",
+        "id": "5-테스트-실행"
+      },
+      {
+        "depth": 1,
+        "text": "모든 테스트 실행",
+        "id": "모든-테스트-실행"
+      },
+      {
+        "depth": 1,
+        "text": "특정 테스트만 실행",
+        "id": "특정-테스트만-실행"
+      },
+      {
+        "depth": 2,
+        "text": "📚 참고 자료",
+        "id": "-참고-자료"
+      },
+      {
+        "depth": 3,
+        "text": "공식 문서",
+        "id": "공식-문서"
+      },
+      {
+        "depth": 3,
+        "text": "학습 자료",
+        "id": "학습-자료"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:02.624Z",
+    "wordCount": 1540,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Ktor Tutorial 프로젝트",
+    "description": "Ktor 튜토리얼 프로젝트에 대한 설명",
+    "source": "https://velog.io/@pobi/Ktor-Tutorial-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
+    "source_slug": "Ktor-Tutorial-프로젝트",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-10-10T10:07:10.830Z",
+    "updated_at": "2026-03-21T10:40:13.062Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/0d95f34f-4383-4356-a437-0c5131e13835/image.webp",
+    "tags": []
+  },
+  "content": "# Ktor Tutorial 프로젝트\n\n## 프로젝트 개요\n\n이 프로젝트는 **Spring Boot 개발자가 Ktor 프레임워크를 학습하기 위한 실전 교육용 프로젝트**입니다. Kotlin 기반의 경량 웹 프레임워크인 Ktor를 통해 RESTful API 서버를 구축하는 방법을 단계별로 학습할 수 있도록 설계되었습니다.\n물론 제가 볼려고 만들었습니다.\n\n### 🔗 프로젝트 정보\n\n- **GitHub 저장소**: https://github.com/heodongun/KtorTutorial\n- **프로젝트명**: ktorstudy\n- **주요 기술 스택**:\n    - Kotlin 2.2.20\n    - Ktor 3.3.0 (웹 프레임워크)\n    - Koin 3.5.0 (의존성 주입)\n    - kotlinx.serialization (JSON 직렬화)\n    - Netty (임베디드 서버)\n    - JUnit + Kotlin Test (테스팅) //똑같음\n\n###  왜 Ktor인가? (직접 써보고 느낀점)\n\nKtor는 JetBrains에서 개발한 Kotlin 전용 웹 프레임워크로, Spring Boot와 비교했을 때 다음과 같은 특징을 가지고 있습니다:\n\n**1. 경량성 (Lightweight)**\n\n- Spring Boot: 메모리 사용량 100MB 이상, 시작 시간 2-5초\n- Ktor: 메모리 사용량 약 30MB, 시작 시간 1초 미만\n- 마이크로서비스, 서버리스 환경에 최적화\n\n**2. 함수형 & DSL 기반 (Functional & DSL-based)**\n\n- 어노테이션 기반이 아닌 명시적인 함수 호출\n- Kotlin DSL을 활용한 직관적인 API 설계\n- 컴파일 타임 안전성 향상\n\n**3. Kotlin First**\n\n- Kotlin Coroutines를 네이티브로 지원\n- 비동기 처리가 간단하고 효율적\n- Kotlin의 모든 기능을 완벽하게 활용\n\n**4. 유연성 (Flexibility)**\n\n- 필요한 기능만 선택적으로 설치 가능\n- Spring Boot의 \"마법\" 같은 자동 설정이 없어 명확함\n- 작은 프로젝트부터 큰 프로젝트까지 확장 가능\n\n**5. 적합한 사용 사례**\n\n✅ **Ktor가 좋은 경우:**\n\n- 마이크로서비스 아키텍처\n- API 서버, RESTful 백엔드\n- 경량 웹 애플리케이션\n- Kotlin 프로젝트\n- 빠른 시작 시간이 중요한 경우\n- 서버리스 (AWS Lambda, Google Cloud Functions)\n\n❌ **Spring Boot가 더 나은 경우:**\n\n- 대규모 엔터프라이즈 애플리케이션\n- 풍부한 생태계와 많은 라이브러리가 필요한 경우\n- Spring 전문 인력이 많은 조직\n- 복잡한 트랜잭션 관리가 필요한 경우\n- JPA/Hibernate 중심의 데이터 접근 계층\n\n---\n\n##  프로젝트 구조\n\n프로젝트는 **Clean Architecture** 원칙에 따라 계층화되어 있으며, 각 계층은 명확한 책임을 가지고 있습니다. 학습에 필요한것들 위주로 구현했습니다.\n\n### 전체 디렉토리 구조\n\n```\nsrc/main/kotlin/com/example/\n├── Application.kt              # 애플리케이션 진입점 & 설정\n├── Routing.kt                  # 라우팅 설정\n├── di/\n│   └── KoinModule.kt          # Koin 의존성 주입 모듈\n├── model/\n│   ├── User.kt                # User 도메인 모델\n│   ├── Product.kt             # Product 도메인 모델\n│   └── ApiResponse.kt         # API 응답 래퍼\n├── repository/\n│   ├── UserRepository.kt      # Repository 인터페이스\n│   └── UserRepositoryImpl.kt  # In-memory 구현체\n├── service/\n│   ├── UserService.kt         # Service 인터페이스\n│   └── UserServiceImpl.kt     # 비즈니스 로직 구현\n└── route/\n    └── UserRoutes.kt          # User API 라우트 정의\n\nsrc/test/kotlin/com/example/\n├── service/\n│   └── UserServiceTest.kt     # 서비스 단위 테스트\n└── route/\n    └── UserRoutesTest.kt      # 라우트 통합 테스트\n```\n\n### 계층별 책임 (Layered Responsibility)\n\n| 계층 (Layer) | Spring Boot | Ktor | 책임 (Responsibility) |\n| --- | --- | --- | --- |\n| **Route** | @RestController | Route extension | HTTP 요청/응답 처리, 파라미터 추출 |\n| **Service** | @Service | Interface + Impl | 비즈니스 로직, 트랜잭션 관리 |\n| **Repository** | @Repository | Interface + Impl | 데이터 접근, CRUD 작업 |\n| **Model** | @Entity / DTO | data class | 도메인 모델, 데이터 전송 객체 |\n| **DI Config** | @Configuration | Koin module | 의존성 설정 및 관리 |\n\n---\n\n##  핵심 아키텍처 개념\n\n### 1. 의존성 주입 (Dependency Injection)\n\n### Spring Boot 방식\n\n```kotlin\n@Service\nclass UserService @Autowired constructor(\n    private val userRepository: UserRepository\n) {\n    // ...\n}\n```\n\n### Ktor + Koin 방식\n\n```kotlin\n// KoinModule.kt - 명시적 DI 설정\nval appModule = module {\n    single<UserRepository> { UserRepositoryImpl() }\n    single<UserService> { UserServiceImpl(get()) }\n}\n\n// UserServiceImpl.kt - 생성자 주입\nclass UserServiceImpl(\n    private val userRepository: UserRepository  // Koin이 자동 주입\n) : UserService {\n    // ...\n}\n```\n\n**주요 차이점:**\n\n- **Spring Boot**: 리플렉션 기반, 암묵적, 자동 스캔 (@ComponentScan)\n- **Koin**: DSL 기반, 명시적, 수동 등록 (module {})\n- **Koin의 장점**: 더 가볍고 빠르며, 의존성 그래프가 명확함\n- **Koin의 단점**: 수동 설정 필요, Spring만큼 많은 기능 없음\n\n### 2. 라우팅 (Routing)\n\n### Spring Boot 방식\n\n```kotlin\n@RestController\n@RequestMapping(\"/api/users\")\nclass UserController {\n    @GetMapping\n    fun getUsers(): ResponseEntity<List<User>> { ... }\n    \n    @PostMapping\n    fun createUser(@RequestBody request: CreateUserRequest): ResponseEntity<User> { ... }\n}\n```\n\n### Ktor 방식\n\n```kotlin\nfun Route.userRoutes(userService: UserService) {\n    route(\"/users\") {\n        get {\n            val users = userService.getAllUsers()\n            call.respond(ApiResponse(true, users))\n        }\n        \n        post {\n            val request = call.receive<CreateUserRequest>()\n            val user = userService.createUser(request)\n            call.respond(HttpStatusCode.Created, ApiResponse(true, user))\n        }\n    }\n}\n```\n\n**주요 차이점:**\n\n- **Spring Boot**: 클래스 기반, 어노테이션으로 매핑\n- **Ktor**: 함수 기반, DSL로 라우트 정의\n- **Ktor의 장점**: 더 함수형, 라우트 구조가 시각적으로 명확함\n- **Ktor의 특징**: 중첩된 route() 블록으로 계층 구조 표현\n\n### 3. 애플리케이션 설정 (Application Configuration)\n\n### Spring Boot 방식\n\n```kotlin\n@SpringBootApplication\nclass Application\n\nfun main(args: Array<String>) {\n    runApplication<Application>(*args)\n}\n```\n\n### Ktor 방식\n\n```kotlin\nfun main(args: Array<String>) {\n    io.ktor.server.netty.EngineMain.main(args)\n}\n\nfun Application.module() {\n    configureDI()       // 의존성 주입\n    configurePlugins()  // 플러그인\n    configureRouting()  // 라우팅\n}\n```\n\n**주요 차이점:**\n\n- **Spring Boot**: 자동 설정 (auto-configuration)\n- **Ktor**: 명시적 설정 (explicit configuration)\n- **Ktor의 장점**: 무슨 일이 일어나는지 정확히 알 수 있음\n\n---\n\n##  각 계층 상세 설명\n\n### 1. Application.kt - 애플리케이션 진입점\n\n이 파일은 애플리케이션의 **시작점이자 설정의 중심**입니다. Spring Boot의 @SpringBootApplication이 하는 모든 일을 명시적으로 수행합니다.\n\n### 주요 기능:\n\n**1) main 함수 - 서버 시작**\n\n```kotlin\nfun main(args: Array<String>) {\n    io.ktor.server.netty.EngineMain.main(args)\n}\n```\n\n- EngineMain이 application.yaml 설정을 읽어 서버를 시작합니다\n- Netty 서버를 기본으로 사용 (다른 엔진으로 교체 가능)\n- 포트, 호스트 등은 application.yaml에서 설정\n\n**2) module 함수 - 애플리케이션 구성**\n\n```kotlin\nfun Application.module() {\n    configureDI()       // Koin 의존성 주입 설정\n    configurePlugins()  // ContentNegotiation, CORS 등\n    configureRouting()  // API 라우트 등록\n}\n```\n\n- Application 확장 함수로 정의\n- 각 설정을 순차적으로 실행\n- Spring Boot의 @Configuration 클래스들을 하나로 통합한 개념\n\n**3) configureDI - Koin 설정**\n\n```kotlin\nfun Application.configureDI() {\n    install(Koin) {\n        slf4jLogger()\n        modules(appModule)\n    }\n}\n```\n\n- install(Koin)으로 Koin 플러그인 설치\n- appModule에 정의된 의존성들을 등록\n- Spring Boot의 컴포넌트 스캔과 동일한 역할\n\n**4) configurePlugins - 플러그인 설정**\n\n```kotlin\nfun Application.configurePlugins() {\n    // JSON 직렬화/역직렬화\n    install(ContentNegotiation) {\n        json(Json {\n            prettyPrint = true\n            isLenient = true\n        })\n    }\n    \n    // 전역 예외 처리\n    install(StatusPages) {\n        exception<IllegalArgumentException> { call, cause ->\n            call.respond(HttpStatusCode.BadRequest, \n                mapOf(\"error\" to (cause.message ?: \"Bad request\")))\n        }\n    }\n    \n    // 요청/응답 로깅\n    install(CallLogging) {\n        level = [org.slf4j.event.Level.INFO](http://org.slf4j.event.Level.INFO)\n    }\n    \n    // CORS 설정\n    install(CORS) {\n        anyHost()\n        allowHeader(HttpHeaders.ContentType)\n        allowMethod(HttpMethod.Get)\n        allowMethod([HttpMethod.Post](http://HttpMethod.Post))\n        allowMethod(HttpMethod.Put)\n        allowMethod(HttpMethod.Delete)\n    }\n}\n```\n\n각 플러그인의 역할:\n\n- **ContentNegotiation**: JSON ↔ Kotlin 객체 자동 변환 (Jackson과 유사)\n- **StatusPages**: 전역 예외 처리 (@ControllerAdvice와 유사)\n- **CallLogging**: HTTP 요청/응답 로깅\n- **CORS**: Cross-Origin Resource Sharing 설정\n\n---\n\n### 2. KoinModule.kt - 의존성 주입 모듈\n\nKoin은 Kotlin DSL 기반의 경량 DI 프레임워크입니다. Spring의 ApplicationContext보다 훨씬 가볍고 빠릅니다.\n\n### 모듈 정의\n\n```kotlin\nval appModule = module {\n    // Repository 레이어\n    single<UserRepository> { UserRepositoryImpl() }\n    \n    // Service 레이어\n    single<UserService> { UserServiceImpl(get()) }\n}\n```\n\n### Koin 스코프 설명\n\n**1) single<T> { }** - 싱글톤\n\n- 애플리케이션 전체에서 하나의 인스턴스만 생성\n- Spring Boot의 기본 @Bean 스코프와 동일\n- 예: Database 연결, Repository, Service\n\n**2) factory<T> { }** - 프로토타입\n\n- 요청할 때마다 새 인스턴스 생성\n- Spring Boot의 @Scope(\"prototype\")과 동일\n- 예: 일시적인 핸들러, 요청별 객체\n\n**3) scoped<T> { }** - 스코프 싱글톤\n\n- 특정 스코프 내에서만 싱글톤\n- Spring Boot의 @RequestScope, @SessionScope와 유사\n- 예: HTTP 세션별 객체\n\n### get() 함수\n\n```kotlin\nsingle<UserService> { UserServiceImpl(get()) }\n```\n\n- `get()`은 이미 등록된 의존성을 가져옵니다\n- 타입 추론으로 UserRepository를 자동으로 주입\n- Spring Boot의 @Autowired와 동일한 역할\n\n### 모듈 분리 예제\n\n큰 프로젝트에서는 모듈을 분리할 수 있습니다:\n\n```kotlin\nval repositoryModule = module {\n    single<UserRepository> { UserRepositoryImpl() }\n    single<ProductRepository> { ProductRepositoryImpl() }\n}\n\nval serviceModule = module {\n    single<UserService> { UserServiceImpl(get()) }\n    single<ProductService> { ProductServiceImpl(get()) }\n}\n\nval networkModule = module {\n    single { HttpClient() }\n}\n\n// Application.kt에서\ninstall(Koin) {\n    modules(repositoryModule, serviceModule, networkModule)\n}\n```\n\n---\n\n### 3. Model - 도메인 모델\n\n### User.kt\n\n```kotlin\n@Serializable\ndata class User(\n    val id: Long? = null,\n    val name: String,\n    val email: String,\n    val age: Int\n)\n\n@Serializable\ndata class CreateUserRequest(\n    val name: String,\n    val email: String,\n    val age: Int\n)\n\n@Serializable\ndata class UpdateUserRequest(\n    val name: String,\n    val email: String,\n    val age: Int\n)\n```\n\n**@Serializable 어노테이션:**\n\n- kotlinx.serialization의 어노테이션\n- JSON ↔ Kotlin 객체 자동 변환\n- Spring Boot의 Jackson과 동일한 역할\n- 더 가볍고 빠르며, Kotlin에 최적화됨\n\n**DTO 분리:**\n\n- User: 도메인 모델 (id 포함)\n- CreateUserRequest: 생성 요청 (id 없음)\n- UpdateUserRequest: 업데이트 요청 (id는 URL에서)\n- 역할을 명확히 분리하여 실수 방지\n\n### ApiResponse.kt - 공통 응답 래퍼\n\n```kotlin\n@Serializable\ndata class ApiResponse<T>(\n    val success: Boolean,\n    val data: T? = null,\n    val message: String? = null\n)\n```\n\n**왜 래퍼를 사용하나요?**\n\n- 일관된 응답 형식 제공\n- 성공/실패 여부를 명확히 표시\n- 에러 메시지를 표준화\n- 클라이언트가 응답을 예측 가능하게 만듦\n\n**사용 예:**\n\n```json\n// 성공 응답\n{\n  \"success\": true,\n  \"data\": { \"id\": 1, \"name\": \"홍길동\" },\n  \"message\": null\n}\n\n// 실패 응답\n{\n  \"success\": false,\n  \"data\": null,\n  \"message\": \"User not found with id: 999\"\n}\n```\n\n---\n\n### 4. Repository - 데이터 접근 계층\n\n### UserRepository.kt - 인터페이스\n\n```kotlin\ninterface UserRepository {\n    fun findAll(): List<User>\n    fun findById(id: Long): User?\n    fun save(user: User): User\n    fun update(id: Long, user: User): User?\n    fun delete(id: Long): Boolean\n    fun findByEmail(email: String): User?\n}\n```\n\n**Spring Boot와의 차이:**\n\n- **Spring Boot**: JpaRepository를 상속하면 CRUD 메서드 자동 제공\n- **Ktor**: 인터페이스를 직접 정의하고 구현해야 함\n\n**장점:**\n\n- 명시적이고 이해하기 쉬움\n- 마법 같은 동작이 없음\n- 필요한 메서드만 정의 가능\n\n**단점:**\n\n- 보일러플레이트 코드 증가\n- 직접 구현 필요\n\n  하지만 Ktorm을 쓰면 가능은 하지만 이번에는 단순히 Ktor을 배우기 위한 글이라 사용은 하지않았습니다.\n  \n### UserRepositoryImpl.kt - In-memory 구현체\n\n```kotlin\nclass UserRepositoryImpl : UserRepository {\n    private val users = ConcurrentHashMap<Long, User>()\n    private val idCounter = AtomicLong(1)\n    \n    init {\n        // 초기 테스트 데이터\n        save(User(name = \"김철수\", email = \"[kim@example.com](mailto:kim@example.com)\", age = 25))\n        save(User(name = \"이영희\", email = \"[lee@example.com](mailto:lee@example.com)\", age = 28))\n        save(User(name = \"박민수\", email = \"[park@example.com](mailto:park@example.com)\", age = 30))\n    }\n    \n    override fun findAll(): List<User> {\n        return users.values.toList()\n    }\n    \n    override fun findById(id: Long): User? {\n        return users[id]\n    }\n    \n    override fun save(user: User): User {\n        val id = [user.id](http://user.id) ?: idCounter.getAndIncrement()\n        val newUser = user.copy(id = id)\n        users[id] = newUser\n        return newUser\n    }\n    \n    // ... 기타 메서드\n}\n```\n\n**In-memory 구현 이유:**\n\n- 학습 목적으로 간단하게 구현\n- 실제 데이터베이스 설정 없이 테스트 가능\n- Thread-safe를 위해 ConcurrentHashMap 사용\n\n**실전에서는:**\n\n- Exposed ORMㅇ 사용 (Kotlin용 ORM)\n- 또는 jOOQ, Ktorm 등 사용\n- PostgreSQL, MySQL 등 실제 DB 연결\n\n---\n\n### 5. Service - 비즈니스 로직 계층\n\n### UserService.kt - 인터페이스\n\n```kotlin\ninterface UserService {\n    fun getAllUsers(): List<User>\n    fun getUserById(id: Long): User\n    fun createUser(request: CreateUserRequest): User\n    fun updateUser(id: Long, request: UpdateUserRequest): User\n    fun deleteUser(id: Long)\n    fun findUserByEmail(email: String): User?\n}\n```\n\n**인터페이스를 사용하는 이유:**\n\n1. **의존성 역전 원칙 (DIP)**: 구현이 아닌 추상에 의존\n2. **테스트 용이성**: Mock 객체 쉽게 생성\n3. **유연성**: 여러 구현체 교체 가능\n\n### UserServiceImpl.kt - 구현체\n\n```kotlin\nclass UserServiceImpl(\n    private val userRepository: UserRepository\n) : UserService {\n    \n    override fun createUser(request: CreateUserRequest): User {\n        // 비즈니스 로직 1: 이메일 중복 체크\n        val existingUser = userRepository.findByEmail([request.email](http://request.email))\n        if (existingUser != null) {\n            throw IllegalArgumentException(\n                \"User with email ${[request.email](http://request.email)} already exists\"\n            )\n        }\n        \n        // 비즈니스 로직 2: 나이 유효성 검사\n        if (request.age < 1 || request.age > 150) {\n            throw IllegalArgumentException(\"Invalid age: ${request.age}\")\n        }\n        \n        val user = User(\n            name = [request.name](http://request.name),\n            email = [request.email](http://request.email),\n            age = request.age\n        )\n        \n        return [userRepository.save](http://userRepository.save)(user)\n    }\n    \n    // ... 기타 메서드\n}\n```\n\n**Service 계층의 역할:**\n\n1. **비즈니스 로직 검증**: 이메일 중복, 나이 유효성 등\n2. **예외 처리**: IllegalArgumentException으로 에러 전파\n3. **트랜잭션 관리**: (실전에서는 DB 트랜잭션)\n4. **데이터 변환**: DTO → 도메인 모델\n\n**@Transactional이 없는 이유:**\n\n- Spring의 @Transactional은 프록시 기반\n- Ktor에서는 명시적으로 트랜잭션 관리\n- Exposed ORM 사용 시 transaction { } 블록 사용\n\n---\n\n### 6. Route - HTTP 라우트 계층\n\n### UserRoutes.kt\n\n```kotlin\nfun Route.userRoutes(userService: UserService) {\n    route(\"/users\") {\n        // GET /api/users - 모든 사용자 조회\n        get {\n            try {\n                val users = userService.getAllUsers()\n                call.respond(ApiResponse(true, users))\n            } catch (e: Exception) {\n                call.respond(\n                    HttpStatusCode.InternalServerError,\n                    ApiResponse<List<User>>(false, message = e.message)\n                )\n            }\n        }\n        \n        // GET /api/users/{id} - 특정 사용자 조회\n        get(\"/{id}\") {\n            try {\n                val id = call.parameters[\"id\"]?.toLongOrNull()\n                if (id == null) {\n                    call.respond(\n                        HttpStatusCode.BadRequest,\n                        ApiResponse<User>(false, message = \"Invalid ID format\")\n                    )\n                    return@get\n                }\n                \n                val user = userService.getUserById(id)\n                call.respond(ApiResponse(true, user))\n            } catch (e: IllegalArgumentException) {\n                call.respond(\n                    HttpStatusCode.BadRequest,\n                    ApiResponse<User>(false, message = e.message)\n                )\n            }\n        }\n        \n        // POST /api/users - 사용자 생성\n        post {\n            try {\n                val request = call.receive<CreateUserRequest>()\n                val newUser = userService.createUser(request)\n                call.respond(HttpStatusCode.Created, ApiResponse(true, newUser))\n            } catch (e: IllegalArgumentException) {\n                call.respond(\n                    HttpStatusCode.BadRequest,\n                    ApiResponse<User>(false, message = e.message)\n                )\n            }\n        }\n        \n        // PUT /api/users/{id} - 사용자 업데이트\n        put(\"/{id}\") {\n            // 구현 생략...\n        }\n        \n        // DELETE /api/users/{id} - 사용자 삭제\n        delete(\"/{id}\") {\n            // 구현 생략...\n        }\n        \n        // GET /api/users/email/{email} - 이메일로 조회\n        get(\"/email/{email}\") {\n            // 구현 생략...\n        }\n    }\n}\n```\n\n### 라우트 핵심 개념\n\n**1) Route 확장 함수**\n\n```kotlin\nfun Route.userRoutes(userService: UserService) {\n    // ...\n}\n```\n\n- Route를 확장하여 라우트를 추가\n- Spring의 @RestController와 동일한 역할\n- 함수형 방식으로 더 유연함\n\n**2) route() 블록 - 경로 그룹화**\n\n```kotlin\nroute(\"/users\") {\n    get { }     // GET /api/users\n    get(\"/{id}\") { }  // GET /api/users/{id}\n    post { }    // POST /api/users\n}\n```\n\n- 공통 경로를 묶어서 관리\n- 중첩 가능: route(\"/api\") { route(\"/users\") { } }\n\n**3) call 객체 - HTTP 요청/응답 처리**\n\n- `call.parameters[\"id\"]`: URL 파라미터 추출 (@PathVariable)\n- `call.receive<T>()`: 요청 본문 파싱 (@RequestBody)\n- `call.respond(data)`: 응답 반환 (ResponseEntity)\n- `call.respond(status, data)`: 상태 코드와 함께 응답\n\n**4) 예외 처리 패턴**\n\n```kotlin\ntry {\n    // 비즈니스 로직\n} catch (e: IllegalArgumentException) {\n    // 400 Bad Request\n    call.respond(HttpStatusCode.BadRequest, ...)\n} catch (e: Exception) {\n    // 500 Internal Server Error\n    call.respond(HttpStatusCode.InternalServerError, ...)\n}\n```\n\n- Spring의 @ExceptionHandler와 동일한 역할\n- 더 명시적이고 제어 가능\n\n---\n\n##  테스팅 전략\n\n### 1. 단위 테스트 - UserServiceTest.kt\n\n### 테스트 설정\n\n```kotlin\nclass UserServiceTest {\n    private val repository: UserRepository = UserRepositoryImpl()\n    private val service: UserService = UserServiceImpl(repository)\n    \n    // 테스트 메서드들...\n}\n```\n\n**Spring Boot와의 차이:**\n\n- **Spring Boot**: @SpringBootTest로 전체 컨텍스트 로딩 (느림, 무거움)\n- **Ktor**: 일반 Kotlin 테스트, 필요한 객체만 생성 (빠름, 가벼움)\n- **실행 속도**: Ktor가 10배 이상 빠름 (100ms vs 2-5초)\n\n### Given-When-Then 패턴\n\n```kotlin\n@Test\nfun `getUserById should return user when exists`() {\n    // Given: 테스트 데이터 준비\n    val users = service.getAllUsers()\n    val existingUser = users.first()\n    \n    // When: 실제 테스트 실행\n    val user = service.getUserById([existingUser.id](http://existingUser.id)!!)\n    \n    // Then: 결과 검증\n    assertNotNull(user)\n    assertEquals([existingUser.id](http://existingUser.id), [user.id](http://user.id))\n    assertEquals([existingUser.name](http://existingUser.name), [user.name](http://user.name))\n}\n```\n\n### 예외 테스트\n\n```kotlin\n@Test\nfun `createUser should throw exception when email already exists`() {\n    // Given\n    val existingUser = service.getAllUsers().first()\n    val request = CreateUserRequest(\n        name = \"새 유저\",\n        email = [existingUser.email](http://existingUser.email), // 중복 이메일\n        age = 30\n    )\n    \n    // When/Then\n    val exception = assertFailsWith<IllegalArgumentException> {\n        service.createUser(request)\n    }\n    assertEquals(\n        \"User with email ${[existingUser.email](http://existingUser.email)} already exists\", \n        exception.message\n    )\n}\n```\n\n**어설션 함수:**\n\n- `assertEquals(expected, actual)`: 값이 같은지 확인\n- `assertNotNull(value)`: null이 아닌지 확인\n- `assertNull(value)`: null인지 확인\n- `assertTrue(condition)`: 조건이 참인지 확인\n- `assertFailsWith<T>`: 특정 예외가 발생하는지 확인\n\n### 2. 통합 테스트 - UserRoutesTest.kt\n\n### testApplication DSL\n\n```kotlin\n@Test\nfun `GET users should return 200 OK with user list`() = testApplication {\n    // Setup: 애플리케이션 설정\n    application {\n        module()  // 프로덕션과 동일한 설정\n    }\n    \n    // When: HTTP 요청\n    val response = client.get(\"/api/users\")\n    \n    // Then: 응답 검증\n    assertEquals(HttpStatusCode.OK, response.status)\n    assertTrue(response.bodyAsText().contains(\"success\"))\n}\n```\n\n**testApplication의 장점:**\n\n- 실제 HTTP 요청/응답 테스트\n- 프로덕션과 동일한 설정 사용\n- DI, 플러그인 모두 테스트 가능\n- Spring의 @WebMvcTest보다 간단\n\n### POST 요청 테스트\n\n```kotlin\n@Test\nfun `POST users should create new user`() = testApplication {\n    application { module() }\n    \n    val response = [client.post](http://client.post)(\"/api/users\") {\n        contentType(ContentType.Application.Json)\n        setBody(\"\"\"{\n            \"name\":\"테스트 유저\",\n            \"email\":\"[test@test.com](mailto:test@test.com)\",\n            \"age\":25\n        }\"\"\")\n    }\n    \n    assertEquals(HttpStatusCode.Created, response.status)\n    assertTrue(response.bodyAsText().contains(\"테스트 유저\"))\n}\n```\n\n---\n\n##  API 엔드포인트 가이드\n\n### User API\n\n| Method | Endpoint | Description | Request Body | Response |\n| --- | --- | --- | --- | --- |\n| GET | `/api/users` | 모든 사용자 조회 | - | `List<User>` |\n| GET | `/api/users/{id}` | ID로 사용자 조회 | - | `User` |\n| GET | `/api/users/email/{email}` | 이메일로 조회 | - | `User` |\n| POST | `/api/users` | 새 사용자 생성 | `CreateUserRequest` | `User` |\n| PUT | `/api/users/{id}` | 사용자 업데이트 | `UpdateUserRequest` | `User` |\n| DELETE | `/api/users/{id}` | 사용자 삭제 | - | Success message |\n\n### cURL 예제\n\n**1) 모든 사용자 조회**\n\n```bash\ncurl http://localhost:8080/api/users\n```\n\n**2) 사용자 생성**\n\n```bash\ncurl -X POST http://localhost:8080/api/users \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\":\"홍길동\",\n    \"email\":\"[hong@example.com](mailto:hong@example.com)\",\n    \"age\":30\n  }'\n```\n\n**3) 사용자 업데이트**\n\n```bash\ncurl -X PUT http://localhost:8080/api/users/1 \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\":\"홍길동 수정\",\n    \"email\":\"[hong2@example.com](mailto:hong2@example.com)\",\n    \"age\":31\n  }'\n```\n\n**4) 사용자 삭제**\n\n```bash\ncurl -X DELETE http://localhost:8080/api/users/1\n```\n\n### Product API (간단한 예제)\n\n| Method | Endpoint | Description |\n| --- | --- | --- |\n| GET | `/api/products` | 모든 상품 조회 |\n| GET | `/api/products/search?q=query&minPrice=1000` | 상품 검색 |\n\n---\n\n##  핵심 학습 포인트\n\n### 1. Clean Architecture 구현\n\n**계층 분리:**\n\n- **Route**: HTTP 처리 (프레젠테이션)\n- **Service**: 비즈니스 로직 (도메인)\n- **Repository**: 데이터 접근 (인프라)\n- **Model**: 데이터 구조\n\n**의존성 방향:**\n\n```\nRoute → Service → Repository\n  ↓       ↓          ↓\n  DI      DI        DI\n```\n\n- 상위 계층이 하위 계층에 의존\n- 인터페이스를 통한 추상화\n- 테스트 용이성 확보\n\n### 2. Spring Boot vs Ktor 핵심 비교\n\n**시작 방식:**\n\n- Spring Boot: @SpringBootApplication 자동 스캔\n- Ktor: EngineMain → module() 명시적 설정\n\n**의존성 주입:**\n\n- Spring Boot: 리플렉션 기반, 암묵적\n- Koin: DSL 기반, 명시적\n\n**라우팅:**\n\n- Spring Boot: 클래스 + 어노테이션\n- Ktor: 함수 + DSL\n\n**테스팅:**\n\n- Spring Boot: 전체 컨텍스트 로딩\n- Ktor: 필요한 객체만 생성\n\n### 3. Ktor의 철학\n\n**\"마법이 없는 프레임워크\"**\n\n- 모든 것이 명시적\n- 숨겨진 동작 없음\n- 이해하기 쉽고 디버깅이 편함\n\n**\"필요한 것만 선택\"**\n\n- 플러그인 시스템\n- 불필요한 기능 배제\n- 경량성 유지\n\n**\"Kotlin First\"**\n\n- Coroutines 네이티브 지원\n- DSL 활용\n- 타입 안정성\n\n### 4. 실전 프로젝트로 확장하기\n\n**다음 단계:**\n\n1. **Database 통합**\n    - Exposed ORM 사용\n    - PostgreSQL 연결\n    - Migration (Flyway)\n2. **Authentication & Security**\n    - JWT 토큰 인증\n    - Ktor Authentication plugin\n    - RBAC (Role-Based Access Control)\n3. **Advanced Features**\n    - WebSockets\n    - Server-Sent Events\n    - File Upload/Download\n4. **Production Readiness**\n    - Logging & Monitoring\n    - Docker containerization\n    - Kubernetes deployment\n5. **Product 도메인 완성**\n    - ProductService, ProductRepository 구현\n    - Product CRUD API 완성\n    - User-Product 관계 추가 (1:N)\n    - Pagination, Filtering 추가\n\n---\n\n##  프로젝트 실행 가이드\n\n### 1. 프로젝트 열기\n\n```bash\n# IntelliJ IDEA에서\nFile → Open → ktorstudy 폴더 선택\n```\n\n### 2. Gradle Sync\n\n- IntelliJ가 자동으로 Gradle sync 실행\n- 또는 Gradle 탭에서 \"Reload All Gradle Projects\" 클릭\n\n### 3. 서버 실행\n\n**방법 1: IntelliJ에서**\n\n- `Application.kt` 파일 열기\n- `main()` 함수 옆의 ▶️ 버튼 클릭\n\n**방법 2: 터미널에서**\n\n```bash\n./gradlew run\n```\n\n### 4. 성공 확인\n\n서버가 성공적으로 시작되면:\n\n```\nINFO Application - Application started in 0.303 seconds.\nINFO Application - Responding at http://0.0.0.0:8080\n```\n\n브라우저에서 http://localhost:8080 접속 → \"Hello Ktor World!\" 표시\n\n### 5. 테스트 실행\n\n```bash\n# 모든 테스트 실행\n./gradlew test\n\n# 특정 테스트만 실행\n./gradlew test --tests UserServiceTest\n./gradlew test --tests UserRoutesTest\n```\n\n---\n\n## 📚 참고 자료\n\n### 공식 문서\n\n- [Ktor 공식 문서](https://ktor.io/)\n- [Koin 공식 문서](https://insert-koin.io/)\n- [kotlinx.serialization 문서](https://kotlinlang.org/docs/serialization.html)\n\n### 학습 자료\n\n- [Kotlin 공식 가이드](https://kotlinlang.org/docs/getting-started.html)\n- [Ktor Tutorial](https://ktor.io/docs/creating-http-apis.html)\n\n---\n\n**핵심 메시지: Ktor는 \"마법이 없는\" 프레임워크입니다. 모든 것이 명시적이고 이해하기 쉬우며, 빠르고 가볍습니다. 그리고 DSL은 신입니다.**\n  \n\n---\n\n*마지막 업데이트: 2025년 10월 10일*\n\n*GitHub: https://github.com/heodongun/KtorTutorial*"
+}

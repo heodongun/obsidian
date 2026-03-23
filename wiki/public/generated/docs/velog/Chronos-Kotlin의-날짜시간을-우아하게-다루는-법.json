@@ -1,0 +1,393 @@
+{
+  "meta": {
+    "id": "velog/Chronos-Kotlin의-날짜시간을-우아하게-다루는-법",
+    "relativePath": "velog/Chronos-Kotlin의-날짜시간을-우아하게-다루는-법.md",
+    "routePath": "velog/Chronos-Kotlin의-날짜시간을-우아하게-다루는-법",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Chronos - Kotlin의 날짜/시간을 우아하게 다루는 법",
+    "description": "이건 그냥 신기해서 들고옴Kotlin으로 개발하면서 날짜와 시간을 다루는 코드를 작성할 때 이런 생각을 해보신 적 있으신가요?\"그냥 5일을 더하고 싶을 뿐인데 왜 이렇게 복잡할까?\"저도 같은 고민을 했습니다. 그래서 Python의 Pendulum에서 영감을 받아 Kot",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Chronos - Kotlin의 날짜/시간을 우아하게 다루는 법",
+        "id": "chronos---kotlin의-날짜시간을-우아하게-다루는-법"
+      },
+      {
+        "depth": 2,
+        "text": "들어가며: Kotlin에서 날짜를 다루는 것이 왜 이렇게 어려울까?",
+        "id": "들어가며-kotlin에서-날짜를-다루는-것이-왜-이렇게-어려울까"
+      },
+      {
+        "depth": 2,
+        "text": "Chronos가 해결하는 문제들",
+        "id": "chronos가-해결하는-문제들"
+      },
+      {
+        "depth": 3,
+        "text": "1. 장황한 코드 (Verbosity)",
+        "id": "1-장황한-코드-verbosity"
+      },
+      {
+        "depth": 3,
+        "text": "2. 타임존 관리의 복잡성",
+        "id": "2-타임존-관리의-복잡성"
+      },
+      {
+        "depth": 3,
+        "text": "3. 사람이 읽을 수 있는 포맷의 부재",
+        "id": "3-사람이-읽을-수-있는-포맷의-부재"
+      },
+      {
+        "depth": 3,
+        "text": "4. DST(Daylight Saving Time) 처리",
+        "id": "4-dstdaylight-saving-time-처리"
+      },
+      {
+        "depth": 2,
+        "text": "핵심 기능 Deep Dive",
+        "id": "핵심-기능-deep-dive"
+      },
+      {
+        "depth": 3,
+        "text": "1. DateTime 생성: 모든 경우를 커버하는 유연한 API",
+        "id": "1-datetime-생성-모든-경우를-커버하는-유연한-api"
+      },
+      {
+        "depth": 4,
+        "text": "현재 시간 기반",
+        "id": "현재-시간-기반"
+      },
+      {
+        "depth": 4,
+        "text": "특정 날짜/시간 지정",
+        "id": "특정-날짜시간-지정"
+      },
+      {
+        "depth": 4,
+        "text": "DSL을 활용한 선언적 생성",
+        "id": "dsl을-활용한-선언적-생성"
+      },
+      {
+        "depth": 4,
+        "text": "Unix 타임스탬프에서 변환",
+        "id": "unix-타임스탬프에서-변환"
+      },
+      {
+        "depth": 4,
+        "text": "ISO 8601 문자열 파싱",
+        "id": "iso-8601-문자열-파싱"
+      },
+      {
+        "depth": 3,
+        "text": "2. Duration: 시간 간격을 직관적으로",
+        "id": "2-duration-시간-간격을-직관적으로"
+      },
+      {
+        "depth": 4,
+        "text": "Extension 프로퍼티로 자연스러운 표현",
+        "id": "extension-프로퍼티로-자연스러운-표현"
+      },
+      {
+        "depth": 4,
+        "text": "DSL로 복잡한 Duration 만들기",
+        "id": "dsl로-복잡한-duration-만들기"
+      },
+      {
+        "depth": 4,
+        "text": "Duration 연산",
+        "id": "duration-연산"
+      },
+      {
+        "depth": 4,
+        "text": "단위 변환",
+        "id": "단위-변환"
+      },
+      {
+        "depth": 3,
+        "text": "3. DateTime 조작: 불변성을 유지하면서 유연하게",
+        "id": "3-datetime-조작-불변성을-유지하면서-유연하게"
+      },
+      {
+        "depth": 4,
+        "text": "산술 연산",
+        "id": "산술-연산"
+      },
+      {
+        "depth": 4,
+        "text": "특정 필드 설정",
+        "id": "특정-필드-설정"
+      },
+      {
+        "depth": 4,
+        "text": "기간의 시작/끝으로 이동",
+        "id": "기간의-시작끝으로-이동"
+      },
+      {
+        "depth": 4,
+        "text": "요일 기반 내비게이션",
+        "id": "요일-기반-내비게이션"
+      },
+      {
+        "depth": 3,
+        "text": "4. 타임존: 글로벌 서비스를 위한 필수 기능",
+        "id": "4-타임존-글로벌-서비스를-위한-필수-기능"
+      },
+      {
+        "depth": 4,
+        "text": "타임존 변환",
+        "id": "타임존-변환"
+      },
+      {
+        "depth": 4,
+        "text": "타임존 정보 조회",
+        "id": "타임존-정보-조회"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예제: 글로벌 미팅 시간 계산기",
+        "id": "실전-예제-글로벌-미팅-시간-계산기"
+      },
+      {
+        "depth": 3,
+        "text": "5. Period: 두 시점 사이의 시간 간격",
+        "id": "5-period-두-시점-사이의-시간-간격"
+      },
+      {
+        "depth": 4,
+        "text": "Period 생성",
+        "id": "period-생성"
+      },
+      {
+        "depth": 4,
+        "text": "Period 구성 요소 접근",
+        "id": "period-구성-요소-접근"
+      },
+      {
+        "depth": 4,
+        "text": "전체 시간으로 변환",
+        "id": "전체-시간으로-변환"
+      },
+      {
+        "depth": 4,
+        "text": "Period로 범위 체크",
+        "id": "period로-범위-체크"
+      },
+      {
+        "depth": 4,
+        "text": "Period를 반복 (Iteration)",
+        "id": "period를-반복-iteration"
+      },
+      {
+        "depth": 3,
+        "text": "6. 비교와 검사: 풍부한 헬퍼 메서드",
+        "id": "6-비교와-검사-풍부한-헬퍼-메서드"
+      },
+      {
+        "depth": 4,
+        "text": "비교 연산자",
+        "id": "비교-연산자"
+      },
+      {
+        "depth": 4,
+        "text": "편리한 체크 메서드",
+        "id": "편리한-체크-메서드"
+      },
+      {
+        "depth": 3,
+        "text": "7. 포맷팅: 다양한 출력 형식",
+        "id": "7-포맷팅-다양한-출력-형식"
+      },
+      {
+        "depth": 4,
+        "text": "기본 포맷 메서드",
+        "id": "기본-포맷-메서드"
+      },
+      {
+        "depth": 4,
+        "text": "커스텀 포맷",
+        "id": "커스텀-포맷"
+      },
+      {
+        "depth": 4,
+        "text": "포맷 토큰 전체 목록",
+        "id": "포맷-토큰-전체-목록"
+      },
+      {
+        "depth": 4,
+        "text": "사람이 읽을 수 있는 상대 시간",
+        "id": "사람이-읽을-수-있는-상대-시간"
+      },
+      {
+        "depth": 3,
+        "text": "8. Serialization: kotlinx-serialization 완벽 지원",
+        "id": "8-serialization-kotlinx-serialization-완벽-지원"
+      },
+      {
+        "depth": 2,
+        "text": "실전 활용 사례",
+        "id": "실전-활용-사례"
+      },
+      {
+        "depth": 3,
+        "text": "1. 스마트 리마인더 시스템",
+        "id": "1-스마트-리마인더-시스템"
+      },
+      {
+        "depth": 3,
+        "text": "2. 주간 반복 일정 생성기",
+        "id": "2-주간-반복-일정-생성기"
+      },
+      {
+        "depth": 3,
+        "text": "3. 나이 계산기 (정확한 버전)",
+        "id": "3-나이-계산기-정확한-버전"
+      },
+      {
+        "depth": 3,
+        "text": "4. 영업시간 체크 시스템",
+        "id": "4-영업시간-체크-시스템"
+      },
+      {
+        "depth": 3,
+        "text": "5. 프로젝트 일정 관리자",
+        "id": "5-프로젝트-일정-관리자"
+      },
+      {
+        "depth": 3,
+        "text": "6. SLA (Service Level Agreement) 모니터링",
+        "id": "6-sla-service-level-agreement-모니터링"
+      },
+      {
+        "depth": 2,
+        "text": "내부 구조와 설계 철학",
+        "id": "내부-구조와-설계-철학"
+      },
+      {
+        "depth": 3,
+        "text": "1. 불변성 (Immutability)",
+        "id": "1-불변성-immutability"
+      },
+      {
+        "depth": 3,
+        "text": "2. 타입 안전성",
+        "id": "2-타입-안전성"
+      },
+      {
+        "depth": 3,
+        "text": "3. DSL (Domain Specific Language)",
+        "id": "3-dsl-domain-specific-language"
+      },
+      {
+        "depth": 3,
+        "text": "4. Extension Functions",
+        "id": "4-extension-functions"
+      },
+      {
+        "depth": 3,
+        "text": "5. Operator Overloading",
+        "id": "5-operator-overloading"
+      },
+      {
+        "depth": 2,
+        "text": "📊 다른 라이브러리와의 비교",
+        "id": "-다른-라이브러리와의-비교"
+      },
+      {
+        "depth": 3,
+        "text": "Chronos vs kotlinx-datetime",
+        "id": "chronos-vs-kotlinx-datetime"
+      },
+      {
+        "depth": 3,
+        "text": "Chronos vs Java Time API",
+        "id": "chronos-vs-java-time-api"
+      },
+      {
+        "depth": 3,
+        "text": "Chronos vs ThreeTen (Android)",
+        "id": "chronos-vs-threeten-android"
+      },
+      {
+        "depth": 2,
+        "text": "시작하기",
+        "id": "시작하기"
+      },
+      {
+        "depth": 3,
+        "text": "설치",
+        "id": "설치"
+      },
+      {
+        "depth": 4,
+        "text": "Gradle (Kotlin DSL)",
+        "id": "gradle-kotlin-dsl"
+      },
+      {
+        "depth": 4,
+        "text": "Gradle (Groovy)",
+        "id": "gradle-groovy"
+      },
+      {
+        "depth": 4,
+        "text": "Maven",
+        "id": "maven"
+      },
+      {
+        "depth": 4,
+        "text": "JitPack (최신 커밋)",
+        "id": "jitpack-최신-커밋"
+      },
+      {
+        "depth": 3,
+        "text": "첫 번째 코드",
+        "id": "첫-번째-코드"
+      },
+      {
+        "depth": 2,
+        "text": "테스트 커버리지",
+        "id": "테스트-커버리지"
+      },
+      {
+        "depth": 2,
+        "text": "링크",
+        "id": "링크"
+      },
+      {
+        "depth": 2,
+        "text": "감사의 말",
+        "id": "감사의-말"
+      },
+      {
+        "depth": 2,
+        "text": "문의",
+        "id": "문의"
+      },
+      {
+        "depth": 2,
+        "text": "마치며",
+        "id": "마치며"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:59.986Z",
+    "wordCount": 936,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Chronos - Kotlin의 날짜/시간을 우아하게 다루는 법",
+    "description": "이건 그냥 신기해서 들고옴Kotlin으로 개발하면서 날짜와 시간을 다루는 코드를 작성할 때 이런 생각을 해보신 적 있으신가요?\"그냥 5일을 더하고 싶을 뿐인데 왜 이렇게 복잡할까?\"저도 같은 고민을 했습니다. 그래서 Python의 Pendulum에서 영감을 받아 Kot",
+    "source": "https://velog.io/@pobi/Chronos-Kotlin%EC%9D%98-%EB%82%A0%EC%A7%9C%EC%8B%9C%EA%B0%84%EC%9D%84-%EC%9A%B0%EC%95%84%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A3%A8%EB%8A%94-%EB%B2%95",
+    "source_slug": "Chronos-Kotlin의-날짜시간을-우아하게-다루는-법",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-11-26T10:29:23.574Z",
+    "updated_at": "2026-03-20T06:19:04.994Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/6d8a5482-8785-4bb6-876a-a86d7ce7318d/image.webp",
+    "tags": []
+  },
+  "content": "# Chronos - Kotlin의 날짜/시간을 우아하게 다루는 법\n\n![](https://img.shields.io/badge/Kotlin-1.9+-7F52FF?style=flat&logo=kotlin&logoColor=white)\n![](https://img.shields.io/badge/License-Apache%202.0-blue.svg)\n![](https://img.shields.io/badge/Coverage-100%25-brightgreen)\n이건 그냥 신기해서 들고옴\n\n##  들어가며: Kotlin에서 날짜를 다루는 것이 왜 이렇게 어려울까?\n\nKotlin으로 개발하면서 날짜와 시간을 다루는 코드를 작성할 때 이런 생각을 해보신 적 있으신가요?\n\n```kotlin\n// 5일 후의 날짜를 구하고 싶을 뿐인데...\nval instant = Instant.fromEpochSeconds(System.currentTimeMillis() / 1000)\nval localDateTime = instant.toLocalDateTime(TimeZone.of(\"Asia/Seoul\"))\nval futureInstant = instant.plus(5, DateTimeUnit.DAY, TimeZone.UTC)\n```\n\n\"그냥 5일을 더하고 싶을 뿐인데 왜 이렇게 복잡할까?\"\n\n저도 같은 고민을 했습니다. 그래서 Python의 [Pendulum](https://pendulum.eustace.io/)에서 영감을 받아 Kotlin 개발자들이 날짜와 시간을 **직관적이고 우아하게** 다룰 수 있는 라이브러리를 만들게 되었습니다.\n\n바로 **Chronos**입니다.\n\n```kotlin\n// Chronos를 사용하면\nval now = DateTime.now(\"Asia/Seoul\")\nval future = now + 5.days\nprintln(now.diffForHumans(future)) // \"in 5 days\"\n```\n\n이 글에서는 Chronos 라이브러리가 어떻게 Kotlin의 날짜/시간 처리를 혁신적으로 개선했는지, 그리고 실제 프로젝트에서 어떻게 활용할 수 있는지 깊이 있게 다루겠습니다.\n\n---\n\n##  Chronos가 해결하는 문제들\n\n### 1. 장황한 코드 (Verbosity)\n\n기존 kotlinx-datetime를 사용하면 간단한 작업도 여러 줄의 코드가 필요했습니다.\n\n```kotlin\n// kotlinx-datetime\nval now = Clock.System.now()\nval seoulTz = TimeZone.of(\"Asia/Seoul\")\nval localDateTime = now.toLocalDateTime(seoulTz)\nval futureInstant = now.plus(5, DateTimeUnit.DAY, TimeZone.UTC)\nval futureLocal = futureInstant.toLocalDateTime(seoulTz)\n\n// Chronos\nval now = DateTime.now(\"Asia/Seoul\")\nval future = now + 5.days\n```\n\n### 2. 타임존 관리의 복잡성\n\n타임존 변환은 모든 글로벌 서비스에서 필수적이지만, 기존에는 매번 명시적으로 타임존을 지정해야 했습니다.\n\n```kotlin\n// Chronos의 타임존 처리\nval seoulTime = DateTime.now(\"Asia/Seoul\")\nval nyTime = seoulTime.inTz(\"America/New_York\")\nval londonTime = seoulTime.inTz(\"Europe/London\")\n\nprintln(\"서울: ${seoulTime.format(\"HH:mm\")}\")\nprintln(\"뉴욕: ${nyTime.format(\"HH:mm\")}\")\nprintln(\"런던: ${londonTime.format(\"HH:mm\")}\")\n```\n\n### 3. 사람이 읽을 수 있는 포맷의 부재\n\n\"3일 전\", \"2시간 후\"와 같은 상대적 시간 표현은 UX에서 매우 중요하지만, 직접 구현하기는 번거로웠습니다.\n\n```kotlin\nval posted = DateTime.now() - 3.days\nprintln(posted.diffForHumans()) // \"3 days ago\"\n\nval deadline = DateTime.now() + 2.hours\nprintln(deadline.diffForHumans()) // \"in 2 hours\"\n```\n\n### 4. DST(Daylight Saving Time) 처리\n\n서머타임 전환 시점의 시간 계산은 까다로운 엣지 케이스입니다. Chronos는 이를 자동으로 처리합니다.\n\n```kotlin\nval dt = DateTime.now(\"America/New_York\")\nprintln(\"DST 적용 중? ${dt.isDst()}\")\nprintln(\"UTC 오프셋: ${dt.offsetHours}시간\")\n```\n\n---\n\n## 핵심 기능 Deep Dive\n\n### 1. DateTime 생성: 모든 경우를 커버하는 유연한 API\n\nChronos는 다양한 방식으로 DateTime 객체를 생성할 수 있습니다.\n\n#### 현재 시간 기반\n\n```kotlin\n// UTC 기준 현재 시간\nval now = DateTime.now()\n\n// 특정 타임존 기준 현재 시간\nval seoulNow = DateTime.now(TimeZone.of(\"Asia/Seoul\"))\nval nyNow = DateTime.now(\"America/New_York\") // 문자열로도 가능\n\n// 오늘, 내일, 어제\nval today = DateTime.today()      // 오늘 00:00:00\nval tomorrow = DateTime.tomorrow() // 내일 00:00:00\nval yesterday = DateTime.yesterday() // 어제 00:00:00\n```\n\n#### 특정 날짜/시간 지정\n\n```kotlin\n// 날짜만 지정 (시간은 00:00:00)\nval date = DateTime.of(2024, 12, 25)\n\n// 날짜와 시간 지정\nval datetime = DateTime.of(2024, 12, 25, 14, 30)\n\n// 모든 필드 지정\nval precise = DateTime.of(\n    year = 2024,\n    month = 12,\n    day = 25,\n    hour = 14,\n    minute = 30,\n    second = 0,\n    nanosecond = 0,\n    timezone = TimeZone.of(\"Asia/Seoul\")\n)\n```\n\n#### DSL을 활용한 선언적 생성\n\n가독성이 뛰어난 DSL 방식도 지원합니다.\n\n```kotlin\nval meeting = dateTime {\n    year = 2024\n    month = 12\n    day = 25\n    hour = 14\n    minute = 30\n    timezone = TimeZone.of(\"Asia/Seoul\")\n}\n```\n\n#### Unix 타임스탬프에서 변환\n\n```kotlin\n// 타임스탬프에서 생성\nval fromTimestamp = DateTime.fromTimestamp(1710511800)\n\n// Extension 함수 사용\nval fromLong = 1710511800L.toDateTime()\nval withTz = 1710511800L.toDateTime(TimeZone.of(\"Asia/Seoul\"))\n```\n\n#### ISO 8601 문자열 파싱\n\n```kotlin\n// ISO 8601 형식 파싱\nval parsed = DateTime.parse(\"2024-12-25T14:30:00Z\")\n\n// Extension 함수로 더 간단히\nval fromString = \"2024-12-25T14:30:00Z\".toDateTime()\nval withTz = \"2024-12-25T14:30:00+09:00\".toDateTime(TimeZone.of(\"Asia/Seoul\"))\n```\n\n### 2. Duration: 시간 간격을 직관적으로\n\nDuration은 시간의 길이를 표현하는 핵심 타입입니다.\n\n#### Extension 프로퍼티로 자연스러운 표현\n\n```kotlin\nval d1 = 5.days\nval d2 = 3.hours\nval d3 = 30.minutes\nval d4 = 45.seconds\n\n// 조합도 가능\nval combined = 5.days + 3.hours + 30.minutes\nval complex = 2.weeks + 3.days + 4.hours\n```\n\n#### DSL로 복잡한 Duration 만들기\n\n```kotlin\nval duration = duration {\n    years = 1\n    months = 2\n    weeks = 1\n    days = 5\n    hours = 3\n    minutes = 30\n    seconds = 45\n}\n\n// DateTime에 적용\nval future = DateTime.now() + duration\n```\n\n#### Duration 연산\n\n```kotlin\nval d1 = 10.days\nval d2 = 3.days\n\nval sum = d1 + d2        // 13 days\nval diff = d1 - d2       // 7 days\nval multiplied = d2 * 3  // 9 days\nval negated = -d1        // -10 days\n```\n\n#### 단위 변환\n\n```kotlin\nval duration = 5.days + 3.hours + 30.minutes\n\n// Double로 변환 (소수점 포함)\nprintln(duration.totalDays)     // 5.145833...\nprintln(duration.totalHours)    // 123.5\nprintln(duration.totalMinutes)  // 7410.0\n\n// Long으로 변환 (정수만)\nprintln(duration.inDays)     // 5\nprintln(duration.inHours)    // 123\nprintln(duration.inMinutes)  // 7410\n\n// 사람이 읽기 쉬운 형태\nprintln(duration.inWords())  // \"5 days 3 hours 30 minutes\"\n```\n\n### 3. DateTime 조작: 불변성을 유지하면서 유연하게\n\nChronos의 모든 DateTime 객체는 **불변(Immutable)**입니다. 이는 스레드 안전성과 예측 가능한 동작을 보장합니다.\n\n#### 산술 연산\n\n```kotlin\nval now = DateTime.now()\n\n// Duration을 더하거나 빼기\nval future = now + 5.days + 3.hours + 30.minutes\nval past = now - 2.weeks - 1.day\n\n// 복잡한 Duration도 가능\nval complexFuture = now + duration {\n    months = 1\n    days = 15\n    hours = 3\n}\n```\n\n#### 특정 필드 설정\n\n```kotlin\nval dt = DateTime.of(2024, 6, 15, 14, 30, 45)\n\n// 원하는 필드만 변경 (나머지는 유지)\nval modified = dt.set(\n    year = 2025,\n    hour = 10\n)\n\n// 하나만 변경\nval newYear = dt.set(year = 2025)\nval newTime = dt.set(hour = 9, minute = 0, second = 0)\n```\n\n#### 기간의 시작/끝으로 이동\n\n```kotlin\nval dt = DateTime.of(2024, 6, 15, 14, 30)\n\n// 일(Day)의 시작/끝\nval startOfDay = dt.startOf(DateTimeUnit.DAY)\n// 2024-06-15 00:00:00\n\nval endOfDay = dt.endOf(DateTimeUnit.DAY)\n// 2024-06-15 23:59:59\n\n// 월(Month)의 시작/끝\nval startOfMonth = dt.startOf(DateTimeUnit.MONTH)\n// 2024-06-01 00:00:00\n\nval endOfMonth = dt.endOf(DateTimeUnit.MONTH)\n// 2024-06-30 23:59:59\n\n// 년(Year)의 시작/끝\nval startOfYear = dt.startOf(DateTimeUnit.YEAR)\n// 2024-01-01 00:00:00\n\nval endOfYear = dt.endOf(DateTimeUnit.YEAR)\n// 2024-12-31 23:59:59\n```\n\n#### 요일 기반 내비게이션\n\n```kotlin\nval dt = DateTime.of(2024, 6, 15) // 토요일\n\n// 다음 월요일\nval nextMonday = dt.next(1) // 1 = Monday (ISO 8601)\n\n// 이전 금요일\nval previousFriday = dt.previous(5) // 5 = Friday\n\n// 다음 주 같은 요일\nval nextWeek = dt + 1.weeks\n```\n\n### 4. 타임존: 글로벌 서비스를 위한 필수 기능\n\n#### 타임존 변환\n\n```kotlin\n// 서울 시간으로 생성\nval seoulTime = DateTime.now(\"Asia/Seoul\")\nprintln(\"서울: ${seoulTime.format(\"YYYY-MM-DD HH:mm:ss\")}\")\n\n// 다른 타임존으로 변환\nval nyTime = seoulTime.inTz(\"America/New_York\")\nprintln(\"뉴욕: ${nyTime.format(\"YYYY-MM-DD HH:mm:ss\")}\")\n\nval londonTime = seoulTime.inTz(TimeZone.of(\"Europe/London\"))\nprintln(\"런던: ${londonTime.format(\"YYYY-MM-DD HH:mm:ss\")}\")\n\n// 같은 순간이지만 표시가 다름\nprintln(\"서울과 뉴욕이 같은 시각? ${seoulTime == nyTime}\") // true\n```\n\n#### 타임존 정보 조회\n\n```kotlin\nval dt = DateTime.now(\"Asia/Seoul\")\n\n// 타임존 이름\nprintln(\"타임존: ${dt.timezoneName}\") // \"Asia/Seoul\"\n\n// UTC 오프셋 (초)\nprintln(\"오프셋(초): ${dt.offset}\") // 32400\n\n// UTC 오프셋 (시간)\nprintln(\"오프셋(시간): ${dt.offsetHours}\") // 9.0\n\n// DST 여부\nprintln(\"DST 적용 중? ${dt.isDst()}\") // false\n\n// UTC 여부\nprintln(\"UTC인가? ${dt.isUtc()}\") // false\n```\n\n#### 실전 예제: 글로벌 미팅 시간 계산기\n\n```kotlin\nfun convertMeetingTime(\n    utcTime: DateTime,\n    timezones: List<String> = listOf(\n        \"America/New_York\",\n        \"Europe/London\",\n        \"Asia/Tokyo\",\n        \"Asia/Seoul\",\n        \"Australia/Sydney\"\n    )\n): Map<String, String> {\n    return timezones.associateWith { tz ->\n        val localTime = utcTime.inTz(tz)\n        localTime.format(\"hh:mm A (Z)\")\n    }\n}\n\n// 사용 예\nval meetingUTC = DateTime.of(2024, 12, 25, 14, 0, 0, 0, TimeZone.UTC)\nprintln(\"Meeting at ${meetingUTC.format(\"HH:mm\")} UTC:\")\n\nconvertMeetingTime(meetingUTC).forEach { (city, time) ->\n    println(\"  $city: $time\")\n}\n\n// 출력:\n// Meeting at 14:00 UTC:\n//   America/New_York: 09:00 AM (-05:00)\n//   Europe/London: 02:00 PM (+00:00)\n//   Asia/Tokyo: 11:00 PM (+09:00)\n//   Asia/Seoul: 11:00 PM (+09:00)\n//   Australia/Sydney: 01:00 AM (+11:00)\n```\n\n### 5. Period: 두 시점 사이의 시간 간격\n\nPeriod는 두 DateTime 사이의 구체적인 기간을 나타냅니다.\n\n#### Period 생성\n\n```kotlin\nval start = DateTime.of(2024, 3, 15, 14, 30)\nval end = DateTime.of(2024, 3, 20, 18, 0)\n\n// 여러 가지 방법으로 생성\nval period1 = Period(start, end)\nval period2 = end.diff(start)\nval period3 = end - start\n```\n\n#### Period 구성 요소 접근\n\n```kotlin\nval period = end - start\n\n// 각 시간 단위별 값\nprintln(\"Years: ${period.years}\")     // 0\nprintln(\"Months: ${period.months}\")   // 0\nprintln(\"Days: ${period.days}\")       // 5\nprintln(\"Hours: ${period.hours}\")     // 3\nprintln(\"Minutes: ${period.minutes}\") // 30\nprintln(\"Seconds: ${period.seconds}\") // 0\n```\n\n#### 전체 시간으로 변환\n\n```kotlin\nval period = end - start\n\n// 전체를 각 단위로 변환\nprintln(\"총 일수: ${period.inDays()}\")       // 5.145833...\nprintln(\"총 시간: ${period.inHours()}\")      // 123.5\nprintln(\"총 분: ${period.inMinutes()}\")      // 7410.0\nprintln(\"총 초: ${period.inSeconds()}\")      // 444600\n\n// 사람이 읽기 쉬운 형태\nprintln(period.toHumanString()) // \"5 days 3 hours 30 minutes\"\n```\n\n#### Period로 범위 체크\n\n```kotlin\nval period = Period(start, end)\nval middle = DateTime.of(2024, 3, 17)\n\n// 포함 여부 체크\nif (middle in period) {\n    println(\"$middle is within the period\")\n}\n```\n\n#### Period를 반복 (Iteration)\n\n```kotlin\nval start = DateTime.of(2024, 1, 1)\nval end = DateTime.of(2024, 1, 10)\nval period = Period(start, end)\n\n// 하루씩 반복\nfor (date in period) {\n    println(date.format(\"YYYY-MM-DD\"))\n}\n\n// 커스텀 간격으로 반복\nval weeklyDates = period.range(DateTimeUnit.DAY, step = 7).toList()\nweeklyDates.forEach {\n    println(it.format(\"YYYY-MM-DD\"))\n}\n```\n\n### 6. 비교와 검사: 풍부한 헬퍼 메서드\n\n#### 비교 연산자\n\n```kotlin\nval dt1 = DateTime.of(2024, 3, 15)\nval dt2 = DateTime.of(2024, 3, 20)\n\n// 모든 비교 연산자 지원\nif (dt1 < dt2) {\n    println(\"dt1이 더 이릅니다\")\n}\n\nif (dt1 <= dt2) {\n    println(\"dt1이 같거나 이릅니다\")\n}\n\nif (dt1 == dt2) {\n    println(\"같은 시각입니다\")\n}\n```\n\n#### 편리한 체크 메서드\n\n```kotlin\nval now = DateTime.now()\nval past = now - 1.days\nval future = now + 1.days\n\n// 과거/미래 체크\nprintln(past.isPast())    // true\nprintln(future.isFuture()) // true\nprintln(now.isPast())     // false (현재는 과거가 아님)\n\n// 윤년 체크\nval dt2024 = DateTime.of(2024, 3, 15)\nval dt2023 = DateTime.of(2023, 3, 15)\nprintln(dt2024.isLeapYear()) // true (2024는 윤년)\nprintln(dt2023.isLeapYear()) // false\n\n// 같은 날 체크\nval morning = DateTime.of(2024, 3, 15, 9, 0)\nval evening = DateTime.of(2024, 3, 15, 18, 0)\nprintln(morning.isSameDay(evening)) // true\n\n// 생일 체크\nval today = DateTime.today()\nval birthday = DateTime.of(1990, 3, 15)\nprintln(today.isBirthday(birthday)) // 오늘이 3월 15일이면 true\n```\n\n### 7. 포맷팅: 다양한 출력 형식\n\n#### 기본 포맷 메서드\n\n```kotlin\nval dt = DateTime.of(2024, 3, 15, 14, 30, 45)\n\n// 날짜만\nprintln(dt.toDateString())     // \"2024-03-15\"\n\n// 시간만\nprintln(dt.toTimeString())     // \"14:30:45\"\n\n// 날짜 + 시간\nprintln(dt.toDateTimeString()) // \"2024-03-15 14:30:45\"\n\n// ISO 8601 형식\nprintln(dt.toIso8601String())  // \"2024-03-15T14:30:45Z\"\n```\n\n#### 커스텀 포맷\n\nChronos는 직관적인 포맷 토큰을 제공합니다.\n\n```kotlin\nval dt = DateTime.of(2024, 3, 15, 14, 30, 45)\n\n// 날짜 포맷\nprintln(dt.format(\"YYYY-MM-DD\"))           // \"2024-03-15\"\nprintln(dt.format(\"DD/MM/YYYY\"))           // \"15/03/2024\"\nprintln(dt.format(\"MMMM D, YYYY\"))         // \"March 15, 2024\"\nprintln(dt.format(\"dddd, MMMM D, YYYY\"))   // \"Friday, March 15, 2024\"\n\n// 시간 포맷\nprintln(dt.format(\"HH:mm:ss\"))             // \"14:30:45\"\nprintln(dt.format(\"hh:mm A\"))              // \"02:30 PM\"\nprintln(dt.format(\"hh:mm:ss a\"))           // \"02:30:45 pm\"\n\n// 조합\nprintln(dt.format(\"YYYY-MM-DD HH:mm:ss Z\"))\n// \"2024-03-15 14:30:45 +00:00\"\n\nprintln(dt.format(\"dddd, MMMM D, YYYY at hh:mm A\"))\n// \"Friday, March 15, 2024 at 02:30 PM\"\n```\n\n#### 포맷 토큰 전체 목록\n\n| 토큰 | 출력 | 설명 |\n|------|------|------|\n| `YYYY` | 2024 | 4자리 년도 |\n| `YY` | 24 | 2자리 년도 |\n| `MMMM` | March | 전체 월 이름 |\n| `MMM` | Mar | 축약 월 이름 |\n| `MM` | 03 | 2자리 월 (01-12) |\n| `M` | 3 | 월 숫자 (1-12) |\n| `DD` | 15 | 2자리 일 (01-31) |\n| `D` | 15 | 일 숫자 (1-31) |\n| `dddd` | Friday | 전체 요일 이름 |\n| `ddd` | Fri | 축약 요일 이름 |\n| `HH` | 14 | 24시간 형식 (00-23) |\n| `hh` | 02 | 12시간 형식 (01-12) |\n| `mm` | 30 | 분 (00-59) |\n| `ss` | 45 | 초 (00-59) |\n| `SSS` | 000 | 밀리초 |\n| `A` | PM | 오전/오후 대문자 |\n| `a` | pm | 오전/오후 소문자 |\n| `Z` | +00:00 | 타임존 오프셋 |\n\n#### 사람이 읽을 수 있는 상대 시간\n\n```kotlin\nval now = DateTime.now()\n\nval past = now - 3.days\nprintln(now.diffForHumans(past))    // \"3 days ago\"\n\nval future = now + 2.hours\nprintln(now.diffForHumans(future))  // \"in 2 hours\"\n\nval recent = now - 5.minutes\nprintln(now.diffForHumans(recent))  // \"5 minutes ago\"\n\nval soon = now + 30.seconds\nprintln(now.diffForHumans(soon))    // \"in 30 seconds\"\n```\n\n### 8. Serialization: kotlinx-serialization 완벽 지원\n\nChronos는 kotlinx-serialization과 완벽하게 통합됩니다.\n\n```kotlin\nimport kotlinx.serialization.*\nimport kotlinx.serialization.json.*\n\n@Serializable\ndata class Meeting(\n    val title: String,\n    val startTime: DateTime,\n    val endTime: DateTime,\n    val location: String,\n    val attendees: List<String>\n)\n\nval meeting = Meeting(\n    title = \"Team Standup\",\n    startTime = DateTime.of(2024, 12, 25, 10, 0),\n    endTime = DateTime.of(2024, 12, 25, 11, 0),\n    location = \"Conference Room A\",\n    attendees = listOf(\"Alice\", \"Bob\", \"Charlie\")\n)\n\n// JSON으로 직렬화\nval json = Json.encodeToString(meeting)\nprintln(json)\n// {\n//   \"title\": \"Team Standup\",\n//   \"startTime\": \"2024-12-25T10:00:00Z\",\n//   \"endTime\": \"2024-12-25T11:00:00Z\",\n//   \"location\": \"Conference Room A\",\n//   \"attendees\": [\"Alice\", \"Bob\", \"Charlie\"]\n// }\n\n// JSON에서 역직렬화\nval decoded = Json.decodeFromString<Meeting>(json)\nprintln(decoded.startTime.format(\"hh:mm A\"))\n// \"10:00 AM\"\n```\n\n---\n\n##  실전 활용 사례\n\n### 1. 스마트 리마인더 시스템\n\n사용자에게 상황에 맞는 리마인더 메시지를 보여주는 시스템입니다.\n\n```kotlin\nsealed class ReminderStatus {\n    data class Overdue(val duration: String) : ReminderStatus()\n    data class DueToday(val time: String) : ReminderStatus()\n    data class DueSoon(val humanTime: String) : ReminderStatus()\n    data class Upcoming(val humanTime: String) : ReminderStatus()\n}\n\nfun getReminderStatus(dueDate: DateTime): ReminderStatus {\n    val now = DateTime.now()\n    \n    return when {\n        dueDate.isPast() -> {\n            // 이미 지났음\n            ReminderStatus.Overdue(now.diffForHumans(dueDate))\n        }\n        dueDate.isSameDay(now) -> {\n            // 오늘 마감\n            ReminderStatus.DueToday(dueDate.format(\"hh:mm A\"))\n        }\n        dueDate - now < 24.hours -> {\n            // 24시간 이내\n            ReminderStatus.DueSoon(now.diffForHumans(dueDate))\n        }\n        else -> {\n            // 그 이후\n            ReminderStatus.Upcoming(now.diffForHumans(dueDate))\n        }\n    }\n}\n\n// 사용 예\nfun displayReminder(task: String, dueDate: DateTime) {\n    when (val status = getReminderStatus(dueDate)) {\n        is ReminderStatus.Overdue -> \n            println(\"⚠️ $task is overdue by ${status.duration}\")\n        \n        is ReminderStatus.DueToday -> \n            println(\"📅 $task is due today at ${status.time}\")\n        \n        is ReminderStatus.DueSoon -> \n            println(\"⏰ $task is due ${status.humanTime}\")\n        \n        is ReminderStatus.Upcoming -> \n            println(\"📆 $task is due ${status.humanTime}\")\n    }\n}\n\n// 실행\nval reminder1 = DateTime.now() + 2.hours\ndisplayReminder(\"Submit report\", reminder1)\n// \"⏰ Submit report is due in 2 hours\"\n\nval reminder2 = DateTime.now() - 1.days\ndisplayReminder(\"Review PR\", reminder2)\n// \"⚠️ Review PR is overdue by 1 day\"\n```\n\n### 2. 주간 반복 일정 생성기\n\n매주 반복되는 미팅을 자동으로 생성하는 시스템입니다.\n\n```kotlin\ndata class RecurringMeeting(\n    val title: String,\n    val dayOfWeek: Int, // 1=Monday, 7=Sunday\n    val hour: Int,\n    val minute: Int,\n    val durationMinutes: Int\n)\n\nfun generateWeeklySchedule(\n    meeting: RecurringMeeting,\n    startDate: DateTime,\n    endDate: DateTime\n): List<Pair<DateTime, DateTime>> {\n    val meetings = mutableListOf<Pair<DateTime, DateTime>>()\n    val period = Period(startDate, endDate)\n    \n    for (date in period) {\n        // 해당 요일인지 체크\n        if (date.dayOfWeek == meeting.dayOfWeek) {\n            val start = date.set(\n                hour = meeting.hour,\n                minute = meeting.minute,\n                second = 0\n            )\n            val end = start + meeting.durationMinutes.minutes\n            meetings.add(start to end)\n        }\n    }\n    \n    return meetings\n}\n\n// 사용 예\nval weeklyStandup = RecurringMeeting(\n    title = \"Weekly Standup\",\n    dayOfWeek = 1, // Monday\n    hour = 10,\n    minute = 0,\n    durationMinutes = 30\n)\n\nval startDate = DateTime.of(2024, 1, 1)\nval endDate = DateTime.of(2024, 3, 31)\n\nval meetings = generateWeeklySchedule(weeklyStandup, startDate, endDate)\n\nmeetings.forEach { (start, end) ->\n    println(\"${start.format(\"YYYY-MM-DD (ddd) HH:mm\")} - ${end.format(\"HH:mm\")}\")\n}\n\n// 출력:\n// 2024-01-01 (Mon) 10:00 - 10:30\n// 2024-01-08 (Mon) 10:00 - 10:30\n// 2024-01-15 (Mon) 10:00 - 10:30\n// ...\n```\n\n### 3. 나이 계산기 (정확한 버전)\n\n생일로부터 현재 나이와 다음 생일까지의 일수를 계산합니다.\n\n```kotlin\ndata class AgeInfo(\n    val years: Int,\n    val months: Int,\n    val days: Int,\n    val totalDays: Long,\n    val nextBirthdayIn: Int,\n    val nextBirthday: DateTime\n)\n\nfun calculateDetailedAge(birthday: DateTime): AgeInfo {\n    val now = DateTime.now()\n    val period = now - birthday\n    \n    // 올해 생일\n    val thisYearBirthday = birthday.set(year = now.year)\n    \n    // 다음 생일 계산\n    val nextBirthday = if (thisYearBirthday.isPast()) {\n        birthday.set(year = now.year + 1)\n    } else {\n        thisYearBirthday\n    }\n    \n    val daysUntilBirthday = (nextBirthday - now).inDays().toInt()\n    \n    return AgeInfo(\n        years = period.years,\n        months = period.months,\n        days = period.days,\n        totalDays = period.inDays().toLong(),\n        nextBirthdayIn = daysUntilBirthday,\n        nextBirthday = nextBirthday\n    )\n}\n\n// 사용 예\nval birthday = DateTime.of(1990, 6, 15)\nval age = calculateDetailedAge(birthday)\n\nprintln(\"\"\"\n    나이: ${age.years}세 ${age.months}개월 ${age.days}일\n    태어난 지: ${age.totalDays}일\n    다음 생일: ${age.nextBirthday.format(\"YYYY년 MM월 DD일 (dddd)\")}\n    다음 생일까지: ${age.nextBirthdayIn}일 남음\n\"\"\".trimIndent())\n\n// 출력:\n// 나이: 34세 5개월 11일\n// 태어난 지: 12634일\n// 다음 생일: 2025년 06월 15일 (Sunday)\n// 다음 생일까지: 201일 남음\n```\n\n### 4. 영업시간 체크 시스템\n\n특정 시간이 영업시간 내인지 확인하는 시스템입니다.\n\n```kotlin\ndata class BusinessHours(\n    val openHour: Int,\n    val openMinute: Int,\n    val closeHour: Int,\n    val closeMinute: Int,\n    val workingDays: Set<Int> = setOf(1, 2, 3, 4, 5), // Mon-Fri\n    val timezone: TimeZone = TimeZone.UTC\n)\n\nfun isBusinessHours(\n    dt: DateTime,\n    businessHours: BusinessHours\n): Boolean {\n    // 영업일인지 체크\n    if (dt.dayOfWeek !in businessHours.workingDays) {\n        return false\n    }\n    \n    // 해당 타임존으로 변환\n    val localTime = dt.inTz(businessHours.timezone)\n    \n    // 영업 시작/종료 시간\n    val openTime = localTime.set(\n        hour = businessHours.openHour,\n        minute = businessHours.openMinute,\n        second = 0\n    )\n    \n    val closeTime = localTime.set(\n        hour = businessHours.closeHour,\n        minute = businessHours.closeMinute,\n        second = 0\n    )\n    \n    // 영업시간 내인지 체크\n    return localTime >= openTime && localTime < closeTime\n}\n\n// 사용 예\nval seoulOffice = BusinessHours(\n    openHour = 9,\n    openMinute = 0,\n    closeHour = 18,\n    closeMinute = 0,\n    workingDays = setOf(1, 2, 3, 4, 5),\n    timezone = TimeZone.of(\"Asia/Seoul\")\n)\n\nval now = DateTime.now()\nval isOpen = isBusinessHours(now, seoulOffice)\n\nif (isOpen) {\n    println(\"✅ 서울 오피스가 영업 중입니다\")\n} else {\n    val seoulNow = now.inTz(\"Asia/Seoul\")\n    \n    when {\n        seoulNow.dayOfWeek in 6..7 -> {\n            val nextMonday = seoulNow.next(1).set(hour = 9, minute = 0)\n            println(\"❌ 주말입니다. ${nextMonday.diffForHumans()}에 영업 시작\")\n        }\n        seoulNow.hour < 9 -> {\n            val opening = seoulNow.set(hour = 9, minute = 0)\n            println(\"❌ 영업 전입니다. ${opening.diffForHumans()}에 오픈\")\n        }\n        else -> {\n            val opening = seoulNow.next(1).set(hour = 9, minute = 0)\n            println(\"❌ 영업 종료. ${opening.diffForHumans()}에 오픈\")\n        }\n    }\n}\n```\n\n### 5. 프로젝트 일정 관리자\n\n프로젝트의 근무일을 계산하고 진행률을 추적합니다.\n\n```kotlin\ndata class ProjectSchedule(\n    val name: String,\n    val startDate: DateTime,\n    val endDate: DateTime,\n    val holidays: Set<DateTime> = emptySet()\n)\n\nfun calculateWorkingDays(\n    start: DateTime,\n    end: DateTime,\n    excludeWeekends: Boolean = true,\n    holidays: Set<DateTime> = emptySet()\n): Int {\n    val period = Period(start, end)\n    var workingDays = 0\n    \n    for (date in period) {\n        // 주말 제외\n        if (excludeWeekends && date.dayOfWeek in 6..7) {\n            continue\n        }\n        \n        // 공휴일 제외\n        if (holidays.any { it.isSameDay(date) }) {\n            continue\n        }\n        \n        workingDays++\n    }\n    \n    return workingDays\n}\n\nfun getProjectProgress(schedule: ProjectSchedule): Map<String, Any> {\n    val now = DateTime.now()\n    val totalDays = calculateWorkingDays(\n        schedule.startDate,\n        schedule.endDate,\n        holidays = schedule.holidays\n    )\n    \n    val elapsedDays = if (now < schedule.startDate) {\n        0\n    } else if (now > schedule.endDate) {\n        totalDays\n    } else {\n        calculateWorkingDays(\n            schedule.startDate,\n            now,\n            holidays = schedule.holidays\n        )\n    }\n    \n    val remainingDays = totalDays - elapsedDays\n    val progressPercentage = (elapsedDays.toDouble() / totalDays * 100).toInt()\n    \n    return mapOf(\n        \"name\" to schedule.name,\n        \"totalWorkingDays\" to totalDays,\n        \"elapsedDays\" to elapsedDays,\n        \"remainingDays\" to remainingDays,\n        \"progress\" to \"$progressPercentage%\",\n        \"status\" to when {\n            now < schedule.startDate -> \"Not Started\"\n            now > schedule.endDate -> \"Completed\"\n            else -> \"In Progress\"\n        }\n    )\n}\n\n// 사용 예\nval holidays = setOf(\n    DateTime.of(2024, 1, 1),  // 신정\n    DateTime.of(2024, 3, 1),  // 삼일절\n    DateTime.of(2024, 5, 5),  // 어린이날\n)\n\nval project = ProjectSchedule(\n    name = \"Chronos Library v2.0\",\n    startDate = DateTime.of(2024, 1, 1),\n    endDate = DateTime.of(2024, 3, 31),\n    holidays = holidays\n)\n\nval progress = getProjectProgress(project)\n\nprintln(\"\"\"\n    프로젝트: ${progress[\"name\"]}\n    전체 근무일: ${progress[\"totalWorkingDays\"]}일\n    경과 일수: ${progress[\"elapsedDays\"]}일\n    남은 일수: ${progress[\"remainingDays\"]}일\n    진행률: ${progress[\"progress\"]}\n    상태: ${progress[\"status\"]}\n\"\"\".trimIndent())\n```\n\n### 6. SLA (Service Level Agreement) 모니터링\n\n서비스 수준 협약을 모니터링하는 시스템입니다.\n\n```kotlin\ndata class SLAConfig(\n    val responseTimeHours: Int,\n    val businessHoursOnly: Boolean = true\n)\n\ndata class Ticket(\n    val id: String,\n    val createdAt: DateTime,\n    val priority: String\n)\n\nfun calculateSLADeadline(\n    ticket: Ticket,\n    slaConfig: SLAConfig,\n    businessHours: BusinessHours\n): DateTime {\n    var deadline = ticket.createdAt\n    var hoursAdded = 0\n    \n    while (hoursAdded < slaConfig.responseTimeHours) {\n        deadline += 1.hours\n        \n        if (slaConfig.businessHoursOnly) {\n            // 영업시간에만 카운트\n            if (isBusinessHours(deadline, businessHours)) {\n                hoursAdded++\n            }\n        } else {\n            hoursAdded++\n        }\n    }\n    \n    return deadline\n}\n\nfun checkSLAStatus(\n    ticket: Ticket,\n    deadline: DateTime\n): String {\n    val now = DateTime.now()\n    val remaining = deadline - now\n    \n    return when {\n        now > deadline -> {\n            val overdue = now - deadline\n            \"⚠️ SLA 위반! ${overdue.inHours()}시간 초과\"\n        }\n        remaining.totalHours < 1 -> {\n            \"🔴 긴급! ${remaining.inMinutes()}분 남음\"\n        }\n        remaining.totalHours < 4 -> {\n            \"🟡 주의! ${remaining.inHours()}시간 남음\"\n        }\n        else -> {\n            \"🟢 여유있음 (${now.diffForHumans(deadline)})\"\n        }\n    }\n}\n\n// 사용 예\nval slaConfig = SLAConfig(\n    responseTimeHours = 4,\n    businessHoursOnly = true\n)\n\nval ticket = Ticket(\n    id = \"TICKET-001\",\n    createdAt = DateTime.now() - 2.hours,\n    priority = \"HIGH\"\n)\n\nval deadline = calculateSLADeadline(ticket, slaConfig, seoulOffice)\nval status = checkSLAStatus(ticket, deadline)\n\nprintln(\"\"\"\n    티켓 ID: ${ticket.id}\n    생성 시간: ${ticket.createdAt.format(\"YYYY-MM-DD HH:mm\")}\n    마감 시간: ${deadline.format(\"YYYY-MM-DD HH:mm\")}\n    상태: $status\n\"\"\".trimIndent())\n```\n\n---\n\n##  내부 구조와 설계 철학\n\n### 1. 불변성 (Immutability)\n\nChronos의 모든 객체는 **불변**입니다. 이는 다음과 같은 이점을 제공합니다:\n\n```kotlin\nval original = DateTime.now()\nval modified = original + 5.days\n\n// original은 변경되지 않음\nprintln(original == modified) // false\n\n// 스레드 안전\nval sharedDateTime = DateTime.now()\nthread1 { val t1 = sharedDateTime + 1.days }\nthread2 { val t2 = sharedDateTime + 2.days }\n// sharedDateTime은 절대 변경되지 않음\n```\n\n### 2. 타입 안전성\n\nKotlin의 타입 시스템을 최대한 활용합니다:\n\n```kotlin\n// 컴파일 타임에 오류 검출\nval duration: Duration = 5.days\nval datetime: DateTime = DateTime.now()\n\n// 타입이 맞지 않으면 컴파일 오류\n// val wrong: DateTime = 5.days // ❌ 컴파일 오류\n```\n\n### 3. DSL (Domain Specific Language)\n\nKotlin의 DSL 기능을 활용한 선언적 API:\n\n```kotlin\nval meeting = dateTime {\n    year = 2024\n    month = 12\n    day = 25\n    hour = 14\n    minute = 30\n    timezone = TimeZone.of(\"Asia/Seoul\")\n}\n\nval duration = duration {\n    weeks = 2\n    days = 3\n    hours = 4\n}\n```\n\n### 4. Extension Functions\n\nKotlin의 확장 함수를 활용한 자연스러운 API:\n\n```kotlin\n// Int에 대한 확장 프로퍼티\nval 5.days: Duration\nval 3.hours: Duration\n\n// String에 대한 확장 함수\n\"2024-12-25T14:30:00Z\".toDateTime()\n\n// Long에 대한 확장 함수\n1710511800L.toDateTime()\n```\n\n### 5. Operator Overloading\n\n연산자 오버로딩으로 직관적인 연산:\n\n```kotlin\n// DateTime 산술 연산\nval future = now + 5.days\nval past = now - 2.weeks\n\n// Duration 산술 연산\nval total = 5.days + 3.hours\nval diff = 10.days - 2.days\n\n// Period 생성\nval period = endDate - startDate\n\n// 비교 연산\nif (dt1 < dt2) { /* ... */ }\n```\n\n---\n\n## 📊 다른 라이브러리와의 비교\n\n### Chronos vs kotlinx-datetime\n\n| 기능 | kotlinx-datetime | Chronos |\n|------|------------------|---------|\n| 기본 날짜/시간 | ✅ | ✅ |\n| 타임존 지원 | ✅ | ✅ (더 간편) |\n| DSL | ❌ | ✅ |\n| Extension 프로퍼티 | ❌ | ✅ |\n| Human-readable 포맷 | ❌ | ✅ |\n| Period/Duration | 제한적 | ✅ (풍부) |\n| Serialization | ✅ | ✅ |\n| 코드 간결성 | 보통 | 우수 |\n\n### Chronos vs Java Time API\n\n| 기능 | Java Time | Chronos |\n|------|-----------|---------|\n| 멀티플랫폼 | ❌ (JVM만) | ✅ |\n| Kotlin 친화적 | ❌ | ✅ |\n| DSL | ❌ | ✅ |\n| Extension 프로퍼티 | ❌ | ✅ |\n| 학습 곡선 | 높음 | 낮음 |\n\n### Chronos vs ThreeTen (Android)\n\n| 기능 | ThreeTen | Chronos |\n|------|----------|---------|\n| Android 지원 | ✅ | ✅ |\n| KMP 지원 | ❌ | ✅ (예정) |\n| 최신 Kotlin 기능 | ❌ | ✅ |\n| 번들 크기 | 큼 | 작음 |\n\n---\n\n##  시작하기\n\n### 설치\n\n#### Gradle (Kotlin DSL)\n\n```kotlin\ndependencies {\n    implementation(\"io.github.heodongun:chronos:1.0.0\")\n}\n```\n\n#### Gradle (Groovy)\n\n```groovy\ndependencies {\n    implementation 'io.github.heodongun:chronos:1.0.0'\n}\n```\n\n#### Maven\n\n```xml\n<dependency>\n    <groupId>io.github.heodongun</groupId>\n    <artifactId>chronos</artifactId>\n    <version>1.0.0</version>\n</dependency>\n```\n\n#### JitPack (최신 커밋)\n\n```kotlin\nrepositories {\n    maven { url = uri(\"https://jitpack.io\") }\n}\n\ndependencies {\n    implementation(\"com.github.heodongun:Chronos:v1.0.0\")\n}\n```\n\n### 첫 번째 코드\n\n```kotlin\nimport io.github.heodongun.chronos.*\n\nfun main() {\n    // 현재 시간\n    val now = DateTime.now()\n    \n    // 5일 후\n    val future = now + 5.days\n    \n    // 사람이 읽을 수 있는 형식으로\n    println(now.diffForHumans(future))\n    // \"in 5 days\"\n    \n    // 포맷팅\n    println(now.format(\"YYYY년 MM월 DD일 HH시 mm분\"))\n    // \"2024년 11월 26일 14시 30분\"\n}\n```\n\n---\n\n##  테스트 커버리지\n\nChronos는 **100% 테스트 커버리지**를 자랑합니다:\n\n- **33개의 테스트** 케이스\n- DateTime 생성 및 조작 테스트\n- Duration 연산 테스트\n- Period 계산 테스트\n- 타임존 변환 테스트\n- 포맷팅 테스트\n- Edge case 테스트\n\n```bash\n./gradlew :chronos:test\n```\n\n---\n\n\n\n##  링크\n\n- **GitHub**: [https://github.com/heodongun/Chronos](https://github.com/heodongun/Chronos)\n- **Maven Central**: [io.github.heodongun:chronos](https://central.sonatype.com/artifact/io.github.heodongun/chronos)\n- **Issues**: [GitHub Issues](https://github.com/heodongun/Chronos/issues)\n- **Discussions**: [GitHub Discussions](https://github.com/heodongun/Chronos/discussions)\n\n---\n\n##  감사의 말\n\nChronos는 다음 프로젝트들로부터 영감을 받았습니다:\n\n- [Pendulum](https://pendulum.eustace.io/) - Python의 우아한 datetime 라이브러리\n- [kotlinx-datetime](https://github.com/Kotlin/kotlinx-datetime) - Kotlin 공식 멀티플랫폼 datetime 라이브러리\n- [date-fns](https://date-fns.org/) - 훌륭한 API 디자인 패턴\n- [Joda-Time](https://www.joda.org/joda-time/) - 현대 datetime API에 영향을 준 선구자\n\n---\n\n##  문의\n\n질문이나 제안이 있으시면:\n\n- 📖 [문서](https://github.com/heodongun/Chronos) 확인\n- 🐛 [GitHub Issues](https://github.com/heodongun/Chronos/issues)에서 버그 리포트\n- 💡 [GitHub Issues](https://github.com/heodongun/Chronos/issues)에서 기능 요청\n- 💬 [GitHub Discussions](https://github.com/heodongun/Chronos/discussions)에서 질문\n\n---\n\n##  마치며\n\nChronos는 Kotlin 개발자들이 날짜와 시간을 다룰 때 겪는 불편함을 해소하기 위해 탄생했습니다. \n\nPython의 Pendulum에서 영감을 받아, Kotlin의 강력한 기능들(Extension Functions, DSL, Operator Overloading 등)을 최대한 활용하여 **직관적이고 우아한 API**를 제공합니다.\n\n특히 다음과 같은 경우에 Chronos가 큰 도움이 될 것입니다:\n\n- **글로벌 서비스**를 개발하는 팀\n- **복잡한 일정 관리** 시스템을 구축하는 경우\n- **SLA 모니터링**이나 **리마인더** 기능이 필요한 경우\n- **반복 이벤트** 처리가 필요한 경우\n- **프로젝트 관리** 도구를 만드는 경우\n\n이 글에서 다룬 내용이 여러분의 프로젝트에 도움이 되길 바랍니다. \n\nChronos를 사용해보시고, 피드백이나 제안이 있다면 언제든 GitHub를 통해 알려주세요!"
+}

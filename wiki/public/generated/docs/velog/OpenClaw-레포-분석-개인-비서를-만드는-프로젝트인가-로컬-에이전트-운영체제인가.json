@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "id": "velog/OpenClaw-레포-분석-개인-비서를-만드는-프로젝트인가-로컬-에이전트-운영체제인가",
+    "relativePath": "velog/OpenClaw-레포-분석-개인-비서를-만드는-프로젝트인가-로컬-에이전트-운영체제인가.md",
+    "routePath": "velog/OpenClaw-레포-분석-개인-비서를-만드는-프로젝트인가-로컬-에이전트-운영체제인가",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "OpenClaw 레포 분석: 개인 비서를 만드는 프로젝트인가, 로컬 에이전트 운영체제인가",
+    "description": "업로드중..처음 openclaw/openclaw를 보면 “메신저에서 쓰는 개인 AI 비서”처럼 보인다. README도 그렇게 말한다. OpenClaw는 내 기기에서 직접 돌리는 personal AI assistant이고, 사용자가 이미 쓰고 있는 채널들—WhatsApp",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "OpenClaw 레포 분석: 개인 비서를 만드는 프로젝트인가, 로컬 에이전트 운영체제인가",
+        "id": "openclaw-레포-분석-개인-비서를-만드는-프로젝트인가-로컬-에이전트-운영체제인가"
+      },
+      {
+        "depth": 1,
+        "text": "OpenClaw의 핵심 구조",
+        "id": "openclaw의-핵심-구조"
+      },
+      {
+        "depth": 1,
+        "text": "왜 이렇게 인기가 폭발했을까",
+        "id": "왜-이렇게-인기가-폭발했을까"
+      },
+      {
+        "depth": 1,
+        "text": "모델 구조",
+        "id": "모델-구조"
+      },
+      {
+        "depth": 1,
+        "text": "Workspace 구조",
+        "id": "workspace-구조"
+      },
+      {
+        "depth": 1,
+        "text": "Node 시스템",
+        "id": "node-시스템"
+      },
+      {
+        "depth": 1,
+        "text": "보안 모델",
+        "id": "보안-모델"
+      },
+      {
+        "depth": 1,
+        "text": "Sandbox 시스템",
+        "id": "sandbox-시스템"
+      },
+      {
+        "depth": 1,
+        "text": "보안 이슈와 현실",
+        "id": "보안-이슈와-현실"
+      },
+      {
+        "depth": 1,
+        "text": "ACP 브리지",
+        "id": "acp-브리지"
+      },
+      {
+        "depth": 1,
+        "text": "OpenClaw가 잘 맞는 사용자",
+        "id": "openclaw가-잘-맞는-사용자"
+      },
+      {
+        "depth": 1,
+        "text": "OpenClaw가 과할 수 있는 경우",
+        "id": "openclaw가-과할-수-있는-경우"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 해석",
+        "id": "핵심-해석"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:58.285Z",
+    "wordCount": 508,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "OpenClaw 레포 분석: 개인 비서를 만드는 프로젝트인가, 로컬 에이전트 운영체제인가",
+    "description": "업로드중..처음 openclaw/openclaw를 보면 “메신저에서 쓰는 개인 AI 비서”처럼 보인다. README도 그렇게 말한다. OpenClaw는 내 기기에서 직접 돌리는 personal AI assistant이고, 사용자가 이미 쓰고 있는 채널들—WhatsApp",
+    "source": "https://velog.io/@pobi/OpenClaw-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D-%EA%B0%9C%EC%9D%B8-%EB%B9%84%EC%84%9C%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%B8%EA%B0%80-%EB%A1%9C%EC%BB%AC-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%9D%B8%EA%B0%80",
+    "source_slug": "OpenClaw-레포-분석-개인-비서를-만드는-프로젝트인가-로컬-에이전트-운영체제인가",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-09T10:21:13.770Z",
+    "updated_at": "2026-03-20T20:46:14.660Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/6fa166cd-2e67-4e96-bde9-5d81e911a912/image.png",
+    "tags": []
+  },
+  "content": "# OpenClaw 레포 분석: 개인 비서를 만드는 프로젝트인가, 로컬 에이전트 운영체제인가\n\n![](https://velog.velcdn.com/images/pobi/post/6fa166cd-2e67-4e96-bde9-5d81e911a912/image.png)\n![](https://velog.velcdn.com/images/pobi/post/6c004f79-cec1-4e69-9a90-884a0c17a7a8/image.png)\n\n\n처음 `openclaw/openclaw`를 보면 “메신저에서 쓰는 개인 AI 비서”처럼 보인다. README도 그렇게 말한다. OpenClaw는 **내 기기에서 직접 돌리는 personal AI assistant**이고, 사용자가 이미 쓰고 있는 채널들—WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage 계열, Teams, Matrix, WebChat 등—에서 답하며, macOS·iOS·Android 음성 기능과 라이브 Canvas도 지원한다고 소개한다.\n\n2026년 기준 저장소는 대략 다음 규모다.\n\n- ⭐ 약 28만 스타\n- 🍴 약 5만 포크\n- 📦 60개 이상 릴리스\n- 👨‍💻 1000명 이상 기여자\n\n즉 단순한 개인 프로젝트라기보다 **대규모 오픈소스 생태계**에 가까운 프로젝트다.\n\n하지만 README를 조금만 더 읽어보면 포지션이 달라진다.\n\nOpenClaw의 핵심은 **Assistant가 아니라 Gateway**다.\n\n---\n\n# OpenClaw의 핵심 구조\n\nOpenClaw의 중심은 다음 구조다.\n\n```\nChannels\n  ↓\nGateway\n  ↓\nAgents\n  ↓\nTools / Skills / Devices\n```\n\n여기서 Gateway는 다음 역할을 한다.\n\n- 메시징 채널 연결\n- 세션 관리\n- 도구 실행\n- 모델 호출\n- 장치 연결\n- 스킬 관리\n\n문서에서도 Gateway를 이렇게 설명한다.\n\n> **Single control plane for all channels and agents**\n\n즉 OpenClaw는 **채팅 앱이 아니라 로컬 control plane**이다.\n\n---\n\n# 왜 이렇게 인기가 폭발했을까\n\nOpenClaw가 크게 성장한 이유는 기술적 새로움보다  \n**사용자 경험이 매우 직관적이기 때문**이다.\n\n설치 흐름도 간단하다.\n\n```bash\nnpm install -g openclaw\nopenclaw onboard\n```\n\n설치 후 Gateway가 daemon으로 실행되고  \n모든 채널이 여기에 연결된다.\n\n즉 사용자는\n\n```\nSlack\nTelegram\nWhatsApp\n```\n\n어디서든 동일한 assistant와 대화할 수 있다.\n\n---\n\n# 모델 구조\n\nOpenClaw는 특정 LLM에 묶이지 않는다.\n\n모델 형식\n\n```\nprovider/model\n```\n\n지원 provider\n\n- OpenAI\n- Anthropic\n- Gemini\n- Ollama\n- OpenRouter\n- LiteLLM\n- vLLM\n\n또한 다음 기능도 지원한다.\n\n- 모델 failover\n- provider rotation\n- fallback 모델\n\n즉 하나의 모델에 의존하지 않는다.\n\n---\n\n# Workspace 구조\n\nOpenClaw의 또 다른 핵심은 **agent workspace**다.\n\n기본 경로\n\n```\n~/.openclaw/workspace\n```\n\n여기에는 다음 문서가 포함된다.\n\n```\nAGENTS.md\nSOUL.md\nTOOLS.md\n```\n\n그리고 스킬 구조는 이렇게 된다.\n\n```\nskills/\n  skill-name/\n    SKILL.md\n```\n\n또한 **ClawHub**라는 스킬 레지스트리도 존재한다.\n\n즉 OpenClaw는 단순 채팅 기록이 아니라  \n**에이전트 작업 공간**을 중심으로 동작한다.\n\n---\n\n# Node 시스템\n\nOpenClaw는 장치 기능을 **Node**라는 방식으로 확장한다.\n\nNode는 Gateway에 WebSocket으로 연결된다.\n\n예시 capability\n\n```\ncamera.capture\nscreen.record\nlocation.get\ncanvas.draw\n```\n\n즉 스마트폰이나 다른 장치가  \nOpenClaw의 **도구 제공 노드**가 될 수 있다.\n\n---\n\n# 보안 모델\n\nOpenClaw의 보안 철학은 명확하다.\n\n```\n1 user = 1 gateway\n```\n\n즉 multi-tenant SaaS 모델이 아니다.\n\n문서의 핵심 원칙\n\n- Gateway 호출자는 trusted operator\n- 세션 ID는 권한 경계가 아님\n- 권장 운영은 사용자별 gateway\n\n또한 기본 설정은 다음과 같다.\n\n```\ngateway.bind = loopback\n```\n\n즉 기본적으로 **로컬 전용 서비스**다.\n\n---\n\n# Sandbox 시스템\n\n기본 실행 모델\n\n```\nsandbox.mode = off\n```\n\n즉 기본적으로 agent 도구가  \n호스트 환경에서 실행된다.\n\n격리가 필요한 경우\n\n```\nsandbox.mode = non-main\n```\n\n설정으로 Docker sandbox를 사용할 수 있다.\n\n---\n\n# 보안 이슈와 현실\n\nOpenClaw는 공격면이 넓은 프로젝트다.\n\n왜냐하면\n\n- 메시징 채널\n- 브라우저\n- 파일 시스템\n- 디바이스\n- 네트워크\n\n모두 접근하기 때문이다.\n\n실제로 다음 취약점들이 보고된 적 있다.\n\n예시\n\n- gatewayUrl override 취약점\n- sandbox browser bridge 인증 문제\n\n하지만 동시에 프로젝트는  \n보안 패치를 매우 빠르게 적용하고 있다.\n\n---\n\n# ACP 브리지\n\nOpenClaw는 IDE와도 연결할 수 있다.\n\n```\nopenclaw acp\n```\n\nACP(Agent Client Protocol)을 통해\n\n- IDE\n- 에디터\n- 외부 도구\n\n가 Gateway 세션에 연결된다.\n\n즉 OpenClaw는\n\n```\nMessenger assistant\n+\nAgent runtime gateway\n```\n\n두 역할을 동시에 수행한다.\n\n---\n\n# OpenClaw가 잘 맞는 사용자\n\n다음 사용자에게 특히 적합하다.\n\n- 개인 AI assistant 필요\n- 여러 메시징 채널 사용\n- 로컬 실행 선호\n- 디바이스 자동화 필요\n- 개인 automation 시스템 구축\n\n---\n\n# OpenClaw가 과할 수 있는 경우\n\n다음 상황에서는 맞지 않을 수 있다.\n\n- 엔터프라이즈 멀티테넌트 시스템 필요\n- SaaS 콘솔 기반 관리 필요\n- 강한 권한 분리 필요\n- 복잡한 에이전트 조직 운영\n\n즉 **기업용 orchestration 시스템**은 아니다.\n\n---\n\n# 핵심 해석\n\nOpenClaw는 단순한 챗봇 프로젝트가 아니다.\n\n정확히 말하면 다음에 가깝다.\n\n> **Local AI Gateway for personal agents**\n\n즉\n\n```\n채널\n+\n에이전트\n+\n도구\n+\n디바이스\n```\n\n를 하나의 로컬 시스템으로 묶는다.\n\n---\n\n# 결론\n\nOpenClaw를 한 문장으로 정리하면 다음과 같다.\n\n> **OpenClaw는 챗봇이 아니라  \n> 개인용 로컬 에이전트 운영체제에 가깝다.**\n\n그래서 이 프로젝트의 진짜 가치는  \n모델 성능이 아니라\n\n- gateway 구조\n- channel 통합\n- workspace 시스템\n- skill ecosystem\n\n같은 **운영 구조**에 있다.\n\n그리고 바로 그 이유 때문에  \n이 프로젝트는 폭발적인 관심을 받고 있다.\n\n사람들이 원했던 것은  \n거대한 AGI보다 먼저\n\n> **내 채널에서 실제로 움직이는 내 개인 AI 비서**\n\n였기 때문이다."
+}

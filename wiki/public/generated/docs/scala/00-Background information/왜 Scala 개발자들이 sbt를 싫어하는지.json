@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "id": "scala/00-Background information/왜 Scala 개발자들이 sbt를 싫어하는지",
+    "relativePath": "scala/00-Background information/왜 Scala 개발자들이 sbt를 싫어하는지.md",
+    "routePath": "scala/00-Background information/왜 Scala 개발자들이 sbt를 싫어하는지",
+    "folderSegments": [
+      "scala",
+      "00-Background information"
+    ],
+    "title": "1️⃣ sbt는 사실 “빌드 도구 + 프로그래밍 언어”",
+    "description": "대부분 빌드 시스템은 설정 파일(config) 이다. 예를 들면 org.typelevel",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "1️⃣ sbt는 사실 “빌드 도구 + 프로그래밍 언어”",
+        "id": "1️⃣-sbt는-사실-빌드-도구--프로그래밍-언어"
+      },
+      {
+        "depth": 3,
+        "text": "Maven",
+        "id": "maven"
+      },
+      {
+        "depth": 3,
+        "text": "Gradle",
+        "id": "gradle"
+      },
+      {
+        "depth": 1,
+        "text": "2️⃣ DSL이 이상하다",
+        "id": "2️⃣-dsl이-이상하다"
+      },
+      {
+        "depth": 1,
+        "text": "3️⃣ 내부 구조가 매우 복잡하다",
+        "id": "3️⃣-내부-구조가-매우-복잡하다"
+      },
+      {
+        "depth": 3,
+        "text": "Task system",
+        "id": "task-system"
+      },
+      {
+        "depth": 3,
+        "text": "설정 값 vs task",
+        "id": "설정-값-vs-task"
+      },
+      {
+        "depth": 1,
+        "text": "4️⃣ `.value` 지옥",
+        "id": "4️⃣-value-지옥"
+      },
+      {
+        "depth": 1,
+        "text": "5️⃣ startup이 느리다",
+        "id": "5️⃣-startup이-느리다"
+      },
+      {
+        "depth": 1,
+        "text": "6️⃣ 그래서 등장한 대안들",
+        "id": "6️⃣-그래서-등장한-대안들"
+      },
+      {
+        "depth": 2,
+        "text": "Mill",
+        "id": "mill"
+      },
+      {
+        "depth": 2,
+        "text": "Scala CLI",
+        "id": "scala-cli"
+      },
+      {
+        "depth": 1,
+        "text": "7️⃣ sbt가 여전히 쓰이는 이유",
+        "id": "7️⃣-sbt가-여전히-쓰이는-이유"
+      },
+      {
+        "depth": 3,
+        "text": "1️⃣ ecosystem",
+        "id": "1️⃣-ecosystem"
+      },
+      {
+        "depth": 3,
+        "text": "2️⃣ plugin ecosystem",
+        "id": "2️⃣-plugin-ecosystem"
+      },
+      {
+        "depth": 3,
+        "text": "3️⃣ incremental compile",
+        "id": "3️⃣-incremental-compile"
+      },
+      {
+        "depth": 1,
+        "text": "Scala 개발 흐름 (현실)",
+        "id": "scala-개발-흐름-현실"
+      },
+      {
+        "depth": 1,
+        "text": "Scala 생태계의 큰 특징",
+        "id": "scala-생태계의-큰-특징"
+      },
+      {
+        "depth": 1,
+        "text": "한줄 정리",
+        "id": "한줄-정리"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "scala",
+    "mtime": "2026-03-16T08:16:56.856Z",
+    "wordCount": 379,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {},
+  "content": "# 1️⃣ sbt는 사실 “빌드 도구 + 프로그래밍 언어”\n\n대부분 빌드 시스템은 **설정 파일(config)**이다.\n\n예를 들면\n\n### Maven\n\n<dependency>  \n  <groupId>org.typelevel</groupId>  \n  <artifactId>cats-core</artifactId>  \n</dependency>\n\n### Gradle\n\nimplementation 'org.typelevel:cats-core:2.10.0'\n\n하지만 sbt는 **설정이 아니라 코드다.**\n\nlibraryDependencies += \"org.typelevel\" %% \"cats-core\" % \"2.10.0\"\n\n이게 의미하는 것\n\n빌드 설정 = Scala 프로그램\n\n그래서 설정이 단순한 JSON/YAML이 아니라  \n**실제 코드 실행**이 된다.\n\n---\n\n# 2️⃣ DSL이 이상하다\n\nsbt는 **DSL (Domain Specific Language)를 사용한다.\n\n문제는 문법이 꽤 이상하다.\n\n예\n\nCompile / scalaSource := baseDirectory.value / \"src\"\n\n여기서\n\nCompile / scalaSource := ...\n\n이게 사실은\n\nkey in configuration\n\n같은 개념이다.\n\n그래서 초보자는 이해가 안 된다.\n\n---\n\n# 3️⃣ 내부 구조가 매우 복잡하다\n\nsbt는 내부적으로\n\n- task graph\n    \n- dependency graph\n    \n- incremental compiler\n    \n\n같은 것들이 섞여 있다.\n\n대표적으로\n\n### Task system\n\nlazy val hello = taskKey[Unit](\"hello\")  \n  \nhello := {  \n  println(\"hello\")  \n}\n\n이건 **Makefile 같은 task 시스템**이다.\n\n---\n\n### 설정 값 vs task\n\nsbt에는 두 종류가 있다.\n\n1️⃣ **Setting**\n\nsettingKey\n\n2️⃣ **Task**\n\ntaskKey\n\n예\n\nname := \"my-project\"\n\n이건 setting.\n\ncompile := ...\n\n이건 task.\n\n이 차이를 이해 못하면 sbt 설정이 지옥이 된다.\n\n---\n\n# 4️⃣ `.value` 지옥\n\nsbt 코드에서 많이 보이는 것\n\nscalaVersion.value\n\n이 `.value`는\n\ntask dependency evaluation\n\n을 의미한다.\n\n예\n\nlazy val myTask = taskKey[String](\"test\")  \n  \nmyTask := {  \n  val v = scalaVersion.value  \n  \"Scala version: \" + v  \n}\n\n이건\n\ntask graph에서 dependency 가져오기\n\n라는 의미다.\n\n근데 문법이 너무 weird하다.\n\n---\n\n# 5️⃣ startup이 느리다\n\nsbt가 느린 이유\n\n1️⃣ JVM 시작  \n2️⃣ sbt 로딩  \n3️⃣ project evaluation  \n4️⃣ task graph 생성\n\n그래서 처음 실행하면\n\n10~30초\n\n걸리기도 한다.\n\n---\n\n# 6️⃣ 그래서 등장한 대안들\n\nsbt가 너무 복잡해서  \n새로운 빌드 시스템들이 등장했다.\n\n---\n\n## Mill\n\n**Mill**\n\n장점\n\n- 훨씬 단순\n    \n- 빠름\n    \n- Scala 코드 기반\n    \n\n예\n\nobject hello extends ScalaModule {  \n  def scalaVersion = \"3.3.1\"  \n}\n\n---\n\n## Scala CLI\n\n**Scala CLI**\n\n엄청 단순하다.\n\n예\n\n//> using dep org.typelevel::cats-core:2.10.0\n\n그리고 그냥\n\nscala run main.scala\n\n---\n\n# 7️⃣ sbt가 여전히 쓰이는 이유\n\n그래도 sbt가 살아있는 이유는 있다.\n\n### 1️⃣ ecosystem\n\n거의 모든 Scala 프로젝트가 sbt 기반이다.\n\n예\n\n- Apache Spark\n    \n- Play Framework\n    \n- Akka\n    \n\n---\n\n### 2️⃣ plugin ecosystem\n\nsbt plugin이 많다.\n\n예\n\n- sbt-native-packager\n    \n- sbt-assembly\n    \n- sbt-release\n    \n\n---\n\n### 3️⃣ incremental compile\n\nsbt는 **incremental compiler**를 사용한다.\n\n이건\n\n**Zinc**\n\n라는 컴파일러다.\n\n그래서\n\n변경된 코드만 다시 컴파일\n\n한다.\n\n---\n\n# Scala 개발 흐름 (현실)\n\n보통 Scala 개발자는 이렇게 작업한다.\n\n1. sbt 실행  \n2. compile  \n3. run  \n4. test\n\ninteractive shell\n\nsbt\n\n들어가서\n\n~compile\n\n하면\n\n파일 저장할 때 자동 컴파일\n\n된다.\n\n---\n\n# Scala 생태계의 큰 특징\n\nScala는 약간 특이하다.\n\n다른 언어\n\n언어 → 라이브러리\n\nScala\n\n언어 → 타입 시스템 → FP 라이브러리 → framework\n\n그래서 **추상화 수준이 매우 높다.**\n\n---\n\n# 한줄 정리\n\nsbt = 매우 강력하지만 매우 weird한 빌드 시스템\n\n그래서 Scala 개발자 밈이 하나 있다.\n\nScala is great.  \nsbt is suffering."
+}

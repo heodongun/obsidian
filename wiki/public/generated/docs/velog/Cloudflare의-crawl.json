@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "id": "velog/Cloudflare의-crawl",
+    "relativePath": "velog/Cloudflare의-crawl.md",
+    "routePath": "velog/Cloudflare의-crawl",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Cloudflare의 `/crawl`",
+    "description": "Cloudflare가 최근 발표한 /crawl API는 겉으로 보면 꽤 인상적인 기능이다.단일 API 호출로 웹사이트 전체를 순회하고 콘텐츠를 수집할 수 있기 때문이다.하지만 발표 이후 커뮤니티 반응을 보면 단순히 “좋은 기능이다”로 끝나지 않는다.사람들이 동시에 흥미",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Cloudflare의 `/crawl`",
+        "id": "cloudflare의-crawl"
+      },
+      {
+        "depth": 2,
+        "text": "단일 API 호출로 전체 웹사이트 크롤링 — 그런데 왜 반응이 복잡할까",
+        "id": "단일-api-호출로-전체-웹사이트-크롤링--그런데-왜-반응이-복잡할까"
+      },
+      {
+        "depth": 1,
+        "text": "`/crawl` API는 무엇인가",
+        "id": "crawl-api는-무엇인가"
+      },
+      {
+        "depth": 1,
+        "text": "사용 방식",
+        "id": "사용-방식"
+      },
+      {
+        "depth": 3,
+        "text": "작업 생성",
+        "id": "작업-생성"
+      },
+      {
+        "depth": 3,
+        "text": "상태 확인",
+        "id": "상태-확인"
+      },
+      {
+        "depth": 1,
+        "text": "중요한 특징: robots.txt를 존중한다",
+        "id": "중요한-특징-robotstxt를-존중한다"
+      },
+      {
+        "depth": 1,
+        "text": "실제 반응이 복잡했던 이유",
+        "id": "실제-반응이-복잡했던-이유"
+      },
+      {
+        "depth": 1,
+        "text": "실제로 `/crawl`이 항상 작동하는 것은 아니다",
+        "id": "실제로-crawl이-항상-작동하는-것은-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "흥미로운 질문: 왜 캐시를 그냥 공개하지 않을까?",
+        "id": "흥미로운-질문-왜-캐시를-그냥-공개하지-않을까"
+      },
+      {
+        "depth": 1,
+        "text": "하지만 현실적인 문제가 있다",
+        "id": "하지만-현실적인-문제가-있다"
+      },
+      {
+        "depth": 3,
+        "text": "1. 프라이버시 문제",
+        "id": "1-프라이버시-문제"
+      },
+      {
+        "depth": 3,
+        "text": "2. 저작권 문제",
+        "id": "2-저작권-문제"
+      },
+      {
+        "depth": 3,
+        "text": "3. 비용 문제",
+        "id": "3-비용-문제"
+      },
+      {
+        "depth": 1,
+        "text": "그런데 Cloudflare는 이미 비슷한 기능을 일부 제공한다",
+        "id": "그런데-cloudflare는-이미-비슷한-기능을-일부-제공한다"
+      },
+      {
+        "depth": 1,
+        "text": "더 큰 그림: AI Crawl Control",
+        "id": "더-큰-그림-ai-crawl-control"
+      },
+      {
+        "depth": 1,
+        "text": "이 구조가 의미하는 것",
+        "id": "이-구조가-의미하는-것"
+      },
+      {
+        "depth": 1,
+        "text": "또 다른 관점",
+        "id": "또-다른-관점"
+      },
+      {
+        "depth": 1,
+        "text": "흥미로운 아쉬움",
+        "id": "흥미로운-아쉬움"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.147Z",
+    "wordCount": 439,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Cloudflare의 `/crawl`",
+    "description": "Cloudflare가 최근 발표한 /crawl API는 겉으로 보면 꽤 인상적인 기능이다.단일 API 호출로 웹사이트 전체를 순회하고 콘텐츠를 수집할 수 있기 때문이다.하지만 발표 이후 커뮤니티 반응을 보면 단순히 “좋은 기능이다”로 끝나지 않는다.사람들이 동시에 흥미",
+    "source": "https://velog.io/@pobi/Cloudflare%EC%9D%98-crawl",
+    "source_slug": "Cloudflare의-crawl",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-12T05:10:12.826Z",
+    "updated_at": "2026-03-23T02:23:01.525Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/f7a1f6dc-74b8-404b-b947-aca9f2de4978/image.png",
+    "tags": []
+  },
+  "content": "# Cloudflare의 `/crawl`\n\n![](https://velog.velcdn.com/images/pobi/post/f7a1f6dc-74b8-404b-b947-aca9f2de4978/image.png)\n## 단일 API 호출로 전체 웹사이트 크롤링 — 그런데 왜 반응이 복잡할까\n\nCloudflare가 최근 발표한 `/crawl` API는 겉으로 보면 꽤 인상적인 기능이다.  \n단일 API 호출로 웹사이트 전체를 순회하고 콘텐츠를 수집할 수 있기 때문이다.\n\n하지만 발표 이후 커뮤니티 반응을 보면 단순히 “좋은 기능이다”로 끝나지 않는다.  \n사람들이 동시에 흥미로워하면서도 불편해한 이유가 있다.\n\n이 글은 **공식 문서와 커뮤니티 반응을 함께 정리한 글**이다.  \n(참고: 나는 아직 직접 사용해보지는 않았다.)\n\n---\n\n# `/crawl` API는 무엇인가\n\nCloudflare의 `/crawl`은 Browser Rendering API에 추가된 **사이트 크롤링 엔드포인트**다.\n\n즉 하나의 URL을 주면 Cloudflare가\n\n```\n페이지 방문\n↓\n링크 추적\n↓\n사이트 전체 순회\n↓\n콘텐츠 반환\n```\n\n을 수행한다.\n\n대표 특징\n\n- 멀티 페이지 크롤링\n- HTML / Markdown / JSON 출력\n- robots.txt 준수\n- depth / limit / include / exclude 제어\n- JS 렌더링 지원\n- 비동기 작업 방식\n\n---\n\n# 사용 방식\n\n크롤링은 비동기 작업으로 실행된다.\n\n### 작업 생성\n\n```http\nPOST /accounts/{account_id}/browser-rendering/crawl\n```\n\n요청 예시\n\n```json\n{\n  \"url\": \"https://example.com\",\n  \"depth\": 3,\n  \"limit\": 100,\n  \"render\": true\n}\n```\n\n---\n\n### 상태 확인\n\n```http\nGET /accounts/{account_id}/browser-rendering/crawl/{job_id}\n```\n\n결과\n\n```\nHTML\nMarkdown\nJSON\n```\n\n형태로 반환된다.\n\n---\n\n# 중요한 특징: robots.txt를 존중한다\n\n이 API는 robots.txt를 따르도록 설계되어 있다.\n\n크롤링 금지된 URL은 결과에 이렇게 표시된다.\n\n```\nstatus: \"disallowed\"\n```\n\n즉 “모든 사이트를 뚫는 크롤러”가 아니라  \n**정책을 따르는 구조화된 크롤러**다.\n\n---\n\n# 실제 반응이 복잡했던 이유\n\n이 기능이 발표되자 커뮤니티에서는 여러 반응이 나왔다.\n\n대표적인 질문은 이것이었다.\n\n> Cloudflare가 만든 문제를 Cloudflare가 해결하는 것 아닌가?\n\n이 말이 나온 이유는 Cloudflare의 위치 때문이다.\n\nCloudflare는 이미\n\n```\n봇 차단\nDDoS 보호\nWAF\n```\n\n같은 기능을 제공한다.\n\n그리고 동시에\n\n```\n웹 크롤링 API\n```\n\n도 제공한다.\n\n그래서 일부 사람들은\n\n```\n보호\n+\n크롤링\n```\n\n두 역할을 동시에 한다는 점을 이상하게 느꼈다.\n\n---\n\n# 실제로 `/crawl`이 항상 작동하는 것은 아니다\n\n실제 반응 중 하나는 이런 것이었다.\n\n> Cloudflare 보호 사이트에서는 작동하지 않는 경우가 있다.\n\n이건 완전히 틀린 말은 아니다.\n\nBrowser Rendering 요청은\n\n```\nbot traffic\n```\n\n으로 식별된다.\n\n그래서 사이트 운영자가 원하면\n\n```\nWAF\nrate limiting\napplication filtering\n```\n\n같은 방식으로 차단할 수 있다.\n\n---\n\n# 흥미로운 질문: 왜 캐시를 그냥 공개하지 않을까?\n\n또 다른 반응은 이것이었다.\n\n> Cloudflare는 이미 페이지 캐시를 가지고 있는데  \n> 왜 JSON 형태로 제공하지 않을까?\n\n예를 들어 이런 API\n\n```\n/cdn-cgi/cached-contents.json\n```\n\n같은 것.\n\n이 생각은 꽤 합리적이다.\n\n왜냐하면 Cloudflare는 이미\n\n```\n전 세계 CDN 캐시\n```\n\n를 가지고 있기 때문이다.\n\n---\n\n# 하지만 현실적인 문제가 있다\n\n이 아이디어에는 몇 가지 문제가 있다.\n\n### 1. 프라이버시 문제\n\n캐시 덤프는\n\n```\n비공개 페이지\n민감 데이터\n```\n\n노출 가능성이 있다.\n\n---\n\n### 2. 저작권 문제\n\n웹 콘텐츠는 기본적으로\n\n```\n사람이 읽는 페이지\n```\n\n로 공개된다.\n\n하지만 JSON으로 대량 제공하면\n\n```\nAI 학습 데이터\n```\n\n로 바로 쓰일 수 있다.\n\n---\n\n### 3. 비용 문제\n\nHTML → JSON 변환은\n\n```\nCPU 사용\n스토리지 증가\n```\n\n를 만든다.\n\n---\n\n# 그런데 Cloudflare는 이미 비슷한 기능을 일부 제공한다\n\nCloudflare에는 **Markdown for Agents** 기능이 있다.\n\n이 기능은\n\n```\nAccept: text/markdown\n```\n\n요청이 오면\n\n```\nHTML\n↓\nMarkdown 변환\n```\n\n을 수행한다.\n\n즉\n\n```\n사람용 HTML\n+\nAI용 Markdown\n```\n\n을 동시에 제공한다.\n\n---\n\n# 더 큰 그림: AI Crawl Control\n\nCloudflare가 진짜 노리는 건 `/crawl` 하나가 아닐 수도 있다.\n\nCloudflare에는 이미 이런 기능이 있다.\n\n```\nAI Crawl Control\nPay Per Crawl\nCrawler monitoring\n```\n\n즉\n\n```\n퍼블리셔\n↓\nCloudflare\n↓\nAI 기업\n```\n\n사이에 위치하려는 구조다.\n\n---\n\n# 이 구조가 의미하는 것\n\n이 구조를 이렇게 해석하는 사람도 있다.\n\nCloudflare가\n\n```\n웹 콘텐츠\n+\nAI 접근\n```\n\n사이를 중개하려 한다는 것.\n\n즉\n\n```\n콘텐츠 제공자\nAI 기업\n```\n\n사이에 **게이트웨이**가 된다.\n\n---\n\n# 또 다른 관점\n\n반대로 긍정적으로 보는 시각도 있다.\n\n예전 웹은\n\n```\n사람 중심\n```\n\n이었다.\n\n지금은\n\n```\n사람\n+\nAI\n```\n\n둘 다 웹을 사용한다.\n\n그래서\n\n```\nrobots.txt\nsitemap\n```\n\n같은 기계 친화적 인터페이스가 발전해왔다.\n\n`/crawl`은\n\n> 그 다음 단계일 수 있다.\n\n---\n\n# 흥미로운 아쉬움\n\n일부 개발자들은 이런 의견도 냈다.\n\n> 웹 아카이빙용 WARC 지원이 있었으면 좋겠다.\n\n예\n\n```\njournalists\nresearchers\nweb archiving\n```\n\n같은 분야에서 유용했을 것이라는 의견이다.\n\n---\n\n# 결론\n\nCloudflare의 `/crawl`은 분명히 강력한 기능이다.\n\n단일 API 호출로\n\n```\n웹사이트 전체\n```\n\n를 크롤링할 수 있기 때문이다.\n\n하지만 이 기능의 진짜 의미는 기술보다 **구조**에 있다.\n\nCloudflare는 이제\n\n```\n웹 보호\n웹 캐싱\n웹 크롤링\nAI 접근 제어\n```\n\n모두를 담당하는 위치에 있다.\n\n그래서 이 발표를 이렇게 정리할 수 있다.\n\n> `/crawl`은 단순한 크롤링 API가 아니라  \n> **AI가 웹을 읽는 방식의 중간 계층을 만들려는 시도**일지도 모른다."
+}

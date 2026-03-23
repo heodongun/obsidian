@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "id": "velog/Omni-레포-분석",
+    "relativePath": "velog/Omni-레포-분석.md",
+    "routePath": "velog/Omni-레포-분석",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Omni 레포 분석",
+    "description": "업로드중..처음 getomnico/omni를 보면 “사내용 ChatGPT 같은 서비스인가?”라고 생각하기 쉽다.하지만 README와 문서를 자세히 보면 Omni의 핵심은 단순한 챗 UI가 아니다.Omni는 스스로를 다음처럼 정의한다.Workplace AI Assista",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Omni 레포 분석",
+        "id": "omni-레포-분석"
+      },
+      {
+        "depth": 2,
+        "text": "사내 검색을 “AI 챗봇”이 아니라 “권한 있는 지식 인프라”로 푼다",
+        "id": "사내-검색을-ai-챗봇이-아니라-권한-있는-지식-인프라로-푼다"
+      },
+      {
+        "depth": 1,
+        "text": "Omni가 해결하려는 문제",
+        "id": "omni가-해결하려는-문제"
+      },
+      {
+        "depth": 1,
+        "text": "Omni의 핵심 기능",
+        "id": "omni의-핵심-기능"
+      },
+      {
+        "depth": 2,
+        "text": "Chat Mode",
+        "id": "chat-mode"
+      },
+      {
+        "depth": 2,
+        "text": "Search Mode",
+        "id": "search-mode"
+      },
+      {
+        "depth": 1,
+        "text": "Access Control (권한 상속)",
+        "id": "access-control-권한-상속"
+      },
+      {
+        "depth": 1,
+        "text": "Omni 아키텍처",
+        "id": "omni-아키텍처"
+      },
+      {
+        "depth": 3,
+        "text": "omni-web",
+        "id": "omni-web"
+      },
+      {
+        "depth": 3,
+        "text": "omni-searcher",
+        "id": "omni-searcher"
+      },
+      {
+        "depth": 3,
+        "text": "omni-indexer",
+        "id": "omni-indexer"
+      },
+      {
+        "depth": 3,
+        "text": "omni-ai",
+        "id": "omni-ai"
+      },
+      {
+        "depth": 3,
+        "text": "omni-connector-manager",
+        "id": "omni-connector-manager"
+      },
+      {
+        "depth": 1,
+        "text": "검색 구조",
+        "id": "검색-구조"
+      },
+      {
+        "depth": 1,
+        "text": "Omni의 특징",
+        "id": "omni의-특징"
+      },
+      {
+        "depth": 1,
+        "text": "AI Agent 기능",
+        "id": "ai-agent-기능"
+      },
+      {
+        "depth": 1,
+        "text": "Citation 시스템",
+        "id": "citation-시스템"
+      },
+      {
+        "depth": 1,
+        "text": "설치 방법",
+        "id": "설치-방법"
+      },
+      {
+        "depth": 2,
+        "text": "요구사항",
+        "id": "요구사항"
+      },
+      {
+        "depth": 2,
+        "text": "설치",
+        "id": "설치"
+      },
+      {
+        "depth": 2,
+        "text": "접속",
+        "id": "접속"
+      },
+      {
+        "depth": 1,
+        "text": "권장 사양",
+        "id": "권장-사양"
+      },
+      {
+        "depth": 1,
+        "text": "배포 방식",
+        "id": "배포-방식"
+      },
+      {
+        "depth": 3,
+        "text": "1. Docker Compose",
+        "id": "1-docker-compose"
+      },
+      {
+        "depth": 3,
+        "text": "2. Terraform",
+        "id": "2-terraform"
+      },
+      {
+        "depth": 1,
+        "text": "Omni가 잘 맞는 조직",
+        "id": "omni가-잘-맞는-조직"
+      },
+      {
+        "depth": 1,
+        "text": "Omni의 장점",
+        "id": "omni의-장점"
+      },
+      {
+        "depth": 1,
+        "text": "Omni의 한계",
+        "id": "omni의-한계"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.364Z",
+    "wordCount": 302,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Omni 레포 분석  ",
+    "description": "업로드중..처음 getomnico/omni를 보면 “사내용 ChatGPT 같은 서비스인가?”라고 생각하기 쉽다.하지만 README와 문서를 자세히 보면 Omni의 핵심은 단순한 챗 UI가 아니다.Omni는 스스로를 다음처럼 정의한다.Workplace AI Assista",
+    "source": "https://velog.io/@pobi/Omni-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D",
+    "source_slug": "Omni-레포-분석",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-11T05:30:33.205Z",
+    "updated_at": "2026-03-22T14:39:23.975Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/0e3ba89e-32da-4c54-8a7a-15d216ce2d3f/image.png",
+    "tags": []
+  },
+  "content": "# Omni 레포 분석  \n\n![](https://velog.velcdn.com/images/pobi/post/0e3ba89e-32da-4c54-8a7a-15d216ce2d3f/image.png)\n\n## 사내 검색을 “AI 챗봇”이 아니라 “권한 있는 지식 인프라”로 푼다\n\n처음 `getomnico/omni`를 보면 “사내용 ChatGPT 같은 서비스인가?”라고 생각하기 쉽다.  \n하지만 README와 문서를 자세히 보면 Omni의 핵심은 단순한 챗 UI가 아니다.\n\nOmni는 스스로를 다음처럼 정의한다.\n\n> **Workplace AI Assistant and Search Platform**\n\n즉\n\n```\n회사 데이터\n↓\n검색 인덱스\n↓\nAI 어시스턴트\n```\n\n구조다.\n\n---\n\n# Omni가 해결하려는 문제\n\n회사 내부 정보는 항상 흩어져 있다.\n\n예를 들어\n\n```\nGoogle Drive → 문서\nSlack → 대화\nJira → 이슈\nConfluence → 위키\nHubSpot → 고객 정보\n```\n\n문제는\n\n> “어디에 답이 있는지”부터 찾아야 한다.\n\nOmni는 이 문제를 이렇게 해결한다.\n\n```\n모든 소스 연결\n↓\n하나의 검색 인덱스\n↓\nAI 질문 + 문서 검색\n```\n\n---\n\n# Omni의 핵심 기능\n\nOmni에는 두 가지 주요 모드가 있다.\n\n## Chat Mode\n\n질문을 하면\n\n```\n문서 검색\n↓\n관련 문서 수집\n↓\nAI가 답 생성\n↓\n출처 링크 제공\n```\n\n즉 단순 생성이 아니라\n\n> **citation 기반 답변**\n\n이다.\n\n---\n\n## Search Mode\n\nAI 없이 문서만 검색한다.\n\n```\n키워드 입력\n↓\n관련 문서 목록\n↓\n원문 링크 이동\n```\n\n즉\n\n```\nAI 검색\n+\n문서 검색\n```\n\n둘 다 제공한다.\n\n---\n\n# Access Control (권한 상속)\n\nOmni의 중요한 특징 중 하나는\n\n> **기존 시스템 권한을 그대로 사용한다**\n\n예를 들어\n\n```\nGoogle Drive에서 못 보는 문서\n→ Omni에서도 안 보임\n```\n\n즉\n\n```\nSearch\n↓\n권한 필터\n↓\n결과 반환\n```\n\n이 구조다.\n\n---\n\n# Omni 아키텍처\n\nOmni는 꽤 단순한 구조를 사용한다.\n\n핵심 구성\n\n```\nomni-web\nomni-searcher\nomni-indexer\nomni-ai\nomni-connector-manager\n```\n\n각 역할\n\n### omni-web\n\n- UI\n- API Gateway\n\n---\n\n### omni-searcher\n\n- Rust 기반 검색 서비스\n- BM25 + vector search\n\n---\n\n### omni-indexer\n\n- 문서 파싱\n- 임베딩 생성\n- 데이터 저장\n\n---\n\n### omni-ai\n\n- LLM 오케스트레이션\n\n---\n\n### omni-connector-manager\n\n- 외부 서비스 동기화\n\n---\n\n# 검색 구조\n\nOmni는 **Hybrid Search**를 사용한다.\n\n```\nBM25 검색\n+\nVector 검색\n```\n\n기술 스택\n\n- PostgreSQL\n- pgvector\n- ParadeDB\n\n즉\n\n```\nkeyword search\n+\nsemantic search\n```\n\n둘 다 사용한다.\n\n---\n\n# Omni의 특징\n\nOmni는 검색 인프라를 최대한 단순하게 만든다.\n\n일반적인 검색 아키텍처\n\n```\nApp DB\n+\nElasticsearch\n+\nMessage Queue\n```\n\nOmni\n\n```\nPostgreSQL 하나\n```\n\nPostgres가\n\n- 검색\n- 벡터\n- 큐\n\n역할을 모두 맡는다.\n\n---\n\n# AI Agent 기능\n\nOmni AI는 단순한 챗봇이 아니다.\n\n가능한 기능\n\n```\n문서 검색\n코드 실행\n데이터 분석\n파일 처리\n```\n\n이때 코드 실행은\n\n```\nsandbox container\n```\n\n에서 실행된다.\n\n보안 기능\n\n- read-only filesystem\n- resource limit\n- isolated network\n\n---\n\n# Citation 시스템\n\nOmni의 중요한 특징\n\n> **모든 답변에 출처가 붙는다**\n\n즉\n\n```\nAI answer\n↓\nsource document link\n```\n\n사용자는\n\n- 원문 확인\n- 실제 앱 이동\n\n이 가능하다.\n\n---\n\n# 설치 방법\n\n## 요구사항\n\n```\nDocker\nDocker Compose\n```\n\n---\n\n## 설치\n\n```bash\ngit clone https://github.com/getomnico/omni.git\ncd omni\n\ndocker compose up\n```\n\n---\n\n## 접속\n\n```\nhttp://localhost:3000\n```\n\n---\n\n# 권장 사양\n\n문서 기준\n\n```\nCPU 4 core\nRAM 8GB\nSSD 50GB\n```\n\n---\n\n# 배포 방식\n\nOmni는 두 가지 배포 방법을 제공한다.\n\n### 1. Docker Compose\n\n로컬 / 단일 서버\n\n---\n\n### 2. Terraform\n\nAWS / GCP\n\n---\n\n# Omni가 잘 맞는 조직\n\n다음 환경에서 특히 유용하다.\n\n```\n사내 문서 많음\n검색 어려움\n권한 관리 중요\n데이터 외부 전송 금지\n```\n\n즉\n\n> **Self-hosted 사내 AI 검색**\n\n---\n\n# Omni의 장점\n\n- 오픈소스\n- 셀프호스팅\n- 권한 상속\n- 하이브리드 검색\n- citation 기반 답변\n\n---\n\n# Omni의 한계\n\n- SaaS처럼 바로 사용은 어려움\n- 셀프호스팅 운영 필요\n- 커넥터 설정 필요\n\n---\n\n# 결론\n\nOmni는 단순히\n\n```\n사내용 ChatGPT\n```\n\n가 아니다.\n\n정확히는\n\n> **회사 지식을 검색 가능한 구조로 만들고  \n> 그 위에 AI 어시스턴트를 얹은 플랫폼**\n\n이다.\n\n즉\n\n```\nEnterprise AI Chatbot ❌\nWorkplace Knowledge Infrastructure ⭕\n```"
+}

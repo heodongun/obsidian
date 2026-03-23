@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "id": "scala/00-Dashboard/Exam Traps",
+    "relativePath": "scala/00-Dashboard/Exam Traps.md",
+    "routePath": "scala/00-Dashboard/Exam Traps",
+    "folderSegments": [
+      "scala",
+      "00-Dashboard"
+    ],
+    "title": "Exam Traps (시험 함정 포인트)",
+    "description": "자주 틀리거나 섞어서 기억하기 쉬운 포인트만 빠르게 다시 보는 노트입니다. 는 재할당이 가능해 상태 추적 비용을 높입니다. Scala 코어 스타일은 과 불변 데이터 우선입니다.",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Exam Traps (시험 함정 포인트)",
+        "id": "exam-traps-시험-함정-포인트"
+      },
+      {
+        "depth": 2,
+        "text": "Basics",
+        "id": "basics"
+      },
+      {
+        "depth": 2,
+        "text": "OOP Modeling",
+        "id": "oop-modeling"
+      },
+      {
+        "depth": 2,
+        "text": "Functions and Collections",
+        "id": "functions-and-collections"
+      },
+      {
+        "depth": 2,
+        "text": "Pattern Matching and ADTs",
+        "id": "pattern-matching-and-adts"
+      },
+      {
+        "depth": 2,
+        "text": "Type System",
+        "id": "type-system"
+      },
+      {
+        "depth": 2,
+        "text": "Scala 3 Context",
+        "id": "scala-3-context"
+      },
+      {
+        "depth": 2,
+        "text": "Effects and Concurrency",
+        "id": "effects-and-concurrency"
+      },
+      {
+        "depth": 2,
+        "text": "Style and Tooling",
+        "id": "style-and-tooling"
+      },
+      {
+        "depth": 2,
+        "text": "Related",
+        "id": "related"
+      }
+    ],
+    "tags": [
+      "exam-traps",
+      "mistakes",
+      "scala"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:48:11.421Z",
+    "wordCount": 261,
+    "wikiLinks": [
+      {
+        "label": "Basics and Expressions",
+        "target": "scala/01-Scala-Basics/Basics and Expressions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Classes and Traits",
+        "target": "scala/02-OOP-Modeling/Classes and Traits",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Functions and Collections",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching and ADTs",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System and Generics",
+        "target": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Contextual Abstractions",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Style and Tooling",
+        "target": "scala/08-Style-and-Tooling/Style and Tooling",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "MOC - Scala Study Map",
+        "target": "scala/00-Dashboard/MOC - Scala Study Map",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/01-Scala-Basics/Basics and Expressions",
+        "title": "Basics and Expressions (★★★)",
+        "relativePath": "scala/01-Scala-Basics/Basics and Expressions.md"
+      },
+      {
+        "routePath": "scala/02-OOP-Modeling/Classes and Traits",
+        "title": "Classes and Traits (★★★)",
+        "relativePath": "scala/02-OOP-Modeling/Classes and Traits.md"
+      },
+      {
+        "routePath": "scala/03-Functions-and-Collections/Functions and Collections",
+        "title": "Functions and Collections (★★★)",
+        "relativePath": "scala/03-Functions-and-Collections/Functions and Collections.md"
+      },
+      {
+        "routePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "title": "Pattern Matching and ADTs (★★★)",
+        "relativePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs.md"
+      },
+      {
+        "routePath": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "title": "Type System and Generics (★★★)",
+        "relativePath": "scala/05-Type-System-and-Generics/Type System and Generics.md"
+      },
+      {
+        "routePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "title": "Scala 3 Contextual Abstractions (★★★)",
+        "relativePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions.md"
+      },
+      {
+        "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "title": "Effects and Concurrency (★★★)",
+        "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency.md"
+      },
+      {
+        "routePath": "scala/08-Style-and-Tooling/Style and Tooling",
+        "title": "Style and Tooling (★★)",
+        "relativePath": "scala/08-Style-and-Tooling/Style and Tooling.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/type-inference.md",
+      "sources/official/scala-tour-ko/generic-classes.md",
+      "sources/official/scala3-book/ca-contextual-abstractions-intro.md",
+      "sources/official/scala3-book/concurrency.md",
+      "sources/ecosystem/cats-effect.md",
+      "sources/ecosystem/zio-getting-started.md"
+    ],
+    "part": "all",
+    "keywords": [
+      "exam-traps",
+      "mistakes",
+      "scala"
+    ]
+  },
+  "content": "# Exam Traps (시험 함정 포인트)\n\n#dashboard #exam-traps #scala-study\n\n> [!warning] 이 노트의 목적\n> 자주 틀리거나 섞어서 기억하기 쉬운 포인트만 빠르게 다시 보는 노트입니다.\n\n## Basics\n\n> [!danger]- Trap: `var`를 기본으로 쓰기\n> - `var`는 재할당이 가능해 상태 추적 비용을 높입니다.\n> - Scala 코어 스타일은 `val`과 불변 데이터 우선입니다.\n> - [Basics and Expressions](#/docs/scala/01-Scala-Basics/Basics%20and%20Expressions)\n\n## OOP Modeling\n\n> [!danger]- Trap: trait를 단순 상속 수단으로만 보기\n> - trait는 인터페이스뿐 아니라 조합 가능한 동작 단위입니다.\n> - 구현 공유와 서브타이핑을 같이 설계해야 합니다.\n> - [Classes and Traits](#/docs/scala/02-OOP-Modeling/Classes%20and%20Traits)\n\n## Functions and Collections\n\n> [!danger]- Trap: `map`과 `foreach`를 같은 용도로 쓰기\n> - `map`은 새 값을 만드는 변환, `foreach`는 부수효과 실행입니다.\n> - 결과가 필요하면 `map`, 출력/로깅이면 `foreach`가 맞습니다.\n> - [Functions and Collections](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections)\n\n## Pattern Matching and ADTs\n\n> [!danger]- Trap: 문자열/정수 플래그로 상태를 표현하기\n> - 상태 공간이 닫혀 있으면 `sealed trait` ADT가 더 안전합니다.\n> - 패턴 매칭의 exhaustiveness 체크를 활용할 수 있습니다.\n> - [Pattern Matching and ADTs](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20and%20ADTs)\n\n## Type System\n\n> [!danger]- Trap: 타입 추론이 항상 안전하다고 믿기\n> - 재귀 함수나 `null` 초기화 같은 경우에는 추론이 실패하거나 위험합니다.\n> - 공개 API, 재귀, 복잡한 제네릭 경계는 타입을 명시하는 편이 낫습니다.\n> - [Type System and Generics](#/docs/scala/05-Type-System-and-Generics/Type%20System%20and%20Generics)\n\n## Scala 3 Context\n\n> [!danger]- Trap: `given`/`using`를 단순 문법 치환으로 보기\n> - Scala 3는 intent 기반으로 contextual abstractions를 분리했습니다.\n> - type class instance 제공, context 전달, extension method를 역할별로 구분해야 합니다.\n> - [Scala 3 Contextual Abstractions](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Contextual%20Abstractions)\n\n## Effects and Concurrency\n\n> [!danger]- Trap: `Future`와 `IO`/`ZIO`를 같은 추상화로 취급하기\n> - `Future`는 즉시 시작되는 one-shot 계산이고, `IO`/`ZIO`는 실행 기술값입니다.\n> - 취소, 자원 정리, 조합성에서 effect runtime이 더 강합니다.\n> - [Effects and Concurrency](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency)\n\n## Style and Tooling\n\n> [!danger]- Trap: 스타일 가이드를 포맷팅 규칙 정도로만 보기\n> - naming, 타입 명시, method invocation 방식까지 가독성과 유지보수성을 좌우합니다.\n> - 스타일은 협업 생산성 규칙입니다.\n> - [Style and Tooling](#/docs/scala/08-Style-and-Tooling/Style%20and%20Tooling)\n\n## Related\n\n- [MOC - Scala Study Map](#/docs/scala/00-Dashboard/MOC%20-%20Scala%20Study%20Map) → Weak Areas 섹션\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)"
+}

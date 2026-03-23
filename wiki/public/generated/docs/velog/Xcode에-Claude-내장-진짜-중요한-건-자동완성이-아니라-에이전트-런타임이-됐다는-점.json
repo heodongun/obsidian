@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "id": "velog/Xcode에-Claude-내장-진짜-중요한-건-자동완성이-아니라-에이전트-런타임이-됐다는-점",
+    "relativePath": "velog/Xcode에-Claude-내장-진짜-중요한-건-자동완성이-아니라-에이전트-런타임이-됐다는-점.md",
+    "routePath": "velog/Xcode에-Claude-내장-진짜-중요한-건-자동완성이-아니라-에이전트-런타임이-됐다는-점",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Xcode에 Claude 내장, 진짜 중요한 건 자동완성이 아니라 “에이전트 런타임”이 됐다는 점",
+    "description": "처음 이 소식을 들으면 보통 이렇게 받아들인다.“아, 이제 Xcode에도 Claude가 들어왔구나.”틀린 말은 아니다. 하지만 이걸 단순히 IDE 안에 채팅창 하나 더 붙은 일로 보면 핵심을 놓치게 된다.Apple은 Xcode 26.3에서 agentic coding을",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Xcode에 Claude 내장, 진짜 중요한 건 자동완성이 아니라 “에이전트 런타임”이 됐다는 점",
+        "id": "xcode에-claude-내장-진짜-중요한-건-자동완성이-아니라-에이전트-런타임이-됐다는-점"
+      },
+      {
+        "depth": 1,
+        "text": "Claude in Xcode는 사실 두 단계 변화다",
+        "id": "claude-in-xcode는-사실-두-단계-변화다"
+      },
+      {
+        "depth": 2,
+        "text": "Xcode 26.3 이후",
+        "id": "xcode-263-이후"
+      },
+      {
+        "depth": 1,
+        "text": "Claude Agent가 실제로 하는 일",
+        "id": "claude-agent가-실제로-하는-일"
+      },
+      {
+        "depth": 1,
+        "text": "SwiftUI에서 특히 강력하다",
+        "id": "swiftui에서-특히-강력하다"
+      },
+      {
+        "depth": 1,
+        "text": "MCP 지원",
+        "id": "mcp-지원"
+      },
+      {
+        "depth": 1,
+        "text": "“내장”이 완전 번들형은 아니다",
+        "id": "내장이-완전-번들형은-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "Claude Assistant vs Claude Agent",
+        "id": "claude-assistant-vs-claude-agent"
+      },
+      {
+        "depth": 3,
+        "text": "Claude Assistant",
+        "id": "claude-assistant"
+      },
+      {
+        "depth": 3,
+        "text": "Claude Agent",
+        "id": "claude-agent"
+      },
+      {
+        "depth": 1,
+        "text": "아직 초기 단계이기도 하다",
+        "id": "아직-초기-단계이기도-하다"
+      },
+      {
+        "depth": 1,
+        "text": "왜 이 변화가 중요한가",
+        "id": "왜-이-변화가-중요한가"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 변화",
+        "id": "핵심-변화"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:58.013Z",
+    "wordCount": 423,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Xcode에 Claude 내장, 진짜 중요한 건 자동완성이 아니라 “에이전트 런타임”이 됐다는 점",
+    "description": "처음 이 소식을 들으면 보통 이렇게 받아들인다.“아, 이제 Xcode에도 Claude가 들어왔구나.”틀린 말은 아니다. 하지만 이걸 단순히 IDE 안에 채팅창 하나 더 붙은 일로 보면 핵심을 놓치게 된다.Apple은 Xcode 26.3에서 agentic coding을 ",
+    "source": "https://velog.io/@pobi/Xcode%EC%97%90-Claude-%EB%82%B4%EC%9E%A5-%EC%A7%84%EC%A7%9C-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B1%B4-%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1%EC%9D%B4-%EC%95%84%EB%8B%88%EB%9D%BC-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EB%9F%B0%ED%83%80%EC%9E%84%EC%9D%B4-%EB%90%90%EB%8B%A4%EB%8A%94-%EC%A0%90",
+    "source_slug": "Xcode에-Claude-내장-진짜-중요한-건-자동완성이-아니라-에이전트-런타임이-됐다는-점",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-11T00:20:32.227Z",
+    "updated_at": "2026-03-22T16:15:54.085Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/ff62a380-5344-4e62-983c-b6625fa61e17/image.png",
+    "tags": []
+  },
+  "content": "# Xcode에 Claude 내장, 진짜 중요한 건 자동완성이 아니라 “에이전트 런타임”이 됐다는 점\n\n![](https://velog.velcdn.com/images/pobi/post/ff62a380-5344-4e62-983c-b6625fa61e17/image.png)\n\n처음 이 소식을 들으면 보통 이렇게 받아들인다.\n\n> “아, 이제 Xcode에도 Claude가 들어왔구나.”\n\n틀린 말은 아니다. 하지만 이걸 단순히 **IDE 안에 채팅창 하나 더 붙은 일**로 보면 핵심을 놓치게 된다.\n\nApple은 **Xcode 26.3**에서 *agentic coding*을 발표했고,  \nAnthropic의 **Claude Agent**와 OpenAI의 **Codex**를 Xcode 안에서 직접 쓸 수 있게 만들었다.\n\n이 변화의 핵심은 다음이다.\n\n- 단순 코드 추천이 아니라\n- 작업을 쪼개고\n- 프로젝트 구조를 이해하고\n- IDE 도구를 사용해\n- 실제 작업을 수행하는 에이전트\n\n즉 **AI가 IDE 안에서 “일을 한다”**는 개념이다.\n\n---\n\n# Claude in Xcode는 사실 두 단계 변화다\n\nClaude는 이미 Xcode 26에서 사용할 수 있었다.\n\n하지만 초기 형태는 다음에 가까웠다.\n\n```\n코딩 보조 AI\n```\n\n예시\n\n- 코드 설명\n- 리팩터링\n- 디버깅 도움\n- SwiftUI 코드 생성\n- 문서 생성\n\n즉 **Coding Intelligence**였다.\n\n---\n\n## Xcode 26.3 이후\n\n여기서 큰 변화가 생긴다.\n\nClaude가 **Agent**가 된다.\n\n즉\n\n```\nClaude Assistant\n↓\nClaude Agent\n```\n\n차이\n\n| 기능 | Assistant | Agent |\n|---|---|---|\n| 코드 설명 | 가능 | 가능 |\n| 파일 수정 | 일부 | 가능 |\n| 프로젝트 탐색 | 제한적 | 가능 |\n| 빌드 / 실행 | 불가 | 가능 |\n| 작업 계획 | 없음 | 있음 |\n| 장시간 작업 | 불가 | 가능 |\n\n즉 이제 Claude는 **한 번 질문에 답하는 모델이 아니라 작업을 수행하는 시스템**이 된다.\n\n---\n\n# Claude Agent가 실제로 하는 일\n\nClaude Agent는 다음 작업을 수행할 수 있다.\n\n- 프로젝트 파일 구조 탐색\n- 코드 수정\n- Apple 문서 검색\n- Xcode build 실행\n- SwiftUI Preview 확인\n- 오류 수정\n- 반복 작업\n\n예시 흐름\n\n```\n작업 목표 입력\n↓\nClaude 작업 계획\n↓\n파일 탐색\n↓\n코드 수정\n↓\n빌드 실행\n↓\nPreview 확인\n↓\n문제 수정\n```\n\n이건 단순 코드 생성과 완전히 다른 경험이다.\n\n---\n\n# SwiftUI에서 특히 강력하다\n\nApple 플랫폼 개발은 특성이 있다.\n\n웹 개발\n\n```\n코드\n↓\n동작\n```\n\nSwiftUI 개발\n\n```\n코드\n↓\nUI\n↓\nPreview\n↓\n사용성\n```\n\n즉 **시각적 검증**이 중요하다.\n\nClaude Agent는\n\n- SwiftUI Preview 캡처\n- UI 상태 확인\n- 코드 수정\n\n같은 루프를 반복할 수 있다.\n\n---\n\n# MCP 지원\n\nXcode 26.3은 **MCP(Model Context Protocol)**도 지원한다.\n\n즉\n\n```\nClaude CLI\n↓\nMCP\n↓\nXcode\n```\n\n구조가 가능하다.\n\n이 의미는 꽤 크다.\n\nXcode는 이제\n\n```\nIDE\n```\n\n가 아니라\n\n```\nAgent Tool Server\n```\n\n역할도 수행한다.\n\n---\n\n# “내장”이 완전 번들형은 아니다\n\n많은 사람들이 이렇게 생각한다.\n\n```\nXcode 안에 Claude가 들어있다\n```\n\n실제로는 약간 다르다.\n\n구조\n\n```\nXcode\n↓\nClaude Agent binary\n↓\nAnthropic 계정\n```\n\n즉\n\n- Claude 계정 로그인 필요\n- Claude Agent SDK 설치 필요\n\n---\n\n# Claude Assistant vs Claude Agent\n\nXcode에서는 두 가지 모드가 존재한다.\n\n### Claude Assistant\n\n- 코드 설명\n- 자동완성\n- 간단한 수정\n\n### Claude Agent\n\n- 프로젝트 분석\n- 파일 수정\n- 작업 계획\n- IDE 도구 사용\n\n즉\n\n```\nAssistant = 보조\nAgent = 작업 수행\n```\n\n---\n\n# 아직 초기 단계이기도 하다\n\n현재 Xcode 26.3 RC에서는 몇 가지 문제가 보고됐다.\n\n예시 (나도 실패했다)\n\n- 로그인 오류 \n- Agent 실행 실패\n- 파일 생성 경로 문제\n\n즉\n\n> 방향은 명확하지만 아직 초기 세대다.\n\n---\n\n# 왜 이 변화가 중요한가\n\n지금까지 IDE AI는 대부분 다음 수준이었다.\n\n```\n코드 자동완성\n코드 설명\n파일 수정\n```\n\n하지만 이제는\n\n```\n작업 목표 입력\n↓\n에이전트 계획\n↓\n프로젝트 전체 수정\n↓\n빌드 검증\n```\n\n즉\n\n> **IDE 안에서 AI가 실제 개발 작업을 수행한다**\n\n---\n\n# 핵심 변화\n\n예전\n\n```\nIDE\n↓\nAI 보조\n```\n\n지금\n\n```\nIDE\n↓\nAI 실행 환경\n```\n\n즉 IDE 자체가 **에이전트 런타임**이 된다.\n\n---\n\n# 결론\n\n“Xcode에 Claude가 내장됐다”는 말의 진짜 의미는 이것이다.\n\n> **Apple이 IDE에 AI를 붙인 것이 아니라  \n> Xcode를 에이전트가 일하는 환경으로 바꾸기 시작한 것이다.**\n\n즉 앞으로 IDE의 역할은\n\n```\n코드 편집기\n```\n\n에서\n\n```\nAgent Runtime\n```\n\n으로 바뀔 가능성이 크다.\nAI로 인해 빠르게 바뀌는 시장을 따라가기가 너무 버겁다."
+}

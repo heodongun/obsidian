@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "id": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+    "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency.md",
+    "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+    "folderSegments": [
+      "scala",
+      "07-Effects-and-Concurrency"
+    ],
+    "title": "Effects and Concurrency (★★★)",
+    "description": "| Item | Key Point | | | | | | 즉시 시작되는 one shot 비동기 계산 | | | 실행을 기술하는 값, 조합성과 안전성 중시 |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Effects and Concurrency (★★★)",
+        "id": "effects-and-concurrency-"
+      },
+      {
+        "depth": 2,
+        "text": "Overview Table (한눈에 비교)",
+        "id": "overview-table-한눈에-비교"
+      },
+      {
+        "depth": 2,
+        "text": "`Future`의 위치",
+        "id": "future의-위치"
+      },
+      {
+        "depth": 2,
+        "text": "Effect 시스템",
+        "id": "effect-시스템"
+      },
+      {
+        "depth": 2,
+        "text": "Cats Effect vs ZIO",
+        "id": "cats-effect-vs-zio"
+      },
+      {
+        "depth": 2,
+        "text": "Exam/Test Patterns (시험 빈출 패턴)",
+        "id": "examtest-patterns-시험-빈출-패턴"
+      },
+      {
+        "depth": 2,
+        "text": "Related Notes",
+        "id": "related-notes"
+      }
+    ],
+    "tags": [
+      "effects",
+      "concurrency",
+      "future",
+      "io",
+      "zio"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:53:06.185Z",
+    "wordCount": 243,
+    "wikiLinks": [
+      {
+        "label": "Functions and Collections",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Contextual Abstractions",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency Practice",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/03-Functions-and-Collections/Functions and Collections",
+        "title": "Functions and Collections (★★★)",
+        "relativePath": "scala/03-Functions-and-Collections/Functions and Collections.md"
+      },
+      {
+        "routePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "title": "Scala 3 Contextual Abstractions (★★★)",
+        "relativePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions.md"
+      },
+      {
+        "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice",
+        "title": "Effects and Concurrency Practice (8 questions)",
+        "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala3-book/concurrency.md",
+      "sources/books/scala-with-cats.pdf",
+      "sources/books/scala-with-cats-home.md",
+      "sources/ecosystem/cats-effect.md",
+      "sources/ecosystem/zio-getting-started.md"
+    ],
+    "part": [
+      "Scala 3 concurrency",
+      "Scala with Cats theory overview",
+      "Cats Effect landing docs",
+      "ZIO getting started"
+    ],
+    "keywords": [
+      "effects",
+      "concurrency",
+      "future",
+      "io",
+      "zio"
+    ]
+  },
+  "content": "# Effects and Concurrency (★★★)\n\n#effects #concurrency\n\n## Overview Table (한눈에 비교)\n\n| Item | Key Point |\n|------|-----------|\n| `Future` | 즉시 시작되는 one-shot 비동기 계산 |\n| `IO` | 실행을 기술하는 값, 조합성과 안전성 중시 |\n| fiber | 경량 동시성 단위 |\n| ZIO runtime | effect 실행과 오류/환경 관리 |\n\n## `Future`의 위치\n\nScala 3 Book은 동시성 입문으로 `Future`를 소개한다.\n\n- 비교적 단순한 비동기 작업에 접근하기 쉽다\n- 한 번 실행되어 결과를 담는 one-shot 모델이다\n- 취소, 자원 정리, 세밀한 제어는 effect runtime보다 약하다\n\n## Effect 시스템\n\nCats Effect와 ZIO는 \"부수효과를 값으로 표현\"하는 공통 철학을 가진다.\n\n- 실행 시점 제어\n- 자원 안전성\n- 동시성 조합\n- 테스트 가능한 프로그램 구조\n\n```text\ndescribe effect\n    |\n compose / race / resource\n    |\n runtime executes\n    v\n result or error\n```\n\n## Cats Effect vs ZIO\n\n| Topic | Cats Effect | ZIO |\n|------|------|------|\n| 핵심 타입 | `IO` | `ZIO[R, E, A]` |\n| 강점 | Typelevel 생태계, 표준 effect 추상화 | 환경/오류/값 3축 모델, 통합 런타임 |\n| 입문 포인트 | fibers, cancellation, Resource | `ZIOAppDefault`, runtime, console |\n\n> [!tip]\n> 입문 단계에서는 `Future`와 effect runtime을 경쟁 상대로 보지 말고, 제어력과 모델링 범위가 다른 도구로 이해하는 것이 좋다.\n\n> [!warning]\n> \"비동기니까 전부 `Future`\" 같은 접근은 자원 관리와 취소 모델을 놓치기 쉽다.\n\n## Exam/Test Patterns (시험 빈출 패턴)\n\n| Scenario/Keyword | Answer |\n|-------------------|--------|\n| \"one-shot async\" | **`Future`** |\n| \"effect as value\" | **`IO` / `ZIO`** |\n| \"lightweight thread\" | **fiber** |\n| \"resource safety\" | cancellation/exception 상황에서도 release 보장 |\n\n## Related Notes\n\n- [Functions and Collections](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections)\n- [Scala 3 Contextual Abstractions](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Contextual%20Abstractions)\n- [Effects and Concurrency Practice](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency%20Practice)\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)"
+}

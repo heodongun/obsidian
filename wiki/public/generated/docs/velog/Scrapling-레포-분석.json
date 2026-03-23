@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "id": "velog/Scrapling-레포-분석",
+    "relativePath": "velog/Scrapling-레포-분석.md",
+    "routePath": "velog/Scrapling-레포-분석",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Scrapling 레포 분석",
+    "description": "D4Vinci/Scrapling을 처음 보면 보통 “또 하나의 웹 스크래핑 라이브러리인가?” 싶다.하지만 README와 문서를 조금만 더 보면 방향이 꽤 다르다.Scrapling은 스스로를 다음처럼 설명한다.단일 요청부터 대규모 크롤링까지 처리하는 adaptive we",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Scrapling 레포 분석",
+        "id": "scrapling-레포-분석"
+      },
+      {
+        "depth": 2,
+        "text": "현대 웹의 복잡한 구조와 대규모 크롤링을 “한 라이브러리”로 묶으려는 시도",
+        "id": "현대-웹의-복잡한-구조와-대규모-크롤링을-한-라이브러리로-묶으려는-시도"
+      },
+      {
+        "depth": 1,
+        "text": "Scrapling이 등장한 이유",
+        "id": "scrapling이-등장한-이유"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 1",
+        "id": "핵심-기능-1"
+      },
+      {
+        "depth": 2,
+        "text": "Adaptive Scraping (적응형 파싱)",
+        "id": "adaptive-scraping-적응형-파싱"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 2",
+        "id": "핵심-기능-2"
+      },
+      {
+        "depth": 2,
+        "text": "Fetcher 시스템",
+        "id": "fetcher-시스템"
+      },
+      {
+        "depth": 3,
+        "text": "Fetcher",
+        "id": "fetcher"
+      },
+      {
+        "depth": 3,
+        "text": "DynamicFetcher",
+        "id": "dynamicfetcher"
+      },
+      {
+        "depth": 3,
+        "text": "StealthyFetcher",
+        "id": "stealthyfetcher"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 3",
+        "id": "핵심-기능-3"
+      },
+      {
+        "depth": 2,
+        "text": "Spider Framework",
+        "id": "spider-framework"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 4",
+        "id": "핵심-기능-4"
+      },
+      {
+        "depth": 2,
+        "text": "대규모 크롤링 지원",
+        "id": "대규모-크롤링-지원"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 5",
+        "id": "핵심-기능-5"
+      },
+      {
+        "depth": 2,
+        "text": "Streaming Mode",
+        "id": "streaming-mode"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 6",
+        "id": "핵심-기능-6"
+      },
+      {
+        "depth": 2,
+        "text": "MCP 서버 (AI 연동)",
+        "id": "mcp-서버-ai-연동"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 기능 7",
+        "id": "핵심-기능-7"
+      },
+      {
+        "depth": 2,
+        "text": "개발자 경험",
+        "id": "개발자-경험"
+      },
+      {
+        "depth": 1,
+        "text": "성능",
+        "id": "성능"
+      },
+      {
+        "depth": 1,
+        "text": "설치 방법",
+        "id": "설치-방법"
+      },
+      {
+        "depth": 1,
+        "text": "Docker 실행",
+        "id": "docker-실행"
+      },
+      {
+        "depth": 1,
+        "text": "Scrapling이 잘 맞는 경우",
+        "id": "scrapling이-잘-맞는-경우"
+      },
+      {
+        "depth": 1,
+        "text": "Scrapling이 과한 경우",
+        "id": "scrapling이-과한-경우"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.436Z",
+    "wordCount": 291,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Scrapling 레포 분석 ",
+    "description": "D4Vinci/Scrapling을 처음 보면 보통 “또 하나의 웹 스크래핑 라이브러리인가?” 싶다.하지만 README와 문서를 조금만 더 보면 방향이 꽤 다르다.Scrapling은 스스로를 다음처럼 설명한다.단일 요청부터 대규모 크롤링까지 처리하는 adaptive we",
+    "source": "https://velog.io/@pobi/Scrapling-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D",
+    "source_slug": "Scrapling-레포-분석",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-11T10:34:54.957Z",
+    "updated_at": "2026-03-20T20:19:28.466Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/706c5349-6652-461e-a557-26909e4d44d9/image.png",
+    "tags": []
+  },
+  "content": "# Scrapling 레포 분석 \n\n![](https://velog.velcdn.com/images/pobi/post/706c5349-6652-461e-a557-26909e4d44d9/image.png)\n\n## 현대 웹의 복잡한 구조와 대규모 크롤링을 “한 라이브러리”로 묶으려는 시도\n\n`D4Vinci/Scrapling`을 처음 보면 보통 “또 하나의 웹 스크래핑 라이브러리인가?” 싶다.  \n하지만 README와 문서를 조금만 더 보면 방향이 꽤 다르다.\n\nScrapling은 스스로를 다음처럼 설명한다.\n\n> **단일 요청부터 대규모 크롤링까지 처리하는 adaptive web scraping framework**\n\n즉 단순한 HTML 파서가 아니라\n\n```\n파싱\n+\n요청\n+\n브라우저 자동화\n+\n대규모 크롤링\n+\n세션 관리\n+\nAI 연동\n```\n\n까지 묶은 **웹 수집 프레임워크**다.\n\n---\n\n# Scrapling이 등장한 이유\n\n요즘 웹 스크래핑이 어려운 이유는 크게 세 가지다.\n\n```\n1. DOM 구조가 자주 바뀜\n2. JS 기반 동적 페이지 증가\n3. 대규모 크롤링 운영 문제\n```\n\n예전에는 이런 조합으로 해결했다.\n\n```\nrequests\n+\nBeautifulSoup\n+\nPlaywright\n+\nScrapy\n```\n\n하지만 이걸 직접 조합하면 코드가 점점 복잡해진다.\n\nScrapling은 이걸 하나의 프레임워크로 묶는다.\n\n---\n\n# 핵심 기능 1  \n## Adaptive Scraping (적응형 파싱)\n\nScrapling의 가장 큰 특징은 **적응형 파싱**이다.\n\n일반적인 스크래퍼\n\n```\nCSS selector 변경\n→ 스크래퍼 깨짐\n```\n\nScrapling\n\n```\n구조 변경 감지\n↓\n유사 요소 재탐색\n```\n\n방법\n\n- 요소 특징 저장\n- 유사도 기반 탐색\n- 텍스트 / 정규식 / XPath 활용\n\n즉\n\n> 구조가 바뀌어도 요소를 다시 찾는다.\n\n---\n\n# 핵심 기능 2  \n## Fetcher 시스템\n\nScrapling에는 여러 Fetcher가 있다.\n\n### Fetcher\n\n일반 HTTP 요청\n\n특징\n\n- HTTP/3\n- TLS fingerprint\n- 헤더 위장\n\n---\n\n### DynamicFetcher\n\n브라우저 자동화 기반\n\n```\nPlaywright\nChrome\n```\n\nJS 기반 페이지 처리\n\n---\n\n### StealthyFetcher\n\nAnti-bot 대응 Fetcher\n\n특징\n\n- fingerprint spoofing\n- 세션 위장\n- Cloudflare Turnstile 대응\n\n---\n\n# 핵심 기능 3  \n## Spider Framework\n\nScrapling에는 Scrapy와 비슷한 Spider 구조가 있다.\n\n예시\n\n```python\nfrom scrapling.spiders import Spider, Response\n\nclass MySpider(Spider):\n    name = \"demo\"\n    start_urls = [\"https://example.com\"]\n\n    async def parse(self, response: Response):\n        for item in response.css(\".product\"):\n            yield {\"title\": item.css(\"h2::text\").get()}\n\nMySpider().start()\n```\n\n지원 기능\n\n- 비동기 크롤링\n- 동시성 제어\n- 세션 분리\n- 자동 재시도\n- 프록시 회전\n\n---\n\n# 핵심 기능 4  \n## 대규모 크롤링 지원\n\nScrapling은 단순 요청이 아니라 **운영 환경**을 고려한다.\n\n기능\n\n```\ncheckpoint\npause / resume\nproxy rotation\nsession routing\n```\n\n예\n\n```\nCtrl+C\n↓\n중단\n↓\n다시 실행\n↓\n이어서 크롤링\n```\n\n---\n\n# 핵심 기능 5  \n## Streaming Mode\n\nScrapling은 데이터를 바로 흘려보낼 수 있다.\n\n```python\nasync for item in spider.stream():\n    print(item)\n```\n\n즉\n\n```\n크롤링\n↓\n즉시 처리\n```\n\n가능하다.\n\n---\n\n# 핵심 기능 6  \n## MCP 서버 (AI 연동)\n\nScrapling에는 MCP 서버도 있다.\n\n즉\n\n```\nClaude\nCursor\n```\n\n같은 AI 도구와 연결 가능하다.\n\n역할\n\n```\n웹 페이지 HTML\n↓\nScrapling이 필요한 데이터 추출\n↓\nAI에게 전달\n```\n\n장점\n\n- 토큰 절약\n- 처리 속도 향상\n\n---\n\n# 핵심 기능 7  \n## 개발자 경험\n\nScrapling은 개발자 경험도 강조한다.\n\n기능\n\n- Interactive scraping shell\n- CLI extract 명령\n- 자동 CSS/XPath 생성\n- DOM 탐색 API\n\n예\n\n```\n부모 요소 탐색\n형제 요소 탐색\n유사 요소 탐색\n```\n\n---\n\n# 성능\n\n공식 문서 벤치마크\n\n```\nScrapling vs BeautifulSoup\n```\n\n결과\n\n- bs4 대비 최대 **700배 이상 빠름**\n\n또한\n\n```\nAutoScraper 대비\n≈ 5배 빠른 유사 요소 탐색\n```\n\n---\n\n# 설치 방법\n\n기본 설치\n\n```bash\npip install scrapling\n```\n\n추가 기능\n\n```bash\npip install \"scrapling[ai]\"\npip install \"scrapling[shell]\"\npip install \"scrapling[all]\"\n```\n\n브라우저 설치\n\n```bash\nscrapling install\n```\n\n---\n\n# Docker 실행\n\n```bash\ndocker pull pyd4vinci/scrapling\n```\n\n또는\n\n```bash\ndocker pull ghcr.io/d4vinci/scrapling:latest\n```\n\n---\n\n# Scrapling이 잘 맞는 경우\n\n다음 상황에서 특히 유용하다.\n\n```\nJS 기반 웹사이트\n대규모 크롤링\n선택자 자주 변경\n세션 / 프록시 관리 필요\nAI 데이터 수집\n```\n\n---\n\n# Scrapling이 과한 경우\n\n단순한 경우라면 오버엔지니어링일 수 있다.\n\n예\n\n```\n정적 HTML\n간단한 데이터 수집\n소규모 스크래핑\n```\n\n---\n\n# 결론\n\nScrapling은 단순한 파서가 아니다.\n\n정확히는\n\n> **현대 웹 스크래핑 문제를 한 프레임워크로 해결하려는 시도**\n\n이다.\n\n즉\n\n```\nBeautifulSoup ❌\nScrapy 대체 ❌\n```\n\n보다는\n\n```\nScraping Platform ⭕\n```\n\n에 가깝다."
+}

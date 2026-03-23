@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "id": "velog/Popover-API",
+    "relativePath": "velog/Popover-API.md",
+    "routePath": "velog/Popover-API",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Popover API",
+    "description": "프론트엔드에서 툴팁은 늘 사소해 보이는 문제였다.작은 박스 하나 띄우면 끝날 것 같지만, 실제 서비스에 넣으면 금방 복잡해진다.마우스에서는 잘 뜨는데 키보드 포커스에서는 안 뜨고스크린 리더에서는 두 번 읽히거나 아예 안 읽히고Esc로 닫히지 않거나포커스 흐름이 엉키고o",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Popover API",
+        "id": "popover-api"
+      },
+      {
+        "depth": 2,
+        "text": "브라우저 네이티브 툴팁의 새로운 가능성",
+        "id": "브라우저-네이티브-툴팁의-새로운-가능성"
+      },
+      {
+        "depth": 1,
+        "text": "Popover API의 핵심",
+        "id": "popover-api의-핵심"
+      },
+      {
+        "depth": 1,
+        "text": "가장 기본적인 예",
+        "id": "가장-기본적인-예"
+      },
+      {
+        "depth": 1,
+        "text": "Popover가 동작하는 방식",
+        "id": "popover가-동작하는-방식"
+      },
+      {
+        "depth": 1,
+        "text": "자동으로 처리되는 것들",
+        "id": "자동으로-처리되는-것들"
+      },
+      {
+        "depth": 1,
+        "text": "popovertargetaction",
+        "id": "popovertargetaction"
+      },
+      {
+        "depth": 1,
+        "text": "Popover 타입",
+        "id": "popover-타입"
+      },
+      {
+        "depth": 2,
+        "text": "auto",
+        "id": "auto"
+      },
+      {
+        "depth": 2,
+        "text": "manual",
+        "id": "manual"
+      },
+      {
+        "depth": 2,
+        "text": "hint",
+        "id": "hint"
+      },
+      {
+        "depth": 1,
+        "text": "왜 중요한가",
+        "id": "왜-중요한가"
+      },
+      {
+        "depth": 1,
+        "text": "남아있는 문제",
+        "id": "남아있는-문제"
+      },
+      {
+        "depth": 3,
+        "text": "hover delay",
+        "id": "hover-delay"
+      },
+      {
+        "depth": 3,
+        "text": "정밀한 위치 계산",
+        "id": "정밀한-위치-계산"
+      },
+      {
+        "depth": 1,
+        "text": "브라우저 지원",
+        "id": "브라우저-지원"
+      },
+      {
+        "depth": 1,
+        "text": "왜 “네이티브 툴팁의 시작”인가",
+        "id": "왜-네이티브-툴팁의-시작인가"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.415Z",
+    "wordCount": 280,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Popover API",
+    "description": "프론트엔드에서 툴팁은 늘 사소해 보이는 문제였다.작은 박스 하나 띄우면 끝날 것 같지만, 실제 서비스에 넣으면 금방 복잡해진다.마우스에서는 잘 뜨는데 키보드 포커스에서는 안 뜨고스크린 리더에서는 두 번 읽히거나 아예 안 읽히고Esc로 닫히지 않거나포커스 흐름이 엉키고o",
+    "source": "https://velog.io/@pobi/Popover-API",
+    "source_slug": "Popover-API",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-11T23:25:05.954Z",
+    "updated_at": "2026-03-23T01:50:59.840Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/44bdce3d-dba1-47e1-9d25-38e1112999ea/image.png",
+    "tags": []
+  },
+  "content": "# Popover API\n\n![](https://velog.velcdn.com/images/pobi/post/44bdce3d-dba1-47e1-9d25-38e1112999ea/image.png)\n\n## 브라우저 네이티브 툴팁의 새로운 가능성\n\n프론트엔드에서 툴팁은 늘 사소해 보이는 문제였다.  \n작은 박스 하나 띄우면 끝날 것 같지만, 실제 서비스에 넣으면 금방 복잡해진다.\n\n- 마우스에서는 잘 뜨는데 키보드 포커스에서는 안 뜨고\n- 스크린 리더에서는 두 번 읽히거나 아예 안 읽히고\n- `Esc`로 닫히지 않거나\n- 포커스 흐름이 엉키고\n- `overflow`, `z-index`, 스크롤 컨테이너 문제까지 겹친다\n\n그래서 대부분의 툴팁은 결국 이렇게 만들어졌다.\n\n```\nHTML\n+\nCSS\n+\nJavaScript\n+\nARIA 속성\n+\n여러 이벤트 핸들러\n```\n\n즉 브라우저는 “이게 툴팁이다”를 이해하지 못했고  \n개발자가 **직접 흉내 내야 했다.**\n\n---\n\n# Popover API의 핵심\n\nPopover API는 이 문제를 해결하려는 시도다.\n\n핵심 아이디어는 간단하다.\n\n> **브라우저가 툴팁/팝오버 UI를 직접 이해하게 만들자**\n\n즉 개발자가 모든 이벤트를 처리하는 대신  \n브라우저가 기본 동작을 제공한다.\n\n---\n\n# 가장 기본적인 예\n\nPopover API는 HTML만으로도 동작한다.\n\n```html\n<button popovertarget=\"tip-1\">\n  도움말\n</button>\n\n<div id=\"tip-1\" popover>\n  이것은 Popover 입니다\n</div>\n```\n\n핵심 속성\n\n```\npopover\npopovertarget\n```\n\n브라우저는 이를 보고\n\n```\n버튼 → 팝오버 제어\n```\n\n관계를 이해한다.\n\n---\n\n# Popover가 동작하는 방식\n\nPopover 요소는 기본적으로\n\n```\ndisplay: none\n```\n\n상태다.\n\n버튼이 눌리면\n\n```\nshowPopover()\n```\n\n가 실행된다.\n\n또한 Popover는 **top layer**에 올라간다.\n\n즉\n\n```\nz-index 문제\noverflow 문제\n```\n\n에서 비교적 자유롭다.\n\n---\n\n# 자동으로 처리되는 것들\n\nPopover API가 좋은 이유는  \n브라우저가 기본 상호작용을 처리해 준다는 점이다.\n\n예\n\n```\nEsc 키 닫기\noutside click 닫기\naria-expanded 상태 관리\n포커스 흐름 관리\n```\n\n즉 기존에 JavaScript로 직접 구현하던 것들을  \n브라우저가 처리한다.\n\n---\n\n# popovertargetaction\n\n동작 방식도 선택할 수 있다.\n\n```html\n<button popovertarget=\"tip\" popovertargetaction=\"show\">\n열기\n</button>\n\n<button popovertarget=\"tip\" popovertargetaction=\"hide\">\n닫기\n</button>\n```\n\n가능한 값\n\n```\nshow\nhide\ntoggle\n```\n\n기본값은 `toggle`이다.\n\n---\n\n# Popover 타입\n\nPopover는 세 가지 타입을 가진다.\n\n```\nauto\nmanual\nhint\n```\n\n---\n\n## auto\n\n기본값\n\n특징\n\n```\nEsc 닫기\noutside click 닫기\n다른 popover 열리면 자동 닫힘\n```\n\n---\n\n## manual\n\n자동으로 닫히지 않는다.\n\n```\n여러 popover 동시에 가능\nJS 제어 필요\n```\n\n---\n\n## hint\n\n툴팁 용도에 가깝다.\n\n```\nhover / focus UI\n```\n\n---\n\n# 왜 중요한가\n\nPopover API의 진짜 의미는  \n**코드가 줄어든 것**이 아니다.\n\n진짜 변화는 이것이다.\n\n```\n툴팁 = 라이브러리 구현\n↓\n툴팁 = 브라우저 기능\n```\n\n즉 UI 패턴이\n\n```\nJavaScript 관례\n```\n\n에서\n\n```\n브라우저 표준\n```\n\n으로 이동한다.\n\n---\n\n# 남아있는 문제\n\nPopover API가 모든 걸 해결하지는 않는다.\n\n예\n\n### hover delay\n\n툴팁 UX는 보통\n\n```\nhover delay\nhover intent\n```\n\n같은 로직이 필요하다.\n\n---\n\n### 정밀한 위치 계산\n\n복잡한 위치 계산은 여전히 필요하다.\n\n예\n\n```\nedge collision\nflip positioning\noffset\n```\n\n이런 경우에는\n\n```\nFloating UI\n```\n\n같은 라이브러리가 여전히 유용하다.\n\n---\n\n# 브라우저 지원\n\nPopover API는 이미 대부분 브라우저에서 지원된다.\n\n지원 브라우저\n\n```\nChrome 114+\nEdge 114+\nFirefox 125+\nSafari 17+\n```\n\n전 세계 지원률은 약 **88% 이상**이다.\n\n---\n\n# 왜 “네이티브 툴팁의 시작”인가\n\nPopover API의 진짜 의미는 이것이다.\n\n예전\n\n```\n툴팁 = 개발자가 직접 구현\n```\n\n지금\n\n```\n툴팁 = 브라우저가 이해하는 UI\n```\n\n즉\n\n```\n라이브러리 패턴\n↓\n플랫폼 기능\n```\n\n으로 이동하고 있다.\n\n---\n\n# 결론\n\nPopover API는 단순히 새로운 HTML 속성이 아니다.\n\n> **브라우저가 오버레이 UI 패턴을 직접 이해하기 시작한 신호**\n\n다.\n\n즉\n\n```\nTooltip\nMenu\nPopover\nTeaching UI\n```\n\n같은 UI가\n\n```\nJavaScript 구현\n```\n\n에서\n\n```\n브라우저 네이티브 기능\n```\n\n으로 이동하고 있다.\n\n한 문장으로 정리하면\n\n> **Popover API는 툴팁을 쉽게 만드는 기능이 아니라,  \n브라우저가 툴팁이라는 UI 패턴을 직접 이해하기 시작한 변화다.**"
+}

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "id": "velog/Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기",
+    "relativePath": "velog/Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기.md",
+    "routePath": "velog/Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기",
+    "description": "Readability 대체재를 찾고 있다면, Defuddle은 단순한 본문 추출기를 넘어 “Markdown으로 넘기기 좋은 HTML”까지 정리해주는 도구에 가깝다. 웹페이지를 저장하거나 LLM 입력으로 활용할 때 어려운 건 HTML을 가져오는 일이 아니라, 댓글·사이드바·헤더·푸터·버튼 같은 잡음을 걷어내고 읽을 만한 본문만 남기는 일 이다. 은 바로 이 문제를 겨냥한 오픈소스 라이브러리로,",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기",
+        "id": "defuddle-웹페이지에서-본문만-남기는-콘텐츠-추출기"
+      },
+      {
+        "depth": 2,
+        "text": "왜 이 프로젝트가 눈에 띄는가",
+        "id": "왜-이-프로젝트가-눈에-띄는가"
+      },
+      {
+        "depth": 2,
+        "text": "내부를 보면 더 흥미롭다",
+        "id": "내부를-보면-더-흥미롭다"
+      },
+      {
+        "depth": 2,
+        "text": "메타데이터 추출도 꽤 집요하다",
+        "id": "메타데이터-추출도-꽤-집요하다"
+      },
+      {
+        "depth": 2,
+        "text": "어디서 쓸 수 있나",
+        "id": "어디서-쓸-수-있나"
+      },
+      {
+        "depth": 2,
+        "text": "사용 예시",
+        "id": "사용-예시"
+      },
+      {
+        "depth": 1,
+        "text": "URL 파싱",
+        "id": "url-파싱"
+      },
+      {
+        "depth": 1,
+        "text": "Markdown 출력",
+        "id": "markdown-출력"
+      },
+      {
+        "depth": 1,
+        "text": "JSON 출력",
+        "id": "json-출력"
+      },
+      {
+        "depth": 1,
+        "text": "제목만 추출",
+        "id": "제목만-추출"
+      },
+      {
+        "depth": 2,
+        "text": "사이트별 extractor가 강점이다",
+        "id": "사이트별-extractor가-강점이다"
+      },
+      {
+        "depth": 2,
+        "text": "실제로 자주 쓰게 되는 옵션",
+        "id": "실제로-자주-쓰게-되는-옵션"
+      },
+      {
+        "depth": 2,
+        "text": "HTML 표준화가 이 라이브러리의 진짜 가치일 수 있다",
+        "id": "html-표준화가-이-라이브러리의-진짜-가치일-수-있다"
+      },
+      {
+        "depth": 2,
+        "text": "라이브러리 말고도 바로 써볼 수 있다",
+        "id": "라이브러리-말고도-바로-써볼-수-있다"
+      },
+      {
+        "depth": 2,
+        "text": "아쉬운 점과 주의할 점",
+        "id": "아쉬운-점과-주의할-점"
+      },
+      {
+        "depth": 2,
+        "text": "정리",
+        "id": "정리"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-19T00:01:18.102Z",
+    "wordCount": 1363,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {},
+  "content": "# Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기\n\n> Readability 대체재를 찾고 있다면, Defuddle은 단순한 본문 추출기를 넘어 “Markdown으로 넘기기 좋은 HTML”까지 정리해주는 도구에 가깝다.\n\n웹페이지를 저장하거나 LLM 입력으로 활용할 때 어려운 건 HTML을 가져오는 일이 아니라, 댓글·사이드바·헤더·푸터·버튼 같은 잡음을 걷어내고 *읽을 만한 본문만 남기는 일*이다. `kepano/defuddle`은 바로 이 문제를 겨냥한 오픈소스 라이브러리로, URL이나 HTML에서 핵심 콘텐츠를 찾아 *정리된 HTML 또는 Markdown*으로 돌려준다. 이 프로젝트는 원래 *Obsidian Web Clipper*를 위해 만들어졌고, Obsidian 공식 문서도 Web Clipper가 본문 추출에 Defuddle을 사용한다고 설명한다. 2026년 3월 17일 기준 GitHub 최신 릴리스는 `0.14.0`이다.\n\n## 왜 이 프로젝트가 눈에 띄는가\n\nDefuddle의 핵심은 “본문만 대충 뽑아낸다”가 아니라, *후속 처리에 유리한 구조로 콘텐츠를 표준화한다*는 점이다. 공식 문서는 Defuddle가 Mozilla Readability의 대체재가 될 수 있다고 소개하면서, 더 보수적으로 덜 지우고, 각주·수식·코드 블록을 일관된 형태로 정리하며, 모바일 스타일을 이용해 불필요한 요소를 추정하고, schema.org를 포함한 더 풍부한 메타데이터를 추출한다고 설명한다. 즉, 이 라이브러리는 단순 파서라기보다 *읽기 모드 + 정제 + 구조화*를 함께 담당하는 쪽에 가깝다.\n\n이 차이는 실제 출력 품질에서 크게 드러난다. 예를 들어 공식 문서 기준으로 Defuddle는 제목 중복을 줄이기 위해 첫 번째 H1/H2를 제거하거나 H1을 H2로 바꾸고, 코드 블록에서는 라인 넘버와 시각적 하이라이트를 벗기되 언어 정보는 남기며, 각주와 MathJax/KaTeX 수식을 표준 포맷으로 바꾸고, GitHub/Obsidian/Bootstrap 계열의 callout도 통일된 형태로 정리한다. 결과적으로 Markdown 변환기나 노트 앱, 검색 인덱서, LLM 전처리 파이프라인이 다루기 쉬운 입력을 만들 수 있다.\n\n## 내부를 보면 더 흥미롭다\n\n소스 코드를 보면 Defuddle의 파이프라인은 생각보다 공들여 설계돼 있다. `parseInternal()`은 먼저 schema.org 데이터와 메타 태그를 캐시하고, 사이트별 extractor가 있으면 그것을 먼저 시도한다. 그다음 모바일 미디어쿼리를 평가해 클론한 문서에 적용하고, shadow DOM과 streamed content를 정리한 뒤, 메인 콘텐츠 후보를 찾고, 작은 이미지 제거 → 숨김 요소 제거 → 선택자 기반 정리 → 점수 기반 정리 → 내용 패턴 기반 정리 → HTML 표준화 → 상대 URL 절대화 순으로 후처리를 수행한다. README에서 말한 “모바일 스타일 분석”과 “표준화된 출력”이 실제 코드 레벨에서 그대로 구현돼 있는 셈이다.\n\n더 인상적인 부분은 *재시도 전략*이다. 기본 파싱 결과가 너무 짧으면 한 번 더 덜 공격적으로 파싱한다. 소스 기준으로 결과가 200단어 미만이면 partial selector 제거를 줄여 다시 시도하고, 50단어 미만이면 hidden-element 제거를 끄거나, 큰 숨김 서브트리를 직접 노리거나, scoring과 partial selector/content pattern 제거를 완화한 재시도를 한다. 즉, “한 번 잘못 지우면 끝”이 아니라, *본문이 과하게 잘렸을 가능성까지 감안한 복구 로직*이 들어가 있다.\n\nschema.org를 활용하는 방식도 흥미롭다. 본문 스코어링이 피드나 목록 페이지에서 잘못된 요소를 집을 경우, Defuddle는 schema.org의 `text`나 `articleBody`를 읽고 DOM에서 그 텍스트와 가장 잘 맞는 요소를 다시 찾으려 한다. 이 fallback은 일반적인 “DOM 휴리스틱만 보는 파서”보다 한 단계 더 나간 접근이다.\n\n## 메타데이터 추출도 꽤 집요하다\n\n공식 응답 스펙을 보면 Defuddle는 `title`, `description`, `author`, `site`, `domain`, `favicon`, `image`, `language`, `published`, `wordCount`, `parseTime`, `metaTags`, `schemaOrgData`, `extractorType` 등을 반환한다. 단순히 본문 HTML만 돌려주는 라이브러리가 아니라, *콘텐츠 카드나 노트 frontmatter를 만들기 좋은 데이터 묶음*을 같이 준다는 뜻이다.\n\n특히 `MetadataExtractor` 구현을 보면, URL은 문서 location뿐 아니라 `og:url`, `twitter:url`, schema.org, canonical 링크까지 뒤지고, author는 일반 meta tag뿐 아니라 `citation_author` 같은 연구 문헌용 태그, schema.org author, `.author` 계열 DOM 셀렉터, 심지어 H1 주변의 byline 패턴까지 단계적으로 탐색한다. 제목도 `og:title`, `twitter:title`, schema `headline`, 문서 `<title>` 등을 조합한 뒤 사이트명 분리를 시도한다. 단순한 “og:title 읽기” 수준이 아니라, *실패 케이스를 고려한 계층형 추출기*에 가깝다.\n\n## 어디서 쓸 수 있나\n\n공식 문서 기준으로 Defuddle는 세 가지 번들을 제공한다. 기본 `defuddle`은 브라우저용 코어 번들이고, `defuddle/full`은 수식 처리와 Markdown 변환 기능을 더한 번들이며, `defuddle/node`는 linkedom, JSDOM, happy-dom 같은 다양한 DOM 구현체를 받아들이는 Node.js용 번들이다. 문서에서는 대부분의 경우 코어 번들을 추천하지만, Markdown 변환과 수식 fallback이 중요하면 full 또는 node 번들이 더 적합하다고 설명한다.\n\n설치도 단순하다. 브라우저/라이브러리 용도라면 `npm install defuddle`, Node.js에서는 DOM 구현체를 함께 설치하면 되고, CLI는 `npm install -g defuddle` 또는 `npx defuddle parse ...`로 바로 사용할 수 있다. 공식 문서는 브라우저, Node.js, CLI 예시를 모두 따로 제공한다.\n\n## 사용 예시\n\n브라우저에서는 현재 문서 객체를 그대로 넘겨 `parse()`를 호출하면 된다. 공식 문서도 가장 기본적인 예시를 이 형태로 소개한다.\n\n```js\nimport Defuddle from 'defuddle';\n\nconst result = new Defuddle(document).parse();\n\nconsole.log(result.title);\nconsole.log(result.author);\nconsole.log(result.content); // cleaned HTML\n```\n\nNode.js에서는 `defuddle/node`를 사용한다. 공식 문서 기준으로 `linkedom`이나 `JSDOM`을 함께 쓰는 패턴이 대표적이며, `defuddle/node`를 제대로 import하려면 `package.json`에 `\"type\": \"module\"`이 필요하다고 안내한다.\n\n```js\nimport { parseHTML } from 'linkedom';\nimport { Defuddle } from 'defuddle/node';\n\nconst { document } = parseHTML(htmlString);\n\nconst result = await Defuddle(document, 'https://example.com/article', {\n markdown: true,\n});\n\nconsole.log(result.title);\nconsole.log(result.content);\n```\n\nCLI는 빠르게 써보기 가장 좋다. 로컬 HTML 파일, URL, Markdown 출력, JSON 출력, 특정 속성만 추출하는 흐름을 공식 문서가 모두 지원한다.\n\n```bash\n# URL 파싱\nnpx defuddle parse https://example.com/article\n\n# Markdown 출력\nnpx defuddle parse https://example.com/article --markdown\n\n# JSON 출력\nnpx defuddle parse https://example.com/article --json\n\n# 제목만 추출\nnpx defuddle parse https://example.com/article --property title\n```\n\n## 사이트별 extractor가 강점이다\n\nDefuddle가 일반적인 본문 추출기와 갈라지는 지점은 *사이트별 extractor 레이어*다. 현재 registry를 보면 Reddit, Twitter/X, X longform article, YouTube, Hacker News, ChatGPT 공유 링크, Claude, Grok, Gemini, GitHub, 그리고 BBCode 데이터 extractor가 등록돼 있다. 최신 `0.14.0` 릴리스에서는 Reddit, HN, GitHub, Twitter/X 계열 extractor에 대해 `includeReplies` 옵션으로 댓글/답글 포함 여부를 조절할 수 있게 됐다.\n\n이건 단순 지원 목록 이상의 의미가 있다. 예를 들어 GitHub extractor는 이슈와 PR을 구분하고, 본문과 댓글을 따로 읽어 트리 형태로 묶으며, GitHub가 자체 하이라이트용 `span` 구조로 렌더링한 코드 블록을 다시 표준 `<pre><code>` 형태로 바꿔 Markdown 변환에 유리하게 만든다. GitHub URL을 그냥 DOM 휴리스틱으로 읽는 것보다 결과가 나을 수밖에 없는 이유다.\n\nYouTube extractor는 더 공격적이다. 소스를 보면 YouTube 쪽은 `prefersAsync()`가 `true`라서 비동기 추출을 선호하고, transcript가 DOM에 없으면 비공식 InnerTube API로 caption track을 가져오거나, 필요할 경우 transcript 패널을 실제로 열어 DOM에서 다시 읽는 fallback까지 들어 있다. 게다가 선호 언어를 지정하면 그 언어 caption track을 우선 선택하려고 시도한다. 최근 릴리스 노트에도 YouTube mobile extraction 개선이 포함돼 있다.\n\nX/Twitter 계열도 비슷하다. 공식 README와 문서는 `parseAsync()`에서 로컬 HTML로 본문을 얻지 못할 경우, site-specific async extractor를 통해 보완할 수 있다고 설명하고, 제3자 서비스 fallback 예시로 *FxTwitter API*를 명시한다. 서버 렌더링 HTML만으로는 읽기 어려운 X 글을 보완하려는 설계다.\n\n## 실제로 자주 쓰게 되는 옵션\n\n개인적으로 Defuddle에서 가장 유용한 옵션은 `contentSelector`, `separateMarkdown`, `includeReplies`, `useAsync`, `debug`다. `contentSelector`는 자동 탐지를 우회해 특정 셀렉터를 본문으로 강제할 수 있고, `separateMarkdown`은 HTML을 유지하면서 `contentMarkdown`을 별도로 받을 수 있으며, `includeReplies`는 댓글/답글 포함 범위를 조절하고, `useAsync`는 비동기 extractor 및 제3자 fallback을 끌 수 있다. `language`는 BCP 47 태그를 받아 `Accept-Language`와 transcript 선택에도 영향을 준다.\n\n디버깅 기능도 꽤 좋다. 공식 문서에 따르면 `debug: true`를 주면 `debug.contentSelector`와 `debug.removals`가 응답에 포함되고, 어떤 단계에서 어떤 이유로 요소가 제거됐는지 추적할 수 있다. 또한 debug 모드에서는 평소 제거되는 class/id와 `data-*` 속성을 보존하고, div flattening도 건너뛰어 구조를 더 원형에 가깝게 보여준다. “왜 이 페이지는 본문이 잘렸지?”를 파악할 때 꽤 유용한 설계다.\n\n## HTML 표준화가 이 라이브러리의 진짜 가치일 수 있다\n\n본문 추출 라이브러리는 많지만, *출력 형식을 통일해 주는 라이브러리*는 생각보다 드물다. Defuddle는 코드 블록 언어를 `data-lang`과 `language-*` 클래스로 남기고, 각주를 `sup`/ordered list 구조로 바꾸고, 수식을 표준 MathML과 `data-latex` 속성으로 정리하고, callout을 Obsidian 스타일 callout으로 수렴시킨다. 이건 그냥 “보기에 깔끔하다” 수준이 아니라, Markdown 변환기나 후속 렌더러가 예외 처리를 덜 해도 된다는 뜻이다. Defuddle가 Obsidian Web Clipper에서 출발했다는 사실을 생각하면 아주 일관된 설계 철학이다.\n\n소스 쪽에서도 이 방향성이 잘 보인다. `standardize.ts`는 paragraph/list role을 실제 `<p>`, `<ul>`, `<ol>`, `<li>`로 바꾸고, heading anchor를 벗기고, trailing heading이나 orphaned divider를 정리하고, wrapper를 평탄화하는 과정을 길게 다룬다. 즉, Defuddle의 목적은 “본문 element 하나 찾기”에서 끝나지 않고, *출력을 재사용 가능한 문서 구조로 재조립하는 것*에 가깝다.\n\n## 라이브러리 말고도 바로 써볼 수 있다\n\n공식 사이트 `defuddle.md`는 라이브러리 외에도 문서, Playground, 북마클릿, 그리고 호스티드 API를 제공한다. 홈 페이지는 `curl http://defuddle.md/<url>` 형태로 요청하면 YAML frontmatter가 포함된 Markdown을 반환한다고 소개하고, Playground에서는 HTML 입력을 넣어 Markdown/HTML/Metadata 출력을 바로 확인할 수 있다. 북마클릿도 제공해서 페이지에서 곧바로 Markdown으로 변환할 수 있다.\n\n호스티드 API는 무료 티어와 유료 충전형 모델도 갖고 있다. 공식 pricing/terms 문서 기준으로 무료 요청은 월 1,000회 수준이며, 추가 요청은 블록 단위로 구매하는 방식이고 구독형이 아니다. privacy 문서는 쿠키/트래커/분석 스크립트를 쓰지 않으며, 변환된 콘텐츠는 성능 향상을 위해 24시간 이하로만 일시 캐시된다고 설명한다. 직접 라이브러리를 붙이지 않고도 빠르게 검증하거나 소규모 자동화에 붙여보기 좋은 구성이 갖춰져 있다.\n\n## 아쉬운 점과 주의할 점\n\n가장 먼저, README는 Defuddle를 여전히 **“work in progress”**라고 밝힌다. 실제로 릴리스 노트를 보면 최근에도 YouTube mobile extraction, relative URL 처리, callout 표준화, boundary pattern 제거, CLI 동작 개선 같은 변경이 빠르게 이어지고 있다. 즉, 프로젝트는 활발하지만 그만큼 동작 방식이 빠르게 바뀔 수 있으니, 프로덕션에 넣을 때는 버전 고정과 회귀 테스트가 중요하다.\n\n보안 측면도 한 번 짚고 가야 한다. GitHub 보안 권고에는 오래된 버전에서 `_findContentBySchemaText` 이미지 태그 생성 과정과 관련된 *moderate 수준의 XSS* 이슈가 게시돼 있다. 따라서 Defuddle의 HTML 출력을 앱에서 그대로 렌더링하는 경우라면, 특히 구버전을 쓰지 말고 최신 릴리스 기준으로 관리하는 편이 안전하다.\n\n## 정리\n\nDefuddle는 “웹페이지에서 본문만 뽑는다”는 오래된 문제를 다루지만, 접근은 꽤 현대적이다. 사이트별 extractor를 우선 적용하고, 일반 휴리스틱 파이프라인에는 모바일 스타일 분석·schema.org fallback·재시도 로직을 넣었으며, 최종 출력은 Markdown 친화적인 표준 HTML로 다듬는다. 그래서 이 프로젝트는 단순 Readability 대체재라기보다, *웹 콘텐츠를 노트/검색/LLM 입력으로 바꾸는 전처리 계층*으로 보는 쪽이 더 정확하다.\n\n개인적으로 이 리포지토리의 가장 큰 장점은 “현실의 지저분한 웹페이지”를 다루는 태도다. 한 번에 정답을 맞히는 것보다, 사이트별 예외를 흡수하고, 실패했을 때 덜 공격적으로 다시 시도하고, 결과를 다음 단계에서 쓰기 좋은 형태로 표준화한다. 웹 클리핑, 개인 지식 관리, LLM 전처리, 콘텐츠 인덱싱을 하고 있다면 Defuddle는 한 번쯤 제대로 읽어볼 가치가 있는 코드베이스다."
+}

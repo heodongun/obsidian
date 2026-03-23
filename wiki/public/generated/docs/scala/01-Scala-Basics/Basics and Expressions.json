@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "id": "scala/01-Scala-Basics/Basics and Expressions",
+    "relativePath": "scala/01-Scala-Basics/Basics and Expressions.md",
+    "routePath": "scala/01-Scala-Basics/Basics and Expressions",
+    "folderSegments": [
+      "scala",
+      "01-Scala-Basics"
+    ],
+    "title": "Basics and Expressions (★★★)",
+    "description": "| Item | Key Point | | | | | expression | 계산되어 값이 되는 코드 단위 | | | 재할당 불가, 기본 선택 |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Basics and Expressions (★★★)",
+        "id": "basics-and-expressions-"
+      },
+      {
+        "depth": 2,
+        "text": "Overview Table (한눈에 비교)",
+        "id": "overview-table-한눈에-비교"
+      },
+      {
+        "depth": 2,
+        "text": "표현식 중심 사고",
+        "id": "표현식-중심-사고"
+      },
+      {
+        "depth": 2,
+        "text": "`val`과 `var`",
+        "id": "val과-var"
+      },
+      {
+        "depth": 2,
+        "text": "블록과 제어 흐름",
+        "id": "블록과-제어-흐름"
+      },
+      {
+        "depth": 2,
+        "text": "타입 추론",
+        "id": "타입-추론"
+      },
+      {
+        "depth": 2,
+        "text": "시작 환경",
+        "id": "시작-환경"
+      },
+      {
+        "depth": 2,
+        "text": "Exam/Test Patterns (시험 빈출 패턴)",
+        "id": "examtest-patterns-시험-빈출-패턴"
+      },
+      {
+        "depth": 2,
+        "text": "Related Notes",
+        "id": "related-notes"
+      }
+    ],
+    "tags": [
+      "scala-basics",
+      "expressions",
+      "values",
+      "types",
+      "inference"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:53:06.181Z",
+    "wordCount": 321,
+    "wikiLinks": [
+      {
+        "label": "Classes and Traits",
+        "target": "scala/02-OOP-Modeling/Classes and Traits",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Functions and Collections",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System and Generics",
+        "target": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Basics Practice",
+        "target": "scala/01-Scala-Basics/Basics Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/01-Scala-Basics/Basics Practice",
+        "title": "Basics Practice (8 questions)",
+        "relativePath": "scala/01-Scala-Basics/Basics Practice.md"
+      },
+      {
+        "routePath": "scala/03-Functions-and-Collections/Functions and Collections",
+        "title": "Functions and Collections (★★★)",
+        "relativePath": "scala/03-Functions-and-Collections/Functions and Collections.md"
+      },
+      {
+        "routePath": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "title": "Type System and Generics (★★★)",
+        "relativePath": "scala/05-Type-System-and-Generics/Type System and Generics.md"
+      },
+      {
+        "routePath": "scala/08-Style-and-Tooling/Style and Tooling",
+        "title": "Style and Tooling (★★)",
+        "relativePath": "scala/08-Style-and-Tooling/Style and Tooling.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/basics.md",
+      "sources/official/scala-tour-ko/type-inference.md",
+      "sources/official/scala3-book/taste-intro.md",
+      "sources/books/essential-scala.pdf",
+      "sources/books/essential-scala-full.md"
+    ],
+    "part": [
+      "Tour basics",
+      "Tour type inference",
+      "Scala 3 taste intro",
+      "Essential Scala ch1-2 pp11-55"
+    ],
+    "keywords": [
+      "scala-basics",
+      "expressions",
+      "values",
+      "types",
+      "inference"
+    ]
+  },
+  "content": "# Basics and Expressions (★★★)\n\n#scala-core #expressions\n\n## Overview Table (한눈에 비교)\n\n| Item | Key Point |\n|------|-----------|\n| expression | 계산되어 값이 되는 코드 단위 |\n| `val` | 재할당 불가, 기본 선택 |\n| `var` | 재할당 가능, 상태 변경이 꼭 필요할 때만 |\n| type inference | 초기값과 문맥에서 타입을 추론 |\n\n## 표현식 중심 사고\n\nScala에서는 `if`, block, method call처럼 많은 구문이 expression이다.  \n즉, \"실행만 하는 문장\"보다 \"값을 돌려주는 계산\"으로 코드를 구성하는 감각이 중요하다.\n\n```text\ninput values\n    |\n    v\nexpression ----> value\n    |\n    +--> type checked at compile time\n```\n\n> [!tip]\n> 한 줄씩 상태를 바꾸기보다, 작은 expression을 조합해 최종 값을 만든다고 생각하면 코드가 단순해진다.\n\n## `val`과 `var`\n\n- `val`은 한 번 바인딩되면 다시 대입할 수 없다.\n- `var`는 재할당이 가능하지만 추론과 디버깅 비용을 높인다.\n- Scala 입문 단계부터 `val` 우선 습관을 들이면 FP와 ADT 학습이 쉬워진다.\n\n> [!warning]\n> `var`가 필요 없어 보이는데도 쓰고 있다면, 대개 block의 마지막 expression이나 컬렉션 연산으로 바꿀 수 있다.\n\n## 블록과 제어 흐름\n\nblock `{ ... }`의 마지막 expression이 block 전체의 값이 된다.  \n그래서 중간 계산은 `val`로 이름 붙이고 마지막 줄에 결과를 남기는 방식이 읽기 쉽다.\n\n| Pattern | Meaning |\n|------|------|\n| `if cond then a else b` | 둘 중 하나의 값을 만든다 |\n| `{ val x = ...; x + 1 }` | 계산을 단계적으로 구성 |\n| `match` | 분기 결과도 하나의 값으로 통합 |\n\n## 타입 추론\n\n컴파일러는 변수 초기값, 메서드 본문, 제네릭 사용 문맥에서 타입을 추론한다.\n\n- `val x = 1` 에서 `x`는 `Int`\n- `val p = MyPair(1, \"scala\")` 에서 타입 파라미터를 추론\n- 단, 재귀 메서드나 `null` 초기화처럼 애매한 경우는 추론이 위험하다\n\n> [!warning]\n> 재귀 메서드와 공개 API는 반환 타입을 명시하는 편이 안전하다.\n\n## 시작 환경\n\n초반 학습은 Scastie, REPL, IDE 중 하나만 안정적으로 잡으면 충분하다.\n\n- 빠른 실험: Scastie\n- 프로젝트 기반 학습: sbt + IDE\n- 작은 표현식 확인: REPL\n\n## Exam/Test Patterns (시험 빈출 패턴)\n\n| Scenario/Keyword | Answer |\n|-------------------|--------|\n| \"Scala에서 `if`는 statement인가?\" | 아니다. **expression**이다. |\n| \"재할당이 필요 없는 변수 선언\" | **`val`** |\n| \"재귀 함수 반환 타입 생략\" | 피하는 것이 안전하다. |\n| \"`null`로 초기화 후 다른 값 대입\" | 추론 타입 때문에 위험하다. |\n\n## Related Notes\n\n- [Classes and Traits](#/docs/scala/02-OOP-Modeling/Classes%20and%20Traits)\n- [Functions and Collections](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections)\n- [Type System and Generics](#/docs/scala/05-Type-System-and-Generics/Type%20System%20and%20Generics)\n- [Basics Practice](#/docs/scala/01-Scala-Basics/Basics%20Practice)\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)"
+}

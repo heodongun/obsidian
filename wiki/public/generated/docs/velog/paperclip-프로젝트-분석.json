@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "id": "velog/paperclip-프로젝트-분석",
+    "relativePath": "velog/paperclip-프로젝트-분석.md",
+    "routePath": "velog/paperclip-프로젝트-분석",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Paperclip 프로젝트 분석",
+    "description": "업로드중..Paperclip는 데모가 아주 잘 나오는 프로젝트다.README 첫 문장부터 “If OpenClaw is an employee, Paperclip is the company”라고 말하고, 제품 정의 문서에서도 자신을 “autonomous AI compani",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Paperclip 프로젝트 분석",
+        "id": "paperclip-프로젝트-분석"
+      },
+      {
+        "depth": 1,
+        "text": "한 줄 결론",
+        "id": "한-줄-결론"
+      },
+      {
+        "depth": 1,
+        "text": "Paperclip가 해결하려는 문제",
+        "id": "paperclip가-해결하려는-문제"
+      },
+      {
+        "depth": 1,
+        "text": "데모가 강력한 이유",
+        "id": "데모가-강력한-이유"
+      },
+      {
+        "depth": 1,
+        "text": "로컬 실행도 쉽다",
+        "id": "로컬-실행도-쉽다"
+      },
+      {
+        "depth": 1,
+        "text": "하지만 도입 적합성은 다른 이야기",
+        "id": "하지만-도입-적합성은-다른-이야기"
+      },
+      {
+        "depth": 1,
+        "text": "Roadmap 상태",
+        "id": "roadmap-상태"
+      },
+      {
+        "depth": 1,
+        "text": "구조적 특징",
+        "id": "구조적-특징"
+      },
+      {
+        "depth": 1,
+        "text": "현재 기술 성숙도",
+        "id": "현재-기술-성숙도"
+      },
+      {
+        "depth": 1,
+        "text": "실제 이슈들",
+        "id": "실제-이슈들"
+      },
+      {
+        "depth": 1,
+        "text": "Paperclip가 맞는 팀",
+        "id": "paperclip가-맞는-팀"
+      },
+      {
+        "depth": 1,
+        "text": "Paperclip가 안 맞는 팀",
+        "id": "paperclip가-안-맞는-팀"
+      },
+      {
+        "depth": 1,
+        "text": "도입 검토 체크리스트",
+        "id": "도입-검토-체크리스트"
+      },
+      {
+        "depth": 3,
+        "text": "1. 다중 에이전트 운영 문제가 있는가",
+        "id": "1-다중-에이전트-운영-문제가-있는가"
+      },
+      {
+        "depth": 3,
+        "text": "2. control plane을 운영할 수 있는가",
+        "id": "2-control-plane을-운영할-수-있는가"
+      },
+      {
+        "depth": 3,
+        "text": "3. 기존 티켓 시스템을 바꿀 의향이 있는가",
+        "id": "3-기존-티켓-시스템을-바꿀-의향이-있는가"
+      },
+      {
+        "depth": 3,
+        "text": "4. 거버넌스 문제가 실제 pain point인가",
+        "id": "4-거버넌스-문제가-실제-pain-point인가"
+      },
+      {
+        "depth": 1,
+        "text": "내 최종 평가",
+        "id": "내-최종-평가"
+      },
+      {
+        "depth": 1,
+        "text": "현실적인 사용 전략",
+        "id": "현실적인-사용-전략"
+      },
+      {
+        "depth": 1,
+        "text": "마지막 한 줄",
+        "id": "마지막-한-줄"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:58.473Z",
+    "wordCount": 646,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Paperclip 프로젝트 분석",
+    "description": "업로드중..Paperclip는 데모가 아주 잘 나오는 프로젝트다.README 첫 문장부터 “If OpenClaw is an employee, Paperclip is the company”라고 말하고, 제품 정의 문서에서도 자신을 “autonomous AI compani",
+    "source": "https://velog.io/@pobi/Paperclip-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B6%84%EC%84%9D",
+    "source_slug": "Paperclip-프로젝트-분석",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-09T09:03:17.824Z",
+    "updated_at": "2026-03-23T02:01:22.477Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/883d0f06-31de-4333-add1-c215003bff2d/image.png",
+    "tags": []
+  },
+  "content": "# Paperclip 프로젝트 분석\n\n![](https://velog.velcdn.com/images/pobi/post/883d0f06-31de-4333-add1-c215003bff2d/image.png)\n![](https://velog.velcdn.com/images/pobi/post/8a3619dd-5fed-4426-945f-6c627c5f2bb1/image.png)\n\n\nPaperclip는 데모가 아주 잘 나오는 프로젝트다.  \nREADME 첫 문장부터 **“If OpenClaw is an employee, Paperclip is the company”**라고 말하고, 제품 정의 문서에서도 자신을 **“autonomous AI companies를 위한 control plane”**으로 규정한다.\n\n구현 구조도 꽤 명확하다.\n\n- Node.js 서버\n- React UI\n- 여러 AI 에이전트\n- 조직도 / 목표 / 예산 / 감사 로그 / heartbeat\n\n즉, 여러 AI 에이전트를 **회사처럼 운영하는 관리 시스템**이다.\n\n그래서 이 프로젝트를 볼 때 가장 먼저 해야 할 질문은 이것이다.\n\n> “우와 AI 회사네?”가 아니라  \n> **“이걸 실제로 우리 팀에 넣어도 되는가?”**\n\n---\n\n# 한 줄 결론\n\n내 판단을 먼저 적으면 이렇다.\n\n> **Paperclip는 비전은 매우 명확하지만,  \n> 2026년 기준으로는 핵심 업무에 바로 넣기보다는  \n> 내부 실험이나 파일럿에 더 적합한 프로젝트다.**\n\n이유는 간단하다.\n\n- 설계 철학은 이미 완성도 높음\n- 운영 안정성은 아직 초기 단계\n\n---\n\n# Paperclip가 해결하려는 문제\n\nPaperclip의 핵심 포지션은 이것이다.\n\n> **Control plane, not execution plane**\n\n즉,\n\nPaperclip는\n\n- 에이전트를 만드는 도구가 아니라\n- **에이전트를 운영하는 시스템**\n\n이다.\n\n문서 기준 핵심 개념:\n\n- 회사(company)\n- 목표(goals)\n- 프로젝트(projects)\n- 이슈(tasks)\n- 에이전트(agents)\n- 예산(budgets)\n- 감사 로그(audit log)\n\n즉 PR 단위가 아니라 **비즈니스 목표 단위**로 AI를 운영한다.\n\nREADME의 핵심 문장도 이걸 강조한다.\n\n> **“Manage business goals, not pull requests.”**\n\n---\n\n# 데모가 강력한 이유\n\nPaperclip 데모는 굉장히 인상적이다.\n\n왜냐하면 구조가 직관적으로 보이기 때문이다.\n\n예시 데모 흐름\n\n```\nCEO agent\n ├ CTO agent\n ├ Marketing agent\n └ Sales agent\n```\n\n그리고 각 agent는\n\n- Claude Code\n- Codex\n- OpenClaw\n\n같은 런타임과 연결된다.\n\n또한\n\n- 목표\n- 작업\n- heartbeat\n- 비용\n\n이 하나의 대시보드에서 관리된다.\n\n---\n\n# 로컬 실행도 쉽다\n\nPaperclip는 시작 장벽이 낮다.\n\n```bash\nnpx paperclipai onboard --yes\n```\n\n요구 환경\n\n- Node.js 20+\n- pnpm 9+\n\n그리고 특징\n\n- 기본 embedded PostgreSQL\n- 로컬 스토리지 사용\n- 별도 계정 필요 없음\n\n즉 **데모 실행까지는 매우 빠르다.**\n\n---\n\n# 하지만 도입 적합성은 다른 이야기\n\n여기서부터 질문이 달라진다.\n\n> 데모는 멋지다  \n> 하지만 **우리 조직에 넣을 수 있는가?**\n\n현재 Paperclip 상태를 보면\n\nGitHub 기준\n\n- ⭐ 12.7k stars\n- 1.5k forks\n- 651 commits\n- 100+ open issues\n- 140+ open PR\n\n그리고 중요한 점\n\n**GitHub Releases가 없다.**\n\n또한 핵심 문서 제목이\n\n```\nV1 Implementation Spec\n```\n\n이다.\n\n즉 아직 **초기 제품 단계**다.\n\n---\n\n# Roadmap 상태\n\n현재 로드맵\n\n- OpenClaw onboarding 개선\n- cloud agents 지원\n- plugin system\n- easier agent config\n- better docs\n- ClipMart\n\n그리고 중요한 항목 하나\n\n```\nBring-your-own-ticket-system (roadmap)\n```\n\n즉\n\n- Jira\n- Linear\n- GitHub Issues\n\n같은 기존 티켓 시스템과의 통합은 **아직 진행 중**이다.\n\n---\n\n# 구조적 특징\n\nPaperclip는 기존 개발 도구 위에 얹는 도구가 아니다.\n\n오히려\n\n> **새로운 운영 체계**\n\n에 가깝다.\n\n즉\n\n기존 구조\n\n```\nGitHub\nLinear\nSlack\nCI\n```\n\nPaperclip 구조\n\n```\nPaperclip Control Plane\n ├ Agents\n ├ Goals\n ├ Tasks\n ├ Budget\n └ Governance\n```\n\n이 차이가 **도입 장벽**이 된다.\n\n---\n\n# 현재 기술 성숙도\n\nV1 스펙 기준 기능\n\n- multi-company 모델\n- agent org chart\n- task hierarchy\n- budget hard limit\n- audit log\n- approval system\n\n하지만 아직 scope 밖인 기능\n\n- plugin framework\n- knowledge base subsystem\n- multi-board governance\n- fine-grained permissions\n\n즉 **기업용 권한 모델은 아직 초기**다.\n\n---\n\n# 실제 이슈들\n\n현재 GitHub 이슈 중에는 다음 문제가 올라와 있다.\n\n예시\n\n- authenticated mode `/auth` 500 error\n- Docker auth bootstrap 문제\n- Codex cost dashboard `$0.00`\n- remote agent checkout conflict\n\n즉\n\n- 인증\n- 비용 집계\n- 원격 agent\n\n같은 핵심 기능도 아직 안정화 중이다.\n\n---\n\n# Paperclip가 맞는 팀\n\n이 프로젝트가 잘 맞는 팀은 꽤 명확하다.\n\n다음 조건이 맞으면 적합하다.\n\n- 여러 AI 에이전트를 동시에 운영\n- 비용 관리 필요\n- 감사 로그 필요\n- self-hosted 가능\n- AI 조직 운영 실험 중\n\nREADME도 이렇게 말한다.\n\n> **1 agent → 필요 없음  \n> 20 agents → 매우 필요**\n\n---\n\n# Paperclip가 안 맞는 팀\n\n다음 팀에는 아직 과하다.\n\n- 에이전트 1~2개 수준\n- GitHub/Linear 중심 워크플로\n- self-hosted 운영 인력 없음\n- enterprise 안정성 필수\n\n이 경우 Paperclip는\n\n> **운영 도구가 아니라 새로운 시스템**\n\n이 된다.\n\n---\n\n# 도입 검토 체크리스트\n\nPaperclip를 검토한다면  \n이 질문부터 답해야 한다.\n\n### 1. 다중 에이전트 운영 문제가 있는가\n\n없다면 과한 도구다.\n\n---\n\n### 2. control plane을 운영할 수 있는가\n\nself-hosted 시스템이다.\n\n---\n\n### 3. 기존 티켓 시스템을 바꿀 의향이 있는가\n\n현재는 자체 task 모델 중심이다.\n\n---\n\n### 4. 거버넌스 문제가 실제 pain point인가\n\nPaperclip의 핵심은\n\n- 비용 통제\n- 감사 로그\n- 조직 구조\n\n이다.\n\n---\n\n# 내 최종 평가\n\nPaperclip는 단순한 오픈소스가 아니다.\n\n> **AI 조직 운영 OS**\n\n라는 비전을 가진 프로젝트다.\n\n장점\n\n- 방향성 매우 선명\n- 멀티 에이전트 관리 개념 강함\n- 데모 경험 매우 좋음\n\n하지만 현재 단계는\n\n> **실험 → 파일럿 → 운영**\n\n중에서\n\n```\n실험 / 파일럿\n```\n\n에 가깝다.\n\n---\n\n# 현실적인 사용 전략\n\nPaperclip를 가장 잘 쓰는 방법은 이것이다.\n\n> **바로 운영하지 말고  \n> 2주 실험해봐라**\n\n예시\n\n- Codex\n- Claude Code\n- OpenClaw\n\n세 에이전트를 연결해\n\n- 목표 관리\n- 비용 관리\n- task delegation\n\n을 테스트해보면 된다.\n\n---\n\n# 마지막 한 줄\n\nPaperclip는 아직 완성된 회사 운영 시스템은 아니다.\n\n하지만 방향성은 분명하다.\n\n> **“AI 에이전트를 쓰는 팀”에서  \n> “AI 에이전트 조직을 운영하는 팀”으로 넘어가는 도구**\n\n그 관점에서 보면  \n이 프로젝트는 꽤 흥미로운 실험이다.\n\n~~근데 아직 개구림 그냥 linear에 codex연결해서 쓸듯~~"
+}

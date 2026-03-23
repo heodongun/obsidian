@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "velog/openaisymphony는-지금은-쓰지-마세요",
+    "relativePath": "velog/openaisymphony는-지금은-쓰지-마세요.md",
+    "routePath": "velog/openaisymphony는-지금은-쓰지-마세요",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "openai/symphony는 지금은 쓰지 마세요",
+    "description": "이거의 5배정도를 먹은것같음.처음 openai/symphony를 보면 꽤 설렌다.이슈 트래커를 읽고  작업마다 워크스페이스를 만들고  에이전트를 실행하고  코드 구현과 검증을 자동으로 수행한다README도 Symphony를 이렇게 설명한다.프로젝트 일을 격리된 자율 구",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "openai/symphony는 지금은 쓰지 마세요",
+        "id": "openaisymphony는-지금은-쓰지-마세요"
+      },
+      {
+        "depth": 2,
+        "text": "아이디어는 멋있지만, 아직은 토큰 먹는 괴물에 가깝다",
+        "id": "아이디어는-멋있지만-아직은-토큰-먹는-괴물에-가깝다"
+      },
+      {
+        "depth": 1,
+        "text": "1. 아직 정식 제품이 아니다",
+        "id": "1-아직-정식-제품이-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "2. 토큰을 엄청 태우기 쉬운 구조",
+        "id": "2-토큰을-엄청-태우기-쉬운-구조"
+      },
+      {
+        "depth": 1,
+        "text": "3. 대부분 팀에게는 너무 과하다",
+        "id": "3-대부분-팀에게는-너무-과하다"
+      },
+      {
+        "depth": 1,
+        "text": "4. 레포가 사실상 설계 문서에 가깝다",
+        "id": "4-레포가-사실상-설계-문서에-가깝다"
+      },
+      {
+        "depth": 1,
+        "text": "그렇다고 가치가 없는 건 아니다",
+        "id": "그렇다고-가치가-없는-건-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.053Z",
+    "wordCount": 264,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "openai/symphony는 지금은 쓰지 마세요  ",
+    "description": "이거의 5배정도를 먹은것같음.처음 openai/symphony를 보면 꽤 설렌다.이슈 트래커를 읽고  작업마다 워크스페이스를 만들고  에이전트를 실행하고  코드 구현과 검증을 자동으로 수행한다README도 Symphony를 이렇게 설명한다.프로젝트 일을 격리된 자율 구",
+    "source": "https://velog.io/@pobi/openaisymphony%EB%8A%94-%EC%A7%80%EA%B8%88%EC%9D%80-%EC%93%B0%EC%A7%80-%EB%A7%88%EC%84%B8%EC%9A%94",
+    "source_slug": "openaisymphony는-지금은-쓰지-마세요",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-12T05:30:06.478Z",
+    "updated_at": "2026-03-23T02:05:27.790Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/ec58a7fa-886c-43e9-a3d6-de03031634fb/image.png",
+    "tags": []
+  },
+  "content": "# openai/symphony는 지금은 쓰지 마세요  \n\n![](https://velog.velcdn.com/images/pobi/post/ec58a7fa-886c-43e9-a3d6-de03031634fb/image.png)\n이거의 5배정도를 먹은것같음.\n\n## 아이디어는 멋있지만, 아직은 토큰 먹는 괴물에 가깝다\n\n처음 `openai/symphony`를 보면 꽤 설렌다.\n\n- 이슈 트래커를 읽고  \n- 작업마다 워크스페이스를 만들고  \n- 에이전트를 실행하고  \n- 코드 구현과 검증을 자동으로 수행한다\n\nREADME도 Symphony를 이렇게 설명한다.\n\n> **프로젝트 일을 격리된 자율 구현 실행으로 바꾸는 시스템**\n\n즉 개발자는 일을 관리하고  \nAI 에이전트가 구현을 담당하는 구조다.\n\n겉보기에는 정말 미래 같아 보인다.\n\n하지만 결론부터 말하면 이렇다.\n\n> **`openai/symphony`는 지금은 쓰지 않는 게 좋다.**\n\n이유는 크게 세 가지다.\n\n---\n\n# 1. 아직 정식 제품이 아니다\n\n이건 의견이 아니라 **레포가 직접 말하는 사실**이다.\n\nREADME에는 다음 문장이 있다.\n\n```\nlow-key engineering preview\ntrusted environments에서 테스트용\n```\n\n또 Elixir 구현 README는 이렇게 말한다.\n\n```\nprototype software\nevaluation only\n```\n\n즉\n\n```\nproduction tool ❌\nexperimental prototype ⭕\n```\n\n이다.\n\n그리고 실제 상태를 보면\n\n- GitHub releases 없음\n- commit 수 매우 적음\n- SPEC 문서 상태: Draft\n\n즉 **아직 안정화 단계가 아니다.**\n\n---\n\n# 2. 토큰을 엄청 태우기 쉬운 구조\n\nSymphony의 구조를 보면  \n토큰 비용이 쉽게 커질 수 있다.\n\n기본 동작\n\n```\nIssue 발견\n↓\n워크스페이스 생성\n↓\nAgent 세션 실행\n↓\n코드 수정\n↓\n검증\n↓\n재시도\n↓\n상태 업데이트\n```\n\n문제는\n\n- 이슈마다 별도 세션\n- 워크플로 프롬프트\n- 검증 단계\n- 반복 실행\n\n이 모두가 **LLM 호출**이라는 점이다.\n\n게다가 기본 설정도 꽤 공격적이다.\n\n예\n\n```\nagent.max_turns = 20\n```\n\n즉 한 작업에서\n\n```\n최대 20번 LLM 호출\n```\n\n이 가능하다.\n\n이슈가 여러 개라면\n\n```\nN issues × N agents × N turns\n```\n\n이 구조가 된다.\n\n그래서 쉽게\n\n> **토큰 먹는 괴물**\n\n이 된다.\n\n---\n\n# 3. 대부분 팀에게는 너무 과하다\n\nSymphony는 단순한 AI 툴이 아니다.\n\n구조를 보면 사실상\n\n```\nAI orchestration platform\n```\n\n이다.\n\n필요한 것들\n\n- 이슈 트래커 통합\n- 워크스페이스 관리\n- 정책 파일 (`WORKFLOW.md`)\n- 에이전트 런타임\n- 로그/관찰성\n\n즉 도입 순간\n\n```\n새로운 운영 시스템\n```\n\n이 하나 생긴다.\n\n많은 팀에게 필요한 것은\n\n```\nClaude Code\nCursor\nCodex\n```\n\n같은 **단일 에이전트 활용**이지  \n**에이전트 운영 플랫폼**이 아니다.\n\n---\n\n# 4. 레포가 사실상 설계 문서에 가깝다\n\nSymphony가 흥미로운 이유는  \n“완성된 도구”라서가 아니다.\n\nREADME에서 강조하는 부분은 이것이다.\n\n```\n원하는 언어로 직접 구현하라\nreference implementation 제공\n```\n\n즉 OpenAI가 만든 것은\n\n```\n제품\n```\n\n이라기보다\n\n```\n설계 청사진\n```\n\n이다.\n\n---\n\n# 그렇다고 가치가 없는 건 아니다\n\nSymphony의 아이디어 자체는 굉장히 중요하다.\n\n핵심 메시지는 이것이다.\n\n앞으로 에이전트 활용은\n\n```\n프롬프트 작성\n```\n\n이 아니라\n\n```\n작업 orchestration\n```\n\n으로 이동할 것이다.\n\n즉\n\n```\nIssue\n↓\nWorkspace\n↓\nAgent\n↓\nVerification\n↓\nMerge\n```\n\n이 구조가 **개발 기본 패턴**이 될 수 있다.\n\n---\n\n# 결론\n\n그래서 지금 Symphony를 이렇게 보는 게 가장 정확하다.\n\n> **지금 당장 쓸 도구는 아니다.  \n> 하지만 미래의 개발 워크플로를 보여주는 실험이다.**\n\n즉\n\n```\nProduction tool ❌\nFuture architecture prototype ⭕\n```\n\n한 문장으로 정리하면\n\n> **Symphony는 멋진 아이디어지만  \n지금은 토큰을 많이 태우고 불안정한 프로토타입에 가깝다.**"
+}

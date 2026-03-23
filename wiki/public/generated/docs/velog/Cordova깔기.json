@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "id": "velog/Cordova깔기",
+    "relativePath": "velog/Cordova깔기.md",
+    "routePath": "velog/Cordova깔기",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Cordova깔기",
+    "description": "html, css, javascript 가지고 앱을 만들수있다고???? 하지만 멍청한 나는 이 하나를 까는데 2시간이 넘는 시간이 걸리게 되고....이걸보는 사람들은 그런 걱정 안하게 내가 글로 작성해보겠다.참고로 맥용이다. 윈도우는 쉬우니 알아서 해라나의 성공경험 바",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Cordova깔기",
+        "id": "cordova깔기"
+      },
+      {
+        "depth": 3,
+        "text": "그렇다 전지전능한 Cordova님은 무려 이 3가지로 간단하게 앱을 만들수있다.",
+        "id": "그렇다-전지전능한-cordova님은-무려-이-3가지로-간단하게-앱을-만들수있다"
+      },
+      {
+        "depth": 1,
+        "text": "1. Node.js, npm설치하기",
+        "id": "1-nodejs-npm설치하기"
+      },
+      {
+        "depth": 1,
+        "text": "2. Cordova를 깔자",
+        "id": "2-cordova를-깔자"
+      },
+      {
+        "depth": 1,
+        "text": "3. Cordova 프로젝트 생성하기",
+        "id": "3-cordova-프로젝트-생성하기"
+      },
+      {
+        "depth": 1,
+        "text": "4. 플랫폼을 추가하자",
+        "id": "4-플랫폼을-추가하자"
+      },
+      {
+        "depth": 1,
+        "text": "5. 안드로이드 스튜디오를 깔자",
+        "id": "5-안드로이드-스튜디오를-깔자"
+      },
+      {
+        "depth": 1,
+        "text": "6. 실행시키기(난 안됨)",
+        "id": "6-실행시키기난-안됨"
+      },
+      {
+        "depth": 1,
+        "text": "7. 실행시키기",
+        "id": "7-실행시키기"
+      },
+      {
+        "depth": 1,
+        "text": "8. 진짜 실행시키기",
+        "id": "8-진짜-실행시키기"
+      },
+      {
+        "depth": 1,
+        "text": "9. 진짜찐 실행시키기",
+        "id": "9-진짜찐-실행시키기"
+      },
+      {
+        "depth": 1,
+        "text": "10. 오류가 났어요",
+        "id": "10-오류가-났어요"
+      },
+      {
+        "depth": 1,
+        "text": "11. 찐찐찐찐막",
+        "id": "11-찐찐찐찐막"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:08.021Z",
+    "wordCount": 303,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Cordova깔기",
+    "description": "html, css, javascript 가지고 앱을 만들수있다고???? 하지만 멍청한 나는 이 하나를 까는데 2시간이 넘는 시간이 걸리게 되고....이걸보는 사람들은 그런 걱정 안하게 내가 글로 작성해보겠다.참고로 맥용이다. 윈도우는 쉬우니 알아서 해라나의 성공경험 바",
+    "source": "https://velog.io/@pobi/Cordova%EA%B9%94%EA%B8%B0",
+    "source_slug": "Cordova깔기",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-07-25T07:11:29.373Z",
+    "updated_at": "2026-03-21T19:20:29.710Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/ed34f1c0-96df-4a2a-8a13-662b756e547e/image.png",
+    "tags": []
+  },
+  "content": "# Cordova깔기\n\n> html, css, javascript 가지고 앱을 만들수있다고???? \n\n### 그렇다 전지전능한 Cordova님은 무려 이 3가지로 간단하게 앱을 만들수있다. \n하지만 멍청한 나는 이 하나를 까는데 2시간이 넘는 시간이 걸리게 되고....\n이걸보는 사람들은 그런 걱정 안하게 내가 글로 작성해보겠다.\n**참고로 맥용이다. 윈도우는 쉬우니 알아서 해라**\n나의 성공경험 바탕이기에 이게 정공법은 아니다.\n<br><br>\n\n# 1. Node.js, npm설치하기\nnpm은 진짜 꼭필요하니 무조건 다운받도록 하자.\n노드도 언젠가 쓸일이 있을지 모르니 그냥 깔도록 하자.\n``` \nnode -v\nnpm -v\n```\n이걸 터미널에서 해서 잘 다운로드 됐는지 확인하자.\n이거 안하고 나중에 다운로드 안됐다하면 진짜 \n![](https://velog.velcdn.com/images/pobi/post/ed34f1c0-96df-4a2a-8a13-662b756e547e/image.png)\n죽일거다.\n<br><br>\n\n# 2. Cordova를 깔자\n```npm install -g cordova``` \n굳이 전역으로 안깔아도 되지만 나는 저렇게 해서 그냥 저렇게 깔도록하자.\n이것도 아까 배웠듯이\n\n```cordova -v```\n이 코드를 사용해서 잘깔렸는지 확인하자.\n이상한 질문이뜬다면 그냥 무시하자 솔직히 모르겠다.\n<br><br>\n# 3. Cordova 프로젝트 생성하기\n```cordova create myApp com.example.myapp MyApp```\n![](https://velog.velcdn.com/images/pobi/post/f285acaf-7493-4492-a1e2-aba994f76ba8/image.png)\n이렇게 데스크탑 있는곳에 myApp이라는것이 생길것이다.\n??? : 데스크탑안에 깔고싶은데요??\n알아서 찾아보고 알아서 하자.\n이제 이 아래가 중요하다.\n<br><br>\n# 4. 플랫폼을 추가하자\n```\ncd myApp\ncordova platform add android\ncordova platform add ios\n```\n자기가 안드로이드 할꺼다 안드로이드하고 ios할꺼다 ios 실행해라\n플러그인은 알아서 해라\n\n<br><br>\n\n# 5. 안드로이드 스튜디오를 깔자\n안드로이드 스튜디오는 신이며 나의 빛 나의 구원이다.\n한때는 VSC로 할려했지만 도저히 해결되지 않아서 안드로이드 스튜디오로 갔다.\nSystem Settings > Android SDK\n이렇게 들어가서 SDK 필요한것을 다운로드 받는다.\n<br><br>\n# 6. 실행시키기(난 안됨)\n```\ncordova build android\ncordova run android\n\ncordova build ios\ncordova run ios\n```\n\n이렇게 하면 된다는데 난 안된다.\n그래서 안드로이드 스튜디오를 켜서 Myapp을 켜준다.\n<br><br>\n# 7. 실행시키기\n![](https://velog.velcdn.com/images/pobi/post/f7012613-d355-4533-8830-73ea3aa924bb/image.png)\nwww안에 있는 파일들이 실행되는 파일이다.\n수정할일있으면 www안에 것을 바꾸어 바꿀수있다.\n<br><br>\n# 8. 진짜 실행시키기\n![](https://velog.velcdn.com/images/pobi/post/7714913d-4a60-43ec-bbce-86771685f9a2/image.png)\n\nmyApp안에 있는 platforms안에있는 안드로이드로 들어와준다.\n파일열기를 하란 말이다.\n<br><br>\n# 9. 진짜찐 실행시키기\nbuild.gradle 이파일을 읽고\nGradle 동기화가 자동으로 잘되있으면 자동으로 위쪽에 초록색 누가봐도\n실행시키는 버튼이 활성화되있을것이다.\n\n하지만 이것이 나는 안되어있었다. 내가 생긴 오류를 기반으로 어떤식으로\n해야하는지 설명하겠다.<br><br>\n\n# 10. 오류가 났어요\n\n```\nFAILURE: Build failed with an exception.\n\n* Where:\nScript '/Users/heodongun/myApp/platforms/android/CordovaLib/cordova.gradle' line: 73\n\n* What went wrong:\nA problem occurred evaluating script.\n> No installed build tools found. Please install the Android build tools version 34.0.0.\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n> Get more help at https://help.gradle.org.\n\nBUILD FAILED in 60ms\n```\n<br><br>\n\b나는 이런 오류가 났었다.\n이 오류는 다행히도 정말 간단한 오류이다.\n\b빌드 도구가 다운이 안됐다는 소리이다.\n이 오류로 보자면 34.0.0버전이 필요하지만 깔리지 않았다는 뜻이다.\n\n**System Settings > Android SDK > SDK Tools**\n이동한다.\nshow package detail을 클릭하여 버전을 다 보이게 한다.\n34버전을 깔고 혹시모르니\nHide obsolete packages를 클릭하여\nandroid SDK platform-tools를 깔도록하자\n<br><br>\n# 11. 찐찐찐찐막 \n이제는 초록색 버튼이 활성화 되어있을것이다.\n이것으로 실행시키면 이상한 뭐가 막 뜨면서 뭐가 보이면서\n실행될것이다."
+}

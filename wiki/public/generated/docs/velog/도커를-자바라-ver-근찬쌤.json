@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "id": "velog/도커를-자바라-ver-근찬쌤",
+    "relativePath": "velog/도커를-자바라-ver-근찬쌤.md",
+    "routePath": "velog/도커를-자바라-ver-근찬쌤",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "도커를 자바라 - ver 근찬쌤",
+    "description": "도커는 고래",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "도커를 자바라 - ver 근찬쌤",
+        "id": "도커를-자바라---ver-근찬쌤"
+      },
+      {
+        "depth": 1,
+        "text": "1. 설치",
+        "id": "1-설치"
+      },
+      {
+        "depth": 1,
+        "text": "2. 컨테이너와 이미지",
+        "id": "2-컨테이너와-이미지"
+      },
+      {
+        "depth": 2,
+        "text": "2-1. 이미지",
+        "id": "2-1-이미지"
+      },
+      {
+        "depth": 2,
+        "text": "2-2. 컨테이너",
+        "id": "2-2-컨테이너"
+      },
+      {
+        "depth": 1,
+        "text": "3. 도커 허브",
+        "id": "3-도커-허브"
+      },
+      {
+        "depth": 1,
+        "text": "4. 이미지 다운로드, 조회, 삭제",
+        "id": "4-이미지-다운로드-조회-삭제"
+      },
+      {
+        "depth": 1,
+        "text": "5. 컨테이너 생성,실행",
+        "id": "5-컨테이너-생성실행"
+      },
+      {
+        "depth": 1,
+        "text": "6. 로그조회, 컨테이너 내부 접속하기",
+        "id": "6-로그조회-컨테이너-내부-접속하기"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:06.137Z",
+    "wordCount": 354,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "도커를 자바라 - ver 근찬쌤",
+    "description": "도커는 고래",
+    "source": "https://velog.io/@pobi/%EB%8F%84%EC%BB%A4%EB%A5%BC-%EC%9E%90%EB%B0%94%EB%9D%BC-ver-%EA%B7%BC%EC%B0%AC%EC%8C%A4",
+    "source_slug": "도커를-자바라-ver-근찬쌤",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-03-18T13:56:35.876Z",
+    "updated_at": "2026-03-21T14:49:14.466Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/ce28ba86-c907-4617-8ff5-60cad8cc0b23/image.jpeg",
+    "tags": []
+  },
+  "content": "# 도커를 자바라 - ver 근찬쌤\n\n오늘은 도커 설치와 간단한 개념과 명령어를 익혀보도록 하자.\n(맥기준임)\n\n# 1. 설치\n\n가장 큰 고비다. 이쪽에서 안된다면 다른거 보고 해라\n```\nbrew install --cask docker\n```\n\nbrew로 깔려면 이렇게 깔면된다.\n\n이렇게 하면 application쪽에\n![](https://velog.velcdn.com/images/pobi/post/83504827-7a0f-4265-8bf6-307a6c5b2a99/image.png)\n이렇게 나올것이다.\n\n그리고\n```\ndocker --version\n```\n\n이걸 쳐서 잘깔렸는지 다시한번 확인 해보자\n잘깔렸으면 아래로 가라\n\n<br><br><br>\n\n# 2. 컨테이너와 이미지\n도커를 하다보면 필시 들어볼 컨테이너와 이미지 이번에 개념을 제대로 잡고가자.\n![](https://velog.velcdn.com/images/pobi/post/64fb6ce9-396d-4093-8dc9-48cb7cf50818/image.png)\n\n## 2-1. 이미지\n도커에서 서비스 운영에 필요한 서버 프로그램, 소스코드 및 라이브러리, 컴파일된 실행 파일을 묶는 형태를 Docker Image라 한다. 다시 말해, 특정 프로세스를 실행하기 위한(즉, 컨테이너 생성(실행)에 필요한) 모든 파일과 설정값(환경)을 지닌 것으로, 더 이상의 의존성 파일을 컴파일하거나 이것저것 실치 할 필요 없는 상태의 파일을 의미한다. 예를 들어 Ubuntu이미지는 Ubuntu를 실행하기 위한 모든 파일을 가지고 있다.\n간단하게 배달음식이라고 생각하면된다. 우리는 이미 완성되있는 배달음식으로 어디서든 먹을수있다. 언제 어디서나 똑같은 음식을 먹을수있는것이다. 이식성이 좋아진다. 확장성도 좋아진다.\n\n## 2-2. 컨테이너\n컴퓨터 안에 컴퓨터이다. 우리가 vmware설치해서 가상환경 설치하는걸 도커로 간편하게 할수있다. 독립적으로 운용할수있다. 독립성이 좋아진다.\n\n# 3. 도커 허브\n깃허브처럼 각자 이미지를 올려놓고(컨테이너XXX) 자유롭게 풀받아서 쓸수있고 누구나 자유롭게 올릴수도 있다. 약간 코드가 아니라 이미지판 깃허브라고 생각하면 편하다.\n\n# 4. 이미지 다운로드, 조회, 삭제\n이것들 전부다 gui로 하면 정말 간편하지만 우리는 gui에서만 도커를 쓸꺼는 아니기에 명령어를 같이 보며 공부해보자.\n\n```\ndocker pull <이미지이름>:<태그>\n```\n우리가 아는 풀처럼 받아와진다.\n\n예를 들어 mysql 최신버전을 다운로드 받고싶다하면\n```\ndocker pull mysql:lastest\n```\n이렇게 치면 된다.\n여기서 참고해야될건 도커는 클라우드 같은 환경이 아니다 너의 용량은 똑같이 잡아먹는다.<br><br><br>\n\n```\ndocker images\n```\n다운로드를 받았으니 잘 있는지 확인해보자\n\n잘나오는것을 확인했을것이다.\n\n# 5. 컨테이너 생성,실행\n\n```\ndocker create --name my-mysql mysql\n```\n이런식으로 컨테이너 생성을 한다. mysql을 위한 가상환경을 만들어준 셈이다.\n\n```\ndocker run --name my-mysql\n```\n이런식으로 한다면 생성을 할수있다.\n\n그러면 우리가 필요한게 6개가있다 치자 그러면 이과정들을 6번이나 해야하는걸까? 당연히 아니다 docker run만해도 이미지 풀부터 크리에이트 런까지 다된다.\n개꿀 그래도 알아야함\n\n실행중인 컨테이너를 볼려면\n```\ndocker ps\n```\n\n꺼진것까지 다볼려면\n```\ndocker ps -a\n```\n\n아이디만 보고싶은데 꺼진것까지 보고싶다?\n```\ndocker ps -aq\n```\n\n아 이쪽도 sql처럼 명령어안에 명령어가 들어갈수있다.\n예를 들면\n```\ndocker rm -f $(docker ps -aq)\n```\n이렇게 하면 실행중인거 실행 안되있는것까지 싹다 지워버린다.\n\n하지만 여기서 삭제를 할려면 컨테이너가 실행 중이면 삭제할 수 없음\n\n실행 중인 컨테이너는 바로 삭제할 수 없고, 먼저 중지(stop)해야 함\n예외적으로 -f (force) 옵션을 사용하면 강제 삭제 가능\n```\ndocker stop <컨테이너 ID 또는 이름>\n```\n이런식으로 \n# 6. 로그조회, 컨테이너 내부 접속하기\n이 두개는 한번에 묶어서 설명하겠다. 왜냐하면 컨테이너를 운영할때 로그를 보게되는데 문제가 생기면 컨테이너 내부로 들어가서 해결해야하기 때문이다.\n<br>\n이런식으로 로그를 볼수있다.\n\n```\ndocker logs <컨테이너 ID 또는 이름>\n```\n<br>\n이건 로그를 스트리밍하는 명령어이다.\n\n```\ndocker logs -f <컨테이너 ID>\n```\n<br>\n보고싶은 양의 로그를 적으면 그만큼 나오게된다.\n\n```\ndocker logs --tail <보고싶은 갯수> <컨테이너 ID>\n```\n\n접속하는 명령어는\n```\ndocker exec -it <컨테이너 ID> bash||sh\n```\n이런식으로 접근이 가능하다.\n\n\n굉장히 중요한 명령어들인것같다. 열심히 공부하자"
+}

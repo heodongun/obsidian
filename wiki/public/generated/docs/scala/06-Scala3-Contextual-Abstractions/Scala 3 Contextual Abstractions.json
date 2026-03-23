@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "id": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+    "relativePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions.md",
+    "routePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+    "folderSegments": [
+      "scala",
+      "06-Scala3-Contextual-Abstractions"
+    ],
+    "title": "Scala 3 Contextual Abstractions (★★★)",
+    "description": "| Item | Key Point | | | | | | 타입에 대한 canonical instance 제공 | | | 문맥 인자를 받음 |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Scala 3 Contextual Abstractions (★★★)",
+        "id": "scala-3-contextual-abstractions-"
+      },
+      {
+        "depth": 2,
+        "text": "Overview Table (한눈에 비교)",
+        "id": "overview-table-한눈에-비교"
+      },
+      {
+        "depth": 2,
+        "text": "왜 재설계되었는가",
+        "id": "왜-재설계되었는가"
+      },
+      {
+        "depth": 2,
+        "text": "핵심 구성요소",
+        "id": "핵심-구성요소"
+      },
+      {
+        "depth": 2,
+        "text": "type class 감각",
+        "id": "type-class-감각"
+      },
+      {
+        "depth": 2,
+        "text": "Exam/Test Patterns (시험 빈출 패턴)",
+        "id": "examtest-patterns-시험-빈출-패턴"
+      },
+      {
+        "depth": 2,
+        "text": "Related Notes",
+        "id": "related-notes"
+      }
+    ],
+    "tags": [
+      "scala3",
+      "given",
+      "using",
+      "extension-methods",
+      "type-class"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:53:06.185Z",
+    "wordCount": 239,
+    "wikiLinks": [
+      {
+        "label": "Type System and Generics",
+        "target": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Context Practice",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Context Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "title": "Type System and Generics (★★★)",
+        "relativePath": "scala/05-Type-System-and-Generics/Type System and Generics.md"
+      },
+      {
+        "routePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Context Practice",
+        "title": "Scala 3 Context Practice (8 questions)",
+        "relativePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Context Practice.md"
+      },
+      {
+        "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "title": "Effects and Concurrency (★★★)",
+        "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala3-book/ca-contextual-abstractions-intro.md",
+      "sources/official/scala3-book/taste-intro.md",
+      "sources/books/scala-with-cats.pdf",
+      "sources/books/scala-with-cats-home.md"
+    ],
+    "part": [
+      "Scala 3 contextual abstractions intro",
+      "Scala 3 taste",
+      "Scala with Cats ch1 pp9-32"
+    ],
+    "keywords": [
+      "scala3",
+      "given",
+      "using",
+      "extension-methods",
+      "type-class"
+    ]
+  },
+  "content": "# Scala 3 Contextual Abstractions (★★★)\n\n#scala3-context #type-class\n\n## Overview Table (한눈에 비교)\n\n| Item | Key Point |\n|------|-----------|\n| `given` | 타입에 대한 canonical instance 제공 |\n| `using` | 문맥 인자를 받음 |\n| extension method | 기존 타입에 새 메서드 추가 |\n| type class | 공통 동작을 trait + instance로 모델링 |\n\n## 왜 재설계되었는가\n\nScala 2의 `implicit`는 강력했지만 역할이 섞여 있었다.  \nScala 3는 의도별로 기능을 분리해 배우기 쉽고 남용하기 어렵게 만들었다.\n\n## 핵심 구성요소\n\n- `given`: instance 제공\n- `using`: context parameter 수신\n- extension method: 기존 타입 확장\n- `Conversion`: 암시적 변환을 더 분명하게 표현\n\n```text\nneed capability\n     |\ncompiler searches given instance\n     |\npasses via using clause\n     v\nmethod can work with context\n```\n\n## type class 감각\n\nType class는 \"여러 타입에 공통 동작을 붙이되 상속에 묶이지 않는 방식\"이다.\n\n| Piece | Role |\n|------|------|\n| type class trait | 동작의 인터페이스 |\n| instance | 특정 타입에 대한 구현 |\n| syntax/interface | 사용자가 호출하는 편의 API |\n\nScala with Cats의 `Eq`, `Show`, `Monad` 예제는 이 감각을 익히기 좋다.\n\n> [!important]\n> Scala 3 문맥 추상화는 단순히 \"implicit 이름만 바뀐 것\"이 아니라, 역할이 분리된 설계다.\n\n> [!warning]\n> `given`을 무조건 전역으로 많이 뿌리면 오히려 추론 경로가 흐려진다. instance의 범위를 의식해야 한다.\n\n## Exam/Test Patterns (시험 빈출 패턴)\n\n| Scenario/Keyword | Answer |\n|-------------------|--------|\n| \"문맥 값 제공\" | **`given`** |\n| \"문맥 값 받기\" | **`using`** |\n| \"기존 타입 확장\" | **extension method** |\n| \"상속 없이 공통 동작\" | **type class** |\n\n## Related Notes\n\n- [Type System and Generics](#/docs/scala/05-Type-System-and-Generics/Type%20System%20and%20Generics)\n- [Effects and Concurrency](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency)\n- [Scala 3 Context Practice](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Context%20Practice)\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)"
+}

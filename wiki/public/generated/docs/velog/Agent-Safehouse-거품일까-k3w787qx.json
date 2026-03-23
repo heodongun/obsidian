@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "id": "velog/Agent-Safehouse-거품일까-k3w787qx",
+    "relativePath": "velog/Agent-Safehouse-거품일까-k3w787qx.md",
+    "routePath": "velog/Agent-Safehouse-거품일까-k3w787qx",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Agent Safehouse, 거품일까?",
+    "description": "agent-safehouse.dev를 처음 보면 반응이 두 가지로 갈린다.“오 이거 괜찮은데?”“굳이? 가상화도 없고 그냥 정책 레이어 아닌가?”사실 두 반응 모두 틀리지 않다.공식 문서를 보면 Safehouse는 스스로를 VM 대체제라고 주장하지 않는다.오히려 이렇게",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Agent Safehouse, 거품일까?",
+        "id": "agent-safehouse-거품일까"
+      },
+      {
+        "depth": 2,
+        "text": "VM은 아닌데, 그렇다고 “그냥 정책 한 장”이라고만 하기도 애매하다",
+        "id": "vm은-아닌데-그렇다고-그냥-정책-한-장이라고만-하기도-애매하다"
+      },
+      {
+        "depth": 1,
+        "text": "Safehouse가 실제로 하는 일",
+        "id": "safehouse가-실제로-하는-일"
+      },
+      {
+        "depth": 1,
+        "text": "왜 “그냥 정책 추가”처럼 보일까",
+        "id": "왜-그냥-정책-추가처럼-보일까"
+      },
+      {
+        "depth": 3,
+        "text": "1. VM이 아니다",
+        "id": "1-vm이-아니다"
+      },
+      {
+        "depth": 3,
+        "text": "2. 네트워크 차단이 기본이 아니다",
+        "id": "2-네트워크-차단이-기본이-아니다"
+      },
+      {
+        "depth": 3,
+        "text": "3. 기반 기술이 완전히 새로운 것도 아니다",
+        "id": "3-기반-기술이-완전히-새로운-것도-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "그래도 완전히 의미 없는 건 아니다",
+        "id": "그래도-완전히-의미-없는-건-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "Safehouse가 해결하는 실제 문제",
+        "id": "safehouse가-해결하는-실제-문제"
+      },
+      {
+        "depth": 1,
+        "text": "Safehouse의 진짜 포인트",
+        "id": "safehouse의-진짜-포인트"
+      },
+      {
+        "depth": 1,
+        "text": "Safehouse가 맞는 경우",
+        "id": "safehouse가-맞는-경우"
+      },
+      {
+        "depth": 1,
+        "text": "Safehouse가 과장처럼 보이는 경우",
+        "id": "safehouse가-과장처럼-보이는-경우"
+      },
+      {
+        "depth": 1,
+        "text": "Safehouse의 정확한 위치",
+        "id": "safehouse의-정확한-위치"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.911Z",
+    "wordCount": 329,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Agent Safehouse, 거품일까?",
+    "description": "agent-safehouse.dev를 처음 보면 반응이 두 가지로 갈린다.“오 이거 괜찮은데?”“굳이? 가상화도 없고 그냥 정책 레이어 아닌가?”사실 두 반응 모두 틀리지 않다.공식 문서를 보면 Safehouse는 스스로를 VM 대체제라고 주장하지 않는다.오히려 이렇게",
+    "source": "https://velog.io/@pobi/Agent-Safehouse-%EA%B1%B0%ED%92%88%EC%9D%BC%EA%B9%8C-k3w787qx",
+    "source_slug": "Agent-Safehouse-거품일까-k3w787qx",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-11T00:01:20.653Z",
+    "updated_at": "2026-03-21T09:10:51.635Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/02d862fd-b550-4fba-a498-965fcb834731/image.png",
+    "tags": []
+  },
+  "content": "# Agent Safehouse, 거품일까?\n\n![](https://velog.velcdn.com/images/pobi/post/02d862fd-b550-4fba-a498-965fcb834731/image.png)\n  \n## VM은 아닌데, 그렇다고 “그냥 정책 한 장”이라고만 하기도 애매하다\n\n`agent-safehouse.dev`를 처음 보면 반응이 두 가지로 갈린다.\n\n- “오 이거 괜찮은데?”\n- “굳이? 가상화도 없고 그냥 정책 레이어 아닌가?”\n\n사실 두 반응 모두 틀리지 않다.\n\n공식 문서를 보면 Safehouse는 스스로를 **VM 대체제**라고 주장하지 않는다.  \n오히려 이렇게 설명한다.\n\n> **macOS host-level containment layer**\n\n즉 별도 커널도 없고, 별도 VM도 없고,  \n**호스트 커널 위에서 동작하는 정책 기반 격리 시스템**이다.\n\n---\n\n# Safehouse가 실제로 하는 일\n\nSafehouse의 핵심은 다음이다.\n\n```\nAgent 실행\n↓\nsandbox policy 생성\n↓\nsandbox-exec로 실행\n↓\n커널이 파일 접근 차단\n```\n\n즉\n\n- 단순한 프롬프트 규칙이 아니라\n- 실제 **OS 정책 기반 접근 제한**이다.\n\n예를 들어 다음 접근을 막는다.\n\n```\n~/.ssh\nbrowser profiles\nshell startup files\nclipboard\nraw device access\n```\n\n즉 에이전트가 로컬 파일을 **마음대로 읽지 못하게 한다.**\n\n---\n\n# 왜 “그냥 정책 추가”처럼 보일까\n\n비판이 나오는 이유는 분명하다.\n\n### 1. VM이 아니다\n\nSafehouse는\n\n```\nVM\n컨테이너\nhypervisor\n```\n\n중 아무것도 아니다.\n\n호스트 커널을 그대로 사용한다.\n\n---\n\n### 2. 네트워크 차단이 기본이 아니다\n\nSafehouse는 기본적으로\n\n```\nnetwork access = allowed\n```\n\n이다.\n\n즉 읽을 수 있는 데이터는  \n외부로 유출될 가능성이 있다.\n\n---\n\n### 3. 기반 기술이 완전히 새로운 것도 아니다\n\nSafehouse는 macOS의 **Seatbelt sandbox 정책**을 활용한다.\n\n즉 새로운 보안 기술이라기보다\n\n> **기존 OS sandbox를 agent 환경에 맞게 패키징한 것**\n\n에 가깝다.\n\n---\n\n# 그래도 완전히 의미 없는 건 아니다\n\nSafehouse의 핵심 목적은\n\n> **완전한 격리**\n>\n> 가 아니라\n>\n> **blast radius 감소**\n\n다.\n\n즉 이런 사고를 줄인다.\n\n예시\n\n```\nAI가 홈 디렉터리 전체 읽기\nAI가 SSH 키 접근\nAI가 다른 프로젝트 접근\n```\n\nSafehouse는 기본적으로\n\n```\nworkdir 중심 접근\n```\n\n만 허용한다.\n\n즉 agent가 **현재 프로젝트 범위** 안에서만 움직이게 한다.\n\n---\n\n# Safehouse가 해결하는 실제 문제\n\n요즘 로컬 에이전트 도구는 많다.\n\n예시\n\n- Codex CLI\n- Claude Code\n- Gemini CLI\n- Cursor Agent\n\n이런 도구들은 보통 **사용자 권한 그대로 실행된다.**\n\n즉\n\n```\nagent process = user permissions\n```\n\n이 모델은 꽤 위험하다.\n\n에이전트가 실수하면\n\n```\n홈 디렉터리\nSSH 키\n다른 프로젝트\n개인 파일\n```\n\n모두 접근 가능하다.\n\nSafehouse는 이 기본값을 바꾼다.\n\n---\n\n# Safehouse의 진짜 포인트\n\nSafehouse의 핵심은 **보안 기술**보다\n\n> **보안 UX**\n\n에 있다.\n\n특징\n\n- 단일 shell script 설치\n- 현재 프로젝트 자동 sandbox\n- agent CLI wrapper\n- 정책 프로필 시스템\n\n즉\n\n```\n보안 수준 ↑\n마찰 ↓\n```\n\n이 균형을 노린다.\n\n---\n\n# Safehouse가 맞는 경우\n\n다음 상황에서 의미가 있다.\n\n- 로컬 AI agent 사용\n- 여러 프로젝트 작업\n- 개인 개발 환경 보호\n- 빠른 설치 필요\n\n즉 **개인 개발자 보안**이다.\n\n---\n\n# Safehouse가 과장처럼 보이는 경우\n\n다음 기대를 가지면 실망한다.\n\n```\n강한 격리\nVM 수준 보안\n멀티테넌트 보안 경계\n네트워크 격리\n```\n\nSafehouse는 이 문제를 해결하지 않는다.\n\n---\n\n# Safehouse의 정확한 위치\n\nSafehouse는\n\n```\nVM\n컨테이너\nOS sandbox\n```\n\n중 어디일까?\n\n가장 정확한 표현은\n\n> **host-level 최소 권한 래퍼**\n\n다.\n\n즉\n\n```\n완전 격리 ❌\n기본 위험 감소 ⭕\n```\n\n---\n\n# 결론\n\nSafehouse를 한 문장으로 정리하면 이렇다.\n\n> **Agent Safehouse는 VM을 대체하는 보안 시스템이 아니라  \n> 로컬 AI 에이전트를 “덜 위험하게” 실행하기 위한 최소권한 래퍼다.**\n\n그래서 평가도 이렇게 나뉜다.\n\n```\nVM 기대 → 과장처럼 보임\n로컬 안전성 개선 → 꽤 실용적\n```\n\n즉\n\n> **완전한 격리가 아니라 기본값을 더 안전하게 만드는 도구**다."
+}

@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "id": "scala/05-Type-System-and-Generics/Type System and Generics",
+    "relativePath": "scala/05-Type-System-and-Generics/Type System and Generics.md",
+    "routePath": "scala/05-Type-System-and-Generics/Type System and Generics",
+    "folderSegments": [
+      "scala",
+      "05-Type-System-and-Generics"
+    ],
+    "title": "Type System and Generics (★★★)",
+    "description": "| Item | Key Point | | | | | generics | 타입을 값처럼 파라미터화 | | type inference | 문맥과 초기값에서 타입 유도 |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Type System and Generics (★★★)",
+        "id": "type-system-and-generics-"
+      },
+      {
+        "depth": 2,
+        "text": "Overview Table (한눈에 비교)",
+        "id": "overview-table-한눈에-비교"
+      },
+      {
+        "depth": 2,
+        "text": "제네릭 타입",
+        "id": "제네릭-타입"
+      },
+      {
+        "depth": 2,
+        "text": "타입 추론과 명시의 균형",
+        "id": "타입-추론과-명시의-균형"
+      },
+      {
+        "depth": 2,
+        "text": "variance 감각",
+        "id": "variance-감각"
+      },
+      {
+        "depth": 2,
+        "text": "타입 안정성",
+        "id": "타입-안정성"
+      },
+      {
+        "depth": 2,
+        "text": "Exam/Test Patterns (시험 빈출 패턴)",
+        "id": "examtest-patterns-시험-빈출-패턴"
+      },
+      {
+        "depth": 2,
+        "text": "Related Notes",
+        "id": "related-notes"
+      }
+    ],
+    "tags": [
+      "types",
+      "generics",
+      "inference",
+      "variance",
+      "safety"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:53:06.185Z",
+    "wordCount": 264,
+    "wikiLinks": [
+      {
+        "label": "Basics and Expressions",
+        "target": "scala/01-Scala-Basics/Basics and Expressions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching and ADTs",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Contextual Abstractions",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System Practice",
+        "target": "scala/05-Type-System-and-Generics/Type System Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/01-Scala-Basics/Basics and Expressions",
+        "title": "Basics and Expressions (★★★)",
+        "relativePath": "scala/01-Scala-Basics/Basics and Expressions.md"
+      },
+      {
+        "routePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "title": "Pattern Matching and ADTs (★★★)",
+        "relativePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs.md"
+      },
+      {
+        "routePath": "scala/05-Type-System-and-Generics/Type System Practice",
+        "title": "Type System Practice (8 questions)",
+        "relativePath": "scala/05-Type-System-and-Generics/Type System Practice.md"
+      },
+      {
+        "routePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "title": "Scala 3 Contextual Abstractions (★★★)",
+        "relativePath": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/generic-classes.md",
+      "sources/official/scala-tour-ko/type-inference.md",
+      "sources/official/scala3-book/types-introduction.md",
+      "sources/books/essential-scala.pdf",
+      "sources/books/essential-scala-full.md"
+    ],
+    "part": [
+      "Tour generic classes",
+      "Tour type inference",
+      "Scala 3 types intro",
+      "Essential Scala ch5 pp121-160"
+    ],
+    "keywords": [
+      "types",
+      "generics",
+      "inference",
+      "variance",
+      "safety"
+    ]
+  },
+  "content": "# Type System and Generics (★★★)\n\n#type-system #generics\n\n## Overview Table (한눈에 비교)\n\n| Item | Key Point |\n|------|-----------|\n| generics | 타입을 값처럼 파라미터화 |\n| type inference | 문맥과 초기값에서 타입 유도 |\n| variance | 서브타이핑 관계 전파 규칙 |\n| type safety | 잘못된 조합을 컴파일 시점에 차단 |\n\n## 제네릭 타입\n\n`Stack[T]`, `Box[A]`처럼 타입 파라미터를 사용하면  \n동일한 구조를 여러 타입에 안전하게 재사용할 수 있다.\n\n- 읽기/쓰기 위치를 함께 가지면 기본은 불변(invariant)\n- API가 어떤 방향으로 값을 소비/생산하는지 보면 variance 감각이 잡힌다\n\n## 타입 추론과 명시의 균형\n\n| Case | Recommendation |\n|------|------|\n| 지역 변수, 간단한 초기값 | 추론 사용 |\n| 재귀 메서드 | 반환 타입 명시 |\n| 공개 API | 의도 드러내기 위해 명시 권장 |\n| 복잡한 제네릭 경계 | 명시가 읽기 쉬움 |\n\n## variance 감각\n\n- 공변(`+A`): \"읽기 전용 생산자\"에 가깝다\n- 반공변(`-A`): \"입력을 받는 소비자\"에 가깝다\n- 불변(`A`): 읽기/쓰기 둘 다 있거나 안전성 때문에 고정\n\n> [!tip]\n> variance는 문법을 외우기보다 \"이 타입이 값을 만들어 내는가, 받아들이는가\"로 이해하면 쉽다.\n\n## 타입 안정성\n\n```text\ndeclared type\n    |\n compile-time checks\n    |\nallowed operations only\n```\n\n타입 시스템이 강할수록 런타임 if/else나 예외 처리 부담이 줄어든다.\n\n> [!warning]\n> 타입 추론이 가능하다고 해서 항상 생략하는 것이 좋은 것은 아니다. 읽는 사람이 타입을 바로 알기 어려우면 명시가 낫다.\n\n## Exam/Test Patterns (시험 빈출 패턴)\n\n| Scenario/Keyword | Answer |\n|-------------------|--------|\n| \"여러 타입에 재사용\" | **generics** |\n| \"재귀 메서드\" | 반환 타입 명시 |\n| \"읽기 중심 타입\" | 공변 가능성 검토 |\n| \"쓰기 중심 타입\" | 반공변 가능성 검토 |\n\n## Related Notes\n\n- [Basics and Expressions](#/docs/scala/01-Scala-Basics/Basics%20and%20Expressions)\n- [Pattern Matching and ADTs](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20and%20ADTs)\n- [Scala 3 Contextual Abstractions](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Contextual%20Abstractions)\n- [Type System Practice](#/docs/scala/05-Type-System-and-Generics/Type%20System%20Practice)\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)"
+}

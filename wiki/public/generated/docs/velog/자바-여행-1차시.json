@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "id": "velog/자바-여행-1차시",
+    "relativePath": "velog/자바-여행-1차시.md",
+    "routePath": "velog/자바-여행-1차시",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "자바 여행 1차시",
+    "description": "이 글은 철저히 나의 기준에 맞춰서 만들어진것이다.그리고 C를 어느정도 안다는 가정하에 이해할수있을것이다.JDK ⊃ JRE ⊃ JVMJDK: 자바 애플리케이션을 개발하기 위한 도구와 라이브러리.JRE: 자바 애플리케이션을 실행하기 위한 환경.JVM: 자바 바이트코드를",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "자바 여행 1차시",
+        "id": "자바-여행-1차시"
+      },
+      {
+        "depth": 1,
+        "text": "JKD와 JRE가 무엇인가요?",
+        "id": "jkd와-jre가-무엇인가요"
+      },
+      {
+        "depth": 1,
+        "text": "규칙(?)",
+        "id": "규칙"
+      },
+      {
+        "depth": 3,
+        "text": "1. 하나의 소스파일에는 최대 1개의 public클래스만 존재해야한다.",
+        "id": "1-하나의-소스파일에는-최대-1개의-public클래스만-존재해야한다"
+      },
+      {
+        "depth": 3,
+        "text": "2. 소스파일명과 public클래스의 이름은 무조건 같아야한다.",
+        "id": "2-소스파일명과-public클래스의-이름은-무조건-같아야한다"
+      },
+      {
+        "depth": 3,
+        "text": "3. 아우터 클래스$이너 클래스.class 바이트 코드명은 이렇게 정해진다.",
+        "id": "3-아우터-클래스이너-클래스class-바이트-코드명은-이렇게-정해진다"
+      },
+      {
+        "depth": 1,
+        "text": "이름짓기",
+        "id": "이름짓기"
+      },
+      {
+        "depth": 3,
+        "text": "변수명 int ourClassNum;",
+        "id": "변수명-int-ourclassnum"
+      },
+      {
+        "depth": 3,
+        "text": "상수명 final int MY_DATA;",
+        "id": "상수명-final-int-my_data"
+      },
+      {
+        "depth": 1,
+        "text": "참조자료형",
+        "id": "참조자료형"
+      },
+      {
+        "depth": 1,
+        "text": "쇼트 서킷",
+        "id": "쇼트-서킷"
+      },
+      {
+        "depth": 1,
+        "text": "알아두면 좋은것들",
+        "id": "알아두면-좋은것들"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:08.035Z",
+    "wordCount": 199,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "자바 여행 1차시",
+    "description": "이 글은 철저히 나의 기준에 맞춰서 만들어진것이다.그리고 C를 어느정도 안다는 가정하에 이해할수있을것이다.JDK ⊃ JRE ⊃ JVMJDK: 자바 애플리케이션을 개발하기 위한 도구와 라이브러리.JRE: 자바 애플리케이션을 실행하기 위한 환경.JVM: 자바 바이트코드를 ",
+    "source": "https://velog.io/@pobi/%EC%9E%90%EB%B0%94-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C",
+    "source_slug": "자바-여행-1차시",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-07-31T15:12:09.163Z",
+    "updated_at": "2026-02-22T02:16:35.310Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/69ab3378-a261-49b5-820a-398109c27733/image.jpeg",
+    "tags": []
+  },
+  "content": "# 자바 여행 1차시\n\n> 이 글은 철저히 나의 기준에 맞춰서 만들어진것이다.\n그리고 C를 어느정도 안다는 가정하에 이해할수있을것이다.\n\n# JKD와 JRE가 무엇인가요?\n![](https://velog.velcdn.com/images/pobi/post/de79637f-dea6-4e8f-b3ec-558bf6ee16b6/image.png)\nJDK ⊃ JRE ⊃ JVM\nJDK: 자바 애플리케이션을 개발하기 위한 도구와 라이브러리.\nJRE: 자바 애플리케이션을 실행하기 위한 환경.\nJVM: 자바 바이트코드를 실행하는 가상 머신.\n이정도로 이해하면 될것같다.\n\n# 규칙(?)\n### 1. 하나의 소스파일에는 최대 1개의 public클래스만 존재해야한다.\n### 2. 소스파일명과 public클래스의 이름은 무조건 같아야한다.\n### 3. 아우터 클래스$이너 클래스.class 바이트 코드명은 이렇게 정해진다.\n아우터는 바깥 이너는 안쪽 클래스임\n여기서 바이트코드는 자바의 코드들을 컴퓨터가 이해할수있는 바이트 명령어로 바뀐것이다.\n<br><br>\n# 이름짓기\n### 변수명 int ourClassNum;\n이런식으로 다른 글자들은 대문자로 구분하여준다.\n### 상수명 final int MY_DATA;\n상수명은 대문자로 다쓰기 때문에 구별할수없어서 _를 붙여준다.\n<br><br>\n# 참조자료형\n자바에서는 우리가 잘알고있는 자료형 말고 다른 자료형이 등장한다.\n이른바 참조자료형이다. 참조 자료형에는 어레이, 오브젝트, 스트링이있다.\n이것은 우리가 아는 포인터의 개념과 비슷하다고 생각하면 된다.\n![](https://velog.velcdn.com/images/pobi/post/8a4dd6a4-72c2-4e43-a155-c83d7e8716f7/image.png)\n진짜 같다.\n<br><br>\n# 쇼트 서킷\n쇼트 서킷은 연산을\n수행하는 과정에서 결과가 이미 확정됐을 때 나머지 연산 과정을 생략하는 것을 말한다. 예를들어 (5 > 3) || (3 < 2)를 수행하고자 할 때 왼쪽의 (5 > 3)이 true이므로 오른쪽 항의 결과와 상관없이 결과는 항상 true일 것이다. 따라서 이때는 오른쪽 항인 (3 < 2)를 아예 읽지도 않는 것이 바로 쇼트 서킷이다.\n논리 연산자로 논리 연산을 수행할 때는 쇼트 서킷이 적용되지만, 비트 연산자로 논리 연산을 수행하면 쇼트 서킷이 적용되지 않는다.\n\n\n# 알아두면 좋은것들\n![](https://velog.velcdn.com/images/pobi/post/bae97727-75ae-4ac6-a80d-5b1690b5dffa/image.png)\n![](https://velog.velcdn.com/images/pobi/post/52e790b2-fed5-4033-ac19-f4c88499efc0/image.png)\n![](https://velog.velcdn.com/images/pobi/post/3a75a96c-f54a-49d1-83b8-06aed9eaa1c4/image.png)\n이정도는 대충이라도 아는게 중요할것같다."
+}

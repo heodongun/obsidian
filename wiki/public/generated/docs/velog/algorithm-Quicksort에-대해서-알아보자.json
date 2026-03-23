@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "id": "velog/algorithm-Quicksort에-대해서-알아보자",
+    "relativePath": "velog/algorithm-Quicksort에-대해서-알아보자.md",
+    "routePath": "velog/algorithm-Quicksort에-대해서-알아보자",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "[\b algorithm] Quicksort에 대해서 알아보자",
+    "description": "Quicksort에 대해서 알아보아요.",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Quicksort이란",
+        "id": "quicksort이란"
+      },
+      {
+        "depth": 1,
+        "text": "Quicksort을 어떻게 할까요?",
+        "id": "quicksort을-어떻게-할까요"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.167Z",
+    "wordCount": 187,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "[\b algorithm] Quicksort에 대해서 알아보자",
+    "description": "Quicksort에 대해서 알아보아요.",
+    "source": "https://velog.io/@pobi/algorithm-Quicksort%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90",
+    "source_slug": "algorithm-Quicksort에-대해서-알아보자",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-11-06T02:33:37.020Z",
+    "updated_at": "2026-02-23T17:39:21.640Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/7355d670-928f-44e4-b42f-c00f4458bc12/image.png",
+    "tags": []
+  },
+  "content": "# Quicksort이란\n> 퀵 정렬(Quicksort)은 찰스 앤터니 리처드 호어가 개발한 범용 정렬 알고리즘이다.\n다른 원소와의 비교만으로 정렬을 수행하는 비교 정렬에 속한다.\n퀵 정렬은 n개의 데이터를 정렬할 때, 최악의 경우에는 O(n2)번의 비교를 수행하고, 평균적으로 O(n log n)번의 비교를 수행한다.\n\n우리가 지금껏 배워온 버블정렬이랑 선택정렬 이런것들에 비해서는 굉장히 빠르다.\n파이썬의 sorted도 이 퀵정렬로 만들어졌을정도로 자주 쓰인다.\n<br><br><br>\n# Quicksort을 어떻게 할까요?\n\n1. 리스트 안에 있는 한 요소를 피벗으로 선택\n2. 피벗보다 작은 요소들을 왼쪽으로 옮기고 피벗보다 큰 요소들을 오른쪽으로 옮김\n3. 피벗을 제외한 왼쪽 리스트와 오른쪽 리스트를 다시 정렬하게 되면 전체 리스트가 정렬됨\n\n이것만 들어보면 뭔말인지 모르겠죠?\n제가 쉽게 그림으로 설명해 드릴게요.\n\n![](https://velog.velcdn.com/images/pobi/post/9714ac7e-726e-4e55-89c8-6c70d6a3c31d/image.png)\n\n1. 첫번째 인덱스를 left, 마지막 인덱스를 right로 지정해줘요.\n\n2. 배열의 left값을 피벗이라고 지정을 해줘요.\n3. low는 left, high는 right+1로 지정을 해줘요.\n4. low는 피벗과 비교하여 큰지 확인해주고 high는 작은지 확인을 해줘요.\n5. 만약 둘다 확인을 하여 멈췄다면 둘이 스왑을 해주고 4번으로 돌아가요.\n6. 만약 low와 high값이 바뀌었다면 멈추고 스왑을 진행해준뒤 high값을 리턴해주고 정렬이 될때까지 다시 1번으로 돌아가요.\n<br><br>\n이런식으로 하는것이 Quicksort에요.\n이것을 계속 반복해주면 정렬이 되어있어요.\n\n```\n#include <stdio.h>\n\nvoid swap(int *a, int *b);\nint part(int list[], int left, int right);\nvoid quicksort(int list[], int left, int right);\n\nint main(void) {\n    int a[6] = {3, 4, 214, 14, 1, 4};\n    quicksort(a, 0, 5);\n    for (int i = 0; i <= 5; i++) {\n        printf(\"%d \", a[i]);\n    }\n    return 0;\n}\n\nvoid swap(int *a, int *b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nvoid quicksort(int list[], int left, int right) {\n    if (left < right) {\n        int party = part(list, left, right);\n        quicksort(list, left, party - 1);  \n        quicksort(list, party + 1, right); \n    }\n}\n\nint part(int list[], int left, int right) {\n    int low = left;\n    int high = right + 1;\n    int pivo = list[low];\n    do {\n        do {\n            low++;\n        } while (list[low] < pivo && low <= right);\n        \n        do {\n            high--;\n        } while (list[high] > pivo);\n        \n        if (low < high) {\n            swap(&list[low], &list[high]); \n        }\n    } while (low < high);\n    \n    swap(&list[left], &list[high]);\n    return high;\n}\n```\n저는 코드를 이런식으로 짰어요.\n코드도 저 위에있는 설명을 보면서 이해를 하면 훨씬 편하게 이해할수 있어요.\n<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>\n\n\n팩트는 파이썬은 그냥 sorted딸깍 하면 된다는 사실이에요.\n![](https://velog.velcdn.com/images/pobi/post/71b51283-d530-4aa6-8878-c7244948b3ff/image.png)\n\n![](https://velog.velcdn.com/images/pobi/post/6d4ddc70-258e-4649-ae48-93d4327331e4/image.png)\n그냥 코테는 파이썬으로 하죠."
+}

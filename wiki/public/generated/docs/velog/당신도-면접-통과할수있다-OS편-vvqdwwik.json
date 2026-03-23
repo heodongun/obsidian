@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "id": "velog/당신도-면접-통과할수있다-OS편-vvqdwwik",
+    "relativePath": "velog/당신도-면접-통과할수있다-OS편-vvqdwwik.md",
+    "routePath": "velog/당신도-면접-통과할수있다-OS편-vvqdwwik",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "당신도 면접 통과할수있다 - OS편",
+    "description": "Code 영역: 실행한 프로그램의 코드가 저장되는 메모리 영역입니다.Data 영역: 프로그램의 전역 변수와 static 변수가 저장되는 메모리 영역입니다.Heap 영역: 프로그래머가 직접 공간을 할당(malloc)하거나 해제(free)하는 동적 메모리 영역입니다.Sta",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "운영체제 면접 질문 정리",
+        "id": "운영체제-면접-질문-정리"
+      },
+      {
+        "depth": 2,
+        "text": "1. 프로세스의 메모리 영역",
+        "id": "1-프로세스의-메모리-영역"
+      },
+      {
+        "depth": 2,
+        "text": "2. Multi Process란?",
+        "id": "2-multi-process란"
+      },
+      {
+        "depth": 3,
+        "text": "꼬리질문",
+        "id": "꼬리질문"
+      },
+      {
+        "depth": 2,
+        "text": "3. Multi Thread란?",
+        "id": "3-multi-thread란"
+      },
+      {
+        "depth": 3,
+        "text": "꼬리질문",
+        "id": "꼬리질문-1"
+      },
+      {
+        "depth": 2,
+        "text": "4. 동기화 문제 해결 방법",
+        "id": "4-동기화-문제-해결-방법"
+      },
+      {
+        "depth": 3,
+        "text": "꼬리질문",
+        "id": "꼬리질문-2"
+      },
+      {
+        "depth": 2,
+        "text": "5. Deadlock이란?",
+        "id": "5-deadlock이란"
+      },
+      {
+        "depth": 3,
+        "text": "Deadlock 발생 조건",
+        "id": "deadlock-발생-조건"
+      },
+      {
+        "depth": 3,
+        "text": "Deadlock 해결 방법",
+        "id": "deadlock-해결-방법"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:05.169Z",
+    "wordCount": 383,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "당신도 면접 통과할수있다 - OS편",
+    "description": "Code 영역: 실행한 프로그램의 코드가 저장되는 메모리 영역입니다.Data 영역: 프로그램의 전역 변수와 static 변수가 저장되는 메모리 영역입니다.Heap 영역: 프로그래머가 직접 공간을 할당(malloc)하거나 해제(free)하는 동적 메모리 영역입니다.Sta",
+    "source": "https://velog.io/@pobi/%EB%8B%B9%EC%8B%A0%EB%8F%84-%EB%A9%B4%EC%A0%91-%ED%86%B5%EA%B3%BC%ED%95%A0%EC%88%98%EC%9E%88%EB%8B%A4-OS%ED%8E%B8-vvqdwwik",
+    "source_slug": "당신도-면접-통과할수있다-OS편-vvqdwwik",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-06-27T09:22:13.238Z",
+    "updated_at": "2026-03-21T09:13:49.459Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/d3f23f2a-c023-4d14-8dd0-07f691a3e1bb/image.png",
+    "tags": []
+  },
+  "content": "# 운영체제 면접 질문 정리\n\n## 1. 프로세스의 메모리 영역\n\n- **Code 영역**: 실행한 프로그램의 코드가 저장되는 메모리 영역입니다.\n- **Data 영역**: 프로그램의 전역 변수와 static 변수가 저장되는 메모리 영역입니다.\n- **Heap 영역**: 프로그래머가 직접 공간을 할당(`malloc`)하거나 해제(`free`)하는 동적 메모리 영역입니다.\n- **Stack 영역**: 함수 호출 시 생성되는 지역 변수, 매개변수가 저장되는 임시 메모리 영역입니다.\n\n---\n\n## 2. Multi Process란?\n\nMulti Process란 2개 이상의 프로세스가 동시에 실행되는 것을 의미합니다.  \n여기서 \"동시\"란 동시성(Concurrency)과 병렬성(Parallelism) 두 가지를 포함합니다.\n\n- **동시성**: 하나의 CPU Core에서 여러 프로세스를 짧은 시간 간격으로 번갈아가며 실행하는 방식 (시분할 시스템).\n- **병렬성**: 여러 개의 CPU Core가 각각의 프로세스를 동시에 실행하는 방식.\n\n### 꼬리질문\n\n- **Q1. Process의 Context란?**  \n  → 프로세스의 상태 정보를 의미하며, PCB(Process Control Block)에 저장됩니다.\n\n- **Q2. PCB란?**  \n  → OS가 프로세스를 관리하기 위해 사용하는 자료구조로, 다음과 같은 정보가 저장됩니다:\n    - Process ID\n    - Process State\n    - Program Counter\n    - Register 정보\n    - 메모리 정보 등\n\n- **Q3. Context Switch란?**  \n  → CPU가 다른 프로세스로 전환될 때, 이전 프로세스의 상태를 PCB에 저장하고 새로운 프로세스의 PCB 정보를 불러와 실행 상태로 복원하는 작업입니다.\n\n- **Q5. Multi Process 환경에서의 데이터 통신 방식은?**  \n  → IPC (Inter Process Communication) 방식을 통해 데이터를 주고받습니다. 대표적인 방식:\n    - 메시지 전달(Message Passing)\n    - 공유 메모리(Shared Memory)\n\n- **Q6. 메시지 전달 vs 공유 메모리 장단점**\n  - **공유 메모리**\n    - 장점: 빠름 (커널 관여 없음)\n    - 단점: 동기화 필요 (경쟁 조건 발생 위험)\n  - **메시지 전달**\n    - 장점: 커널의 제어로 안전\n    - 단점: 속도 느림 (커널 개입)\n\n---\n\n## 3. Multi Thread란?\n\nThread는 하나의 Process 내에서 실행되는 작업의 흐름(실행 단위)입니다.  \nMulti Thread는 하나의 프로세스가 여러 작업을 동시에 수행할 수 있도록 합니다.\n\n- 하나의 Process 안에 여러 Thread 존재\n- Stack 영역은 각 Thread가 독립적으로 가지고 있음\n- Code, Data, Heap 영역은 공유\n\n### 꼬리질문\n\n- **Q1. Thread가 독립적인 Stack 메모리를 가지는 이유?**  \n  → Stack에는 함수 호출 정보, 지역 변수 등이 저장되므로, 각 Thread의 독립적인 함수 실행을 위해 별도 Stack 필요\n\n- **Q2. Process vs Thread**\n  - Process: 실행의 단위, 독립적인 자원 할당\n  - Thread: 실행 흐름의 단위, 자원을 공유함\n\n- **Q3. Multi Process vs Multi Thread**\n  - Multi Thread\n    - 장점: 적은 메모리, 빠른 Context Switching\n    - 단점: 동기화 문제 발생, 하나의 Thread 오류 → 전체 영향\n  - Multi Process\n    - 장점: 안정성 높음 (프로세스 간 독립성)\n    - 단점: 리소스 많이 사용, Context Switching 느림\n\n- **Q4. Multi Thread의 장점/단점**\n  - 장점\n    - 적은 메모리 자원 사용\n    - 빠른 생성 및 전환 속도\n  - 단점\n    - 동기화 문제 발생 가능\n    - 하나의 Thread 문제 → 전체 Process 영향 가능성\n\n---\n\n## 4. 동기화 문제 해결 방법\n\n동기화 문제는 여러 Thread/Process가 공유 자원에 동시에 접근할 때 발생합니다.  \n이를 방지하기 위한 대표적인 기법은 다음과 같습니다:\n\n- **Mutex**  \n  - 하나의 Thread만 자원 접근 가능\n  - Lock/Unlock 사용\n  - Binary Semaphore와 유사\n\n- **Semaphore**  \n  - 지정된 개수(S)만큼의 Thread가 자원에 접근 가능\n  - 자원 요청 시 S--, 반환 시 S++\n\n### 꼬리질문\n\n- **Q1. Mutex vs Semaphore**\n  - Mutex: 1개만 접근 (binary)\n  - Semaphore: 여러 개 접근 가능 (counting)\n  - Mutex는 Mutual Exclusion 용도, Semaphore는 Resource Counting 용도\n\n---\n\n## 5. Deadlock이란?\n\n둘 이상의 Process 또는 Thread가 서로가 점유한 자원을 기다리며 무한 대기 상태에 빠지는 것을 의미합니다.\n\n### Deadlock 발생 조건\n\n1. **Mutual Exclusion (상호 배제)**: 하나의 자원은 하나의 프로세스만이 점유 가능  \n2. **Hold and Wait (점유 대기)**: 자원을 보유한 채로 다른 자원을 기다림  \n3. **No Preemption (비선점)**: 다른 프로세스의 자원을 강제로 빼앗을 수 없음  \n4. **Circular Wait (순환 대기)**: 프로세스들이 순환 형태로 자원을 기다림\n\n### Deadlock 해결 방법\n\n- 무시: Deadlock 발생 가능성을 감수하고 그대로 진행\n- 예방: Deadlock 조건 중 하나라도 발생하지 않도록 설계\n- 회피: 자원 할당 시 Deadlock 가능성 예측 후 회피\n- 탐지 및 복구: Deadlock 발생 후 탐지 → 프로세스 종료 또는 자원 회수로 해결"
+}

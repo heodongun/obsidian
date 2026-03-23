@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "id": "velog/자바를-자바라-근찬쌤ver",
+    "relativePath": "velog/자바를-자바라-근찬쌤ver.md",
+    "routePath": "velog/자바를-자바라-근찬쌤ver",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "자바를 자바라 - 근찬쌤ver",
+    "description": "근참쌤과 자바 돌아보기",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Stream",
+        "id": "stream"
+      },
+      {
+        "depth": 3,
+        "text": "1. MAP",
+        "id": "1-map"
+      },
+      {
+        "depth": 3,
+        "text": "2. reduce",
+        "id": "2-reduce"
+      },
+      {
+        "depth": 3,
+        "text": "3. 연습 1",
+        "id": "3-연습-1"
+      },
+      {
+        "depth": 3,
+        "text": "4. 연습 2",
+        "id": "4-연습-2"
+      },
+      {
+        "depth": 1,
+        "text": "Lambda",
+        "id": "lambda"
+      },
+      {
+        "depth": 3,
+        "text": "예제 1",
+        "id": "예제-1"
+      },
+      {
+        "depth": 3,
+        "text": "예제 2",
+        "id": "예제-2"
+      },
+      {
+        "depth": 3,
+        "text": "연습문제 1",
+        "id": "연습문제-1"
+      },
+      {
+        "depth": 3,
+        "text": "연습문제 2",
+        "id": "연습문제-2"
+      },
+      {
+        "depth": 1,
+        "text": "Optional",
+        "id": "optional"
+      },
+      {
+        "depth": 1,
+        "text": "WildCard",
+        "id": "wildcard"
+      },
+      {
+        "depth": 3,
+        "text": "예시 1",
+        "id": "예시-1"
+      },
+      {
+        "depth": 3,
+        "text": "예시 2",
+        "id": "예시-2"
+      },
+      {
+        "depth": 3,
+        "text": "연습 1",
+        "id": "연습-1"
+      },
+      {
+        "depth": 3,
+        "text": "연습 2",
+        "id": "연습-2"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:06.229Z",
+    "wordCount": 388,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "자바를 자바라 - 근찬쌤ver",
+    "description": "근참쌤과 자바 돌아보기",
+    "source": "https://velog.io/@pobi/%EC%9E%90%EB%B0%94%EB%A5%BC-%EC%9E%90%EB%B0%94%EB%9D%BC-%EA%B7%BC%EC%B0%AC%EC%8C%A4ver",
+    "source_slug": "자바를-자바라-근찬쌤ver",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-03-17T11:34:57.782Z",
+    "updated_at": "2026-03-21T07:41:55.393Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/8c888752-c4f4-4dc5-8686-7957123b39a0/image.jpg",
+    "tags": []
+  },
+  "content": "# Stream\n> Java의 Stream API 는 Java 8 에서 도입되어 데이터 컬렉션을 함수형 스타일로 처리할 수 있게 하는 기능이다. 이는 데이터를 추상화하고 처리하는 다양한 연산을 수행할 수 있게 해준다.\n\n이런 친구인데 짧게 요약하자면 리스트 돌린다고 for문 돌리지말라고 만든 녀석이다.\n\n예제를 보며 이해를 해보도록 하자\n<br><br>\n### 1. MAP\n```\npublic class StreamMapExample {\n    public static void main(String[] args) {\n        List<String> names= Arrays.asList(\"John\",\"anaa\",\"kimch\",\"gukbab\");\n        List<String> upperCaseNames=names.stream().map(s->s.toUpperCase()).collect(Collectors.toList());\n        System.out.println(upperCaseNames);\n    }\n}\n```\n첫번째로 봐볼것은 map이다. \nmap은 각 요소들에 대해 map안에있는 함수를 적용시키는 놈이다.\n```\nmap(s -> s.toUpperCase())\n```\ns->이게 뭐냐고 물으신다면 아래에 나오는 람다식을 보도록하자\n<br><br>\n### 2. reduce\n```\npublic class StreamReduceExample {\n    public static void main(String[] args) {\n        List<Integer> numbers= Arrays.asList(1,2,3,4,5);\n        Integer reduce = numbers.stream().reduce(0, (a, b) -> a + b);\n        System.out.println(\"reduce = \" + reduce);\n    }\n}\n```\nreduce는 여러가지의 값을 하나로 합칠때 사용이된다.\n예를 들면 리스트의 합을 구해야할때같이 말이다.\n<br><br>\n### 3. 연습 1\n```\npublic class Practice1 {\n    public static void main(String[] args) {\n        List<Integer> list = new ArrayList<>();\n        list.add(1);\n        list.add(2);\n        list.add(3);\n        list.add(4);\n        list.add(5);\n        list.add(6);\n        list.add(7);\n        list.add(8);\n        int reduce = list.stream().filter(n -> n % 2 == 0).map(n -> n * n).reduce(0,Integer::sum);\n        System.out.println(reduce);\n    }\n}\n```\n이게 뭐하는 코드일까 생각해보자\n당연히 모르겠지 filter를 처음보니까 그래도 느낌같은 느낌으로 본다면\n짝수만 필터링하고 제곱하고 그 값의 합을 구하는 느낌의 코드라는것은 짐작이 갈것이다.\n좋다 다음으로 가자\n<br><br>\n### 4. 연습 2\n```\npublic class Practice2 {\n    public static void main(String[] args) {\n        List<String> list = new ArrayList<>();\n        list.add(\"A\");\n        list.add(\"B\");\n        list.add(\"C\");\n        list.add(\"D\");\n        int reduce = list.stream().map(String::length).reduce(0,Integer::sum);\n        System.out.println(\"reduce = \" + reduce);\n    }\n}\n```\n와 눈에 한먼제 들어온다 그쵸 map을 사용하여 문자열의 길이를 구한다음 reduce를 써서 그 값들의 합을 구한다. 정말 간단한 문제였다.\n\n<br><br>\n# Lambda\n람다를 알아보자 여러분들은 스프링 시큐리티를 하다가 이런놈들을 굉장히 자주 마주칠것이다. 그럴때를 대비해 알고가서 덜 아프게 맞도록 하자\n```\n람다(Lambda)는 익명 함수로, 특정 동작을 간단하게 표현할 수 있는 함수형 프로그래밍의 구성 요소입니다. \n--뜻을 찾아봤는데 안나오길래 지피티를 인용하였다.--\n```\n\n이 람다는 정말 알고 보면 정말 쉬운데 모르고 보면 머리아프다. 이번에 잘배워보자\n\n```\n(int a, int b) -> a + b;\n\n```\n\n이렇게 그냥 함수를 (매개변수)->함수의 내용;\n이런식으로 적는다고 생각하면 된다 정말 쉽죠?\n<br><br>\n### 예제 1\n```\n@FunctionalInterface\ninterface Calculator {\n    int operate(int a, int b);\n}\n\n/**\n * 인터페이스에 추상화메서드를 2개 이상있으면 람다를 못씀\n * @FunctionalInterface는 추상화메서드는 한개밖에 못쓰게 막음\n */\npublic class LambdaBasicExample {\n    public static void main(String[] args) {\n        //Calculator 계산기\n        Calculator add = (a, b) -> a + b;\n        Calculator multiply = (a, b) -> a * b;\n\n        System.out.println(\"5 + 6 = \" + add.operate(5,6));\n        System.out.println(\"5 + 6 = \" + multiply.operate(5,6));\n    }\n}\n```\n이렇게도 쓸수있다. caculator이라는 자료형의 add와 multiply를 만들어서 implement한것과 같은 효과를 볼수있다.\n\n<br><br>\n### 예제 2\n```\npublic class LambdaFilterExample {\n    public static void main(String[] args) {\n        List<String> names = Arrays.asList(\"John\", \"jane\");\n        List<String> filteredNames = names.stream()\n                .filter(name -> name.startsWith(\"j\"))\n                .collect(Collectors.toList());\n\n        System.out.println(filteredNames);\n    }\n}\n```\n이쪽에서 filter안에들어가는것도 람다식이다.\n<br><br>\n### 연습문제 1\n```\npublic class Practice1 {\n    public static void main(String[] args) {\n        ArrayList<Integer> list = new ArrayList<>();\n        list.add(1);\n        list.add(2);\n        list.add(3);\n        list.add(4);\n        list.add(5);\n        list.stream().filter(number->number%2==0).forEach(System.out::println);\n    }\n}\n```\n숫자리스트에서 짝수만 출력해주는 코드이다.\n<br><br>\n### 연습문제 2\n```\npublic class Practice2 {\n    public static void main(String[] args) {\n        List<String> str=new ArrayList<>();\n        str.add(\"acrobar\");\n        str.add(\"baby\");\n        str.add(\"cry\");\n        str.stream().filter(name->name.length()>=5).forEach(System.out::println);\n    }\n}\n```\n문자열 5이상인것들을 출력해준다.\n\n<br><br>\n# Optional\n우리가 널이 들어올지 모르고 .length()이런짓을 하면 정말 대참사이다.\nNull인데 저런 내장함수를 쓰면 NPE라고 불리는 null pointer exception이 발생하기때문이다 이러면 정말 치명적인 장애가 될수있다. 그래서 그걸 방지하기 위해 optional을 사용해준다.\n\n```\npublic class NullPointerExample {\n    public static void main(String[] args) {\n        Optional<String> value=getFromServer();\n        int length=value.map(String::length).orElse(0);\n        System.out.println(\"length = \" + length);\n    }\n\n    public static Optional<String> getFromServer(){\n        return Optional.ofNullable(\"123456789\");\n    }\n}\n```\nOptional 이런식으로 만들어주게되면 널이 될수있다는것을 미리 예고해서 NPE가 뜨는 치명적인 상황을 방지할수있다.\n<br><br>\n# WildCard\n> 와일드카드(wild card)는 다음을 가리킨다. 와일드카드는 스포츠 경기 대회에서 정원 외 참가를 뜻한다. 테니스나 야구 등에서 적용하는 특별 규칙이다. 와일드카드는 플레잉 카드 등에서 다른 카드의 대용이 가능한 특수한 카드다.\n\n다른 곳의 와일드카드처럼 우리 와일드카드도 어떤것도 들어갈수있다는 말이다.\n<br><br>\n\n### 예시 1\n```\npublic class WildCardExample {\n    public static void printList(List<?> list) {\n        list.forEach(System.out::println);\n    }\n    public static void main(String[] args) {\n        List<String> strList= Arrays.asList(\"a\",\"b\",\"c\");\n        List<Integer> intList=Arrays.asList(1,2,3);\n        printList(strList);\n        printList(intList);\n    }\n}\n\n```\n\n이렇게 프린트 리스트하는것도 List<?>이렇게 받음으로써 어떤것도 받을수있다.\n<br><br>\n### 예시 2\n```\npublic class BoundedWildCardExample {\n\n    public static double getAverage(List<? extends Number> numbers) {\n//        return numbers.stream()\n//                .mapToDouble(Number::doubleValue)\n//                .average()\n//                .orElse(0.0);\n        double sum=0.0;\n        for (Number number : numbers) {\n            sum+=number.doubleValue();\n        }\n        return sum/numbers.size();\n    }\n\n    public static void main(String[] args) {\n        List<Double> doubleList= Arrays.asList(1.5,2.5,3.5);\n        List<Integer> intList=Arrays.asList(1,2,3);\n        System.out.println(\"intList.getAverage(intList) = \" + getAverage(intList));\n        System.out.println(\"doubleList.getAverage(doubleList) = \" + getAverage(doubleList));\n    }\n}\n\n```\n하지만 우리는 Long이나 int같이 number에 상속되는 것만 받고싶을때도 있다List<? extends Number>\n이런식으로 사용하면 된다\n<br><br>\n### 연습 1\n```\npublic class Practice1 {\n\n    public static double maxx(List<? extends Number> list){\n        return list.stream().mapToDouble(Number::doubleValue).max().orElse(0);\n    }\n\n    public static void main(String[] args) {\n        List<Integer> intList = Arrays.asList(1,2,3,4,5);\n        List<Double> doubleList = Arrays.asList(1.5,2.5,3.5,4.5,5.5);\n        System.out.println(\"maxx(intList) = \" + maxx(intList));\n        System.out.println(\"maxx(doubleList) = \" + maxx(doubleList));\n\n    }\n}\n\n```\n이런식으로 리스트를 받아와서 더블로 형변환을 해주고 맥스를 찾을수도있다.\n<br><br>\n### 연습 2\n```\npublic class Practice2 {\n    public static Long sizz(List<?> list){\n        return list.stream().count();\n    }\n    public static void main(String[] args) {\n        List<String> stringList = Arrays.asList(\"a\", \"b\", \"c\");\n        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);\n        List<Double> doubleList = Arrays.asList(1.1, 2.2, 3.3, 4.4, 5.5);\n        System.out.println(\"sizz(stringList) = \" + sizz(stringList));\n        System.out.println(\"sizz(integerList) = \" + sizz(integerList));\n        System.out.println(\"sizz(doubleList) = \" + sizz(doubleList));\n    }\n}\n\n```\n  \n 이렇게 리스트의 수를 알아내는건 타입을 한정지을 필요가 없기 때문에 ?로 두면 모든 타입이 가능해진다.\n  \n<br><br>\n  # Async\n  ```\npublic class AsyncExample {\n    public static void main(String[] args) throws InterruptedException {\n        CompletableFuture.supplyAsync(()->{\n            try {\n                Thread.sleep(200);\n            } catch (InterruptedException e) {\n                throw new RuntimeException(e);\n            }\n            return \"비동기 작업이 드디어 완료\";\n        }).thenAccept(System.out::println);\n        System.out.println(\"메인스레드 실행중........\");\n        Thread.sleep(200);\n    }\n}\n\n```\n  이코드를 보며 동기와 비동기를 이해하여 보자\n  \n\n동기 처리는 순차적으로 작업을 실행한다 하나의 작업이 완료되어야만 다음 작업이 실행된다.\n즉, 현재 작업이 끝나기 전에 다른 작업을 시작할 수 없다\n예를들어, Thread.sleep(200)이 호출되면 그 작업이 끝날 때까지 다른 작업이 실행되지 않는다. 그래서 메인 스레드는 200ms 동안 대기한다.\n  그래서 저 코드를 실행시키면 메인스레드 실행중이 먼저뜨고 조금 기다린후 비동기 작업이 드디어완료가 나올것이다."
+}

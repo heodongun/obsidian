@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "id": "velog/요즘-CLI-툴이-계속-나오는-이유",
+    "relativePath": "velog/요즘-CLI-툴이-계속-나오는-이유.md",
+    "routePath": "velog/요즘-CLI-툴이-계속-나오는-이유",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "요즘 CLI 툴이 계속 나오는 이유",
+    "description": "이번 주 GeekNews만 봐도 흐름이 선명하다.gogcli, gws, mogcli 같은 도구가 한꺼번에 보였고, 공통점도 분명했다.전부 “사람도 쓰지만 AI 에이전트가 쓰기 좋게 만든 CLI”라는 점이다.예를 들어gws → humans and AI agents를 위",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "요즘 CLI 툴이 계속 나오는 이유",
+        "id": "요즘-cli-툴이-계속-나오는-이유"
+      },
+      {
+        "depth": 2,
+        "text": "AI가 발전할수록, 가장 쓰기 편한 인터페이스가 다시 터미널이 되기 때문",
+        "id": "ai가-발전할수록-가장-쓰기-편한-인터페이스가-다시-터미널이-되기-때문"
+      },
+      {
+        "depth": 1,
+        "text": "AI에게 CLI가 유리한 이유",
+        "id": "ai에게-cli가-유리한-이유"
+      },
+      {
+        "depth": 1,
+        "text": "CLI는 이미 AI가 잘 아는 인터페이스다",
+        "id": "cli는-이미-ai가-잘-아는-인터페이스다"
+      },
+      {
+        "depth": 1,
+        "text": "CLI의 장점: 사람이 재현할 수 있다",
+        "id": "cli의-장점-사람이-재현할-수-있다"
+      },
+      {
+        "depth": 1,
+        "text": "요즘 CLI는 사람이 아니라 AI를 위해 설계된다",
+        "id": "요즘-cli는-사람이-아니라-ai를-위해-설계된다"
+      },
+      {
+        "depth": 1,
+        "text": "예시: gws",
+        "id": "예시-gws"
+      },
+      {
+        "depth": 1,
+        "text": "예시: mogcli",
+        "id": "예시-mogcli"
+      },
+      {
+        "depth": 1,
+        "text": "예시: gogcli",
+        "id": "예시-gogcli"
+      },
+      {
+        "depth": 1,
+        "text": "왜 지금 이런 도구들이 나오나",
+        "id": "왜-지금-이런-도구들이-나오나"
+      },
+      {
+        "depth": 1,
+        "text": "CLI vs API vs GUI",
+        "id": "cli-vs-api-vs-gui"
+      },
+      {
+        "depth": 1,
+        "text": "CLI + MCP 구조",
+        "id": "cli--mcp-구조"
+      },
+      {
+        "depth": 1,
+        "text": "CLI는 복고가 아니다",
+        "id": "cli는-복고가-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.992Z",
+    "wordCount": 467,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "요즘 CLI 툴이 계속 나오는 이유",
+    "description": " 이번 주 GeekNews만 봐도 흐름이 선명하다.gogcli, gws, mogcli 같은 도구가 한꺼번에 보였고, 공통점도 분명했다.전부 “사람도 쓰지만 AI 에이전트가 쓰기 좋게 만든 CLI”라는 점이다.예를 들어gws → humans and AI agents를 위",
+    "source": "https://velog.io/@pobi/%EC%9A%94%EC%A6%98-CLI-%ED%88%B4%EC%9D%B4-%EA%B3%84%EC%86%8D-%EB%82%98%EC%98%A4%EB%8A%94-%EC%9D%B4%EC%9C%A0",
+    "source_slug": "요즘-CLI-툴이-계속-나오는-이유",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-09T23:56:52.978Z",
+    "updated_at": "2026-03-23T03:30:49.859Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/b00393a2-ab7f-480d-bd89-5c80b56b3695/image.png",
+    "tags": []
+  },
+  "content": "# 요즘 CLI 툴이 계속 나오는 이유\n\n![](https://velog.velcdn.com/images/pobi/post/b00393a2-ab7f-480d-bd89-5c80b56b3695/image.png) \n## AI가 발전할수록, 가장 쓰기 편한 인터페이스가 다시 터미널이 되기 때문\n\n이번 주 GeekNews만 봐도 흐름이 선명하다.  \n`gogcli`, `gws`, `mogcli` 같은 도구가 한꺼번에 보였고, 공통점도 분명했다.\n\n전부 **“사람도 쓰지만 AI 에이전트가 쓰기 좋게 만든 CLI”**라는 점이다.\n\n예를 들어\n\n- **gws** → humans and AI agents를 위한 Google Workspace CLI  \n- **mogcli** → agent-friendly Microsoft 365 CLI  \n- **gogcli** → JSON-first 출력, allowlist, 다중 계정 관리\n\n이건 단순한 CLI 유행이 아니라  \n**AI가 실제 사용자로 등장하면서 생긴 인터페이스 변화**다.\n\n---\n\n# AI에게 CLI가 유리한 이유\n\n많은 사람들이 이렇게 생각한다.\n\n> AI가 발전하면 GUI를 더 잘 다루게 되지 않을까?\n\n하지만 실제로는 반대 방향이 나타나고 있다.\n\nAI에게 가장 다루기 쉬운 인터페이스는  \n**터미널**이다.\n\n이유는 간단하다.\n\nCLI는\n\n- 예측 가능하고\n- 재현 가능하고\n- 구조화된 출력이 있고\n- 자동화하기 쉽기 때문이다.\n\n---\n\n# CLI는 이미 AI가 잘 아는 인터페이스다\n\nLLM은 수많은 데이터를 학습했다.\n\n그 안에는\n\n- man pages\n- shell scripts\n- StackOverflow CLI 답변\n- DevOps 명령어\n\n같은 것들이 엄청나게 많다.\n\n즉 AI는 이미\n\n```\ngrep\njq\ncurl\ngit\naws\nkubectl\n```\n\n같은 CLI 문화에 익숙하다.\n\n그래서 새로운 프로토콜을 배우는 것보다  \n**기존 CLI를 사용하는 것이 훨씬 자연스럽다.**\n\n---\n\n# CLI의 장점: 사람이 재현할 수 있다\n\nAI 시스템에서 가장 중요한 문제 중 하나는  \n**재현 가능성**이다.\n\n예를 들어 AI가 이런 명령을 실행했다면\n\n```bash\ngws drive files list\n```\n\n사람도 그대로 실행할 수 있다.\n\n즉\n\n```\nAI 실행\n↓\n사람 재현\n↓\n문제 확인\n```\n\n이 구조가 가능하다.\n\nGUI 자동화에서는 이런 재현이 훨씬 어렵다.\n\n---\n\n# 요즘 CLI는 사람이 아니라 AI를 위해 설계된다\n\n과거 CLI\n\n```\n사람 중심 CLI\n```\n\n요즘 CLI\n\n```\nAgent-friendly CLI\n```\n\n차이는 꽤 크다.\n\n예전 CLI 특징\n\n- 사람이 읽기 좋은 출력\n- 짧은 플래그\n- 직관적인 명령\n\n요즘 CLI 특징\n\n- JSON 출력\n- deterministic 결과\n- schema introspection\n- dry-run\n- 안전한 allowlist\n\n즉\n\n> **AI가 안정적으로 실행할 수 있는 CLI**\n\n가 중요해졌다.\n\n---\n\n# 예시: gws\n\n`gws`는 Google Workspace CLI다.\n\n특징\n\n- Discovery API 기반 명령 자동 생성\n- JSON 출력\n- agent skills\n- Workspace API 전체 지원\n\n즉\n\n```\nGmail\nDrive\nDocs\nSheets\nCalendar\n```\n\n모두 CLI에서 다룰 수 있다.\n\n---\n\n# 예시: mogcli\n\n`mogcli`는 Microsoft Graph 기반 CLI다.\n\n특징\n\n- Mail\n- Calendar\n- OneDrive\n- Groups\n\n또한\n\n- `--json`\n- `--dry-run`\n- multi-profile\n\n같은 기능이 있다.\n\n---\n\n# 예시: gogcli\n\n`gogcli`는 Google Workspace 전체를 하나의 CLI로 묶는다.\n\n특징\n\n- JSON-first 출력\n- multi-account\n- secure credential storage\n- command allowlist\n\n즉\n\n> SaaS 서비스를 CLI 인터페이스로 노출한다.\n\n---\n\n# 왜 지금 이런 도구들이 나오나\n\nAI는 이제 단순히 질문에 답하는 모델이 아니다.\n\nAI는 이제\n\n```\n코드 수정\n파일 생성\n이메일 읽기\n문서 작성\n캘린더 조회\n파일 이동\n```\n\n같은 **실제 작업**을 수행한다.\n\n문제는 여기다.\n\nAI가 일을 하려면  \n**외부 시스템과 연결되어야 한다.**\n\n그 연결 인터페이스로 가장 간단한 것이 CLI다.\n\n---\n\n# CLI vs API vs GUI\n\nAI 기준 비교\n\n| 인터페이스 | 장점 | 단점 |\n|---|---|---|\n| GUI | 사람 친화적 | 자동화 어려움 |\n| API | 강력함 | 구현 복잡 |\n| CLI | 단순 + 자동화 쉬움 | 인터페이스 제한 |\n\n그래서 요즘 흐름은\n\n```\nSaaS\n↓\nAPI\n↓\nCLI\n↓\nAI Agent\n```\n\n이 구조가 된다.\n\n---\n\n# CLI + MCP 구조\n\n요즘 구조는 보통 이렇게 된다.\n\n```\nAI Agent\n↓\nCLI\n↓\nMCP / Tools\n↓\nSaaS\n```\n\n즉 CLI는\n\n> **AI 실행 계층**\n\n이 된다.\n\n---\n\n# CLI는 복고가 아니다\n\n많은 사람들이 CLI 붐을\n\n```\n개발자 취향\n```\n\n으로 생각한다.\n\n하지만 실제 이유는 다르다.\n\nCLI는\n\n- 가장 단순한 인터페이스\n- 가장 예측 가능한 실행\n- 가장 쉬운 자동화\n\n이기 때문이다.\n\nAI 시대에서는 이 특성이 훨씬 중요해진다.\n\n---\n\n# 결론\n\n요즘 CLI 툴이 계속 나오는 이유는 단순하다.\n\n> **AI가 실제 사용자로 등장했기 때문이다.**\n\nAI에게 가장 적합한 인터페이스는\n\n- 단순하고\n- 재현 가능하고\n- 자동화 가능한\n\n인터페이스다.\n\n그리고 그 조건을 가장 잘 만족하는 것이\n\n> **CLI**\n\n다.\n\n그래서 지금 등장하는\n\n- gogcli\n- gws\n- mogcli\n\n같은 도구들은 단순한 CLI가 아니다.\n\n이건\n\n> **AI가 소프트웨어를 사용하는 새로운 방식의 시작**\n\n이다."
+}

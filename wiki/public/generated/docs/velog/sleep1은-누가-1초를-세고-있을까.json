@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "id": "velog/sleep1은-누가-1초를-세고-있을까",
+    "relativePath": "velog/sleep1은-누가-1초를-세고-있을까.md",
+    "routePath": "velog/sleep1은-누가-1초를-세고-있을까",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "sleep(1)은 누가 1초를 세고 있을까?",
+    "description": "우리는 너무 자연스럽게 이렇게 생각한다.sleep(1) → 1초 기다림근데 진짜로 누가 1초를 세고 있을까?언어? 런타임?아니면 CPU가 속으로 “하나… 둘…” 하고 있을까?결론부터 말하면:❌ 프로그래밍 언어는 “초를 세지 않는다”✅ OS + 하드웨어 타이머 + 스케줄",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "sleep(1)은 누가 1초를 세고 있을까?",
+        "id": "sleep1은-누가-1초를-세고-있을까"
+      },
+      {
+        "depth": 3,
+        "text": "언어가 아니라 OS와 하드웨어가 시간을 만든다",
+        "id": "언어가-아니라-os와-하드웨어가-시간을-만든다"
+      },
+      {
+        "depth": 1,
+        "text": "1. `sleep`의 진짜 의미",
+        "id": "1-sleep의-진짜-의미"
+      },
+      {
+        "depth": 1,
+        "text": "2. 전체 흐름 (핵심 구조)",
+        "id": "2-전체-흐름-핵심-구조"
+      },
+      {
+        "depth": 1,
+        "text": "3. 언어는 사실 OS한테 맡긴다",
+        "id": "3-언어는-사실-os한테-맡긴다"
+      },
+      {
+        "depth": 1,
+        "text": "4. OS는 어떻게 시간을 다룰까?",
+        "id": "4-os는-어떻게-시간을-다룰까"
+      },
+      {
+        "depth": 3,
+        "text": "4가지 핵심 구성요소가 있다:",
+        "id": "4가지-핵심-구성요소가-있다"
+      },
+      {
+        "depth": 2,
+        "text": "4.1 Clock Source (시간 읽기)",
+        "id": "41-clock-source-시간-읽기"
+      },
+      {
+        "depth": 2,
+        "text": "4.2 Clock Event (깨우기 예약)",
+        "id": "42-clock-event-깨우기-예약"
+      },
+      {
+        "depth": 2,
+        "text": "4.3 Timer 시스템 (hrtimer)",
+        "id": "43-timer-시스템-hrtimer"
+      },
+      {
+        "depth": 2,
+        "text": "4.4 Scheduler (진짜 중요)",
+        "id": "44-scheduler-진짜-중요"
+      },
+      {
+        "depth": 1,
+        "text": "5. 하드웨어 레벨까지 내려가보자",
+        "id": "5-하드웨어-레벨까지-내려가보자"
+      },
+      {
+        "depth": 1,
+        "text": "6. 그래서 sleep은 정확하지 않다",
+        "id": "6-그래서-sleep은-정확하지-않다"
+      },
+      {
+        "depth": 2,
+        "text": "6.1 타이머 해상도 (resolution)",
+        "id": "61-타이머-해상도-resolution"
+      },
+      {
+        "depth": 2,
+        "text": "6.2 스케줄러 지연",
+        "id": "62-스케줄러-지연"
+      },
+      {
+        "depth": 2,
+        "text": "6.3 OS 최적화 (timer slack)",
+        "id": "63-os-최적화-timer-slack"
+      },
+      {
+        "depth": 2,
+        "text": "6.4 이벤트 루프 (JS)",
+        "id": "64-이벤트-루프-js"
+      },
+      {
+        "depth": 1,
+        "text": "7. sleep vs delay (진짜 중요한 차이)",
+        "id": "7-sleep-vs-delay-진짜-중요한-차이"
+      },
+      {
+        "depth": 2,
+        "text": "sleep (일반적인 경우)",
+        "id": "sleep-일반적인-경우"
+      },
+      {
+        "depth": 2,
+        "text": "delay (busy wait)",
+        "id": "delay-busy-wait"
+      },
+      {
+        "depth": 1,
+        "text": "8. 더 깊은 개념: monotonic vs realtime",
+        "id": "8-더-깊은-개념-monotonic-vs-realtime"
+      },
+      {
+        "depth": 2,
+        "text": "realtime (벽시계)",
+        "id": "realtime-벽시계"
+      },
+      {
+        "depth": 2,
+        "text": "monotonic (경과 시간)",
+        "id": "monotonic-경과-시간"
+      },
+      {
+        "depth": 1,
+        "text": "9. 실무에서 중요한 팁",
+        "id": "9-실무에서-중요한-팁"
+      },
+      {
+        "depth": 2,
+        "text": "❌ 이렇게 하면 drift 생김",
+        "id": "-이렇게-하면-drift-생김"
+      },
+      {
+        "depth": 2,
+        "text": "✅ 이렇게 해야 정확함",
+        "id": "-이렇게-해야-정확함"
+      },
+      {
+        "depth": 1,
+        "text": "10. 진짜 결론",
+        "id": "10-진짜-결론"
+      },
+      {
+        "depth": 1,
+        "text": "🔥 한 줄 요약",
+        "id": "-한-줄-요약"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:56.350Z",
+    "wordCount": 428,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "sleep(1)은 누가 1초를 세고 있을까?",
+    "description": "우리는 너무 자연스럽게 이렇게 생각한다.sleep(1) → 1초 기다림근데 진짜로 누가 1초를 세고 있을까?언어? 런타임?아니면 CPU가 속으로 “하나… 둘…” 하고 있을까?결론부터 말하면:❌ 프로그래밍 언어는 “초를 세지 않는다”✅ OS + 하드웨어 타이머 + 스케줄",
+    "source": "https://velog.io/@pobi/sleep1%EC%9D%80-%EB%88%84%EA%B0%80-1%EC%B4%88%EB%A5%BC-%EC%84%B8%EA%B3%A0-%EC%9E%88%EC%9D%84%EA%B9%8C",
+    "source_slug": "sleep1은-누가-1초를-세고-있을까",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-18T01:58:20.142Z",
+    "updated_at": "2026-03-23T02:49:30.574Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/f02720ac-2170-43d9-b4ce-eaaac509d352/image.png",
+    "tags": []
+  },
+  "content": "# sleep(1)은 누가 1초를 세고 있을까?\n\n![](https://velog.velcdn.com/images/pobi/post/f02720ac-2170-43d9-b4ce-eaaac509d352/image.png)\n\n### 언어가 아니라 OS와 하드웨어가 시간을 만든다\n\n우리는 너무 자연스럽게 이렇게 생각한다.\n\n> `sleep(1)` → 1초 기다림\n\n근데 진짜로 **누가 1초를 세고 있을까?**\n\n언어? 런타임?\n아니면 CPU가 속으로 “하나… 둘…” 하고 있을까?\n\n결론부터 말하면:\n\n> ❌ 프로그래밍 언어는 “초를 세지 않는다”\n> ✅ OS + 하드웨어 타이머 + 스케줄러가 시간을 만든다\n\n이 글에서는 그걸 **끝까지 파고들어서** 설명해보겠다.\n\n---\n\n# 1. `sleep`의 진짜 의미\n\n우리가 쓰는 대부분의 `sleep`은 이런 의미다:\n\n```text\n\"지금 실행을 멈추고,\n이 시각 이후에 다시 실행되게 해줘\"\n```\n\n즉, 핵심은 이거다:\n\n> ❌ \"1초 동안 기다리기\"\n> ✅ \"1초 후에 깨워달라고 예약하기\"\n\n이건 엄청 중요한 차이다.\n\n---\n\n# 2. 전체 흐름 (핵심 구조)\n\n`time.sleep(1)`이 실행되면 내부에서 이런 일이 일어난다:\n\n```text\n[언어 코드]\n   ↓\n[런타임]\n   ↓\n[OS 시스템콜 (nanosleep 등)]\n   ↓\n[커널 타이머 등록]\n   ↓\n[하드웨어 타이머 인터럽트]\n   ↓\n[스레드 깨움]\n   ↓\n[스케줄러가 CPU 다시 할당]\n```\n\n한 줄 요약:\n\n> sleep은 “시간을 재는 함수”가 아니라\n> **“미래 시점에 실행을 예약하는 시스템”이다**\n\n---\n\n# 3. 언어는 사실 OS한테 맡긴다\n\n예를 들어 Python:\n\n```python\nimport time\ntime.sleep(1)\n```\n\n이건 내부적으로 대략 이렇게 된다:\n\n```c\nnanosleep(1초)\n```\n\nJava:\n\n```java\nThread.sleep(1000);\n```\n\n→ OS 타이머 사용\n\nRust:\n\n```rust\nstd::thread::sleep(Duration::from_secs(1));\n```\n\n→ 역시 OS 타이머\n\n---\n\n👉 즉:\n\n> 대부분의 언어는 직접 시간을 재지 않는다\n> 그냥 OS에게 맡긴다\n\n---\n\n# 4. OS는 어떻게 시간을 다룰까?\n\n여기부터가 진짜 핵심이다.\n\nOS는 “타이머 하나”로 동작하지 않는다.\n\n### 4가지 핵심 구성요소가 있다:\n\n---\n\n## 4.1 Clock Source (시간 읽기)\n\n```text\n\"지금 몇 시냐?\"\n```\n\n이걸 담당한다.\n\n특징:\n\n* 계속 증가하는 카운터\n* 절대 뒤로 가지 않음 (monotonic)\n* 나노초 단위로 변환 가능\n\n예:\n\n```text\n123456789012 ticks → ns 변환\n```\n\n👉 핵심:\n\n> 시간을 “세는 게 아니라”\n> **이미 흐르고 있는 값을 읽는다**\n\n---\n\n## 4.2 Clock Event (깨우기 예약)\n\n```text\n\"이 시각에 인터럽트 발생시켜라\"\n```\n\n역할:\n\n* 특정 시간에 CPU 인터럽트 발생\n* sleep 깨우기 트리거\n\n👉 핵심:\n\n> 시간을 체크하는 게 아니라\n> **미래에 알람을 맞춘다**\n\n---\n\n## 4.3 Timer 시스템 (hrtimer)\n\nOS 내부에는 타이머 큐가 있다.\n\n```text\nsleep(1)\n→ 현재 시간 + 1초 = deadline\n→ 타이머 큐에 등록\n```\n\n구조:\n\n* red-black tree\n* 시간순 정렬\n\n👉 그래서 OS는:\n\n> 가장 가까운 타이머만 신경쓴다\n\n---\n\n## 4.4 Scheduler (진짜 중요)\n\n여기서 많은 사람들이 틀린다.\n\n> 시간이 끝났다고 바로 실행되는 게 아니다\n\n```text\n타이머 만료\n→ 스레드 \"깨울 준비됨\"\n→ 스케줄러가 CPU 줄 때까지 기다림\n```\n\n👉 핵심:\n\n> sleep 끝 = 실행 시작 ❌\n> sleep 끝 = 실행 가능 상태 ⭕\n\n---\n\n# 5. 하드웨어 레벨까지 내려가보자\n\nOS 아래에는 하드웨어 타이머가 있다.\n\n대표 구조:\n\n```text\n[카운터] 계속 증가\n[비교기] 특정 값 도달 시 인터럽트 발생\n```\n\n예:\n\n```text\n현재: 1000\n목표: 2000\n\n→ 2000 되면 인터럽트 발생\n```\n\n👉 이게 진짜 “시간”이다.\n\n---\n\n# 6. 그래서 sleep은 정확하지 않다\n\n많은 사람들이 궁금해하는 부분:\n\n> 왜 `sleep(1)`은 1초가 아닐까?\n\n이유는 여러 개다.\n\n---\n\n## 6.1 타이머 해상도 (resolution)\n\n```text\n1ns 요청 → 실제는 1ms 단위일 수도 있음\n```\n\n---\n\n## 6.2 스케줄러 지연\n\n```text\n시간 끝남 → CPU 없음 → 대기\n```\n\n---\n\n## 6.3 OS 최적화 (timer slack)\n\n```text\n\"비슷한 타이머들 한 번에 깨우자\"\n→ 일부러 늦춤\n```\n\n---\n\n## 6.4 이벤트 루프 (JS)\n\n```javascript\nsetTimeout(() => {}, 0)\n```\n\n→ 즉시 실행 ❌\n→ 큐에 들어감 ⭕\n\n---\n\n👉 결론:\n\n> sleep은 정확한 시간이 아니라\n> **최소 대기 시간 보장**이다\n\n---\n\n# 7. sleep vs delay (진짜 중요한 차이)\n\n## sleep (일반적인 경우)\n\n```text\nCPU를 놓는다\nOS가 깨워준다\n```\n\n---\n\n## delay (busy wait)\n\n```text\nwhile (time < target) {}\n```\n\n특징:\n\n* CPU 계속 사용\n* 매우 정확\n* 매우 비효율\n\n---\n\n👉 OS 커널에서도 둘을 명확히 구분한다.\n\n---\n\n# 8. 더 깊은 개념: monotonic vs realtime\n\n## realtime (벽시계)\n\n```text\n2026-03-18 12:00:00\n```\n\n문제:\n\n* 변경 가능\n* NTP 동기화 영향 받음\n\n---\n\n## monotonic (경과 시간)\n\n```text\n시스템 시작 이후 시간\n```\n\n특징:\n\n* 절대 안 뒤로 감\n* sleep / timeout에 사용됨\n\n---\n\n👉 핵심:\n\n> sleep은 거의 항상 monotonic 기반이다\n\n---\n\n# 9. 실무에서 중요한 팁\n\n## ❌ 이렇게 하면 drift 생김\n\n```python\nwhile True:\n    do_something()\n    time.sleep(1)\n```\n\n---\n\n## ✅ 이렇게 해야 정확함\n\n```python\nnext_time = time.monotonic()\n\nwhile True:\n    next_time += 1\n    do_something()\n    sleep(next_time - time.monotonic())\n```\n\n---\n\n👉 이유:\n\n> sleep 누적 오차 제거\n\n---\n\n# 10. 진짜 결론\n\n이 글의 핵심을 한 줄로 정리하면:\n\n> `sleep`은 시간을 재는 함수가 아니다\n> **미래에 실행을 예약하는 시스템이다**\n\n그리고 그 아래에는:\n\n* 언어 ❌\n* OS 타이머 ⭕\n* 하드웨어 카운터 ⭕\n* 인터럽트 ⭕\n* 스케줄러 ⭕\n\n이 모든 게 얽혀 있다.\n\n---\n\n# 🔥 한 줄 요약\n\n```text\nsleep = (현재 시간 + duration) → OS 타이머 등록 → 인터럽트 → 스케줄러 → 실행\n```\n\n---"
+}

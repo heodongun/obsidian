@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "id": "velog/스프링-여행-2차시-b2fyhoyi",
+    "relativePath": "velog/스프링-여행-2차시-b2fyhoyi.md",
+    "routePath": "velog/스프링-여행-2차시-b2fyhoyi",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "스프링 여행 2차시",
+    "description": "저번시간까지는 환경설정을 했다.이번시간에는 무엇이 어떻게 동작하는지 알아보도록 하자.웹브라우저가 hello-static.html 내놔라고한다.hello-static에 관련된 컨트롤러가있는지 확인한다.없다면 static안에있는 html파일을 보여준다.정적컨텐츠는 그냥 h",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "스프링 여행 2차시",
+        "id": "스프링-여행-2차시"
+      },
+      {
+        "depth": 1,
+        "text": "정적컨텐츠",
+        "id": "정적컨텐츠"
+      },
+      {
+        "depth": 1,
+        "text": "MVC와 템플릿 엔진",
+        "id": "mvc와-템플릿-엔진"
+      },
+      {
+        "depth": 1,
+        "text": "api",
+        "id": "api"
+      },
+      {
+        "depth": 1,
+        "text": "최종정리",
+        "id": "최종정리"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.876Z",
+    "wordCount": 228,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "스프링 여행 2차시",
+    "description": "저번시간까지는 환경설정을 했다.이번시간에는 무엇이 어떻게 동작하는지 알아보도록 하자.웹브라우저가 hello-static.html 내놔라고한다.hello-static에 관련된 컨트롤러가있는지 확인한다.없다면 static안에있는 html파일을 보여준다.정적컨텐츠는 그냥 h",
+    "source": "https://velog.io/@pobi/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%97%AC%ED%96%89-2%EC%B0%A8%EC%8B%9C-b2fyhoyi",
+    "source_slug": "스프링-여행-2차시-b2fyhoyi",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-08-09T18:21:22.069Z",
+    "updated_at": "2026-03-09T18:41:17.191Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/b38a7f30-0861-4ddb-ba05-35ccf1a7e5f2/image.png",
+    "tags": []
+  },
+  "content": "# 스프링 여행 2차시\n\n저번시간까지는 환경설정을 했다.\n이번시간에는 무엇이 어떻게 동작하는지 알아보도록 하자.\n\n# 정적컨텐츠\n![](https://velog.velcdn.com/images/pobi/post/1f3e4286-9692-48de-be10-fc22b4ad42ec/image.png)\n\n1. 웹브라우저가 hello-static.html 내놔라고한다.\n2. hello-static에 관련된 컨트롤러가있는지 확인한다.\n3. 없다면 static안에있는 html파일을 보여준다.\n\n정적컨텐츠는 그냥 html파일을 순수한 상태로 보여준다 생각하면 된다.\n우선순위 컨트롤러 > static안에있는 파일\n\n# MVC와 템플릿 엔진\n![](https://velog.velcdn.com/images/pobi/post/250d8e5f-21ab-48a6-bdfd-54c59e05c6c1/image.png)\n1. 이번에는 get요청으로 hello-mvc를 보낸다.\n2. 컨트롤러에 get요청으로 hello-mvc를 받는 놈을 보고 그걸 실행시킨다.\n3. return에 적혀있는 파일을 찾아서 그걸 이리저리 만진다.\n4. HTML로 변환후 웹브라우정에게 준다.\n\n유의할점\n\n1. 여기서 하나의 view안에 모든걸 다 때려박는 사람이있는데 그건 미친짓이니 멈추도록하자.\n\n2. ```<p th:text=\"'hello ' + ${name}\">hello! empty</p>``` \n이 파일을 이리저리 만진뒤에 보여주면 text의 값이 보이지만 우리가 그냥 쌩으로 html을 열어버리면 안에 내용인 hello! empty가 나온다.\n\n\n3. \n```\n@GetMapping(\"hello-mvc\")\n    public String helloMvc(@RequestParam(\"name\") String name,Model model){\n        model.addAttribute(\"name\",name);\n        return \"hello-template\";\n    }\n```\n이런식으로 코드를 짜면 url에 name을 입력해줘야하는데 입력하지않으면 에러가 난다.\n하지만 required를 false로 바꾸어주면 굳이 입력하지않아도 에러가 뜨지않는다.\n기본은 true이다.\n\n# api\n\n``` \n@GetMapping(\"hello-api\")\n    @ResponseBody\n\n    public Hello helloApi(@RequestParam(\"name\") String name){\n        Hello hello=new Hello();\n        hello.setName(name);\n        return hello;\n    }\n    static class Hello{\n        private String name;\n\n        public void setName(String name) {\n            this.name = name;\n        }\n\n        public String getName(){\n            return name;\n\n        }\n    }\n   ```\n   맥은 컨트롤+엔터를 누르면 generate가 켜진다.\n   그쪽에서 Getter/Setter를 치고 선택하면\n   Getter/Setter 라고 만들어지는데 이것을 JavaBean 규약이라고 합니다.\n   \n@ResponseBody는 자바 객체를 HTTP 요청의 body 내용으로 매핑하는 역할을 한다.\n\n![](https://velog.velcdn.com/images/pobi/post/26e5f4a6-89e4-4933-b184-c0e401f689ee/image.png)\n\n1. hello-api라는 get요청을 보낸다.\n2. controller가 요청을 받는다.\n3-1. 단순 문자면 stringconverter이 동작한다\n3-2. 객체면 jsonconverter이 동작을 한다.\n\n`@ResponseBody` 를 사용\nHTTP의 BODY에 문자 내용을 직접 반환\n`viewResolver` 대신에 `HttpMessageConverter` 가 동작\n기본 문자처리: `StringHttpMessageConverter`\n기본 객체처리: `MappingJackson2HttpMessageConverter`\nbyte 처리 등등 기타 여러 HttpMessageConverter가 기본으로 등록되어 있음\n\njackson은 객체를 json으로 바꾸어준다.\n\nhtml도 xml방식임 무겁고 열고닫고 귀찮음\n\njson 키와 벨류로 쓰는데 요즘은 이게 대세임\n\n# 최종정리\n\n정적방식 : 그냥 html을 내려준다.\n\n템플릿엔징방식: 좀 만지고 바뀌어진 파일을 내려준다.\n\napi방식 : 객체를 반환하는것"
+}

@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "id": "scala/00-Background information/왜 지금은 Rust, Go, Kotlin에 밀렸나",
+    "relativePath": "scala/00-Background information/왜 지금은 Rust, Go, Kotlin에 밀렸나.md",
+    "routePath": "scala/00-Background information/왜 지금은 Rust, Go, Kotlin에 밀렸나",
+    "folderSegments": [
+      "scala",
+      "00-Background information"
+    ],
+    "title": "전체 흐름 (역사)",
+    "description": "여기에는 몇 가지 이유가 있다. Scala는 너무 어렵다. 예:",
+    "headings": [
+      {
+        "depth": 2,
+        "text": "① 러닝커브",
+        "id": "-러닝커브"
+      },
+      {
+        "depth": 2,
+        "text": "② 빌드 시스템 문제",
+        "id": "-빌드-시스템-문제"
+      },
+      {
+        "depth": 2,
+        "text": "③ Java가 발전했다",
+        "id": "-java가-발전했다"
+      },
+      {
+        "depth": 2,
+        "text": "④ 대안 언어 등장",
+        "id": "-대안-언어-등장"
+      },
+      {
+        "depth": 3,
+        "text": "Kotlin",
+        "id": "kotlin"
+      },
+      {
+        "depth": 3,
+        "text": "Go",
+        "id": "go"
+      },
+      {
+        "depth": 3,
+        "text": "Rust",
+        "id": "rust"
+      },
+      {
+        "depth": 1,
+        "text": "전체 흐름 (역사)",
+        "id": "전체-흐름-역사"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "scala",
+    "mtime": "2026-03-16T08:15:51.418Z",
+    "wordCount": 113,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {},
+  "content": "여기에는 몇 가지 이유가 있다.\n\n---\n\n## ① 러닝커브\n\nScala는 너무 어렵다.\n\n예:\ntypeclass  \nhigher-kinded types  \nimplicits  \nvariance\n이런 것들이 초보자에게는 거의\n\n수학\n\n같다.\n\n---\n\n## ② 빌드 시스템 문제\n\nScala 개발자들이 싫어하는 것\n\n**sbt**\n\n설정이 복잡하고 느리다.\n\n그래서 onboarding이 어렵다.\n\n---\n\n## ③ Java가 발전했다\n\nJava 8 이후\n\nlambda  \nstreams  \nrecords  \npattern matching\n\n등이 추가됐다.\n\n그래서 많은 회사들이\n\n굳이 Scala 쓸 필요 없음\n\n이 되었다.\n\n---\n\n## ④ 대안 언어 등장\n\n대표적으로\n\n### Kotlin\n\n**Kotlin**\n\n장점\n\nJava 호환  \n훨씬 단순  \nmodern language\n\n---\n\n### Go\n\n**Go**\n\n장점\n\n빠른 컴파일  \n간단한 언어  \nmicroservice에 적합\n\n---\n\n### Rust\n\n**Rust**\n\n장점\n\n메모리 안전  \n고성능  \nsystem programming\n\n---\n\n# 전체 흐름 (역사)\n\n2004  Scala 등장  \n2010  Scala hype  \n2014  Spark boom  \n2018  Kotlin / Go 성장  \n2020+ Scala niche language\n\n---\n\n💡 **재밌는 사실**\n\nScala는 지금도 **완전히 죽은 언어가 아니다.**\n\n특히\n\ndata engineering  \nfunctional programming  \nresearch\n\n쪽에서는 여전히 강하다."
+}

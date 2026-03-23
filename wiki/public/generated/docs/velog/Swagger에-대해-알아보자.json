@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "id": "velog/Swagger에-대해-알아보자",
+    "relativePath": "velog/Swagger에-대해-알아보자.md",
+    "routePath": "velog/Swagger에-대해-알아보자",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Swagger에 대해 알아보자",
+    "description": "Swagger에 대해 알아보자",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Swagger에 대해 알아보자",
+        "id": "swagger에-대해-알아보자"
+      },
+      {
+        "depth": 1,
+        "text": "Swagger란?",
+        "id": "swagger란"
+      },
+      {
+        "depth": 1,
+        "text": "기초 설정",
+        "id": "기초-설정"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:06.821Z",
+    "wordCount": 94,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Swagger에 대해 알아보자",
+    "description": "Swagger에 대해 알아보자",
+    "source": "https://velog.io/@pobi/Swagger%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90",
+    "source_slug": "Swagger에-대해-알아보자",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-02-17T13:40:29.566Z",
+    "updated_at": "2026-03-15T12:26:17.807Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/e7b18d5f-ed02-4d75-a1ba-f8a232223d9e/image.png",
+    "tags": []
+  },
+  "content": "# Swagger에 대해 알아보자\n\n지금까지의 우리는 ![](https://velog.velcdn.com/images/pobi/post/467efdf8-c7ff-46af-aa1b-21d8bb2aa8fe/image.png)\n이런식으로 API문서를 만들어왔다. 이러면 보기도 어렵고 돈도 들고\n그래서 우리는 Swagger를 사용하여 API들을 자동으로 문서화해줄것이다.\n\n# Swagger란?\n쉽게 말해 API명세서 + 포스트맨 이 두가지의 장점만 쏙쏙 뽑아왔다.\n하지만 이 스웨거에게도 단점이있다.\n그것은 기초 설정을 해야한다는것이다.\n나와 함께 기초 설정을 해보자\n\n# 기초 설정\n```\n\timplementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'\n```\n우리는 springdoc을 이용하여 스웨거를 쓸것이다.\n이걸 build.gradle에 넣어준다.\n그리고 여기서 생각보다 많이 힘들어하는데 자기 스프링부트 버전과 호환이 되는지 확인하고 쓰자 난 확인을 하지않아서 4시간동안 찾았다.\n\n```\nimport io.swagger.v3.oas.annotations.OpenAPIDefinition;\nimport io.swagger.v3.oas.annotations.enums.SecuritySchemeType;\nimport io.swagger.v3.oas.annotations.info.Info;\nimport io.swagger.v3.oas.annotations.security.SecurityScheme;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\n@OpenAPIDefinition(info = @Info(title = \"Tech Course API\", version = \"v1\"))\n@SecurityScheme(\n        name = \"BearerAuth\",\n        type = SecuritySchemeType.HTTP, // SecuritySchemeType 사용\n        scheme = \"bearer\",\n        bearerFormat = \"JWT\"\n)\npublic class SwaggerConfig {\n}\n```\n이건 Jwt를 사용하기 위해 넣어준 설정\n\n```\nimport io.swagger.v3.oas.models.OpenAPI;\nimport io.swagger.v3.oas.models.info.Info;\nimport org.springdoc.core.models.GroupedOpenApi;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class SwaggerConfiguration {\n\n    @Bean\n    public GroupedOpenApi chatOpenApi() {\n        String[] paths = {\"/**\"};\n\n        return GroupedOpenApi.builder()\n                .group(\"PloyTechCourse\")\n                .pathsToMatch(paths)\n                .build();\n    }\n}\n```\n이건 스웨거를 빈에다가 등록시켜주는것이다.\n\n그런다음 \n```\n@Operation(\n            summary = \"회원가입\",\n            description = \"사용자가 입력한 정보로 회원가입을 진행합니다.\",\n            responses = {\n                    @ApiResponse(responseCode = \"200\", description = \"회원가입이 완료되었습니다.\"),\n                    @ApiResponse(responseCode = \"400\", description = \"잘못된 요청 (예: 필수 정보 누락, 유효하지 않은 입력값)\",\n                            content = @io.swagger.v3.oas.annotations.media.Content(mediaType = \"application/json\",\n                                    schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = ErrorResponse.class))),\n                    @ApiResponse(responseCode = \"500\", description = \"서버 오류\",\n                            content = @io.swagger.v3.oas.annotations.media.Content(mediaType = \"application/json\",\n                                    schema = @io.swagger.v3.oas.annotations.media.Schema(implementation = ErrorResponse.class)))\n            }\n    )\n    @PostMapping(\"/signup\")\n    public ResponseEntity<String> signup(\n            @Parameter(description = \"회원가입에 필요한 정보\", required = true)\n            @Valid @RequestBody SignupUserDto signupUserDto) {\n        signupApplication.signup(signupUserDto);\n        throw new PltecoException(\"회원가입 성공\", HttpStatus.OK);\n    }\n```\n\n이런식으로 사용해주면 \n![](https://velog.velcdn.com/images/pobi/post/70525fa0-732e-4280-b098-2fa42bf4b5a4/image.png)\n이런식으로 자동으로 문서화를 해준다. \n정말 유용한 스웨거를 적극 사용해보도록 하자"
+}

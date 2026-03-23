@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "id": "velog/도커-네트워크",
+    "relativePath": "velog/도커-네트워크.md",
+    "routePath": "velog/도커-네트워크",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "네트워크 - 도커 네트워크",
+    "description": "도커 네트워크",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "네트워크 - 도커 네트워크",
+        "id": "네트워크---도커-네트워크"
+      },
+      {
+        "depth": 2,
+        "text": "Iptables",
+        "id": "iptables"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:05.933Z",
+    "wordCount": 173,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "네트워크 - 도커 네트워크",
+    "description": "도커 네트워크",
+    "source": "https://velog.io/@pobi/%EB%8F%84%EC%BB%A4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC",
+    "source_slug": "도커-네트워크",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-04-07T15:32:00.786Z",
+    "updated_at": "2026-02-28T03:40:24.257Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/2af812c4-d64b-4cc8-929e-b0b3aa87194e/image.png",
+    "tags": []
+  },
+  "content": "# 네트워크 - 도커 네트워크\n\n![](https://velog.velcdn.com/images/pobi/post/2af812c4-d64b-4cc8-929e-b0b3aa87194e/image.png)\n그니까 우리가 그 고생을 해서 한 사설망을 도커는 소프트웨어적으로 만들어버림;;\n파친 도커;;;;;;;\n\n![](https://velog.velcdn.com/images/pobi/post/92a50f67-a6bc-4cce-afc9-9fba393c4249/image.png)\n우리가 전 포스트에서 본 레전드 인터페이스를 가상으로 구현해버림.\ndocker0, Veth1, Veth2, Veth3, Veth4 등이 가상 인터페이스의 이름이다.\n각 도커 컨테이너는 자신만의 가상 인터페이스를 가져서 다른 컨테이너나 외부와 통신할 수 있습니다. 각 컨테이너에 가상의 랜선이 연결된 것과 같다.\n\n## Iptables\n> iptables는 리눅스상에서 방화벽을 설정하는 도구로서 네트워크 패킷을 필터링하거나 변경하는 등의 기능을 수행합니다.\n특정 조건을 가지고 있는 패킷에 대해 허용(ACCEPT)과 차단(DROP)등을 지정할 수 있으며, 특정 조건등을 통해 다양한 방식의 패킷 필터링과 처리 방식을 지원합니다.\n\n그냥 경찰임 들어오고 나오는걸 감시하고 미리 정해진 규칙을 따르는지도 확인함.\n\n![](https://velog.velcdn.com/images/pobi/post/e03b16cc-cb59-4b03-bf39-4e421a488a06/image.png)\n이러한 명령어들이 있다.\n\n![](https://velog.velcdn.com/images/pobi/post/ff6670c6-4ac3-4476-a37a-1ded99f0e1ab/image.png)\n그러면 각 컨테이너간 통신은 될까?\n당연히 되지\n근데 여기서 주의 해야할께 포트포워딩을 하지않으면 어디로 가야할지 모르기 때문에 포트포워딩을 하고 통신을 해야한다. 포트포워딩을 하지않고는 통신이 안된다.\n\n![](https://velog.velcdn.com/images/pobi/post/706f092e-28fa-4ddc-bd66-4b2c53f17332/image.png)\n![](https://velog.velcdn.com/images/pobi/post/e94bdaf9-f95b-41dc-b9e8-8bc1e160666c/image.png)\n\n\n와 근찬쌤 사랑해요\n\n![](https://velog.velcdn.com/images/pobi/post/d20a5d42-d378-48ec-af4b-c8368165386e/image.png)\n이런식으로 포트포워딩을 하자.\n하지만 포트포워딩을 할때 주의해야할점 몇가지가 있다.\n\n1. 어떤 포트를 열지 굉장히 신중해야한다.\n\t- 포트를 연다는건 님 컴퓨터안으로 가는 통로 하나가 열리는것이다.\n2. 이미 열려진 포트를 열려고 시도를 하나...? 하지마세요 상식적으로 안되잖아.\n\n![](https://velog.velcdn.com/images/pobi/post/260fa51a-9f3c-4319-9c53-3079ce5c4962/image.png)\n\n![](https://velog.velcdn.com/images/pobi/post/aabae1a2-99a0-43dc-9905-04b14b477d23/image.png)\n솔직히 그냥 전 포스트 그대로 써도 될것같은데 왜 나눴지 \n암튼 도커의 네트워크를 알아보았다."
+}

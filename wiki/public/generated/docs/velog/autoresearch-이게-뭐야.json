@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "id": "velog/autoresearch-이게-뭐야",
+    "relativePath": "velog/autoresearch-이게-뭐야.md",
+    "routePath": "velog/autoresearch-이게-뭐야",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "autoresearch 이게 뭐야?",
+    "description": "karpathy/autoresearch는 그냥 AI 에이전트가 AI를 학습하고 강화하는 거야?\n\n처음 karpathy/autoresearch를 보면 약간 SF 같다.\nREADME도 일부러 그런 톤으로 시작한다. 하지만 실제로는 “AI가 스스로 초지능이 되어 자기 자신을",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "autoresearch 이게 뭐야?",
+        "id": "autoresearch-이게-뭐야"
+      },
+      {
+        "depth": 2,
+        "text": "`karpathy/autoresearch`는 그냥 AI 에이전트가 AI를 학습하고 강화하는 거야?",
+        "id": "karpathyautoresearch는-그냥-ai-에이전트가-ai를-학습하고-강화하는-거야"
+      },
+      {
+        "depth": 1,
+        "text": "이 레포가 실제로 하는 일",
+        "id": "이-레포가-실제로-하는-일"
+      },
+      {
+        "depth": 3,
+        "text": "prepare.py",
+        "id": "preparepy"
+      },
+      {
+        "depth": 3,
+        "text": "train.py",
+        "id": "trainpy"
+      },
+      {
+        "depth": 3,
+        "text": "program.md",
+        "id": "programmd"
+      },
+      {
+        "depth": 1,
+        "text": "중요한 포인트",
+        "id": "중요한-포인트"
+      },
+      {
+        "depth": 1,
+        "text": "강화학습인가?",
+        "id": "강화학습인가"
+      },
+      {
+        "depth": 1,
+        "text": "실험 루프",
+        "id": "실험-루프"
+      },
+      {
+        "depth": 1,
+        "text": "왜 이렇게 작게 만들었을까",
+        "id": "왜-이렇게-작게-만들었을까"
+      },
+      {
+        "depth": 1,
+        "text": "AutoML이랑 뭐가 다르지?",
+        "id": "automl이랑-뭐가-다르지"
+      },
+      {
+        "depth": 3,
+        "text": "AutoML",
+        "id": "automl"
+      },
+      {
+        "depth": 3,
+        "text": "autoresearch",
+        "id": "autoresearch"
+      },
+      {
+        "depth": 1,
+        "text": "연구자의 역할도 바뀐다",
+        "id": "연구자의-역할도-바뀐다"
+      },
+      {
+        "depth": 1,
+        "text": "그래서 이게 “AI가 AI를 만든다”는 건가?",
+        "id": "그래서-이게-ai가-ai를-만든다는-건가"
+      },
+      {
+        "depth": 1,
+        "text": "하지만 중요한 의미는 있다",
+        "id": "하지만-중요한-의미는-있다"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.662Z",
+    "wordCount": 380,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "autoresearch 이게 뭐야?",
+    "description": "karpathy/autoresearch는 그냥 AI 에이전트가 AI를 학습하고 강화하는 거야?\n\n처음 karpathy/autoresearch를 보면 약간 SF 같다.\nREADME도 일부러 그런 톤으로 시작한다. 하지만 실제로는 “AI가 스스로 초지능이 되어 자기 자신을",
+    "source": "https://velog.io/@pobi/autoresearch-%EC%9D%B4%EA%B2%8C-%EB%AD%90%EC%95%BC",
+    "source_slug": "autoresearch-이게-뭐야",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-11T00:31:20.584Z",
+    "updated_at": "2026-03-22T23:46:49.314Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/abed93dc-1f3a-4eea-ba1f-e7165e4ee063/image.png",
+    "tags": []
+  },
+  "content": "# autoresearch 이게 뭐야?\n\n![](https://velog.velcdn.com/images/pobi/post/abed93dc-1f3a-4eea-ba1f-e7165e4ee063/image.png)\n![](https://velog.velcdn.com/images/pobi/post/5f55a571-fe1a-4f01-a843-b1bebb71f56d/image.png)\n\n## `karpathy/autoresearch`는 그냥 AI 에이전트가 AI를 학습하고 강화하는 거야?\n\n처음 `karpathy/autoresearch`를 보면 약간 SF 같다.  \nREADME도 일부러 그런 톤으로 시작한다. 하지만 실제로는 “AI가 스스로 초지능이 되어 자기 자신을 무한 강화한다” 같은 프로젝트라기보다, **LLM 에이전트에게 아주 작은 연구 환경을 주고 밤새 자동으로 실험하게 만드는 장난감이자 프로토타입**에 더 가깝다.\n\nKarpathy가 설명한 핵심 아이디어도 이렇다.\n\n- 작은 but real LLM 학습 세팅을 준다\n- 에이전트가 코드를 수정한다\n- 5분짜리 학습을 실행한다\n- 성능이 좋아졌는지 본다\n- 좋으면 유지, 아니면 폐기\n- 다시 반복\n\n그래서 한 문장으로 정리하면 이렇게 된다.\n\n> **“AI가 AI를 학습하고 강화한다”가 완전히 틀린 말은 아니지만, 정확히는 “에이전트가 연구자처럼 작은 모델 학습 실험을 자동으로 반복한다”에 더 가깝다.**\n\n---\n\n# 이 레포가 실제로 하는 일\n\n이 프로젝트에서 중요한 파일은 크게 세 가지다.\n\n```\nprepare.py\ntrain.py\nprogram.md\n```\n\n### prepare.py\n- 데이터 준비\n- 토크나이저 학습\n- 데이터 로딩\n- 평가 유틸\n\n즉 **고정 인프라 코드**다.\n\n---\n\n### train.py\n여기가 핵심이다.\n\n여기에는\n\n- GPT 모델 정의\n- 옵티마이저\n- 학습 루프\n\n같은 코드가 들어 있다.\n\n그리고 **에이전트가 실제로 계속 수정하는 파일도 바로 이것이다.**\n\n---\n\n### program.md\n\n이건 일종의 **연구 규칙 문서**다.\n\n에이전트에게\n\n- 무엇을 시도할지\n- 무엇을 수정할 수 있는지\n- 어떻게 평가할지\n\n같은 것을 설명한다.\n\n즉 구조는 이렇게 된다.\n\n```\nHuman\n↓\nprogram.md (연구 규칙)\n↓\nAgent\n↓\ntrain.py 수정\n↓\n모델 학습\n↓\n결과 평가\n```\n\n---\n\n# 중요한 포인트\n\n이 프로젝트에서 에이전트는\n\n**자기 모델을 학습하지 않는다.**\n\n에이전트의 역할은 다음이다.\n\n```\n연구자 역할\n```\n\n즉\n\n- 코드 읽기\n- 하이퍼파라미터 수정\n- 모델 구조 변경\n- 학습 실행\n- 결과 비교\n\n같은 일을 한다.\n\n---\n\n# 강화학습인가?\n\n많은 사람들이 이걸 보면 이렇게 생각한다.\n\n> 이거 RL이야?\n\n정확히는 **아니다.**\n\n강화학습 구조는 보통 이렇게 생긴다.\n\n```\npolicy\nreward\ngradient update\n```\n\n하지만 autoresearch는 다르다.\n\n```\n코드 수정\n↓\n학습 실행\n↓\nmetric 확인\n↓\n좋으면 유지\n↓\n나쁘면 폐기\n```\n\n즉\n\n> **keep / discard 기반 연구 루프**\n\n다.\n\n---\n\n# 실험 루프\n\nREADME에 나온 기본 루프는 이렇다.\n\n```\nbaseline 학습\n↓\n에이전트 코드 수정\n↓\n5분 학습\n↓\nmetric 기록\n↓\n개선 여부 판단\n↓\nbranch 유지 or rollback\n↓\n반복\n```\n\nKarpathy 설명 기준\n\n```\n5분 학습\n→ 1시간 약 12회\n→ 밤새 약 100회 실험\n```\n\n즉 사람 대신 **엄청난 반복 실험을 돌리는 구조**다.\n\n---\n\n# 왜 이렇게 작게 만들었을까\n\n이 레포는 일부러 **매우 작은 환경**으로 설계됐다.\n\n특징\n\n- single GPU\n- single file\n- single metric\n- short training budget\n\n지원 환경도 단순하다.\n\n```\n1 GPU\n1 모델\n1 train.py\n```\n\n이렇게 해야 에이전트가\n\n- 실험 비교\n- 결과 해석\n- 반복 루프\n\n를 쉽게 수행할 수 있다.\n\n---\n\n# AutoML이랑 뭐가 다르지?\n\n비슷해 보이지만 조금 다르다.\n\n### AutoML\n\n```\n검색 알고리즘\n↓\n하이퍼파라미터 탐색\n```\n\n### autoresearch\n\n```\nLLM 에이전트\n↓\n코드 수정\n↓\n실험 반복\n```\n\n즉\n\n> **코드를 이해하는 연구 비서**\n\n같은 느낌이다.\n\n---\n\n# 연구자의 역할도 바뀐다\n\n이 프로젝트에서 흥미로운 점은 여기다.\n\n보통 연구자는\n\n```\nPython 코드 수정\n```\n\n을 직접 한다.\n\n하지만 autoresearch에서는\n\n```\nprogram.md 작성\n```\n\n을 한다.\n\n즉\n\n```\nHuman\n→ 연구 규칙 작성\n\nAgent\n→ 코드 수정 및 실험\n```\n\n역할이 바뀐다.\n\n---\n\n# 그래서 이게 “AI가 AI를 만든다”는 건가?\n\n조금 과장된 표현이다.\n\n이 프로젝트는\n\n- 인간이 만든 코드\n- 인간이 만든 데이터\n- 인간이 만든 규칙\n\n위에서 돌아간다.\n\n즉 **완전 자율 AI 연구 시스템은 아니다.**\n\n---\n\n# 하지만 중요한 의미는 있다\n\n이 프로젝트가 보여주는 건 이것이다.\n\n예전\n\n```\n연구자\n↓\n코드 수정\n↓\n실험\n```\n\n지금\n\n```\n연구자\n↓\n연구 규칙 작성\n↓\nAI 에이전트 실험 반복\n```\n\n즉 AI가\n\n> **연구자의 반복 노동을 대신하기 시작했다.**\n\n---\n\n# 결론\n\n`autoresearch`를 한 문장으로 정리하면 이렇다.\n\n> **AI가 AI를 직접 학습하는 시스템이 아니라  \n> AI 에이전트가 작은 모델 연구를 자동화하는 프로젝트다.**\n\n조금 더 정확히 말하면\n\n```\nAI training system ❌\nAI research automation system ⭕\n```\n\n즉\n\n> **AI가 연구자의 실험 반복 작업을 대신하기 시작한 예시다.**\n\n아니 근데 맥용있는데 나는 왜 못쓰는가"
+}

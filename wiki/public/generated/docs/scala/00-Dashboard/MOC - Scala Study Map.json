@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "id": "scala/00-Dashboard/MOC - Scala Study Map",
+    "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md",
+    "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+    "folderSegments": [
+      "scala",
+      "00-Dashboard"
+    ],
+    "title": "Scala Study Map",
+    "description": "목표: Scala 기초부터 Scala 3 핵심 문법, type class, effect 시스템까지 단계적으로 학습 우선순위: 기초 문법 → 모델링 → 함수/컬렉션 → 타입 시스템 → Scala 3 → effect/concurrency → 스타일 원문 검증 문서: | Section | Source | Notes | Status |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Scala Study Map",
+        "id": "scala-study-map"
+      },
+      {
+        "depth": 2,
+        "text": "Overview",
+        "id": "overview"
+      },
+      {
+        "depth": 2,
+        "text": "Topic Map",
+        "id": "topic-map"
+      },
+      {
+        "depth": 2,
+        "text": "Practice Notes",
+        "id": "practice-notes"
+      },
+      {
+        "depth": 2,
+        "text": "Study Tools",
+        "id": "study-tools"
+      },
+      {
+        "depth": 2,
+        "text": "Tag Index",
+        "id": "tag-index"
+      },
+      {
+        "depth": 2,
+        "text": "Weak Areas",
+        "id": "weak-areas"
+      },
+      {
+        "depth": 2,
+        "text": "Non-core Topic Policy",
+        "id": "non-core-topic-policy"
+      },
+      {
+        "depth": 2,
+        "text": "Related",
+        "id": "related"
+      }
+    ],
+    "tags": [
+      "MOC",
+      "scala",
+      "study-map"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-16T07:02:22.460Z",
+    "wordCount": 793,
+    "wikiLinks": [
+      {
+        "label": "Source Mapping",
+        "target": "scala/00-Dashboard/Source Mapping",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Basics and Expressions",
+        "target": "scala/01-Scala-Basics/Basics and Expressions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Basics Practice",
+        "target": "scala/01-Scala-Basics/Basics Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Classes and Traits",
+        "target": "scala/02-OOP-Modeling/Classes and Traits",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "OOP Modeling Practice",
+        "target": "scala/02-OOP-Modeling/OOP Modeling Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Functions and Collections",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Functions and Collections Practice",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching and ADTs",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching Practice",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System and Generics",
+        "target": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System Practice",
+        "target": "scala/05-Type-System-and-Generics/Type System Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Contextual Abstractions",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Context Practice",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Context Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency Practice",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Style and Tooling",
+        "target": "scala/08-Style-and-Tooling/Style and Tooling",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Style and Tooling Practice",
+        "target": "scala/08-Style-and-Tooling/Style and Tooling Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Basics Practice",
+        "target": "scala/01-Scala-Basics/Basics Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "OOP Modeling Practice",
+        "target": "scala/02-OOP-Modeling/OOP Modeling Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Functions and Collections Practice",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching Practice",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System Practice",
+        "target": "scala/05-Type-System-and-Generics/Type System Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Context Practice",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Context Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency Practice",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Style and Tooling Practice",
+        "target": "scala/08-Style-and-Tooling/Style and Tooling Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Source Mapping",
+        "target": "scala/00-Dashboard/Source Mapping",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Type System and Generics",
+        "target": "scala/05-Type-System-and-Generics/Type System and Generics",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Scala 3 Contextual Abstractions",
+        "target": "scala/06-Scala3-Contextual-Abstractions/Scala 3 Contextual Abstractions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Source Mapping",
+        "target": "scala/00-Dashboard/Source Mapping",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/tour-of-scala.md",
+      "sources/books/essential-scala.pdf",
+      "sources/books/scala-with-cats.pdf",
+      "sources/official/reference/style-guide.md"
+    ],
+    "part": "all",
+    "keywords": [
+      "MOC",
+      "scala",
+      "study-map"
+    ]
+  },
+  "content": "# Scala Study Map\n\n#dashboard #scala-study #moc\n\n## Overview\n\n- 목표: Scala 기초부터 Scala 3 핵심 문법, type class, effect 시스템까지 단계적으로 학습\n- 우선순위: 기초 문법 → 모델링 → 함수/컬렉션 → 타입 시스템 → Scala 3 → effect/concurrency → 스타일\n- 원문 검증 문서: [Source Mapping](#/docs/scala/00-Dashboard/Source%20Mapping)\n\n## Topic Map\n\n| Section | Source | Notes | Status |\n|---------|--------|-------|--------|\n| 기초와 표현식 | Tour basics, Scala 3 taste, Essential Scala ch1-2 | [Basics and Expressions](#/docs/scala/01-Scala-Basics/Basics%20and%20Expressions), [Basics Practice](#/docs/scala/01-Scala-Basics/Basics%20Practice) | [ ] |\n| 클래스와 트레잇 | Tour classes/traits, Essential Scala ch3-4 | [Classes and Traits](#/docs/scala/02-OOP-Modeling/Classes%20and%20Traits), [OOP Modeling Practice](#/docs/scala/02-OOP-Modeling/OOP%20Modeling%20Practice) | [ ] |\n| 함수와 컬렉션 | Tour HOF, Scala 3 collections/fp, Essential Scala ch5-6 | [Functions and Collections](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections), [Functions and Collections Practice](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections%20Practice) | [ ] |\n| 패턴 매칭과 ADT | Tour pattern matching, Essential Scala ch3-4, Scala 3 types | [Pattern Matching and ADTs](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20and%20ADTs), [Pattern Matching Practice](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20Practice) | [ ] |\n| 타입 시스템과 제네릭 | Tour generics/type inference, Scala 3 types, Essential Scala variance | [Type System and Generics](#/docs/scala/05-Type-System-and-Generics/Type%20System%20and%20Generics), [Type System Practice](#/docs/scala/05-Type-System-and-Generics/Type%20System%20Practice) | [ ] |\n| Scala 3 문맥 추상화 | Scala 3 contextual abstractions, Scala with Cats ch1 | [Scala 3 Contextual Abstractions](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Contextual%20Abstractions), [Scala 3 Context Practice](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Context%20Practice) | [ ] |\n| effect와 동시성 | Scala 3 concurrency, Cats Effect, ZIO, Scala with Cats | [Effects and Concurrency](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency), [Effects and Concurrency Practice](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency%20Practice) | [ ] |\n| 스타일과 도구 | Style Guide, Scala getting started, Toolkit | [Style and Tooling](#/docs/scala/08-Style-and-Tooling/Style%20and%20Tooling), [Style and Tooling Practice](#/docs/scala/08-Style-and-Tooling/Style%20and%20Tooling%20Practice) | [ ] |\n\n## Practice Notes\n\n| 문제셋                       | 문항 수 | 링크                                     |\n| ------------------------- | ---- | -------------------------------------- |\n| Basics                    | 8문제  | [Basics Practice](#/docs/scala/01-Scala-Basics/Basics%20Practice)                    |\n| OOP Modeling              | 8문제  | [OOP Modeling Practice](#/docs/scala/02-OOP-Modeling/OOP%20Modeling%20Practice)              |\n| Functions and Collections | 8문제  | [Functions and Collections Practice](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections%20Practice) |\n| Pattern Matching          | 8문제  | [Pattern Matching Practice](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20Practice)          |\n| Type System               | 8문제  | [Type System Practice](#/docs/scala/05-Type-System-and-Generics/Type%20System%20Practice)               |\n| Scala 3 Context           | 8문제  | [Scala 3 Context Practice](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Context%20Practice)           |\n| Effects and Concurrency   | 8문제  | [Effects and Concurrency Practice](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency%20Practice)   |\n| Style and Tooling         | 8문제  | [Style and Tooling Practice](#/docs/scala/08-Style-and-Tooling/Style%20and%20Tooling%20Practice)         |\n\n## Study Tools\n\n| 도구 | 설명 | 링크 |\n|------|------|------|\n| Source Mapping | 원문-노트 추적 테이블 | [Source Mapping](#/docs/scala/00-Dashboard/Source%20Mapping) |\n| Exam Traps | 자주 헷갈리는 포인트 모음 | [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps) |\n| Quick Reference | 전체 치트시트 | [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference) |\n\n## Tag Index\n\n| Tag | 관련 주제 | 규칙 |\n|-----|-----------|------|\n| `#dashboard` | 대시보드 문서 공통 | `00-Dashboard` 문서에만 사용 |\n| `#moc` | 메인 학습 맵 | `#dashboard`와 함께 사용 |\n| `#quick-reference` | 요약 치트시트 | `#dashboard`와 함께 사용 |\n| `#exam-traps` | 오답/함정 정리 | `#dashboard`와 함께 사용 |\n| `#source-mapping` | 원문 추적 | `#dashboard`와 함께 사용 |\n| `#scala-study` | 본 StudyVault 전체 | 대시보드 문서 보조 태그 |\n| `#scala-core` | 기초 표현식, 블록, 제어 흐름 | 모든 코어 입문 노트의 부모 태그 |\n| `#expressions` | expression, `val`, block | `#scala-core`와 같이 사용 |\n| `#oop-modeling` | 클래스, 트레잇, ADT | 모델링 관련 세부 태그와 함께 사용 |\n| `#classes` | 클래스/트레잇 구현 | `#oop-modeling`과 같이 사용 |\n| `#adt-modeling` | sealed trait, case class, pattern matching | `#oop-modeling`과 같이 사용 |\n| `#fp-core` | 함수, 컬렉션, 불변성 | 함수형 기초 태그 |\n| `#collections` | map/filter/fold, collection pipeline | `#fp-core`와 같이 사용 |\n| `#type-system` | 제네릭, 추론, variance | 타입 관련 세부 태그와 함께 사용 |\n| `#generics` | type parameters, variance intuition | `#type-system`와 같이 사용 |\n| `#scala3-context` | given, using, extension | Scala 3 문맥 추상화 노트 전용 |\n| `#type-class` | Eq/Show/Monad 같은 instance 패턴 | `#scala3-context`와 같이 사용 |\n| `#effects` | IO, ZIO, Future, fibers | 동시성과 effect 노트의 부모 태그 |\n| `#concurrency` | async, fibers, runtimes | `#effects`와 같이 사용 |\n| `#tooling-style` | style, setup, sbt, toolkit | 실전 코딩 습관과 도구 |\n| `#scala-practices` | 읽기 쉬운 코드 습관 | `#tooling-style`와 같이 사용 |\n| `#practice` | 문제 풀이 노트 | 모든 practice 파일 공통 |\n\n> **태그 규칙**: 영어 kebab-case만 사용하고, 세부 태그는 반드시 상위 도메인 태그와 같이 붙인다.\n\n## Weak Areas\n\n- [ ] type inference와 variance 구분 → [Type System and Generics](#/docs/scala/05-Type-System-and-Generics/Type%20System%20and%20Generics) → [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)\n- [ ] given/using와 Scala 2 implicit 대응 → [Scala 3 Contextual Abstractions](#/docs/scala/06-Scala3-Contextual-Abstractions/Scala%203%20Contextual%20Abstractions) → [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)\n- [ ] `Future` 와 `IO`/`ZIO`의 역할 차이 → [Effects and Concurrency](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency) → [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)\n\n## Non-core Topic Policy\n\n| Source | Content | Handling |\n|--------|---------|----------|\n| Scala Tour 세부 고급 문법 | bounds, abstract type members, self types | **Excluded** — 코어 완주 후 추가 |\n| Scala 3 Reference 세부 타입 | opaque, structural, dependent function types | **Excluded** — 2차 심화 |\n| Pekko 문서 | actor/distributed server topics | **Excluded** — 서버 트랙 별도 |\n\n## Related\n\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)\n- [Source Mapping](#/docs/scala/00-Dashboard/Source%20Mapping)"
+}

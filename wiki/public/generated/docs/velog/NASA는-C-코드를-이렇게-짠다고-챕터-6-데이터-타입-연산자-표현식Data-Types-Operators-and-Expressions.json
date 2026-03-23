@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "id": "velog/NASA는-C-코드를-이렇게-짠다고-챕터-6-데이터-타입-연산자-표현식Data-Types-Operators-and-Expressions",
+    "relativePath": "velog/NASA는-C-코드를-이렇게-짠다고-챕터-6-데이터-타입-연산자-표현식Data-Types-Operators-and-Expressions.md",
+    "routePath": "velog/NASA는-C-코드를-이렇게-짠다고-챕터-6-데이터-타입-연산자-표현식Data-Types-Operators-and-Expressions",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "NASA는 C 코드를 이렇게 짠다고? - 데이터 타입, 연산자, 표현식",
+    "description": "NASA의 공식 C언어 가이드를 번역한 글입니다.",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "NASA는 C 코드를 이렇게 짠다고? - 데이터 타입, 연산자, 표현식",
+        "id": "nasa는-c-코드를-이렇게-짠다고---데이터-타입-연산자-표현식"
+      },
+      {
+        "depth": 2,
+        "text": "6. 데이터 타입, 연산자, 표현식(Data Types, Operators, and Expressions)",
+        "id": "6-데이터-타입-연산자-표현식data-types-operators-and-expressions"
+      },
+      {
+        "depth": 2,
+        "text": "6.1 데이터 타입(Data Types)",
+        "id": "61-데이터-타입data-types"
+      },
+      {
+        "depth": 2,
+        "text": "6.2 상수(Constants)",
+        "id": "62-상수constants"
+      },
+      {
+        "depth": 2,
+        "text": "6.3 연산자(Operators)",
+        "id": "63-연산자operators"
+      },
+      {
+        "depth": 3,
+        "text": "권장되는 연산자 사용 원칙",
+        "id": "권장되는-연산자-사용-원칙"
+      },
+      {
+        "depth": 2,
+        "text": "6.4 표현식(Expressions)",
+        "id": "64-표현식expressions"
+      },
+      {
+        "depth": 2,
+        "text": "6.5 타입 변환(Type Conversions)",
+        "id": "65-타입-변환type-conversions"
+      },
+      {
+        "depth": 2,
+        "text": "6.6 평가 순서(Order of Evaluation)",
+        "id": "66-평가-순서order-of-evaluation"
+      },
+      {
+        "depth": 3,
+        "text": "예시: 금지된 표현식",
+        "id": "예시-금지된-표현식"
+      },
+      {
+        "depth": 2,
+        "text": "6.7 복잡한 표현식의 분해(Decomposition of Complex Expressions)",
+        "id": "67-복잡한-표현식의-분해decomposition-of-complex-expressions"
+      },
+      {
+        "depth": 2,
+        "text": "마무리를 하며",
+        "id": "마무리를-하며"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:03.116Z",
+    "wordCount": 435,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "NASA는 C 코드를 이렇게 짠다고? - 데이터 타입, 연산자, 표현식",
+    "description": "NASA의 공식 C언어 가이드를 번역한 글입니다.",
+    "source": "https://velog.io/@pobi/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%EC%B1%95%ED%84%B0-6-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%97%B0%EC%82%B0%EC%9E%90-%ED%91%9C%ED%98%84%EC%8B%9DData-Types-Operators-and-Expressions",
+    "source_slug": "NASA는-C-코드를-이렇게-짠다고-챕터-6-데이터-타입-연산자-표현식Data-Types-Operators-and-Expressions",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-10-08T04:46:00.826Z",
+    "updated_at": "2026-03-22T20:42:35.560Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/0b987971-fd08-4423-96e6-77161f09ec56/image.png",
+    "tags": []
+  },
+  "content": "# NASA는 C 코드를 이렇게 짠다고? - 데이터 타입, 연산자, 표현식\n\n---\n\n## 6. 데이터 타입, 연산자, 표현식(Data Types, Operators, and Expressions)\n\n이 장에서는 NASA가 C 프로그램에서 데이터를 다루는 방법과  \n연산자 및 표현식 사용 시의 명확한 규칙을 다룬다.  \n이 규칙들은 **이식성, 안정성, 그리고 일관성**을 보장하기 위한 것이다.\n\n---\n\n## 6.1 데이터 타입(Data Types)\n\nC 언어는 다양한 데이터 타입을 제공하지만, NASA는 다음의 원칙을 따른다.\n\n1. **명시적 타입 사용**  \n   - 모든 변수는 반드시 타입을 명시해야 한다.  \n   - 암묵적 `int` 선언은 절대 사용하지 않는다.\n\n2. **표준 타입 사용**  \n   - 시스템마다 크기가 달라질 수 있는 타입(`int`, `long`)보다  \n     **고정 크기 타입**(`int16_t`, `uint32_t`) 사용을 권장한다.  \n   - 이는 코드 이식성과 하드웨어 일관성을 높이기 위함이다.\n\n3. **typedef의 사용**  \n   - 동일한 타입을 여러 곳에서 사용할 때는 `typedef`를 이용해 별칭을 정의한다.  \n   - 예를 들어, 다음과 같이 명확한 의미를 부여할 수 있다.\n\n```c\ntypedef unsigned short  U16;  /* 16-bit unsigned integer */\ntypedef unsigned long   U32;  /* 32-bit unsigned integer */\ntypedef signed short    S16;  /* 16-bit signed integer */\ntypedef signed long     S32;  /* 32-bit signed integer */\n```\n\n4. **불리언 표현**  \n   - `int`형 대신 `typedef enum { FALSE = 0, TRUE = 1 } BOOLEAN;` 형태를 사용한다.  \n   - 명시적 참/거짓 표현은 코드 가독성과 안정성을 높인다.\n\n---\n\n## 6.2 상수(Constants)\n\n1. **매직 넘버(Magic Number) 사용 금지**  \n   - 의미 없는 숫자 대신 **`#define` 상수** 또는 **`const` 변수**를 사용한다.  \n   - 예시:\n\n```c\n#define MAX_LENGTH 256\n#define PI 3.1415926535\n```\n\n2. **상수 이름 규칙**  \n   - 모든 문자를 **대문자**로 작성하고 단어는 밑줄(`_`)로 구분한다.  \n   - 예: `BUFFER_SIZE`, `DEFAULT_TIMEOUT`\n\n3. **문자 상수와 문자열 상수 구분**  \n   - 문자 상수는 `'A'`, 문자열 상수는 `\"A\"`  \n   - 혼동을 피하기 위해 항상 따옴표 구분을 명확히 한다.\n\n---\n\n## 6.3 연산자(Operators)\n\nNASA는 연산자의 **우선순위와 평가 순서가 명확하지 않은 표현식**을 금지한다.  \n즉, \"컴파일러마다 결과가 달라질 수 있는\" 코드는 절대 허용되지 않는다.\n\n### 권장되는 연산자 사용 원칙\n\n1. **명시적인 괄호 사용**\n   - 복잡한 수식이나 조건문에서는 항상 괄호로 연산 순서를 명확히 표시한다.\n   - 예:\n     ```c\n     if ((a + b) > (c * d))\n     ```\n\n2. **증감 연산자의 안전한 사용**\n   - `i++` 또는 `++i`를 **표현식 안에서 동시에 사용하는 것**은 금지.  \n     예:\n     ```c\n     x = i++ + ++i;  /* 금지! */\n     ```\n   - 독립된 문장에서만 사용해야 한다.\n     ```c\n     i++;\n     sum += i;\n     ```\n\n3. **비트 연산**\n   - 비트 연산자는 하드웨어 제어 코드에서 유용하지만  \n     **명확한 마스크 이름을 반드시 사용해야 한다.**\n     ```c\n     status = status | ENABLE_BIT;\n     ```\n\n---\n\n## 6.4 표현식(Expressions)\n\n표현식 작성 시 **명확성(clarity)** 이 가장 중요한 원칙이다.\n\n1. **명시적 형 변환(Casting)**  \n   - 암묵적 변환은 예측 불가능한 결과를 초래할 수 있다.  \n     항상 `(type)`을 사용해 명시적으로 캐스팅한다.\n     ```c\n     result = (float)sum / (float)count;\n     ```\n\n2. **부수효과(side effect) 최소화**  \n   - 하나의 표현식에서 여러 상태를 바꾸지 않는다.  \n     ```c\n     a = b = c = 0;  /* 권장하지 않음 */\n     ```\n     대신 명확히 분리한다.\n     ```c\n     a = 0;\n     b = 0;\n     c = 0;\n     ```\n\n3. **연산자 결합 주의**\n   - 산술 연산, 비트 연산, 논리 연산을 한 문장에 혼합하지 않는다.  \n   - 연산자의 결합 순서를 명확히 하기 위해 **괄호를 적극 사용**한다.\n\n---\n\n## 6.5 타입 변환(Type Conversions)\n\nC에서는 서로 다른 타입 간의 변환이 자동으로 일어날 수 있으나, NASA는 다음을 원칙으로 삼는다.\n\n- 암묵적 변환(implicit conversion)은 금지한다.  \n- 모든 변환은 명시적으로 작성해야 한다.\n- 정수와 실수 사이의 변환은 **데이터 손실 가능성**을 반드시 고려한다.\n\n```c\nint i;\nfloat f;\n\nf = (float)i;\ni = (int)(f + 0.5);\n```\n\n---\n\n## 6.6 평가 순서(Order of Evaluation)\n\nC 표준은 일부 연산자의 평가 순서를 명확히 정의하지 않는다.  \n따라서 NASA는 **평가 순서가 모호한 표현식의 사용을 금지**한다.\n\n### 예시: 금지된 표현식\n\n```c\na[i] = i++;\nprintf(\"%d %d\", i, i++);\n```\n\n이러한 표현식은 컴파일러에 따라 결과가 달라질 수 있으며,  \n안전성이 중요한 시스템에서는 절대 허용되지 않는다.\n\n---\n\n## 6.7 복잡한 표현식의 분해(Decomposition of Complex Expressions)\n\n복잡한 표현식은 여러 개의 단순한 문장으로 나누어 작성한다.  \n이는 **디버깅, 코드 검증, 코드 리뷰** 모두에 도움이 된다.\n\n```c\n/* 비권장 */\nif ((a + b) / (c - d * e) > (f + g))\n\n/* 권장 */\ntemp1 = (a + b);\ntemp2 = (c - d * e);\nif ((temp1 / temp2) > (f + g))\n```\n\n---\n\n## 마무리를 하며\n\nNASA의 데이터 타입 및 표현식 규칙은  \n**명확한 타입, 일관된 연산자 사용, 예측 가능한 평가 순서**를 통해  \n안전하고 이식성 높은 코드를 보장하기 위한 것이다.\n\n---\n\n> 번역을 하며 틀린 부분이 있을 수 있으니 유의해서 봐주시고,  \n> 잘못된 점이나 수정이 필요하다면 댓글로 부탁드립니다.  \n>\n> **원문:** [https://ntrs.nasa.gov/api/citations/19950022400/downloads/19950022400.pdf](https://ntrs.nasa.gov/api/citations/19950022400/downloads/19950022400.pdf)"
+}

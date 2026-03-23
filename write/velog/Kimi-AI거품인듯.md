@@ -1,0 +1,35 @@
+---
+title: "Kimi AI거품인듯?"
+description: "Kimi AI(Moonshot AI)와 그 에이전트 버전 KimiClaw는 바이럴 마케팅으로 급부상했지만, 실제로는 과대평가된 거품 성격이 강합니다. 중국산 저비용 모델의 쇼크로 포장된 현상은 지속 가능성이 낮습니다.데모 최적화, 실전 실패Kimi K2 시리즈는 벤치마"
+source: "https://velog.io/@pobi/Kimi-AI%EA%B1%B0%ED%92%88%EC%9D%B8%EB%93%AF"
+source_slug: "Kimi-AI거품인듯"
+author: "pobi"
+author_display_name: "포비"
+released_at: "2026-03-08T23:34:47.461Z"
+updated_at: "2026-03-23T01:20:03.180Z"
+thumbnail: "https://velog.velcdn.com/images/pobi/post/6647ca44-bc75-4b22-b564-1f74fa6c63a3/image.png"
+tags: []
+---# Kimi AI거품인듯?
+
+![](https://velog.velcdn.com/images/pobi/post/6647ca44-bc75-4b22-b564-1f74fa6c63a3/image.png)
+
+Kimi AI(Moonshot AI)와 그 에이전트 버전 KimiClaw는 바이럴 마케팅으로 급부상했지만, 실제로는 과대평가된 거품 성격이 강합니다. 중국산 저비용 모델의 쇼크로 포장된 현상은 지속 가능성이 낮습니다.
+
+1. 데모 최적화, 실전 실패
+Kimi K2 시리즈는 벤치마크(LiveCodeBench 83%)에서 화려하지만, 생산 환경에서 무너집니다. 복잡한 게임 로직(Godot FPS), SVG 그래픽 생성, 장기 에이전트 작업에서 Claude나 Gemini에 비해 일관성 부족. 데모 영상은 인상적이지만 실제 프로덕트에서는 너무 느립니다.
+
+2. 마케팅 > 기술력
+해외 300만 무료 사용자, "OpenAI 킬러" 바이럴은 중국식 마케팅 전략입니다. 43억 달러 밸류에 12억 달러 펀딩 목표지만, 해외 매출 급증은 무료 체험 유저 중심. 크립토 가격 예측 같은 바이럴 콘텐츠는 신뢰성 제로입니다.
+
+3. KimiClaw의 에이전트 한계
+KimiClaw는 툴 콜링 강조하지만, A2A 프로토콜 같은 표준 지원 미비하고 멀티스텝 추론에서 약합니다. Claude opus나 Gemini 3.1의 안정성에 미치지 못합니다.
+
+4. 중국 AI 거품의 전형
+DeepSeek 쇼크처럼 저비용 훈련 과시하지만, 프론티어급(200B+ 파라미터) 성능은 아닙니다. 2026년 AI 버블 붕괴 논란 속에서 Kimi는 "저렴한 대안" 이미지로만 소비되고 있습니다. 엔터프라이즈 채택은 미미합니다.
+
+| 항목   | Kimi | Claude/Gemini 추천 이유 |
+| ---- | ------------- | ------------------- |
+| 벤치마크 | 데모 강함         | 실전 안정성 우위           |
+| 비용   | 저렴            | TCO에서 장기 우위         |
+| 생태계  | 마케팅 중심        | 호환 완벽      |
+| 신뢰도  | 바이럴 의존        | 검증된 사례 다수           |

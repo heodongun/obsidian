@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "scala/00-Background information/왜 Cats , ZIO 가 새로운 언어처럼 보이나",
+    "relativePath": "scala/00-Background information/왜 Cats , ZIO 가 새로운 언어처럼 보이나.md",
+    "routePath": "scala/00-Background information/왜 Cats , ZIO 가 새로운 언어처럼 보이나",
+    "folderSegments": [
+      "scala",
+      "00-Background information"
+    ],
+    "title": "왜 Cats , ZIO 가 새로운 언어처럼 보이나",
+    "description": "이건 typeclass 기반 설계 때문이다. Scala FP 생태계는 사실상 embedded language 다. Functor 정의",
+    "headings": [
+      {
+        "depth": 2,
+        "text": "Cats 예시",
+        "id": "cats-예시"
+      },
+      {
+        "depth": 2,
+        "text": "extension syntax",
+        "id": "extension-syntax"
+      },
+      {
+        "depth": 2,
+        "text": "ZIO example",
+        "id": "zio-example"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "scala",
+    "mtime": "2026-03-16T08:13:59.643Z",
+    "wordCount": 64,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {},
+  "content": "이건 **typeclass 기반 설계** 때문이다.\n\nScala FP 생태계는 사실상 **embedded language**다.\n\n---\n\n## Cats 예시\n\nFunctor 정의\n\ntrait Functor[F[_]]:  \n  def map[A,B](fa: F[A])(f: A => B): F[B]\n\n사용\n\nList(1,2,3).map(_ + 1)\n\n하지만 내부에서는\n\nFunctor[List]\n\n타입 클래스가 호출된다.\n\n---\n\n## extension syntax\n\nCats는 이런 문법을 만든다.\n\nimport cats.syntax.all.*  \n  \nOption(1).map(_ + 1)\n\n이건 실제로는\n\nextension methods\n\n이다.\n\n---\n\n## ZIO example\n\nZIO는 아예 effect system을 만든다.\n\nZIO[R, E, A]\n\n의미\n\nR = environment  \nE = error  \nA = result\n\n그래서\n\nZIO[Any, Throwable, Int]\n\n이건\n\nInt를 반환하는 effect\n\n이다.\n\n이걸 보면 거의\n\n새로운 언어 runtime\n\n같다."
+}

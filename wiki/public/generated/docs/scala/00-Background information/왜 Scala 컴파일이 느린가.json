@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "id": "scala/00-Background information/왜 Scala 컴파일이 느린가",
+    "relativePath": "scala/00-Background information/왜 Scala 컴파일이 느린가.md",
+    "routePath": "scala/00-Background information/왜 Scala 컴파일이 느린가",
+    "folderSegments": [
+      "scala",
+      "00-Background information"
+    ],
+    "title": "왜 Scala 컴파일이 느린가",
+    "description": "Scala 컴파일이 느린 이유는 언어 설계 자체 때문이다. Scala 타입 시스템에는 이런 것들이 있다. type inference higher kinded types",
+    "headings": [
+      {
+        "depth": 2,
+        "text": "① 타입 시스템이 매우 복잡함",
+        "id": "-타입-시스템이-매우-복잡함"
+      },
+      {
+        "depth": 2,
+        "text": "② implicit search",
+        "id": "-implicit-search"
+      },
+      {
+        "depth": 2,
+        "text": "③ 컴파일 단계가 많다",
+        "id": "-컴파일-단계가-많다"
+      },
+      {
+        "depth": 2,
+        "text": "④ incremental compile도 무겁다",
+        "id": "-incremental-compile도-무겁다"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "scala",
+    "mtime": "2026-03-16T08:13:44.030Z",
+    "wordCount": 131,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {},
+  "content": "Scala 컴파일이 느린 이유는 **언어 설계 자체** 때문이다.\n\n## ① 타입 시스템이 매우 복잡함\n\nScala 타입 시스템에는 이런 것들이 있다.\n\n- type inference\n    \n- higher-kinded types\n    \n- implicits / givens\n    \n- type classes\n    \n- macros\n    \n\n예:\n\ndef map[F[_]: Functor, A, B](fa: F[A])(f: A => B): F[B]\n\n컴파일러가 해야 하는 것\n\n1 타입 추론  \n2 타입 클래스 찾기  \n3 implicit resolution  \n4 constraint solving\n\n이게 **NP-hard 수준으로 복잡**해질 수 있다.\n\n그래서 Scala 컴파일러는 사실상 **타입 추론 엔진**이다.\n\n---\n\n## ② implicit search\n\nScala의 핵심 기능 중 하나가 **implicit resolution**이다.\n\n예:\n\ngiven Ordering[Int] = ...\n\n컴파일러는\n\n가능한 implicit 후보  \n↓  \nscope 탐색  \n↓  \ntype matching  \n↓  \npriority 비교\n\n이걸 반복한다.\n\n큰 프로젝트에서는 **수천개 후보**를 탐색하기도 한다.\n\n---\n\n## ③ 컴파일 단계가 많다\n\nScala 컴파일러에는 **많은 phase**가 있다.\n\n대표적으로\n\nparser  \ntyper  \nimplicit search  \nerasure  \nlambda lifting  \njvm backend\n\n그래서 Java보다 컴파일 단계가 훨씬 많다.\n\n---\n\n## ④ incremental compile도 무겁다\n\nScala는 incremental compiler를 쓴다.\n\n대표적으로\n\n**Zinc**\n\n하지만 Scala는\n\n타입 변경 → 의존 파일 재컴파일\n\n이 발생한다.\n\n그래서 큰 프로젝트에서는\n\n몇 백 파일 재컴파일\n\n이 일어나기도 한다."
+}

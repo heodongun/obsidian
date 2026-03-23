@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "velog/algorithm-Union-Find-알고리즘을-정석적으로-풀어보자",
+    "relativePath": "velog/algorithm-Union-Find-알고리즘을-정석적으로-풀어보자.md",
+    "routePath": "velog/algorithm-Union-Find-알고리즘을-정석적으로-풀어보자",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "[\b algorithm] Union-Find 알고리즘을 정석적으로 풀어보자",
+    "description": "\\[\b algorithm] Union-Find 알고리즘을 dfs로 뻘짓을 하며 풀어보자뻘짓은 그만두고배웠으니까 써봐야겠죠이것도 DFS랑 비슷비슷하다.1\\. 노드 수와 간선 수를 입력받아 초기화합니다.2\\. 주어진 간선 정보를 바탕으로 유니온 작업을 통해 노드 집합을 만",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "[\b algorithm] Union-Find 알고리즘을 정석적으로 풀어보자",
+        "id": "-algorithm-union-find-알고리즘을-정석적으로-풀어보자"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.625Z",
+    "wordCount": 59,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "[\b algorithm] Union-Find 알고리즘을 정석적으로 풀어보자\n",
+    "description": "\\[\b algorithm] Union-Find 알고리즘을 dfs로 뻘짓을 하며 풀어보자뻘짓은 그만두고배웠으니까 써봐야겠죠이것도 DFS랑 비슷비슷하다.1\\. 노드 수와 간선 수를 입력받아 초기화합니다.2\\. 주어진 간선 정보를 바탕으로 유니온 작업을 통해 노드 집합을 만",
+    "source": "https://velog.io/@pobi/algorithm-Union-Find-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A0%95%EC%84%9D%EC%A0%81%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90",
+    "source_slug": "algorithm-Union-Find-알고리즘을-정석적으로-풀어보자",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-09-25T03:35:21.631Z",
+    "updated_at": "2026-02-24T00:05:06.577Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/f9da6ebe-57db-4e06-9e42-9ad9b9b67e0a/image.png",
+    "tags": []
+  },
+  "content": "# [\b algorithm] Union-Find 알고리즘을 정석적으로 풀어보자\n\n\n> [[\b algorithm] Union-Find 알고리즘을 dfs로 뻘짓을 하며 풀어보자](https://velog.io/@pobi/algorithm-Union-Find-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-dfs%EB%A1%9C-%EB%BB%98%EC%A7%93%EC%9D%84-%ED%95%98%EB%A9%B0-%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90)\n\n뻘짓은 그만두고\n배웠으니까 써봐야겠죠\n\n```\n#include<stdio.h>\n \nint n, parent[1001];\n \nint Find(int v)\n{\n    if (parent[v] == v)\n        return v;\n    else\n        return parent[v] = Find(parent[v]);\n}\n \nvoid Union(int x, int y)\n{\n    x = Find(x);\n    y = Find(y);\n \n    if (x != y)\n        parent[x] = y;\n}\n \nvoid Set()\n{\n    int i;\n \n    for (i = 1; i <= n; i++)\n        parent[i] = i;\n}\n \nint main(void)\n{\n \n    int m, i,a, b;\n \n    scanf(\"%d %d\", &n, &m);\n \n    Set();\n \n    for (i = 0; i < m; i++)\n    {\n        scanf(\"%d %d\", &a, &b);\n \n        Union(a, b);\n    }\n \n    scanf(\"%d %d\", &a, &b);\n    if (Find(a) == Find(b))\n        printf(\"YES\\n\");\n    else\n        printf(\"NO\\n\");\n \n    return 0;\n}\n```\n\n이것도 DFS랑 비슷비슷하다.\n1. 노드 수와 간선 수를 입력받아 초기화합니다.\n2. 주어진 간선 정보를 바탕으로 유니온 작업을 통해 노드 집합을 만듭니다.\n3. 마지막으로, 특정 두 노드가 같은 집합에 속하는지 확인하여 결과를 출력합니다."
+}

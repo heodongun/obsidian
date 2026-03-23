@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "id": "velog/page-agent-분석",
+    "relativePath": "velog/page-agent-분석.md",
+    "routePath": "velog/page-agent-분석",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "page-agent  분석",
+    "description": "요즘 “웹페이지에 AI를 붙인다”는 말은 흔하다.보통은 챗봇 위젯을 넣거나 FAQ 답변을 자동화하는 정도를 떠올린다.  하지만 Alibaba의 page-agent는 방향이 조금 다르다.이 프로젝트는 단순 챗 UI가 아니라 웹페이지 안에서 직접 버튼을 누르고, 입력하고,",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "page-agent  분석",
+        "id": "page-agent--분석"
+      },
+      {
+        "depth": 2,
+        "text": "코드 1줄로 웹페이지에 AI 에이전트 추가하기",
+        "id": "코드-1줄로-웹페이지에-ai-에이전트-추가하기"
+      },
+      {
+        "depth": 1,
+        "text": "핵심 특징",
+        "id": "핵심-특징"
+      },
+      {
+        "depth": 1,
+        "text": "1. 코드 1줄로 시작",
+        "id": "1-코드-1줄로-시작"
+      },
+      {
+        "depth": 1,
+        "text": "2. 브라우저 내부에서 동작",
+        "id": "2-브라우저-내부에서-동작"
+      },
+      {
+        "depth": 1,
+        "text": "3. DOM 기반 웹 조작",
+        "id": "3-dom-기반-웹-조작"
+      },
+      {
+        "depth": 1,
+        "text": "4. 인간과 AI가 함께 사용하는 인터페이스",
+        "id": "4-인간과-ai가-함께-사용하는-인터페이스"
+      },
+      {
+        "depth": 1,
+        "text": "주요 사용 사례",
+        "id": "주요-사용-사례"
+      },
+      {
+        "depth": 3,
+        "text": "SaaS Copilot",
+        "id": "saas-copilot"
+      },
+      {
+        "depth": 3,
+        "text": "스마트 폼 작성",
+        "id": "스마트-폼-작성"
+      },
+      {
+        "depth": 3,
+        "text": "접근성 지원",
+        "id": "접근성-지원"
+      },
+      {
+        "depth": 3,
+        "text": "다단계 워크플로 자동화",
+        "id": "다단계-워크플로-자동화"
+      },
+      {
+        "depth": 1,
+        "text": "내부 구조",
+        "id": "내부-구조"
+      },
+      {
+        "depth": 3,
+        "text": "PageAgent",
+        "id": "pageagent"
+      },
+      {
+        "depth": 3,
+        "text": "PageAgentCore",
+        "id": "pageagentcore"
+      },
+      {
+        "depth": 3,
+        "text": "PageController",
+        "id": "pagecontroller"
+      },
+      {
+        "depth": 1,
+        "text": "모델 연결",
+        "id": "모델-연결"
+      },
+      {
+        "depth": 1,
+        "text": "보안 구조",
+        "id": "보안-구조"
+      },
+      {
+        "depth": 1,
+        "text": "Custom Tools",
+        "id": "custom-tools"
+      },
+      {
+        "depth": 1,
+        "text": "Chrome Extension",
+        "id": "chrome-extension"
+      },
+      {
+        "depth": 1,
+        "text": "page-agent의 의미",
+        "id": "page-agent의-의미"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:57.128Z",
+    "wordCount": 359,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "page-agent  분석",
+    "description": "요즘 “웹페이지에 AI를 붙인다”는 말은 흔하다.보통은 챗봇 위젯을 넣거나 FAQ 답변을 자동화하는 정도를 떠올린다.  하지만 Alibaba의 page-agent는 방향이 조금 다르다.이 프로젝트는 단순 챗 UI가 아니라 웹페이지 안에서 직접 버튼을 누르고, 입력하고,",
+    "source": "https://velog.io/@pobi/page-agent-%EB%B6%84%EC%84%9D",
+    "source_slug": "page-agent-분석",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-12T00:24:20.826Z",
+    "updated_at": "2026-03-22T11:18:18.009Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/659e9305-2f7f-4814-8e9c-fcf8f9cb15d3/image.png",
+    "tags": []
+  },
+  "content": "# page-agent  분석\n\n![](https://velog.velcdn.com/images/pobi/post/659e9305-2f7f-4814-8e9c-fcf8f9cb15d3/image.png)\n\n## 코드 1줄로 웹페이지에 AI 에이전트 추가하기\n\n요즘 “웹페이지에 AI를 붙인다”는 말은 흔하다.  \n보통은 챗봇 위젯을 넣거나 FAQ 답변을 자동화하는 정도를 떠올린다.  \n\n하지만 **Alibaba의 `page-agent`**는 방향이 조금 다르다.  \n이 프로젝트는 단순 챗 UI가 아니라 **웹페이지 안에서 직접 버튼을 누르고, 입력하고, DOM을 읽고, 인터페이스를 조작하는 GUI 에이전트**를 만드는 것을 목표로 한다.\n\n공식 설명도 이렇게 말한다.\n\n> **A purely web-based GUI Agent that can operate your web page.**\n\n즉 “답변하는 AI”가 아니라  \n**웹페이지를 실제로 조작하는 AI**다.\n\n---\n\n# 핵심 특징\n\npage-agent는 크게 네 가지 특징을 가진다.\n\n```\n1. 코드 1줄로 웹사이트에 AI 추가\n2. 브라우저 내부에서 동작\n3. DOM 기반 웹 조작\n4. 인간과 AI가 함께 사용하는 UI\n```\n\n---\n\n# 1. 코드 1줄로 시작\n\n가장 간단한 방식은 CDN 스크립트다.\n\n```html\n<script src=\"https://cdn.jsdelivr.net/npm/page-agent/dist/iife/page-agent.demo.js\"></script>\n```\n\n이 스크립트를 넣으면  \n웹페이지 안에 AI 에이전트 패널이 생성된다.\n\n즉\n\n```\n웹페이지\n+\nAI 에이전트\n```\n\n를 즉시 실험할 수 있다.\n\n---\n\n# 2. 브라우저 내부에서 동작\n\n대부분의 웹 자동화 도구는 이런 구조다.\n\n```\nPython\n↓\nHeadless Browser\n↓\n웹페이지\n```\n\n하지만 page-agent는 다르다.\n\n```\n웹페이지\n↓\nJavaScript Agent\n↓\nDOM 조작\n```\n\n즉 브라우저 안에서 직접 실행된다.\n\n그래서\n\n- 별도 서버 필요 없음\n- 헤드리스 브라우저 필요 없음\n- 브라우저 확장 필요 없음\n\n---\n\n# 3. DOM 기반 웹 조작\n\npage-agent는 스크린샷 기반 AI가 아니다.\n\n대신\n\n```\nDOM 구조\nHTML\n텍스트\n```\n\n를 분석한다.\n\n예\n\n```\n버튼 찾기\n폼 입력\n링크 클릭\nUI 상태 확인\n```\n\n이런 작업을 수행한다.\n\n즉\n\n```\nscreen automation\n❌\n\nDOM automation\n⭕\n```\n\n이다.\n\n---\n\n# 4. 인간과 AI가 함께 사용하는 인터페이스\n\npage-agent는 **human-in-the-loop UI**를 제공한다.\n\n즉\n\n- AI가 작업 수행\n- 사용자는 결과 확인\n- 필요하면 중단\n\n이 구조다.\n\n이 방식은 중요한 이유가 있다.\n\n웹 UI 자동화는 실수 비용이 크기 때문이다.\n\n예\n\n```\n삭제 버튼\n결제 버튼\n설정 변경\n```\n\n그래서 page-agent는  \nAI 자동화 + 사용자 확인 구조를 사용한다.\n\n---\n\n# 주요 사용 사례\n\npage-agent가 노리는 시나리오는 다음이다.\n\n### SaaS Copilot\n\n관리 페이지를 자연어로 조작\n\n```\n\"사용자 목록 열어줘\"\n\"비활성 계정 필터링해줘\"\n```\n\n---\n\n### 스마트 폼 작성\n\n폼 자동 입력\n\n```\n\"이 양식 채워줘\"\n```\n\n---\n\n### 접근성 지원\n\n웹 UI를 자연어 인터페이스로 변환\n\n---\n\n### 다단계 워크플로 자동화\n\n예\n\n```\n로그인\n↓\n보고서 다운로드\n↓\nCSV 처리\n```\n\n---\n\n# 내부 구조\n\npage-agent는 세 레이어 구조다.\n\n```\nPageAgent\n↓\nPageAgentCore\n↓\nPageController\n```\n\n### PageAgent\n\n기본 UI 포함 에이전트\n\n---\n\n### PageAgentCore\n\n핵심 에이전트 로직\n\n---\n\n### PageController\n\nDOM 탐색 / 하이라이트\n\n---\n\n# 모델 연결\n\npage-agent는 특정 LLM에 묶이지 않는다.\n\n지원 모델\n\n```\nOpenAI\nAnthropic\nQwen\n```\n\n조건\n\n```\ntool calls 지원 모델\n```\n\n예\n\n```ts\nconst agent = new PageAgent({\n  model: \"qwen3.5-plus\",\n  apiKey: \"YOUR_API_KEY\"\n})\n```\n\n---\n\n# 보안 구조\n\n웹페이지 자동화에서 가장 중요한 것은  \n**통제 가능성**이다.\n\npage-agent는 이를 위해\n\n```\nallowlist\nblocklist\n```\n\n를 제공한다.\n\n예\n\n```\n삭제 버튼\n결제 버튼\n관리 설정\n```\n\n같은 요소는 상호작용 금지 가능하다.\n\n---\n\n# Custom Tools\n\npage-agent는 DOM 조작 외에도  \n커스텀 툴을 추가할 수 있다.\n\n예\n\n```\nAPI 호출\n데이터 조회\n외부 서비스 연결\n```\n\n---\n\n# Chrome Extension\n\n기본 page-agent는\n\n```\n현재 페이지\n```\n\n만 조작한다.\n\nChrome Extension을 쓰면\n\n```\n여러 페이지 이동\n브라우저 제어\n외부 명령 실행\n```\n\n이 가능하다.\n\n---\n\n# page-agent의 의미\n\n이 프로젝트가 흥미로운 이유는  \n기술보다 **인터페이스 철학** 때문이다.\n\n예전\n\n```\n웹 UI\n→ 사람이 클릭\n```\n\npage-agent 이후\n\n```\n웹 UI\n→ AI가 조작\n```\n\n즉\n\n> 웹페이지가 AI가 사용할 수 있는 인터페이스가 된다.\n\n---\n\n# 결론\n\npage-agent는 단순 챗봇 위젯이 아니다.\n\n정확히는\n\n```\n웹페이지\n+\nAI 조작 레이어\n```\n\n다.\n\n한 문장으로 정리하면\n\n> **page-agent는 웹사이트를 자연어로 조작 가능한 AI 인터페이스로 바꾸는 프레임워크다.**"
+}

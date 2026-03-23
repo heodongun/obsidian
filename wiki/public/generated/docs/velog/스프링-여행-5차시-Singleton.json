@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "id": "velog/스프링-여행-5차시-Singleton",
+    "relativePath": "velog/스프링-여행-5차시-Singleton.md",
+    "routePath": "velog/스프링-여행-5차시-Singleton",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "스프링 여행 5차시 - Singleton",
+    "description": "클래스의 인스턴스가 딱 1개만 생성되는 것을 보장하는 디자인 패턴이다. 그래서 객체 인스턴스를 2개 이상 생성하지 못하도록 막아야 한다.우리가 해야할 싱글톤이다. 이런 말보다는 코드로 이해하는것이 빠르다.static 영역에 객체 instance를 미리 하나 생성해서 올",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "스프링 여행 5차시 - Singleton",
+        "id": "스프링-여행-5차시---singleton"
+      },
+      {
+        "depth": 1,
+        "text": "이걸하면 어떤게 좋을까?",
+        "id": "이걸하면-어떤게-좋을까"
+      },
+      {
+        "depth": 1,
+        "text": "코드로 이해해보자",
+        "id": "코드로-이해해보자"
+      },
+      {
+        "depth": 1,
+        "text": "싱글톤 패턴 문제점",
+        "id": "싱글톤-패턴-문제점"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.379Z",
+    "wordCount": 330,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "스프링 여행 5차시 - Singleton",
+    "description": "클래스의 인스턴스가 딱 1개만 생성되는 것을 보장하는 디자인 패턴이다. 그래서 객체 인스턴스를 2개 이상 생성하지 못하도록 막아야 한다.우리가 해야할 싱글톤이다. 이런 말보다는 코드로 이해하는것이 빠르다.static 영역에 객체 instance를 미리 하나 생성해서 올",
+    "source": "https://velog.io/@pobi/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%97%AC%ED%96%89-5%EC%B0%A8%EC%8B%9C-Singleton",
+    "source_slug": "스프링-여행-5차시-Singleton",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-11-10T14:11:56.193Z",
+    "updated_at": "2026-01-10T09:08:00.147Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/1749b1bb-b04f-4167-87eb-42370012b055/image.png",
+    "tags": []
+  },
+  "content": "# 스프링 여행 5차시 - Singleton\n\n> \n소프트웨어 디자인 패턴에서 싱글턴 패턴(Singleton pattern)을 따르는 클래스는, 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다. 이와 같은 디자인 유형을 싱글턴 패턴이라고 한다. 주로 공통된 객체를 여러개 생성해서 사용하는 DBCP(DataBase Connection Pool)와 같은 상황에서 많이 사용된다.\n--위키피디아 피셜\n\n간단하게 설명하자면 우리가 만든 거에서는 호출해줄때마다 new해주는데 그라믄 안돼. \n한개 가지고 돌려쓰고 나눠쓰고 아나바다를 열어야한다.\n\n# 이걸하면 어떤게 좋을까?\n10000개의 요청을 하면 우리 코드는 객체를 적어도 10000개 new해줘야하는데\n싱글톤을 적용하면 1개를 10000번 쓸수있다.\n<br><br>\n\n# 코드로 이해해보자\n\n```\n\npublic class SingletonService {\n    private static final SingletonService instance=new SingletonService();\n    public static SingletonService getInstance(){\n        return instance;\n    }\n\n    private SingletonService(){}\n    public void logic(){\n        System.out.println(\"싱글톤 객체 로직 호출\");\n    }\n}\n\n```\n\n1. static 영역에 객체 instance를 미리 하나 생성해서 올려둔다.\n\n2. 이 객체 인스턴스가 필요하면 오직 `getInstance()` 메서드를 통해서만 조회할 수 있다. 이 메서드를 호출하면 항상 같은 인스턴스를 반환한다.\n\n3. 딱 1개의 객체 인스턴스만 존재해야 하므로, 생성자를 private으로 막아서 혹시라도 외부에서 new 키워드로 객체 인스턴스가 생성되는 것을 막는다.\n<br><br>\n나는 가장 단순하고도 안전한 방법으로 싱글톤을 구현하였다.\n우리가 쓰는 개쩌는Bean컨테이너에서는 기본적으로 다 해주기 때문에 이렇게 복잡하게 구현할 필요가없다. 하지만 이 개쩌는 싱글톤에도 문제는 있었는데\n<br><br>\n# 싱글톤 패턴 문제점\n싱글톤 패턴의 문제점\n하지만 이러한 싱글톤 패턴에도 많은 문제점이 존재한다.\n\n1. 의존성이 높아진다.\n싱글톤 패턴을 사용하는 경우 클래스의 객체를 미리 생성한 뒤에 필요한 경우 정적 메서드를 이용하기 대문에 클래스 사이에 의존성이 높아지게 된다는 문제점이 있다. (= 높은 결합)\n\n싱글톤의 인스턴스가 변경 되면 해당 인스턴스를 참조하는 모든 클래스들을 수정해야 하는 문제가 발생한다.\n\n2. private 생성자 때문에 상속이 어렵다.\n싱글톤 패턴은 기본 생성자를 private로 만들었기 때문에 상속을 통한 자식 클래스를 만들 수 없다는 문제점이 있다. 즉, 자바의 객체지향 언어의 장점 중 하나인 다형성을 적용하지 못한다는 문제로 이어진다.\n\n3. 테스트하기가 힘들다.\n싱글톤 패턴의 인스턴스는 자원을 공유하고 있다는 특징이 있다. 이는 서로 독립적이어야 하는 단위 테스트를 하는데 문제가 된다.\n독립적인 테스트가 진행이 되려면 전역에서 상태를 공유하고 있는 인스턴스의 상태를 매번 초기화해야 한다. 초기화해주지 않으면 전역에서 상태를 공유 중이기 때문에 테스트가 정상적으로 수행되지 못할 가능성이 존재한다.\n\n4. 코드가 많이 들어간다. 우리 코드만해도\n```\npublic void logic(){\n        System.out.println(\"싱글톤 객체 로직 호출\");\n    }\n```\n이것을 쓰고싶은데\n```\nprivate static final SingletonService instance=new SingletonService();\n    public static SingletonService getInstance(){\n        return instance;\n    }\n\n```\n이러한 불필요한 코드를 쓰는 불상사가 일어난다.\n<br><br>\n이러한 문제점들 때문에 싱글톤 패턴은 안티패턴이라고 불리기도 한다.\n\n\n하지만 디자인 패턴하면 꼭 나오는 놈인 만큼 필수중에 필수이다.\n그리고 우리는 스프링이 알아서 해주기 때문에 크게 생각할필요는 없다.\n\n![](https://velog.velcdn.com/images/pobi/post/1749b1bb-b04f-4167-87eb-42370012b055/image.png)"
+}

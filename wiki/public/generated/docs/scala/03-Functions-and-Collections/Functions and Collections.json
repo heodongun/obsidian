@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "id": "scala/03-Functions-and-Collections/Functions and Collections",
+    "relativePath": "scala/03-Functions-and-Collections/Functions and Collections.md",
+    "routePath": "scala/03-Functions-and-Collections/Functions and Collections",
+    "folderSegments": [
+      "scala",
+      "03-Functions-and-Collections"
+    ],
+    "title": "Functions and Collections (★★★)",
+    "description": "| Item | Key Point | | | | | function value | 변수에 담고 전달할 수 있는 함수 | | higher order function | 함수를 인자로 받거나 반환 |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Functions and Collections (★★★)",
+        "id": "functions-and-collections-"
+      },
+      {
+        "depth": 2,
+        "text": "Overview Table (한눈에 비교)",
+        "id": "overview-table-한눈에-비교"
+      },
+      {
+        "depth": 2,
+        "text": "함수는 값이다",
+        "id": "함수는-값이다"
+      },
+      {
+        "depth": 2,
+        "text": "컬렉션 사고법",
+        "id": "컬렉션-사고법"
+      },
+      {
+        "depth": 2,
+        "text": "불변 데이터 처리",
+        "id": "불변-데이터-처리"
+      },
+      {
+        "depth": 2,
+        "text": "for-comprehension",
+        "id": "for-comprehension"
+      },
+      {
+        "depth": 2,
+        "text": "Exam/Test Patterns (시험 빈출 패턴)",
+        "id": "examtest-patterns-시험-빈출-패턴"
+      },
+      {
+        "depth": 2,
+        "text": "Related Notes",
+        "id": "related-notes"
+      }
+    ],
+    "tags": [
+      "functions",
+      "collections",
+      "map",
+      "fold",
+      "immutability"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:53:06.181Z",
+    "wordCount": 237,
+    "wikiLinks": [
+      {
+        "label": "Basics and Expressions",
+        "target": "scala/01-Scala-Basics/Basics and Expressions",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Pattern Matching and ADTs",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Effects and Concurrency",
+        "target": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Functions and Collections Practice",
+        "target": "scala/03-Functions-and-Collections/Functions and Collections Practice",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Quick Reference",
+        "target": "scala/00-Dashboard/Quick Reference",
+        "heading": null,
+        "resolved": true
+      },
+      {
+        "label": "Exam Traps",
+        "target": "scala/00-Dashboard/Exam Traps",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/Exam Traps",
+        "title": "Exam Traps (시험 함정 포인트)",
+        "relativePath": "scala/00-Dashboard/Exam Traps.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Quick Reference",
+        "title": "Quick Reference",
+        "relativePath": "scala/00-Dashboard/Quick Reference.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/Source Mapping",
+        "title": "Source Mapping",
+        "relativePath": "scala/00-Dashboard/Source Mapping.md"
+      },
+      {
+        "routePath": "scala/01-Scala-Basics/Basics and Expressions",
+        "title": "Basics and Expressions (★★★)",
+        "relativePath": "scala/01-Scala-Basics/Basics and Expressions.md"
+      },
+      {
+        "routePath": "scala/03-Functions-and-Collections/Functions and Collections Practice",
+        "title": "Functions and Collections Practice (8 questions)",
+        "relativePath": "scala/03-Functions-and-Collections/Functions and Collections Practice.md"
+      },
+      {
+        "routePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency",
+        "title": "Effects and Concurrency (★★★)",
+        "relativePath": "scala/07-Effects-and-Concurrency/Effects and Concurrency.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/higher-order-functions.md",
+      "sources/official/scala3-book/collections-intro.md",
+      "sources/official/scala3-book/fp-intro.md",
+      "sources/books/essential-scala.pdf",
+      "sources/books/essential-scala-full.md"
+    ],
+    "part": [
+      "Tour higher-order functions",
+      "Scala 3 collections intro",
+      "Scala 3 fp intro",
+      "Essential Scala ch5-6 pp121-208"
+    ],
+    "keywords": [
+      "functions",
+      "collections",
+      "map",
+      "fold",
+      "immutability"
+    ]
+  },
+  "content": "# Functions and Collections (★★★)\n\n#fp-core #collections\n\n## Overview Table (한눈에 비교)\n\n| Item | Key Point |\n|------|-----------|\n| function value | 변수에 담고 전달할 수 있는 함수 |\n| higher-order function | 함수를 인자로 받거나 반환 |\n| immutable collection | 새 컬렉션을 만들어 변환 |\n| `foldLeft` | 누적 계산의 기본 도구 |\n\n## 함수는 값이다\n\nScala에서는 함수를 변수에 담고, 다른 함수에 전달하고, 반환할 수 있다.\n\n- 메서드는 필요 문맥에서 함수 값으로 변환될 수 있다\n- 익명 함수는 짧은 변환 로직에 적합하다\n- 고차 함수는 반복 패턴을 추상화한다\n\n## 컬렉션 사고법\n\n초반에는 `List`, `Vector`, `Seq`, `Map`, `Set`만 익혀도 충분하다.\n\n| Operation | Meaning |\n|------|------|\n| `map` | 각 원소를 새 값으로 변환 |\n| `filter` | 조건을 만족하는 원소만 선택 |\n| `flatMap` | 중첩 구조를 펼치며 변환 |\n| `foldLeft` | 누적기와 함께 결과를 축약 |\n\n## 불변 데이터 처리\n\n컬렉션 연산의 핵심은 \"원본 수정\"이 아니라 \"새 값 생성\"이다.\n\n```text\nsource data\n   |\n map/filter\n   |\n transformed data\n   |\n foldLeft\n   v\n final result\n```\n\n> [!tip]\n> `var`와 루프를 보이면, 우선 컬렉션 변환 체인으로 바꿀 수 있는지 확인한다.\n\n## for-comprehension\n\nfor-comprehension은 map/flatMap/filter 조합을 읽기 좋은 형태로 표현한다.  \n옵션, 컬렉션, effect 조합에서 모두 중요한 문법 감각이다.\n\n## Exam/Test Patterns (시험 빈출 패턴)\n\n| Scenario/Keyword | Answer |\n|-------------------|--------|\n| \"함수를 인자로 받는 함수\" | **higher-order function** |\n| \"원소 1:1 변환\" | **`map`** |\n| \"조건 기반 선택\" | **`filter`** |\n| \"누적 계산\" | **`foldLeft`** |\n\n## Related Notes\n\n- [Basics and Expressions](#/docs/scala/01-Scala-Basics/Basics%20and%20Expressions)\n- [Pattern Matching and ADTs](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20and%20ADTs)\n- [Effects and Concurrency](#/docs/scala/07-Effects-and-Concurrency/Effects%20and%20Concurrency)\n- [Functions and Collections Practice](#/docs/scala/03-Functions-and-Collections/Functions%20and%20Collections%20Practice)\n- [Quick Reference](#/docs/scala/00-Dashboard/Quick%20Reference)\n- [Exam Traps](#/docs/scala/00-Dashboard/Exam%20Traps)"
+}

@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "velog/algorithm-Dijkstra-Algorithm",
+    "relativePath": "velog/algorithm-Dijkstra-Algorithm.md",
+    "routePath": "velog/algorithm-Dijkstra-Algorithm",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "[\b algorithm ] Dijkstra Algorithm",
+    "description": "이거 코드로 치라하면 못침ㄹㅇㅋㅋ",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "[\b algorithm ] Dijkstra Algorithm",
+        "id": "-algorithm--dijkstra-algorithm"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:06.978Z",
+    "wordCount": 250,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "[\b algorithm ] Dijkstra Algorithm",
+    "description": "이거 코드로 치라하면 못침ㄹㅇㅋㅋ",
+    "source": "https://velog.io/@pobi/algorithm-Dijkstra-Algorithm",
+    "source_slug": "algorithm-Dijkstra-Algorithm",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-11-20T10:21:27.426Z",
+    "updated_at": "2026-02-20T06:10:30.374Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/560ba04f-181f-421d-9f21-7020d7228260/image.png",
+    "tags": []
+  },
+  "content": "# [\b algorithm ] Dijkstra Algorithm\n\n> 컴퓨터 과학에서 데이크스트라 알고리즘(영어: Dijkstra algorithm) 또는 다익스트라 알고리즘은 도로 교통망 같은 곳에서 나타날 수 있는 그래프에서 꼭짓점 간의 최단 경로를 찾는 알고리즘이다. 이 알고리즘은 컴퓨터 과학자 에츠허르 데이크스트라가 1956년에 고안했으며 삼 년 뒤에 발표했다.\n--위키피디아 피셜\n\n다익스트라가 무엇인고 하니\n최단경로끼리 막 더하고 볶고 지지고 해서 가장 짧은걸로 해줌\n![](https://velog.velcdn.com/images/pobi/post/1e0e1525-cf14-4c8d-adb5-0aa5f42f4fd8/image.png)\n이 그림으로 이해해보자\n\n![](https://velog.velcdn.com/images/pobi/post/83102aa4-dd40-46fa-9a25-1e0156f214dd/image.png)\n\n![](https://velog.velcdn.com/images/pobi/post/af530a6b-bbc9-4376-a4df-f855ee49544f/image.png)\n1번 노드만 거칠때 갈수있는곳\n그리고 가장 작은 값으로 가줌\n\n![](https://velog.velcdn.com/images/pobi/post/62a6f5c6-bfcc-44c6-9b5f-786829e2b92e/image.png)\n4번 노드를 거치고 가는거랑 안거치고 가는거랑 비교해서 작은걸로 해줌.\n그리고 가장작은 2번으로감\n\n![](https://velog.velcdn.com/images/pobi/post/9a3b40ec-2e93-4a15-b908-c538a1649bb6/image.png)\n2번 노드를 거치고 가는거랑 안거치고 가는거랑 비교해서 작은걸로 해줌\n그리고 가장작은 5번으로 가줌\n\n![](https://velog.velcdn.com/images/pobi/post/ce0e2456-e478-46aa-95af-aface7734079/image.png)\n5번 노드를 거치고 가는거랑 안거치고 가는거랑 비교해서 작은걸로 해줌\n그리고 가장작은 3번으로 가줌\n\n![](https://velog.velcdn.com/images/pobi/post/5b29ee15-a319-4727-a3d3-c5993e19026f/image.png)\n5번 노드를 거치고 가는거랑 안거치고 가는거랑 비교해서 작은걸로 해줌\n그리고 끝이남 이쯤됐으면 감이 뽝 오죠??\n\n```\nimport sys\ninput = sys.stdin.readline\nINF = int(1e9)\n\nn, m = map(int, input().split())\nstart = int(input())\n\ngraph = [[] for i in range(n + 1)]\nvisited = [False] * (n + 1)\ndistance = [INF] * (n + 1)\n\nfor _ in range(m):\n    a, b, c = map(int, input().split())\n    graph[a].append((b, c))\n\ndef get_smallest_node():\n    min_value = INF\n    index = 0\n    for i in range(1, n + 1):\n        if distance[i] < min_value and not visited[i]:\n            min_value = distance[i]\n            index = i\n    return index\n\ndef dijkstra(start):\n    distance[start] = 0\n    visited[start] = True\n    \n    for j in graph[start]:\n        distance[j[0]] = j[1]\n\n    for i in range(n - 1):\n        now = get_smallest_node()\n        visited[now] = True\n        \n        for j in graph[now]:\n            cost = distance[now] + j[1]\n            if cost < distance[j[0]]:\n                distance[j[0]] = cost\n\ndijkstra(start)\n\nfor i in range(1, n + 1):\n    if distance[i] == INF:\n        print(\"INF\")\n    else:\n        print(distance[i])\n```\n이건 get_smallest_node()로 가장 작은 노드를 찾아줌\n<br><br><br>\n\n```\nimport heapq\nimport sys\ninput = sys.stdin.readline\nINF = int(1e9)\n\nn, m = map(int, input().split())\nstart = int(input())\n\ngraph = [[] for i in range(n + 1)]\ndistance = [INF] * (n + 1)\n\nfor _ in range(m):\n    a, b, c = map(int, input().split())\n    graph[a].append((b, c))\n\ndef dijkstra(start):\n    q = []\n    heapq.heappush(q, (0, start))\n    distance[start] = 0\n    while q:\n        dist, now = heapq.heappop(q)\n        if distance[now] < dist:\n            continue\n        for i in graph[now]:\n            cost = dist + i[1]\n            if cost < distance[i[0]]:\n                distance[i[0]] = cost\n                heapq.heappush(q, (cost, i[0]))\n\ndijkstra(start)\n\nfor i in range(1, n + 1):\n    if distance[i] == INF:\n        print(\"INFINITY\")\n    else:\n        print(distance[i])\n\n```\n이거는 우선순위 큐를 이용한거임\n우선순위큐로 가장 거리가 짧은 노드를 찾아줌\n<br><br><br>\n저것들은 빼고 한번 생각을 해보자\nvisited이거는 방문했냐고\ndistance이거는 우리가 열심히 그렸던 그 아래 표이고\ngraph는 위의 예제에서는\n![](https://velog.velcdn.com/images/pobi/post/a98d32f6-8653-479e-a465-282a47df0c1c/image.png)\n이거이다. 각각이 어디에 연결되어있는지를 보여준다.\n\n\n```\ndef dijkstra(start):\n    distance[start] = 0\n    visited[start] = True\n    \n    for j in graph[start]:\n        distance[j[0]] = j[1]\n\n    for i in range(n - 1):\n        now = get_smallest_node()\n        visited[now] = True\n        \n        for j in graph[now]:\n            cost = distance[now] + j[1]\n            if cost < distance[j[0]]:\n                distance[j[0]] = cost\n\n```\n이부분은 \n\n시작 노드에서 최단 거리를 0으로 설정하고, 인접 노드들의 초기 거리를 설정한다.\n반복문을 통해 최단 거리가 가장 작은 노드를 찾고, 해당 노드에서 연결된 다른 노드들의 거리를 갱신한다.\n이 과정을 반복하여 모든 노드의 최단 거리를 계산한다.\n\n```\ndef dijkstra(start):\n    q = []\n    heapq.heappush(q, (0, start))\n    distance[start] = 0\n    while q:\n        dist, now = heapq.heappop(q)\n        if distance[now] < dist:\n            continue\n        for i in graph[now]:\n            cost = dist + i[1]\n            if cost < distance[i[0]]:\n                distance[i[0]] = cost\n                heapq.heappush(q, (cost, i[0]))\n```\n우선순위 큐에 시작 노드를 삽입하고, 시작 노드의 최단 거리를 0으로 설정한 후 큐에서 꺼내면서 최단 거리를 계산한다.\n큐에서 꺼낸 노드의 최단 거리와 연결된 노드들의 거리 계산 후, 더 짧은 거리가 있으면 큐에 다시 삽입하여 업데이트한다.\n이 과정을 큐가 빌 때까지 반복하여 모든 노드의 최단 거리를 계산한다.\n\n오늘은 최단거리 구하기를 알아보았다.\n이건 자다가도 깨어나서 할수있을만큼 잘해야한다고한다.\n화이팅"
+}

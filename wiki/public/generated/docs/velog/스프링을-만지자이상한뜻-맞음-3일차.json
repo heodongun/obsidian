@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "velog/스프링을-만지자이상한뜻-맞음-3일차",
+    "relativePath": "velog/스프링을-만지자이상한뜻-맞음-3일차.md",
+    "routePath": "velog/스프링을-만지자이상한뜻-맞음-3일차",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "스프링을 만지자(이상한뜻 맞음) - 3일차",
+    "description": "배너를 바꾸자",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "스프링을 만지자(이상한뜻 맞음) - 3일차",
+        "id": "스프링을-만지자이상한뜻-맞음---3일차"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.434Z",
+    "wordCount": 33,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "스프링을 만지자(이상한뜻 맞음) - 3일차",
+    "description": "배너를 바꾸자",
+    "source": "https://velog.io/@pobi/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%84-%EB%A7%8C%EC%A7%80%EC%9E%90%EC%9D%B4%EC%83%81%ED%95%9C%EB%9C%BB-%EB%A7%9E%EC%9D%8C-3%EC%9D%BC%EC%B0%A8",
+    "source_slug": "스프링을-만지자이상한뜻-맞음-3일차",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-10-17T10:55:03.529Z",
+    "updated_at": "2026-02-28T13:44:13.909Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/7fe4a8a6-27aa-45e8-93c0-be2625c743ae/image.jpeg",
+    "tags": []
+  },
+  "content": "# 스프링을 만지자(이상한뜻 맞음) - 3일차\n\n오늘은 시험기간인 이유로 재밌는거 한개 들고왔다.\n우리 함께\n![](https://velog.velcdn.com/images/pobi/post/f0909359-6558-488c-bedd-0e5c65bc3d94/image.png)\n이 구닥다리 스프링 로고를 \n![](https://velog.velcdn.com/images/pobi/post/5d165895-2208-4e96-bca5-3897efd109d9/image.png)\n\n이렇게 MZ하게 바꿔보자\n예\n그냥 스프링부트 안에있는 리소스 파일에 \nbanner.txt안에 원하는 글자를 넣으면 저렇게 바뀐다.\n```\n🟫🟫🟫🟫🟫🟫🟫🟫\n🟫🟫🟫🟫🟫🟫🟫🟫\n🟫🟫🟫🟫🟫🟫🟫🟫\n🟫⬜️⬛️🟨🟨⬛️⬜️🟫\n🟨⬜️⬛️🟨🟨⬛️⬜️🟨\n🟥🟥🟨🟨🟨🟨🟥🟥\n🟨🟨🟨🟨🟨🟨🟨🟨\n🟨🟨🟨🟥🟥🟨🟨🟨\n\n허잇따안녕하세요도티입니다오늘할것은블록숨빠꼭질인데허잇짜호잇자저는여기숨어볼게요아잠뜰아여기로오지맠저기칠각별지나간다!!숨어숨어!호잇짜!\n```\n이걸로 바꿔보도록하자."
+}

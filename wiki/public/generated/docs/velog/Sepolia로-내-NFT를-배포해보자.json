@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "id": "velog/Sepolia로-내-NFT를-배포해보자",
+    "relativePath": "velog/Sepolia로-내-NFT를-배포해보자.md",
+    "routePath": "velog/Sepolia로-내-NFT를-배포해보자",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Sepolia로 내 NFT를 배포해보자",
+    "description": "Ethereum의 Sepolia 테스트넷은 실제 자금을 사용하지 않고 스마트 계약을 테스트하기 위한 완벽한 환경입니다. 이 글에서는 Solidity로 NFT(ERC-721) 스마트 계약을 작성하고, Hardhat 개발 프레임워크를 사용해 Sepolia에 배포하는 전체",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Sepolia로 내 NFT를 배포해보자",
+        "id": "sepolia로-내-nft를-배포해보자"
+      },
+      {
+        "depth": 2,
+        "text": "목차",
+        "id": "목차"
+      },
+      {
+        "depth": 2,
+        "text": "1. 준비 단계: 개발 환경 구축",
+        "id": "1-준비-단계-개발-환경-구축"
+      },
+      {
+        "depth": 3,
+        "text": "1.1 필수 소프트웨어 설치",
+        "id": "11-필수-소프트웨어-설치"
+      },
+      {
+        "depth": 1,
+        "text": "Node.js 버전 확인",
+        "id": "nodejs-버전-확인"
+      },
+      {
+        "depth": 3,
+        "text": "1.2 프로젝트 디렉토리 생성",
+        "id": "12-프로젝트-디렉토리-생성"
+      },
+      {
+        "depth": 3,
+        "text": "1.3 필수 패키지 설치",
+        "id": "13-필수-패키지-설치"
+      },
+      {
+        "depth": 1,
+        "text": "Hardhat 및 핵심 도구",
+        "id": "hardhat-및-핵심-도구"
+      },
+      {
+        "depth": 1,
+        "text": "Ethers.js v6 (최신 버전)",
+        "id": "ethersjs-v6-최신-버전"
+      },
+      {
+        "depth": 1,
+        "text": "TypeScript 지원 (선택사항이지만 권장)",
+        "id": "typescript-지원-선택사항이지만-권장"
+      },
+      {
+        "depth": 1,
+        "text": "OpenZeppelin Contracts (검증된 ERC-721 구현)",
+        "id": "openzeppelin-contracts-검증된-erc-721-구현"
+      },
+      {
+        "depth": 1,
+        "text": "환경 변수 관리",
+        "id": "환경-변수-관리"
+      },
+      {
+        "depth": 2,
+        "text": "2. MetaMask 설정: Sepolia 테스트넷 연결",
+        "id": "2-metamask-설정-sepolia-테스트넷-연결"
+      },
+      {
+        "depth": 3,
+        "text": "2.1 MetaMask 설치",
+        "id": "21-metamask-설치"
+      },
+      {
+        "depth": 3,
+        "text": "2.2 Sepolia 테스트넷 추가",
+        "id": "22-sepolia-테스트넷-추가"
+      },
+      {
+        "depth": 3,
+        "text": "2.3 Sepolia 테스트 ETH 획득",
+        "id": "23-sepolia-테스트-eth-획득"
+      },
+      {
+        "depth": 2,
+        "text": "3. Hardhat 프로젝트 초기화",
+        "id": "3-hardhat-프로젝트-초기화"
+      },
+      {
+        "depth": 3,
+        "text": "3.1 Hardhat 초기화",
+        "id": "31-hardhat-초기화"
+      },
+      {
+        "depth": 3,
+        "text": "3.2 프로젝트 구조",
+        "id": "32-프로젝트-구조"
+      },
+      {
+        "depth": 3,
+        "text": "3.3 환경 변수 파일 생성",
+        "id": "33-환경-변수-파일-생성"
+      },
+      {
+        "depth": 1,
+        "text": "Sepolia RPC URL (Infura 또는 Alchemy)",
+        "id": "sepolia-rpc-url-infura-또는-alchemy"
+      },
+      {
+        "depth": 1,
+        "text": "MetaMask 프라이빗 키 (0x로 시작)",
+        "id": "metamask-프라이빗-키-0x로-시작"
+      },
+      {
+        "depth": 1,
+        "text": "Etherscan API 키 (계약 검증용)",
+        "id": "etherscan-api-키-계약-검증용"
+      },
+      {
+        "depth": 3,
+        "text": "3.4 Hardhat 설정 파일 작성",
+        "id": "34-hardhat-설정-파일-작성"
+      },
+      {
+        "depth": 2,
+        "text": "4. NFT 스마트 계약 작성",
+        "id": "4-nft-스마트-계약-작성"
+      },
+      {
+        "depth": 3,
+        "text": "4.1 ERC-721 표준 이해",
+        "id": "41-erc-721-표준-이해"
+      },
+      {
+        "depth": 3,
+        "text": "4.2 MyNFT 스마트 계약 작성",
+        "id": "42-mynft-스마트-계약-작성"
+      },
+      {
+        "depth": 3,
+        "text": "4.3 온라인 명함 NFT (DongunCoin) - 고급 예제",
+        "id": "43-온라인-명함-nft-donguncoin---고급-예제"
+      },
+      {
+        "depth": 3,
+        "text": "4.4 스마트 계약 컴파일",
+        "id": "44-스마트-계약-컴파일"
+      },
+      {
+        "depth": 2,
+        "text": "5. 배포 스크립트 작성",
+        "id": "5-배포-스크립트-작성"
+      },
+      {
+        "depth": 3,
+        "text": "5.1 MyNFT 배포 스크립트",
+        "id": "51-mynft-배포-스크립트"
+      },
+      {
+        "depth": 3,
+        "text": "5.2 DongunCoin 배포 스크립트 (명함 NFT)",
+        "id": "52-donguncoin-배포-스크립트-명함-nft"
+      },
+      {
+        "depth": 2,
+        "text": "6. Sepolia 테스트넷에 배포",
+        "id": "6-sepolia-테스트넷에-배포"
+      },
+      {
+        "depth": 3,
+        "text": "6.1 로컬 테스트 (선택사항)",
+        "id": "61-로컬-테스트-선택사항"
+      },
+      {
+        "depth": 3,
+        "text": "6.2 Sepolia 배포",
+        "id": "62-sepolia-배포"
+      },
+      {
+        "depth": 3,
+        "text": "6.3 Sepolia Etherscan에서 확인",
+        "id": "63-sepolia-etherscan에서-확인"
+      },
+      {
+        "depth": 2,
+        "text": "7. 계약 검증 (Etherscan Verification)",
+        "id": "7-계약-검증-etherscan-verification"
+      },
+      {
+        "depth": 3,
+        "text": "7.1 계약 검증의 중요성",
+        "id": "71-계약-검증의-중요성"
+      },
+      {
+        "depth": 3,
+        "text": "7.2 자동 검증 (Hardhat Verify)",
+        "id": "72-자동-검증-hardhat-verify"
+      },
+      {
+        "depth": 3,
+        "text": "7.3 생성자 인자가 있는 계약 검증",
+        "id": "73-생성자-인자가-있는-계약-검증"
+      },
+      {
+        "depth": 3,
+        "text": "7.4 수동 검증 (Etherscan UI)",
+        "id": "74-수동-검증-etherscan-ui"
+      },
+      {
+        "depth": 2,
+        "text": "8. NFT 민팅 및 상호작용",
+        "id": "8-nft-민팅-및-상호작용"
+      },
+      {
+        "depth": 3,
+        "text": "8.1 Hardhat Console을 통한 민팅",
+        "id": "81-hardhat-console을-통한-민팅"
+      },
+      {
+        "depth": 3,
+        "text": "8.2 민팅 스크립트 작성",
+        "id": "82-민팅-스크립트-작성"
+      },
+      {
+        "depth": 3,
+        "text": "8.3 Base URI 설정",
+        "id": "83-base-uri-설정"
+      },
+      {
+        "depth": 3,
+        "text": "8.4 Etherscan에서 직접 상호작용",
+        "id": "84-etherscan에서-직접-상호작용"
+      },
+      {
+        "depth": 2,
+        "text": "9. 메타데이터와 IPFS",
+        "id": "9-메타데이터와-ipfs"
+      },
+      {
+        "depth": 3,
+        "text": "9.1 NFT 메타데이터 표준",
+        "id": "91-nft-메타데이터-표준"
+      },
+      {
+        "depth": 3,
+        "text": "9.2 명함 NFT 메타데이터 예시",
+        "id": "92-명함-nft-메타데이터-예시"
+      },
+      {
+        "depth": 3,
+        "text": "9.3 IPFS에 메타데이터 업로드",
+        "id": "93-ipfs에-메타데이터-업로드"
+      },
+      {
+        "depth": 4,
+        "text": "Pinata를 사용한 업로드",
+        "id": "pinata를-사용한-업로드"
+      },
+      {
+        "depth": 4,
+        "text": "web3.storage 사용",
+        "id": "web3storage-사용"
+      },
+      {
+        "depth": 3,
+        "text": "9.4 메타데이터 URI 설정",
+        "id": "94-메타데이터-uri-설정"
+      },
+      {
+        "depth": 2,
+        "text": "10. 프론트엔드 대시보드 구축",
+        "id": "10-프론트엔드-대시보드-구축"
+      },
+      {
+        "depth": 3,
+        "text": "10.1 웹 대시보드 개요",
+        "id": "101-웹-대시보드-개요"
+      },
+      {
+        "depth": 3,
+        "text": "10.2 HTML/JavaScript 대시보드",
+        "id": "102-htmljavascript-대시보드"
+      },
+      {
+        "depth": 3,
+        "text": "10.3 대시보드 실행",
+        "id": "103-대시보드-실행"
+      },
+      {
+        "depth": 1,
+        "text": "http-server 설치 (없는 경우)",
+        "id": "http-server-설치-없는-경우"
+      },
+      {
+        "depth": 1,
+        "text": "프론트엔드 서버 실행",
+        "id": "프론트엔드-서버-실행"
+      },
+      {
+        "depth": 1,
+        "text": "macOS/Linux",
+        "id": "macoslinux"
+      },
+      {
+        "depth": 1,
+        "text": "Windows",
+        "id": "windows"
+      },
+      {
+        "depth": 3,
+        "text": "10.4 대시보드 사용 방법",
+        "id": "104-대시보드-사용-방법"
+      },
+      {
+        "depth": 2,
+        "text": "11. 문제 해결 및 팁",
+        "id": "11-문제-해결-및-팁"
+      },
+      {
+        "depth": 3,
+        "text": "11.1 일반적인 오류와 해결책",
+        "id": "111-일반적인-오류와-해결책"
+      },
+      {
+        "depth": 4,
+        "text": "오류 1: \"Cannot find module 'dotenv'\"",
+        "id": "오류-1-cannot-find-module-dotenv"
+      },
+      {
+        "depth": 4,
+        "text": "오류 2: \"insufficient funds for gas * price + value\"",
+        "id": "오류-2-insufficient-funds-for-gas--price--value"
+      },
+      {
+        "depth": 4,
+        "text": "오류 3: \"Error: could not detect network\"",
+        "id": "오류-3-error-could-not-detect-network"
+      },
+      {
+        "depth": 4,
+        "text": "오류 4: \"nonce has already been used\"",
+        "id": "오류-4-nonce-has-already-been-used"
+      },
+      {
+        "depth": 1,
+        "text": "Hardhat 캐시 삭제",
+        "id": "hardhat-캐시-삭제"
+      },
+      {
+        "depth": 1,
+        "text": "또는 MetaMask에서 계정 재설정",
+        "id": "또는-metamask에서-계정-재설정"
+      },
+      {
+        "depth": 1,
+        "text": "MetaMask → 설정 → 고급 → 계정 재설정",
+        "id": "metamask--설정--고급--계정-재설정"
+      },
+      {
+        "depth": 4,
+        "text": "오류 5: Node 25 경고",
+        "id": "오류-5-node-25-경고"
+      },
+      {
+        "depth": 1,
+        "text": "nvm으로 Node 버전 전환",
+        "id": "nvm으로-node-버전-전환"
+      },
+      {
+        "depth": 3,
+        "text": "11.2 MetaMask에서 NFT 확인",
+        "id": "112-metamask에서-nft-확인"
+      },
+      {
+        "depth": 3,
+        "text": "11.3 가스 최적화 팁",
+        "id": "113-가스-최적화-팁"
+      },
+      {
+        "depth": 3,
+        "text": "11.4 보안 권장사항",
+        "id": "114-보안-권장사항"
+      },
+      {
+        "depth": 3,
+        "text": "11.5 유용한 명령어 모음",
+        "id": "115-유용한-명령어-모음"
+      },
+      {
+        "depth": 1,
+        "text": "컴파일",
+        "id": "컴파일"
+      },
+      {
+        "depth": 1,
+        "text": "로컬 노드 실행",
+        "id": "로컬-노드-실행"
+      },
+      {
+        "depth": 1,
+        "text": "로컬 배포",
+        "id": "로컬-배포"
+      },
+      {
+        "depth": 1,
+        "text": "Sepolia 배포",
+        "id": "sepolia-배포"
+      },
+      {
+        "depth": 1,
+        "text": "계약 검증",
+        "id": "계약-검증"
+      },
+      {
+        "depth": 1,
+        "text": "콘솔 실행",
+        "id": "콘솔-실행"
+      },
+      {
+        "depth": 1,
+        "text": "캐시 삭제",
+        "id": "캐시-삭제"
+      },
+      {
+        "depth": 1,
+        "text": "테스트 실행",
+        "id": "테스트-실행"
+      },
+      {
+        "depth": 3,
+        "text": "11.6 추가 리소스",
+        "id": "116-추가-리소스"
+      },
+      {
+        "depth": 2,
+        "text": "결론",
+        "id": "결론"
+      },
+      {
+        "depth": 3,
+        "text": "핵심 정리",
+        "id": "핵심-정리"
+      },
+      {
+        "depth": 3,
+        "text": "다음 단계",
+        "id": "다음-단계"
+      },
+      {
+        "depth": 3,
+        "text": "마무리",
+        "id": "마무리"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:00.375Z",
+    "wordCount": 1825,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Sepolia로 내 NFT를 배포해보자",
+    "description": "Ethereum의 Sepolia 테스트넷은 실제 자금을 사용하지 않고 스마트 계약을 테스트하기 위한 완벽한 환경입니다. 이 글에서는 Solidity로 NFT(ERC-721) 스마트 계약을 작성하고, Hardhat 개발 프레임워크를 사용해 Sepolia에 배포하는 전체 ",
+    "source": "https://velog.io/@pobi/Sepolia%EB%A1%9C-%EB%82%B4-NFT%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%B4%EB%B3%B4%EC%9E%90",
+    "source_slug": "Sepolia로-내-NFT를-배포해보자",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-11-24T10:56:36.901Z",
+    "updated_at": "2026-03-22T19:26:24.908Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/55cfb5d6-e4fd-418c-974e-7c3586c5e113/image.png",
+    "tags": []
+  },
+  "content": "# Sepolia로 내 NFT를 배포해보자\n\nEthereum의 Sepolia 테스트넷은 **실제 자금을 사용하지 않고 스마트 계약을 테스트하기 위한 완벽한 환경**입니다. 이 글에서는 Solidity로 NFT(ERC-721) 스마트 계약을 작성하고, Hardhat 개발 프레임워크를 사용해 Sepolia에 배포하는 전체 과정을 자세히 다루겠습니다. 실제 동작하는 프로젝트([heodongun/ethereumERC721](https://github.com/heodongun/ethereumERC721))를 기반으로 설명하므로, 코드를 그대로 활용할 수 있습니다.\n\n## 목차\n\n1. [준비 단계: 개발 환경 구축](#1-준비-단계-개발-환경-구축)\n2. [MetaMask 설정: Sepolia 테스트넷 연결](#2-metamask-설정-sepolia-테스트넷-연결)\n3. [Hardhat 프로젝트 초기화](#3-hardhat-프로젝트-초기화)\n4. [NFT 스마트 계약 작성](#4-nft-스마트-계약-작성)\n5. [배포 스크립트 작성](#5-배포-스크립트-작성)\n6. [Sepolia 테스트넷에 배포](#6-sepolia-테스트넷에-배포)\n7. [계약 검증 (Etherscan Verification)](#7-계약-검증-etherscan-verification)\n8. [NFT 민팅 및 상호작용](#8-nft-민팅-및-상호작용)\n9. [메타데이터와 IPFS](#9-메타데이터와-ipfs)\n10. [프론트엔드 대시보드 구축](#10-프론트엔드-대시보드-구축)\n11. [문제 해결 및 팁](#11-문제-해결-및-팁)\n\n---\n\n## 1. 준비 단계: 개발 환경 구축\n\n### 1.1 필수 소프트웨어 설치\n\nNFT 배포를 위해서는 Node.js 환경이 필요합니다. **Node.js 20.x LTS 버전을 권장**합니다. Node.js 25는 일부 패키지와 호환성 문제가 있을 수 있습니다.\n\n```bash\n# Node.js 버전 확인\nnode --version  # v20.x.x 권장\nnpm --version\n```\n\nNode.js가 설치되지 않았다면 [공식 웹사이트](https://nodejs.org)에서 LTS 버전을 다운로드하세요.\n\n### 1.2 프로젝트 디렉토리 생성\n\n새로운 프로젝트 디렉토리를 생성하고 npm 프로젝트를 초기화합니다.\n\n```bash\nmkdir my-nft-project\ncd my-nft-project\nnpm init -y\n```\n\n### 1.3 필수 패키지 설치\n\nHardhat과 필요한 의존성을 설치합니다.\n\n```bash\n# Hardhat 및 핵심 도구\nnpm install --save-dev hardhat\nnpm install --save-dev @nomicfoundation/hardhat-toolbox\nnpm install --save-dev @nomicfoundation/hardhat-verify\n\n# Ethers.js v6 (최신 버전)\nnpm install --save-dev ethers\n\n# TypeScript 지원 (선택사항이지만 권장)\nnpm install --save-dev typescript\nnpm install --save-dev ts-node\nnpm install --save-dev @types/node\n\n# OpenZeppelin Contracts (검증된 ERC-721 구현)\nnpm install @openzeppelin/contracts\n\n# 환경 변수 관리\nnpm install dotenv\n```\n\n**각 패키지의 역할:**\n- `hardhat`: Ethereum 개발 프레임워크\n- `@nomicfoundation/hardhat-toolbox`: 통합 플러그인 모음\n- `ethers`: 블록체인 상호작용 라이브러리\n- `@openzeppelin/contracts`: 안전하고 검증된 스마트 계약 라이브러리\n- `dotenv`: 민감한 정보를 환경 변수로 관리\n\n---\n\n## 2. MetaMask 설정: Sepolia 테스트넷 연결\n\n### 2.1 MetaMask 설치\n\n**MetaMask는 브라우저 기반 Ethereum 지갑**으로, NFT 배포와 트랜잭션 서명에 필수적입니다.\n\n1. Chrome, Firefox, Edge 등의 브라우저에서 [MetaMask 공식 사이트](https://metamask.io)에 접속\n2. 확장 프로그램 설치\n3. 지갑 생성 또는 복구 (시드 구문을 안전하게 보관하세요!)\n\n### 2.2 Sepolia 테스트넷 추가\n\nMetaMask에 Sepolia 네트워크를 추가합니다.\n\n**자동 추가 방법:**\n1. MetaMask 상단의 네트워크 선택 드롭다운 클릭\n2. \"테스트 네트워크 표시\" 토글을 활성화\n3. 목록에서 \"Sepolia\" 선택\n\n**수동 추가 방법 (자동으로 나타나지 않는 경우):**\n1. 네트워크 드롭다운 → \"네트워크 추가\"\n2. 다음 정보 입력:\n\n| 항목 | 값 |\n|------|-----|\n| 네트워크 이름 | Sepolia Testnet |\n| RPC URL | https://rpc.sepolia.org |\n| 체인 ID | 11155111 |\n| 통화 기호 | SepoliaETH |\n| 블록 탐색기 | https://sepolia.etherscan.io |\n\n### 2.3 Sepolia 테스트 ETH 획득\n\nNFT 배포에는 가스비가 필요합니다. 다행히 무료 faucet에서 테스트 ETH를 받을 수 있습니다.\n\n**주요 Sepolia Faucet:**\n- **Alchemy Faucet**: https://sepoliafaucet.com\n- **Chainlink Faucet**: https://faucets.chain.link/sepolia\n- **Google Cloud Faucet**: https://cloud.google.com/application/web3/faucet/ethereum/sepolia\n- **pk910 Faucet**: https://sepolia-faucet.pk910.de\n\n**사용 방법:**\n1. MetaMask에서 계정 주소 복사 (클릭하면 자동 복사됨)\n2. Faucet 사이트 방문\n3. 주소 붙여넣기 → \"Send\" 또는 \"Request\" 클릭\n4. 1~2분 후 MetaMask에서 잔액 확인\n\n💡 **Tip**: 배포에는 보통 0.1~0.5 Sepolia ETH면 충분합니다.\n\n---\n\n## 3. Hardhat 프로젝트 초기화\n\n### 3.1 Hardhat 초기화\n\n프로젝트 디렉토리에서 Hardhat을 초기화합니다.\n\n```bash\nnpx hardhat init\n```\n\n다음 옵션 중 선택:\n- **\"Create a TypeScript project\"** (권장) - 타입 안정성 제공\n- \"Create a JavaScript project\" - JavaScript로 작성\n\n프롬프트에서 `.gitignore` 생성 여부를 물으면 \"Yes\"를 선택합니다.\n\n### 3.2 프로젝트 구조\n\n초기화 후 다음과 같은 구조가 생성됩니다.\n\n```\nmy-nft-project/\n├── contracts/          # 스마트 계약 파일\n├── scripts/           # 배포 및 상호작용 스크립트\n├── test/              # 테스트 파일\n├── hardhat.config.ts  # Hardhat 설정\n├── .env               # 환경 변수 (직접 생성)\n├── .gitignore\n└── package.json\n```\n\n### 3.3 환경 변수 파일 생성\n\n프로젝트 루트에 `.env` 파일을 생성합니다.\n\n```bash\ntouch .env\n```\n\n`.env` 파일 내용:\n\n```env\n# Sepolia RPC URL (Infura 또는 Alchemy)\nSEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID\n\n# MetaMask 프라이빗 키 (0x로 시작)\nPRIVATE_KEY=0x1234567890abcdef...\n\n# Etherscan API 키 (계약 검증용)\nETHERSCAN_API_KEY=YOUR_ETHERSCAN_API_KEY\n```\n\n**⚠️ 보안 주의사항:**\n- `.env` 파일은 절대 Git에 커밋하지 마세요!\n- `.gitignore`에 `.env`가 포함되어 있는지 확인하세요.\n\n**RPC URL 얻는 방법:**\n- **Infura**: https://infura.io → 프로젝트 생성 → Sepolia 엔드포인트 복사\n- **Alchemy**: https://alchemy.com → 앱 생성 → Sepolia 엔드포인트 복사\n\n**MetaMask 프라이빗 키 추출:**\n1. MetaMask → 계정 메뉴 (우측 상단 점 3개)\n2. \"계정 세부 정보\" → \"프라이빗 키 내보내기\"\n3. 비밀번호 입력 후 키 복사\n4. **이 키는 절대 공유하지 마세요!**\n\n### 3.4 Hardhat 설정 파일 작성\n\n`hardhat.config.ts` (TypeScript) 또는 `hardhat.config.js` (JavaScript)를 다음과 같이 작성합니다.\n\n**TypeScript 버전 (hardhat.config.ts):**\n\n```typescript\nimport { HardhatUserConfig } from \"hardhat/config\";\nimport \"@nomicfoundation/hardhat-toolbox\";\nimport \"@nomicfoundation/hardhat-verify\";\nimport * as dotenv from \"dotenv\";\n\ndotenv.config();\n\nconst config: HardhatUserConfig = {\n  solidity: {\n    version: \"0.8.20\",\n    settings: {\n      optimizer: {\n        enabled: true,\n        runs: 200,\n      },\n    },\n  },\n  networks: {\n    // 로컬 Hardhat 네트워크 (테스트용)\n    hardhat: {\n      chainId: 31337,\n    },\n    // Sepolia 테스트넷\n    sepolia: {\n      url: process.env.SEPOLIA_RPC_URL || \"\",\n      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],\n      chainId: 11155111,\n    },\n  },\n  etherscan: {\n    apiKey: {\n      sepolia: process.env.ETHERSCAN_API_KEY || \"\",\n    },\n  },\n};\n\nexport default config;\n```\n\n**JavaScript 버전 (hardhat.config.js):**\n\n```javascript\nrequire(\"@nomicfoundation/hardhat-toolbox\");\nrequire(\"@nomicfoundation/hardhat-verify\");\nrequire(\"dotenv\").config();\n\nmodule.exports = {\n  solidity: {\n    version: \"0.8.20\",\n    settings: {\n      optimizer: {\n        enabled: true,\n        runs: 200,\n      },\n    },\n  },\n  networks: {\n    hardhat: {\n      chainId: 31337,\n    },\n    sepolia: {\n      url: process.env.SEPOLIA_RPC_URL || \"\",\n      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],\n      chainId: 11155111,\n    },\n  },\n  etherscan: {\n    apiKey: {\n      sepolia: process.env.ETHERSCAN_API_KEY || \"\",\n    },\n  },\n};\n```\n\n---\n\n## 4. NFT 스마트 계약 작성\n\n### 4.1 ERC-721 표준 이해\n\n**ERC-721은 대체 불가능 토큰(Non-Fungible Token)을 위한 Ethereum 표준**입니다. 각 토큰은 고유한 ID를 가지며, 다음 특징을 가집니다.\n\n- 각 토큰은 고유하며 교환 불가능\n- 소유권 추적 가능\n- 메타데이터(이미지, 설명 등) 연결 가능\n- 안전한 전송 메커니즘 제공\n\n### 4.2 MyNFT 스마트 계약 작성\n\n`contracts` 디렉토리에 `MyNft.sol` 파일을 생성합니다.\n\n```solidity\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\nimport \"@openzeppelin/contracts/token/ERC721/ERC721.sol\";\nimport \"@openzeppelin/contracts/access/Ownable.sol\";\n\n/**\n * @title MyNft\n * @dev 간단한 ERC-721 NFT 구현\n * \n * 특징:\n * - 배포 시 배포자에게 자동으로 tokenId 1 민팅\n * - 이후 민팅은 오너만 가능 (onlyOwner)\n * - 메타데이터 Base URI 설정 가능\n */\ncontract MyNft is ERC721, Ownable {\n    uint256 private _nextTokenId;\n    string private _baseTokenURI;\n\n    /**\n     * @dev 생성자 - 이름과 심볼 설정 후 배포자에게 첫 NFT 민팅\n     */\n    constructor() ERC721(\"My NFT\", \"MYNFT\") Ownable(msg.sender) {\n        _nextTokenId = 2; // 첫 번째 토큰은 1번, 이후부터 2번부터 시작\n        _safeMint(msg.sender, 1); // 배포자에게 tokenId 1 민팅\n    }\n\n    /**\n     * @dev 새로운 NFT를 민팅합니다 (오너만 가능)\n     * @param to 토큰을 받을 주소\n     */\n    function mint(address to) public onlyOwner {\n        uint256 tokenId = _nextTokenId++;\n        _safeMint(to, tokenId);\n    }\n\n    /**\n     * @dev 메타데이터 Base URI 설정 (오너만 가능)\n     * @param newBaseURI 새로운 Base URI\n     */\n    function setBaseURI(string memory newBaseURI) public onlyOwner {\n        _baseTokenURI = newBaseURI;\n    }\n\n    /**\n     * @dev Base URI 반환\n     */\n    function _baseURI() internal view override returns (string memory) {\n        return _baseTokenURI;\n    }\n\n    /**\n     * @dev 특정 토큰의 URI 반환\n     * 예: baseURI가 \"https://api.example.com/metadata/\"이면\n     * tokenId 1의 URI는 \"https://api.example.com/metadata/1\"\n     */\n    function tokenURI(uint256 tokenId) public view override returns (string memory) {\n        return super.tokenURI(tokenId);\n    }\n}\n```\n\n**계약 상세 설명:**\n\n1. **상속 구조:**\n   - `ERC721`: OpenZeppelin의 표준 ERC-721 구현\n   - `Ownable`: 소유자 전용 함수 제한 기능\n\n2. **생성자 (constructor):**\n   - 배포 시 자동으로 배포자에게 tokenId 1을 민팅\n   - `_nextTokenId`를 2로 설정하여 이후 민팅은 2번부터 시작\n\n3. **mint 함수:**\n   - `onlyOwner` 수정자로 계약 소유자만 호출 가능\n   - 새로운 NFT를 지정된 주소로 민팅\n   - tokenId는 자동으로 증가\n\n4. **setBaseURI 함수:**\n   - 메타데이터의 기본 URI 설정\n   - 예: `https://api.example.com/metadata/`로 설정하면\n   - tokenId 1의 메타데이터는 `https://api.example.com/metadata/1`\n\n### 4.3 온라인 명함 NFT (DongunCoin) - 고급 예제\n\n더 복잡한 예제로 **명함 NFT**를 만들어봅시다. 이 계약은 각 토큰마다 개별적인 URI를 설정할 수 있습니다.\n\n`contracts/DongunCoin.sol`:\n\n```solidity\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\nimport \"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol\";\nimport \"@openzeppelin/contracts/access/Ownable.sol\";\n\n/**\n * @title DongunCoin\n * @dev 온라인 명함 NFT - 각 토큰마다 개별 메타데이터 URI 설정 가능\n * \n * 특징:\n * - ERC721URIStorage 사용으로 각 토큰의 URI 독립적 관리\n * - mintCard: 오너가 새 명함 발행\n * - updateCardURI: 토큰 소유자가 명함 정보 업데이트\n */\ncontract DongunCoin is ERC721URIStorage, Ownable {\n    uint256 private _nextTokenId;\n\n    constructor() ERC721(\"DongunCoin Business Card\", \"DGC\") Ownable(msg.sender) {\n        _nextTokenId = 1;\n    }\n\n    /**\n     * @dev 새로운 명함 NFT 발행 (오너만 가능)\n     * @param to 명함을 받을 주소\n     * @param cardURI 명함 메타데이터 URI (IPFS 또는 HTTPS)\n     */\n    function mintCard(address to, string memory cardURI) public onlyOwner {\n        uint256 tokenId = _nextTokenId++;\n        _safeMint(to, tokenId);\n        _setTokenURI(tokenId, cardURI);\n    }\n\n    /**\n     * @dev 명함 정보 업데이트 (토큰 소유자 또는 승인된 주소만 가능)\n     * @param tokenId 업데이트할 토큰 ID\n     * @param newCardURI 새로운 메타데이터 URI\n     */\n    function updateCardURI(uint256 tokenId, string memory newCardURI) public {\n        require(\n            ownerOf(tokenId) == msg.sender || getApproved(tokenId) == msg.sender,\n            \"Not owner or approved\"\n        );\n        _setTokenURI(tokenId, newCardURI);\n    }\n\n    /**\n     * @dev 다음에 발행될 토큰 ID 조회\n     */\n    function getNextTokenId() public view returns (uint256) {\n        return _nextTokenId;\n    }\n}\n```\n\n**DongunCoin 계약 특징:**\n- **개별 URI**: 각 토큰이 고유한 메타데이터 URI를 가짐\n- **업데이트 가능**: 소유자가 명함 정보를 업데이트할 수 있음\n- **사용 예시**: 개인 명함, 프로필 카드, 자격증 등\n\n### 4.4 스마트 계약 컴파일\n\n작성한 계약을 컴파일하여 문법 오류를 확인합니다.\n\n```bash\nnpx hardhat compile\n```\n\n성공하면 다음과 같은 메시지가 나타납니다:\n\n```\nCompiled 2 Solidity files successfully (evm target: paris).\n```\n\n컴파일 후 `artifacts/` 디렉토리에 ABI와 바이트코드가 생성됩니다.\n\n---\n\n## 5. 배포 스크립트 작성\n\n### 5.1 MyNFT 배포 스크립트\n\n`scripts` 디렉토리에 `deploy.ts` (TypeScript) 또는 `deploy.js` (JavaScript) 파일을 생성합니다.\n\n**TypeScript 버전 (scripts/deploy.ts):**\n\n```typescript\nimport { ethers } from \"hardhat\";\n\nasync function main() {\n  console.log(\"🚀 Starting MyNft deployment to Sepolia...\\n\");\n\n  // 배포자 계정 가져오기\n  const [deployer] = await ethers.getSigners();\n  console.log(\"📝 Deploying contracts with account:\", deployer.address);\n\n  // 배포 전 잔액 확인\n  const balance = await ethers.provider.getBalance(deployer.address);\n  console.log(\"💰 Account balance:\", ethers.formatEther(balance), \"ETH\\n\");\n\n  // MyNft 컨트랙트 팩토리 가져오기\n  const MyNft = await ethers.getContractFactory(\"MyNft\");\n  \n  // 배포\n  console.log(\"⏳ Deploying MyNft contract...\");\n  const myNft = await MyNft.deploy();\n  \n  // 배포 완료 대기\n  await myNft.waitForDeployment();\n  \n  const contractAddress = await myNft.getAddress();\n  console.log(\"✅ MyNft deployed to:\", contractAddress);\n\n  // tokenId 1의 소유자 확인 (배포자에게 자동 민팅됨)\n  const owner = await myNft.ownerOf(1);\n  console.log(\"🎨 TokenId 1 owner:\", owner);\n  console.log(\"✨ Initial NFT minted to deployer!\\n\");\n\n  // 배포 정보 출력\n  console.log(\"📋 Deployment Summary:\");\n  console.log(\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\");\n  console.log(\"Contract Address:\", contractAddress);\n  console.log(\"Deployer Address:\", deployer.address);\n  console.log(\"Network:\", \"Sepolia Testnet\");\n  console.log(\"Chain ID:\", 11155111);\n  console.log(\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\");\n\n  console.log(\"🔍 Verify on Etherscan:\");\n  console.log(`https://sepolia.etherscan.io/address/${contractAddress}\\n`);\n\n  console.log(\"📝 Next steps:\");\n  console.log(\"1. Verify contract: npx hardhat verify --network sepolia\", contractAddress);\n  console.log(\"2. Set base URI: myNft.setBaseURI('your-base-uri')\");\n  console.log(\"3. Mint more NFTs: myNft.mint('recipient-address')\");\n}\n\nmain()\n  .then(() => process.exit(0))\n  .catch((error) => {\n    console.error(\"❌ Error:\", error);\n    process.exit(1);\n  });\n```\n\n**JavaScript 버전 (scripts/deploy.js):**\n\n```javascript\nconst hre = require(\"hardhat\");\n\nasync function main() {\n  console.log(\"🚀 Starting MyNft deployment to Sepolia...\\n\");\n\n  const [deployer] = await hre.ethers.getSigners();\n  console.log(\"📝 Deploying contracts with account:\", deployer.address);\n\n  const balance = await hre.ethers.provider.getBalance(deployer.address);\n  console.log(\"💰 Account balance:\", hre.ethers.formatEther(balance), \"ETH\\n\");\n\n  const MyNft = await hre.ethers.getContractFactory(\"MyNft\");\n  console.log(\"⏳ Deploying MyNft contract...\");\n  \n  const myNft = await MyNft.deploy();\n  await myNft.waitForDeployment();\n  \n  const contractAddress = await myNft.getAddress();\n  console.log(\"✅ MyNft deployed to:\", contractAddress);\n\n  const owner = await myNft.ownerOf(1);\n  console.log(\"🎨 TokenId 1 owner:\", owner);\n  console.log(\"✨ Initial NFT minted to deployer!\\n\");\n\n  console.log(\"📋 Deployment Summary:\");\n  console.log(\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\");\n  console.log(\"Contract Address:\", contractAddress);\n  console.log(\"Deployer Address:\", deployer.address);\n  console.log(\"Network:\", \"Sepolia Testnet\");\n  console.log(\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n\");\n\n  console.log(\"🔍 Verify on Etherscan:\");\n  console.log(`https://sepolia.etherscan.io/address/${contractAddress}\\n`);\n}\n\nmain()\n  .then(() => process.exit(0))\n  .catch((error) => {\n    console.error(\"❌ Error:\", error);\n    process.exit(1);\n  });\n```\n\n### 5.2 DongunCoin 배포 스크립트 (명함 NFT)\n\n`scripts/deploy-donguncoin.ts`:\n\n```typescript\nimport { ethers } from \"hardhat\";\n\nasync function main() {\n  console.log(\"🚀 Starting DongunCoin deployment...\\n\");\n\n  const [deployer] = await ethers.getSigners();\n  console.log(\"📝 Deploying with account:\", deployer.address);\n\n  const DongunCoin = await ethers.getContractFactory(\"DongunCoin\");\n  console.log(\"⏳ Deploying DongunCoin...\");\n  \n  const dongunCoin = await DongunCoin.deploy();\n  await dongunCoin.waitForDeployment();\n  \n  const contractAddress = await dongunCoin.getAddress();\n  console.log(\"✅ DongunCoin deployed to:\", contractAddress);\n\n  // 샘플 명함 민팅\n  console.log(\"\\n🎴 Minting sample business card...\");\n  const sampleCardURI = \"https://example.com/metadata/sample-card.json\";\n  const tx = await dongunCoin.mintCard(deployer.address, sampleCardURI);\n  await tx.wait();\n  \n  console.log(\"✨ Sample card minted to deployer!\");\n  console.log(\"🔗 Card URI:\", sampleCardURI);\n\n  console.log(\"\\n📋 Deployment Summary:\");\n  console.log(\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\");\n  console.log(\"Contract:\", contractAddress);\n  console.log(\"Deployer:\", deployer.address);\n  console.log(\"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\");\n}\n\nmain()\n  .then(() => process.exit(0))\n  .catch((error) => {\n    console.error(error);\n    process.exit(1);\n  });\n```\n\n---\n\n## 6. Sepolia 테스트넷에 배포\n\n### 6.1 로컬 테스트 (선택사항)\n\nSepolia에 배포하기 전에 로컬 Hardhat 네트워크에서 먼저 테스트할 수 있습니다.\n\n**터미널 1 - 로컬 노드 실행:**\n\n```bash\nnpx hardhat node\n```\n\n이 명령은 로컬 Ethereum 노드를 실행하고 테스트 계정 20개를 생성합니다.\n\n**터미널 2 - 로컬 배포:**\n\n```bash\nnpx hardhat run scripts/deploy.ts --network localhost\n```\n\n로컬 테스트가 성공하면 Sepolia 배포로 진행합니다.\n\n### 6.2 Sepolia 배포\n\n`.env` 파일에 RPC URL과 프라이빗 키가 올바르게 설정되어 있는지 확인한 후 배포합니다.\n\n```bash\nnpx hardhat run scripts/deploy.ts --network sepolia\n```\n\n**배포 프로세스:**\n1. 배포자 계정과 잔액 확인\n2. 스마트 계약 배포 트랜잭션 전송\n3. 블록 확인 대기 (약 15초)\n4. 계약 주소 반환\n5. 자동으로 tokenId 1 민팅 확인\n\n**성공 출력 예시:**\n\n```\n🚀 Starting MyNft deployment to Sepolia...\n\n📝 Deploying contracts with account: 0x1234567890123456789012345678901234567890\n💰 Account balance: 0.485 ETH\n\n⏳ Deploying MyNft contract...\n✅ MyNft deployed to: 0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\n🎨 TokenId 1 owner: 0x1234567890123456789012345678901234567890\n✨ Initial NFT minted to deployer!\n\n📋 Deployment Summary:\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nContract Address: 0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\nDeployer Address: 0x1234567890123456789012345678901234567890\nNetwork: Sepolia Testnet\nChain ID: 11155111\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n🔍 Verify on Etherscan:\nhttps://sepolia.etherscan.io/address/0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\n\n📝 Next steps:\n1. Verify contract: npx hardhat verify --network sepolia 0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\n2. Set base URI: myNft.setBaseURI('your-base-uri')\n3. Mint more NFTs: myNft.mint('recipient-address')\n```\n\n**⚠️ 배포된 계약 주소를 반드시 기록하세요!** 이 주소는 이후 모든 상호작용에서 필요합니다.\n\n### 6.3 Sepolia Etherscan에서 확인\n\n배포가 완료되면 블록 탐색기에서 확인할 수 있습니다.\n\n1. https://sepolia.etherscan.io 방문\n2. 검색창에 계약 주소 입력\n3. 다음 정보 확인:\n   - **Transactions**: 배포 트랜잭션 내역\n   - **Contract**: 계약 바이트코드\n   - **Events**: Transfer 이벤트 (tokenId 1 민팅 확인)\n\n---\n\n## 7. 계약 검증 (Etherscan Verification)\n\n### 7.1 계약 검증의 중요성\n\n**계약 검증은 소스 코드를 Etherscan에 공개하여 투명성을 확보하는 과정**입니다. 검증 후에는:\n- 누구나 소스 코드를 볼 수 있음\n- Etherscan에서 직접 함수를 호출할 수 있음\n- 신뢰성과 투명성 증가\n\n### 7.2 자동 검증 (Hardhat Verify)\n\n`.env`에 Etherscan API 키가 설정되어 있다면 자동으로 검증할 수 있습니다.\n\n```bash\nnpx hardhat verify --network sepolia <계약_주소>\n```\n\n**예시:**\n\n```bash\nnpx hardhat verify --network sepolia 0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\n```\n\n**성공 출력:**\n\n```\nSuccessfully submitted source code for contract\ncontracts/MyNft.sol:MyNft at 0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\nfor verification on the block explorer. Waiting for verification result...\n\nSuccessfully verified contract MyNft on Etherscan.\nhttps://sepolia.etherscan.io/address/0xabcdefabcdefabcdefabcdefabcdefabcdefabcd#code\n```\n\n### 7.3 생성자 인자가 있는 계약 검증\n\nDongunCoin과 같이 생성자 인자가 없는 경우는 위 명령으로 충분합니다. 생성자 인자가 있다면 다음과 같이 추가합니다.\n\n```bash\nnpx hardhat verify --network sepolia <계약_주소> \"Constructor Arg 1\" \"Constructor Arg 2\"\n```\n\n### 7.4 수동 검증 (Etherscan UI)\n\n자동 검증이 실패한 경우 수동으로 검증할 수 있습니다.\n\n1. Sepolia Etherscan에서 계약 주소 검색\n2. \"Contract\" 탭 → \"Verify and Publish\" 클릭\n3. 다음 정보 입력:\n   - **Compiler Type**: Solidity (Single file)\n   - **Compiler Version**: v0.8.20\n   - **License**: MIT\n4. 소스 코드 붙여넣기 (OpenZeppelin import 포함)\n5. \"Verify and Publish\" 클릭\n\n---\n\n## 8. NFT 민팅 및 상호작용\n\n### 8.1 Hardhat Console을 통한 민팅\n\n배포 후 추가 NFT를 민팅하려면 Hardhat 콘솔을 사용합니다.\n\n```bash\nnpx hardhat console --network sepolia\n```\n\n콘솔 내부에서:\n\n```javascript\n// 계약 팩토리 가져오기\nconst MyNft = await ethers.getContractFactory(\"MyNft\");\n\n// 배포된 계약에 연결 (계약 주소 입력)\nconst myNft = MyNft.attach(\"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\");\n\n// NFT 민팅 (받을 주소 입력)\nconst tx = await myNft.mint(\"0x수신자주소\");\nawait tx.wait();\n\n// 새로 민팅된 토큰 소유자 확인 (tokenId 2)\nconst owner = await myNft.ownerOf(2);\nconsole.log(\"TokenId 2 owner:\", owner);\n```\n\n### 8.2 민팅 스크립트 작성\n\n반복적인 민팅을 위해 스크립트를 작성할 수 있습니다.\n\n`scripts/mint.ts`:\n\n```typescript\nimport { ethers } from \"hardhat\";\n\nasync function main() {\n  // 배포된 계약 주소 입력\n  const CONTRACT_ADDRESS = \"0xabcdefabcdefabcdefabcdefabcdefabcdefabcd\";\n  \n  // 받을 주소 입력\n  const RECIPIENT_ADDRESS = \"0x수신자주소\";\n\n  console.log(\"🎨 Minting NFT...\\n\");\n\n  const [deployer] = await ethers.getSigners();\n  console.log(\"Minting with account:\", deployer.address);\n\n  // 계약 연결\n  const MyNft = await ethers.getContractFactory(\"MyNft\");\n  const myNft = MyNft.attach(CONTRACT_ADDRESS);\n\n  // 민팅\n  console.log(\"⏳ Minting to:\", RECIPIENT_ADDRESS);\n  const tx = await myNft.mint(RECIPIENT_ADDRESS);\n  console.log(\"Transaction hash:\", tx.hash);\n\n  // 트랜잭션 완료 대기\n  const receipt = await tx.wait();\n  console.log(\"✅ NFT minted successfully!\");\n  console.log(\"Block number:\", receipt?.blockNumber);\n  console.log(\"Gas used:\", receipt?.gasUsed.toString());\n\n  // Transfer 이벤트에서 tokenId 확인\n  const event = receipt?.logs.find((log: any) => {\n    try {\n      return myNft.interface.parseLog(log)?.name === \"Transfer\";\n    } catch {\n      return false;\n    }\n  });\n\n  if (event) {\n    const parsedEvent = myNft.interface.parseLog(event);\n    console.log(\"🆔 Token ID:\", parsedEvent?.args.tokenId.toString());\n  }\n}\n\nmain()\n  .then(() => process.exit(0))\n  .catch((error) => {\n    console.error(error);\n    process.exit(1);\n  });\n```\n\n**실행:**\n\n```bash\nnpx hardhat run scripts/mint.ts --network sepolia\n```\n\n### 8.3 Base URI 설정\n\n메타데이터 Base URI를 설정하여 tokenURI가 자동으로 생성되도록 합니다.\n\n```javascript\n// Hardhat console에서\nconst myNft = MyNft.attach(\"계약주소\");\nconst tx = await myNft.setBaseURI(\"https://api.mynft.com/metadata/\");\nawait tx.wait();\n\n// tokenURI 확인\nconst uri = await myNft.tokenURI(1);\nconsole.log(uri); // \"https://api.mynft.com/metadata/1\"\n```\n\n### 8.4 Etherscan에서 직접 상호작용\n\n계약이 검증되면 Etherscan에서 직접 함수를 호출할 수 있습니다.\n\n1. Sepolia Etherscan에서 계약 페이지 방문\n2. \"Contract\" 탭 → \"Write Contract\" 클릭\n3. \"Connect to Web3\" 버튼 클릭 (MetaMask 연결)\n4. `mint` 함수 선택\n5. `to` 파라미터에 수신자 주소 입력\n6. \"Write\" 버튼 클릭\n7. MetaMask에서 트랜잭션 승인\n\n---\n\n## 9. 메타데이터와 IPFS\n\n### 9.1 NFT 메타데이터 표준\n\nNFT 메타데이터는 **JSON 형식**으로 작성되며, OpenSea 등의 마켓플레이스가 인식할 수 있는 표준 구조를 따릅니다.\n\n**기본 메타데이터 구조:**\n\n```json\n{\n  \"name\": \"My Awesome NFT #1\",\n  \"description\": \"This is my first NFT deployed on Sepolia testnet\",\n  \"image\": \"https://ipfs.io/ipfs/QmXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\",\n  \"external_url\": \"https://mynft.com\",\n  \"attributes\": [\n    {\n      \"trait_type\": \"Rarity\",\n      \"value\": \"Common\"\n    },\n    {\n      \"trait_type\": \"Color\",\n      \"value\": \"Blue\"\n    },\n    {\n      \"trait_type\": \"Generation\",\n      \"value\": 1\n    }\n  ]\n}\n```\n\n**필드 설명:**\n- `name`: NFT의 이름 (보통 컬렉션명 + 번호)\n- `description`: 상세한 설명\n- `image`: 이미지 URL (IPFS 권장)\n- `external_url`: 외부 링크 (프로젝트 웹사이트 등)\n- `attributes`: 특성 배열 (OpenSea에서 필터링 기준으로 사용)\n\n### 9.2 명함 NFT 메타데이터 예시\n\n**DongunCoin (명함 NFT) 메타데이터:**\n\n```json\n{\n  \"name\": \"홍길동 | Business Card\",\n  \"description\": \"웹3 개발자 명함\",\n  \"image\": \"https://pbs.twimg.com/media/FrV6PijakAEExDY.png\",\n  \"external_url\": \"https://github.com/heodongun\",\n  \"attributes\": [\n    {\n      \"trait_type\": \"Company\",\n      \"value\": \"ACME Web3\"\n    },\n    {\n      \"trait_type\": \"Role\",\n      \"value\": \"Blockchain Engineer\"\n    },\n    {\n      \"trait_type\": \"Email\",\n      \"value\": \"hello@example.com\"\n    },\n    {\n      \"trait_type\": \"Website\",\n      \"value\": \"https://example.com\"\n    },\n    {\n      \"trait_type\": \"Location\",\n      \"value\": \"Seoul, South Korea\"\n    }\n  ]\n}\n```\n\n### 9.3 IPFS에 메타데이터 업로드\n\n**IPFS (InterPlanetary File System)는 분산형 파일 저장 시스템**으로, NFT 메타데이터와 이미지를 영구적으로 저장하기에 이상적입니다.\n\n#### Pinata를 사용한 업로드\n\n**Pinata**는 가장 인기 있는 IPFS 호스팅 서비스입니다.\n\n1. **Pinata 가입**: https://pinata.cloud 방문 후 무료 계정 생성\n2. **이미지 업로드**:\n   - \"Upload\" → \"File\" 선택\n   - NFT 이미지 파일 업로드\n   - CID(Content Identifier) 복사 (예: `QmXXXXXX...`)\n3. **메타데이터 JSON 생성**:\n   - 위의 메타데이터 구조를 따라 JSON 파일 생성\n   - `image` 필드에 `ipfs://QmXXXXXX...` 형식으로 입력\n4. **메타데이터 업로드**:\n   - JSON 파일을 Pinata에 업로드\n   - 메타데이터 CID 복사\n\n**최종 메타데이터 URI:**\n\n```\nipfs://QmYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY\n```\n\n#### web3.storage 사용\n\n**web3.storage**는 무료로 대용량 저장 공간을 제공합니다.\n\n1. https://web3.storage 방문\n2. 계정 생성 및 API 토큰 발급\n3. 파일 업로드 (웹 UI 또는 CLI)\n4. CID 획득\n\n### 9.4 메타데이터 URI 설정\n\nIPFS에 업로드한 후 계약에 URI를 설정합니다.\n\n**개별 토큰 URI 설정 (DongunCoin):**\n\n```javascript\n// Hardhat console\nconst DongunCoin = await ethers.getContractFactory(\"DongunCoin\");\nconst dongunCoin = DongunCoin.attach(\"계약주소\");\n\n// 명함 민팅\nconst cardURI = \"ipfs://QmYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY\";\nconst tx = await dongunCoin.mintCard(\"수신자주소\", cardURI);\nawait tx.wait();\n```\n\n**Base URI 설정 (MyNft):**\n\n```javascript\n// Base URI 설정\nconst tx = await myNft.setBaseURI(\"ipfs://QmBaseFolder/\");\nawait tx.wait();\n\n// tokenId 1의 URI는 \"ipfs://QmBaseFolder/1\"이 됨\n```\n\n---\n\n## 10. 프론트엔드 대시보드 구축\n\n### 10.1 웹 대시보드 개요\n\n사용자가 브라우저에서 NFT와 상호작용할 수 있는 간단한 대시보드를 만들 수 있습니다.\n\n**기능:**\n- MetaMask 지갑 연결\n- 계약 주소 입력 및 연결\n- NFT 민팅 (DongunCoin)\n- 명함 정보 업데이트\n- 토큰 소유자 조회\n- 메타데이터 URI 조회\n\n### 10.2 HTML/JavaScript 대시보드\n\n프로젝트 루트에 `frontend` 디렉토리를 생성하고 `index.html` 파일을 만듭니다.\n\n`frontend/index.html`:\n\n```html\n<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>NFT 대시보드 - DongunCoin</title>\n    <script src=\"https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js\"></script>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            min-height: 100vh;\n            padding: 20px;\n        }\n        .container {\n            max-width: 800px;\n            margin: 0 auto;\n            background: white;\n            border-radius: 20px;\n            padding: 40px;\n            box-shadow: 0 20px 60px rgba(0,0,0,0.3);\n        }\n        h1 {\n            color: #667eea;\n            margin-bottom: 10px;\n        }\n        .subtitle {\n            color: #666;\n            margin-bottom: 30px;\n        }\n        .section {\n            margin-bottom: 30px;\n            padding: 20px;\n            background: #f7f7f7;\n            border-radius: 10px;\n        }\n        h2 {\n            color: #333;\n            margin-bottom: 15px;\n            font-size: 18px;\n        }\n        button {\n            background: #667eea;\n            color: white;\n            border: none;\n            padding: 12px 24px;\n            border-radius: 8px;\n            cursor: pointer;\n            font-size: 14px;\n            font-weight: 600;\n            transition: all 0.3s;\n        }\n        button:hover {\n            background: #5568d3;\n            transform: translateY(-2px);\n            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);\n        }\n        button:disabled {\n            background: #ccc;\n            cursor: not-allowed;\n            transform: none;\n        }\n        input, textarea {\n            width: 100%;\n            padding: 10px;\n            margin: 8px 0;\n            border: 2px solid #ddd;\n            border-radius: 8px;\n            font-size: 14px;\n            font-family: 'Courier New', monospace;\n        }\n        input:focus, textarea:focus {\n            outline: none;\n            border-color: #667eea;\n        }\n        .status {\n            padding: 12px;\n            margin-top: 15px;\n            border-radius: 8px;\n            font-size: 14px;\n        }\n        .status.success {\n            background: #d4edda;\n            color: #155724;\n            border: 1px solid #c3e6cb;\n        }\n        .status.error {\n            background: #f8d7da;\n            color: #721c24;\n            border: 1px solid #f5c6cb;\n        }\n        .info-box {\n            background: white;\n            padding: 15px;\n            border-radius: 8px;\n            margin-top: 10px;\n            border-left: 4px solid #667eea;\n        }\n        .info-box strong {\n            color: #667eea;\n        }\n        label {\n            display: block;\n            margin-top: 10px;\n            font-weight: 600;\n            color: #333;\n        }\n        .network-info {\n            background: #fff3cd;\n            padding: 10px;\n            border-radius: 8px;\n            margin-bottom: 20px;\n            border-left: 4px solid #ffc107;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <h1>🎴 DongunCoin NFT 대시보드</h1>\n        <p class=\"subtitle\">온라인 명함 NFT 발행 및 관리</p>\n\n        <div id=\"networkInfo\" class=\"network-info\" style=\"display:none;\">\n            <strong>⚠️ 네트워크 확인:</strong> <span id=\"networkName\"></span>\n        </div>\n\n        <!-- 지갑 연결 섹션 -->\n        <div class=\"section\">\n            <h2>1️⃣ 지갑 연결</h2>\n            <button id=\"connectBtn\" onclick=\"connectWallet()\">MetaMask 연결</button>\n            <div id=\"walletStatus\"></div>\n        </div>\n\n        <!-- 계약 연결 섹션 -->\n        <div class=\"section\">\n            <h2>2️⃣ 계약 연결</h2>\n            <label>DongunCoin 계약 주소:</label>\n            <input type=\"text\" id=\"contractAddress\" placeholder=\"0x...\">\n            <button onclick=\"connectContract()\" style=\"margin-top: 10px;\">계약 연결</button>\n            <div id=\"contractStatus\"></div>\n        </div>\n\n        <!-- 명함 민팅 섹션 -->\n        <div class=\"section\">\n            <h2>3️⃣ 명함 NFT 발행</h2>\n            <label>받을 주소:</label>\n            <input type=\"text\" id=\"mintTo\" placeholder=\"0x...\">\n            <label>메타데이터 URI (IPFS):</label>\n            <input type=\"text\" id=\"cardURI\" placeholder=\"ipfs://QmXXXXXX...\">\n            <button onclick=\"mintCard()\" style=\"margin-top: 10px;\">명함 발행</button>\n            <div id=\"mintStatus\"></div>\n        </div>\n\n        <!-- 명함 업데이트 섹션 -->\n        <div class=\"section\">\n            <h2>4️⃣ 명함 정보 업데이트</h2>\n            <label>토큰 ID:</label>\n            <input type=\"number\" id=\"updateTokenId\" placeholder=\"1\">\n            <label>새 메타데이터 URI:</label>\n            <input type=\"text\" id=\"newCardURI\" placeholder=\"ipfs://QmYYYYYY...\">\n            <button onclick=\"updateCard()\" style=\"margin-top: 10px;\">정보 업데이트</button>\n            <div id=\"updateStatus\"></div>\n        </div>\n\n        <!-- 조회 섹션 -->\n        <div class=\"section\">\n            <h2>5️⃣ NFT 정보 조회</h2>\n            <label>토큰 ID:</label>\n            <input type=\"number\" id=\"queryTokenId\" placeholder=\"1\">\n            <button onclick=\"queryNFT()\" style=\"margin-top: 10px;\">조회하기</button>\n            <div id=\"queryResult\"></div>\n        </div>\n    </div>\n\n    <script>\n        let provider;\n        let signer;\n        let contract;\n        let userAddress;\n\n        const DongunCoinABI = [\n            \"function mintCard(address to, string memory cardURI) public\",\n            \"function updateCardURI(uint256 tokenId, string memory newCardURI) public\",\n            \"function ownerOf(uint256 tokenId) public view returns (address)\",\n            \"function tokenURI(uint256 tokenId) public view returns (string)\",\n            \"function getNextTokenId() public view returns (uint256)\",\n            \"function owner() public view returns (address)\"\n        ];\n\n        async function connectWallet() {\n            if (typeof window.ethereum === 'undefined') {\n                showStatus('walletStatus', 'MetaMask가 설치되어 있지 않습니다!', 'error');\n                return;\n            }\n\n            try {\n                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });\n                provider = new ethers.providers.Web3Provider(window.ethereum);\n                signer = provider.getSigner();\n                userAddress = accounts[0];\n\n                const network = await provider.getNetwork();\n                const networkName = network.chainId === 31337 ? 'Hardhat (로컬)' :\n                                   network.chainId === 11155111 ? 'Sepolia Testnet' :\n                                   `알 수 없음 (${network.chainId})`;\n\n                document.getElementById('networkInfo').style.display = 'block';\n                document.getElementById('networkName').textContent = networkName;\n\n                showStatus('walletStatus', `✅ 연결됨: ${userAddress.slice(0,6)}...${userAddress.slice(-4)}`, 'success');\n\n                // 네트워크 변경 감지\n                window.ethereum.on('chainChanged', () => window.location.reload());\n            } catch (error) {\n                showStatus('walletStatus', `오류: ${error.message}`, 'error');\n            }\n        }\n\n        async function connectContract() {\n            const address = document.getElementById('contractAddress').value;\n            if (!address || !signer) {\n                showStatus('contractStatus', '먼저 지갑을 연결하고 계약 주소를 입력하세요.', 'error');\n                return;\n            }\n\n            try {\n                contract = new ethers.Contract(address, DongunCoinABI, signer);\n                const owner = await contract.owner();\n                const nextId = await contract.getNextTokenId();\n\n                showStatus('contractStatus', \n                    `✅ 계약 연결 성공!<br>\n                    오너: ${owner.slice(0,6)}...${owner.slice(-4)}<br>\n                    다음 토큰 ID: ${nextId.toString()}`, \n                    'success'\n                );\n            } catch (error) {\n                showStatus('contractStatus', `오류: ${error.message}`, 'error');\n            }\n        }\n\n        async function mintCard() {\n            const to = document.getElementById('mintTo').value;\n            const uri = document.getElementById('cardURI').value;\n\n            if (!contract || !to || !uri) {\n                showStatus('mintStatus', '모든 필드를 입력하세요.', 'error');\n                return;\n            }\n\n            try {\n                showStatus('mintStatus', '⏳ 트랜잭션 처리 중...', 'success');\n                const tx = await contract.mintCard(to, uri);\n                showStatus('mintStatus', `⏳ 블록 확인 대기 중...<br>TX: ${tx.hash}`, 'success');\n                \n                const receipt = await tx.wait();\n                showStatus('mintStatus', \n                    `✅ 명함 발행 완료!<br>\n                    블록: ${receipt.blockNumber}<br>\n                    가스 사용: ${receipt.gasUsed.toString()}`, \n                    'success'\n                );\n            } catch (error) {\n                showStatus('mintStatus', `❌ 오류: ${error.message}`, 'error');\n            }\n        }\n\n        async function updateCard() {\n            const tokenId = document.getElementById('updateTokenId').value;\n            const newURI = document.getElementById('newCardURI').value;\n\n            if (!contract || !tokenId || !newURI) {\n                showStatus('updateStatus', '모든 필드를 입력하세요.', 'error');\n                return;\n            }\n\n            try {\n                showStatus('updateStatus', '⏳ 업데이트 중...', 'success');\n                const tx = await contract.updateCardURI(tokenId, newURI);\n                const receipt = await tx.wait();\n                \n                showStatus('updateStatus', \n                    `✅ 업데이트 완료!<br>블록: ${receipt.blockNumber}`, \n                    'success'\n                );\n            } catch (error) {\n                showStatus('updateStatus', `❌ 오류: ${error.message}`, 'error');\n            }\n        }\n\n        async function queryNFT() {\n            const tokenId = document.getElementById('queryTokenId').value;\n\n            if (!contract || !tokenId) {\n                showStatus('queryResult', '토큰 ID를 입력하세요.', 'error');\n                return;\n            }\n\n            try {\n                const owner = await contract.ownerOf(tokenId);\n                const uri = await contract.tokenURI(tokenId);\n\n                showStatus('queryResult', \n                    `<div class=\"info-box\">\n                        <strong>토큰 ID:</strong> ${tokenId}<br>\n                        <strong>소유자:</strong> ${owner}<br>\n                        <strong>메타데이터 URI:</strong> <a href=\"${uri.replace('ipfs://', 'https://ipfs.io/ipfs/')}\" target=\"_blank\">${uri}</a>\n                    </div>`, \n                    'success'\n                );\n            } catch (error) {\n                showStatus('queryResult', `❌ 오류: ${error.message}`, 'error');\n            }\n        }\n\n        function showStatus(elementId, message, type) {\n            const element = document.getElementById(elementId);\n            element.innerHTML = `<div class=\"status ${type}\">${message}</div>`;\n        }\n    </script>\n</body>\n</html>\n```\n\n### 10.3 대시보드 실행\n\n**로컬 서버로 실행 (권장):**\n\n```bash\n# http-server 설치 (없는 경우)\nnpm install -g http-server\n\n# 프론트엔드 서버 실행\nhttp-server frontend -p 5173\n```\n\n브라우저에서 `http://localhost:5173` 접속\n\n**또는 파일 직접 열기:**\n\n```bash\n# macOS/Linux\nopen frontend/index.html\n\n# Windows\nstart frontend/index.html\n```\n\n### 10.4 대시보드 사용 방법\n\n1. **MetaMask 네트워크 전환**:\n   - 로컬 테스트: Hardhat (Chain ID: 31337)\n   - 테스트넷: Sepolia (Chain ID: 11155111)\n\n2. **지갑 연결**: \"MetaMask 연결\" 버튼 클릭\n\n3. **계약 연결**: 배포한 DongunCoin 주소 입력\n\n4. **명함 발행**: 받을 주소와 메타데이터 URI 입력\n\n5. **정보 조회**: 토큰 ID로 소유자와 메타데이터 확인\n\n---\n\n## 11. 문제 해결 및 팁\n\n### 11.1 일반적인 오류와 해결책\n\n#### 오류 1: \"Cannot find module 'dotenv'\"\n\n**원인**: dotenv 패키지가 설치되지 않음\n\n**해결책**:\n```bash\nnpm install dotenv\n```\n\n#### 오류 2: \"insufficient funds for gas * price + value\"\n\n**원인**: 지갑에 Sepolia ETH가 부족함\n\n**해결책**:\n- Faucet에서 추가 테스트 ETH 받기\n- 최소 0.1 Sepolia ETH 보유 권장\n\n#### 오류 3: \"Error: could not detect network\"\n\n**원인**: RPC URL이 잘못되었거나 네트워크 연결 문제\n\n**해결책**:\n- `.env`의 `SEPOLIA_RPC_URL` 확인\n- Infura/Alchemy 대시보드에서 RPC URL 재확인\n- 다른 RPC 제공자 시도\n\n#### 오류 4: \"nonce has already been used\"\n\n**원인**: 동일한 nonce로 여러 트랜잭션 전송 시도\n\n**해결책**:\n```bash\n# Hardhat 캐시 삭제\nnpx hardhat clean\n\n# 또는 MetaMask에서 계정 재설정\n# MetaMask → 설정 → 고급 → 계정 재설정\n```\n\n#### 오류 5: Node 25 경고\n\n**경고 메시지**: `(node:12345) [DEP0040] DeprecationWarning`\n\n**해결책**:\n- Node 20 LTS로 다운그레이드 (권장)\n- 또는 경고 무시 (대부분 기능에 영향 없음)\n\n```bash\n# nvm으로 Node 버전 전환\nnvm install 20\nnvm use 20\n```\n\n### 11.2 MetaMask에서 NFT 확인\n\nMetaMask는 NFT를 자동으로 표시하지 않습니다. 수동으로 추가해야 합니다.\n\n**추가 방법:**\n1. MetaMask 모바일 앱 사용 (NFT 탭 지원)\n2. 또는 OpenSea에서 확인:\n   - https://testnets.opensea.io\n   - 지갑 주소로 검색\n   - 메타데이터가 IPFS에 올바르게 업로드되어 있어야 표시됨\n\n### 11.3 가스 최적화 팁\n\n**1. Optimizer 활성화**\n\n`hardhat.config.ts`에서:\n\n```typescript\nsolidity: {\n  version: \"0.8.20\",\n  settings: {\n    optimizer: {\n      enabled: true,\n      runs: 200, // 낮을수록 배포 가스 절약, 높을수록 실행 가스 절약\n    },\n  },\n},\n```\n\n**2. 불필요한 storage 읽기 줄이기**\n\n로컬 변수를 사용하여 storage 읽기 최소화:\n\n```solidity\n// ❌ 비효율적\nfor (uint i = 0; i < array.length; i++) {\n    // array.length를 반복마다 읽음\n}\n\n// ✅ 효율적\nuint len = array.length;\nfor (uint i = 0; i < len; i++) {\n    // 한 번만 읽음\n}\n```\n\n**3. 배치 민팅**\n\n여러 NFT를 한 번에 민팅하는 함수 추가:\n\n```solidity\nfunction batchMint(address[] memory recipients) public onlyOwner {\n    for (uint i = 0; i < recipients.length; i++) {\n        mint(recipients[i]);\n    }\n}\n```\n\n### 11.4 보안 권장사항\n\n**1. 프라이빗 키 관리**\n- `.env` 파일을 `.gitignore`에 추가\n- GitHub, GitLab 등 공개 저장소에 절대 업로드하지 않기\n- 메인넷 배포 시 하드웨어 지갑 사용 고려\n\n**2. 스마트 계약 감사**\n- 메인넷 배포 전 전문가 감사 받기\n- OpenZeppelin의 검증된 계약 사용\n- Slither, Mythril 등 자동화 도구로 취약점 점검\n\n**3. Access Control**\n- 중요한 함수에 `onlyOwner` 수정자 사용\n- Role-based access control (RBAC) 고려\n- 멀티시그 지갑으로 소유권 관리\n\n### 11.5 유용한 명령어 모음\n\n```bash\n# 컴파일\nnpx hardhat compile\n\n# 로컬 노드 실행\nnpx hardhat node\n\n# 로컬 배포\nnpx hardhat run scripts/deploy.ts --network localhost\n\n# Sepolia 배포\nnpx hardhat run scripts/deploy.ts --network sepolia\n\n# 계약 검증\nnpx hardhat verify --network sepolia <주소>\n\n# 콘솔 실행\nnpx hardhat console --network sepolia\n\n# 캐시 삭제\nnpx hardhat clean\n\n# 테스트 실행\nnpx hardhat test\n```\n\n### 11.6 추가 리소스\n\n**공식 문서:**\n- Hardhat: https://hardhat.org/docs\n- OpenZeppelin: https://docs.openzeppelin.com\n- Ethers.js: https://docs.ethers.org\n\n**커뮤니티:**\n- Ethereum Stack Exchange: https://ethereum.stackexchange.com\n- Hardhat Discord: https://hardhat.org/discord\n- OpenZeppelin Forum: https://forum.openzeppelin.com\n\n**블록 탐색기:**\n- Sepolia Etherscan: https://sepolia.etherscan.io\n- Sepolia Blockscout: https://eth-sepolia.blockscout.com\n\n---\n\n## 결론\n\n이 가이드에서는 **Sepolia 테스트넷에서 NFT를 처음부터 끝까지 배포하는 전체 과정**을 다루었습니다. 실제 작동하는 프로젝트([heodongun/ethereumERC721](https://github.com/heodongun/ethereumERC721))를 기반으로 하므로, 코드를 그대로 활용하여 빠르게 시작할 수 있습니다.\n\n### 핵심 정리\n\n1. **개발 환경 구축**: Node.js 20, Hardhat, OpenZeppelin 설치\n2. **MetaMask 설정**: Sepolia 네트워크 추가 및 테스트 ETH 획득\n3. **스마트 계약 작성**: ERC-721 표준 기반 NFT 계약 구현\n4. **배포 및 검증**: Sepolia에 배포 후 Etherscan에서 검증\n5. **민팅 및 상호작용**: Hardhat 콘솔, 스크립트, 웹 대시보드로 NFT 관리\n6. **메타데이터**: IPFS로 영구 저장 및 표준 JSON 형식 사용\n\n### 다음 단계\n\n**초보자:**\n- 더 많은 NFT 민팅 연습\n- 메타데이터 구조 실험\n- 다양한 속성(attributes) 추가\n\n**중급자:**\n- ERC-721 확장 (Enumerable, Pausable 등)\n- 판매 기능 추가 (가격 설정, 구매)\n- Royalty 표준 (EIP-2981) 구현\n\n**고급자:**\n- 메인넷 배포 준비 (감사, 가스 최적화)\n- 고급 토큰경제학 설계\n- Cross-chain NFT 브릿지 구현\n\n### 마무리\n\nSepolia 테스트넷은 **실제 자금 없이 안전하게 실험할 수 있는 완벽한 환경**입니다. 이 가이드를 따라 NFT 배포에 성공했다면, 이제 블록체인 개발의 기초를 다진 것입니다. \n\n더 많은 실험과 학습을 통해 자신만의 독특한 NFT 프로젝트를 만들어보세요!\n\n---\n\n**참고 링크:**\n- 프로젝트 저장소: https://github.com/heodongun/ethereumERC721\n- Sepolia Faucet: https://sepoliafaucet.com\n- OpenZeppelin Contracts: https://github.com/OpenZeppelin/openzeppelin-contracts\n- Hardhat 공식 문서: https://hardhat.org\n\n**작성자**: heodongun  \n**최종 수정**: 2025년 11월"
+}

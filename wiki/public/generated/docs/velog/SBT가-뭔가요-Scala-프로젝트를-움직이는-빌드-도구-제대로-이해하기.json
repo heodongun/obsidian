@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "id": "velog/SBT가-뭔가요-Scala-프로젝트를-움직이는-빌드-도구-제대로-이해하기",
+    "relativePath": "velog/SBT가-뭔가요-Scala-프로젝트를-움직이는-빌드-도구-제대로-이해하기.md",
+    "routePath": "velog/SBT가-뭔가요-Scala-프로젝트를-움직이는-빌드-도구-제대로-이해하기",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "SBT가 뭔가요? Scala 프로젝트를 움직이는 빌드 도구 제대로 이해하기",
+    "description": "Scala를 처음 배우면 언어 문법보다 먼저 마주치는 게 하나 있다.바로 sbt다.터미널에서 sbt run, sbt test, sbt compile 같은 명령을 자주 보게 되는데,처음엔 그냥 “Scala 실행기인가?” 정도로 생각하기 쉽다.그런데 실제로는 그보다 훨씬",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "SBT가 뭔가요? Scala 프로젝트를 움직이는 빌드 도구 제대로 이해하기",
+        "id": "sbt가-뭔가요-scala-프로젝트를-움직이는-빌드-도구-제대로-이해하기"
+      },
+      {
+        "depth": 2,
+        "text": "한 줄로 먼저 정의하면",
+        "id": "한-줄로-먼저-정의하면"
+      },
+      {
+        "depth": 2,
+        "text": "왜 빌드 도구가 필요한가",
+        "id": "왜-빌드-도구가-필요한가"
+      },
+      {
+        "depth": 2,
+        "text": "sbt가 실제로 하는 일",
+        "id": "sbt가-실제로-하는-일"
+      },
+      {
+        "depth": 3,
+        "text": "1) 컴파일",
+        "id": "1-컴파일"
+      },
+      {
+        "depth": 3,
+        "text": "2) 실행",
+        "id": "2-실행"
+      },
+      {
+        "depth": 3,
+        "text": "3) 테스트",
+        "id": "3-테스트"
+      },
+      {
+        "depth": 3,
+        "text": "4) 의존성 다운로드",
+        "id": "4-의존성-다운로드"
+      },
+      {
+        "depth": 3,
+        "text": "5) 산출물 패키징",
+        "id": "5-산출물-패키징"
+      },
+      {
+        "depth": 3,
+        "text": "6) 정리",
+        "id": "6-정리"
+      },
+      {
+        "depth": 2,
+        "text": "sbt 프로젝트는 보통 이렇게 생긴다",
+        "id": "sbt-프로젝트는-보통-이렇게-생긴다"
+      },
+      {
+        "depth": 3,
+        "text": "`build.sbt`",
+        "id": "buildsbt"
+      },
+      {
+        "depth": 3,
+        "text": "`project/build.properties`",
+        "id": "projectbuildproperties"
+      },
+      {
+        "depth": 3,
+        "text": "`project/plugins.sbt`",
+        "id": "projectpluginssbt"
+      },
+      {
+        "depth": 3,
+        "text": "`src/main/scala`",
+        "id": "srcmainscala"
+      },
+      {
+        "depth": 3,
+        "text": "`src/test/scala`",
+        "id": "srctestscala"
+      },
+      {
+        "depth": 3,
+        "text": "`target/`",
+        "id": "target"
+      },
+      {
+        "depth": 2,
+        "text": "`build.sbt`는 그냥 설정 파일이 아니다",
+        "id": "buildsbt는-그냥-설정-파일이-아니다"
+      },
+      {
+        "depth": 2,
+        "text": "가장 작은 예제로 보는 sbt",
+        "id": "가장-작은-예제로-보는-sbt"
+      },
+      {
+        "depth": 3,
+        "text": "1. 프로젝트 생성",
+        "id": "1-프로젝트-생성"
+      },
+      {
+        "depth": 3,
+        "text": "2. `build.sbt`",
+        "id": "2-buildsbt"
+      },
+      {
+        "depth": 3,
+        "text": "3. `src/main/scala/Main.scala`",
+        "id": "3-srcmainscalamainscala"
+      },
+      {
+        "depth": 3,
+        "text": "4. 실행",
+        "id": "4-실행"
+      },
+      {
+        "depth": 2,
+        "text": "의존성 관리는 왜 중요한가",
+        "id": "의존성-관리는-왜-중요한가"
+      },
+      {
+        "depth": 2,
+        "text": "managed dependency와 unmanaged dependency",
+        "id": "managed-dependency와-unmanaged-dependency"
+      },
+      {
+        "depth": 3,
+        "text": "1) managed dependency",
+        "id": "1-managed-dependency"
+      },
+      {
+        "depth": 3,
+        "text": "2) unmanaged dependency",
+        "id": "2-unmanaged-dependency"
+      },
+      {
+        "depth": 2,
+        "text": "sbt가 빠르게 느껴지는 이유: 증분 컴파일",
+        "id": "sbt가-빠르게-느껴지는-이유-증분-컴파일"
+      },
+      {
+        "depth": 2,
+        "text": "sbt shell을 쓰는 이유",
+        "id": "sbt-shell을-쓰는-이유"
+      },
+      {
+        "depth": 2,
+        "text": "Continuous build: 저장할 때마다 다시 돌리기",
+        "id": "continuous-build-저장할-때마다-다시-돌리기"
+      },
+      {
+        "depth": 2,
+        "text": "batch mode도 가능하지만, 자주 쓰진 않는다",
+        "id": "batch-mode도-가능하지만-자주-쓰진-않는다"
+      },
+      {
+        "depth": 2,
+        "text": "sbt가 독특한 이유 1: task와 setting이 다르다",
+        "id": "sbt가-독특한-이유-1-task와-setting이-다르다"
+      },
+      {
+        "depth": 3,
+        "text": "setting",
+        "id": "setting"
+      },
+      {
+        "depth": 3,
+        "text": "task",
+        "id": "task"
+      },
+      {
+        "depth": 2,
+        "text": "sbt가 독특한 이유 2: `.value`",
+        "id": "sbt가-독특한-이유-2-value"
+      },
+      {
+        "depth": 2,
+        "text": "task graph가 중요한 이유",
+        "id": "task-graph가-중요한-이유"
+      },
+      {
+        "depth": 2,
+        "text": "멀티 프로젝트 빌드도 잘 지원한다",
+        "id": "멀티-프로젝트-빌드도-잘-지원한다"
+      },
+      {
+        "depth": 2,
+        "text": "플러그인은 무엇인가",
+        "id": "플러그인은-무엇인가"
+      },
+      {
+        "depth": 2,
+        "text": "sbt가 강력하지만 어렵게 느껴지는 이유",
+        "id": "sbt가-강력하지만-어렵게-느껴지는-이유"
+      },
+      {
+        "depth": 3,
+        "text": "1) 설정 파일이 사실상 코드다",
+        "id": "1-설정-파일이-사실상-코드다"
+      },
+      {
+        "depth": 3,
+        "text": "2) 개념이 생각보다 많다",
+        "id": "2-개념이-생각보다-많다"
+      },
+      {
+        "depth": 3,
+        "text": "3) 문법이 낯설다",
+        "id": "3-문법이-낯설다"
+      },
+      {
+        "depth": 3,
+        "text": "4) Scala 생태계 개념이 같이 들어온다",
+        "id": "4-scala-생태계-개념이-같이-들어온다"
+      },
+      {
+        "depth": 2,
+        "text": "실무에서 자주 보는 명령어 정리",
+        "id": "실무에서-자주-보는-명령어-정리"
+      },
+      {
+        "depth": 2,
+        "text": "sbt를 처음 배울 때 추천하는 접근법",
+        "id": "sbt를-처음-배울-때-추천하는-접근법"
+      },
+      {
+        "depth": 3,
+        "text": "1단계",
+        "id": "1단계"
+      },
+      {
+        "depth": 3,
+        "text": "2단계",
+        "id": "2단계"
+      },
+      {
+        "depth": 3,
+        "text": "3단계",
+        "id": "3단계"
+      },
+      {
+        "depth": 3,
+        "text": "4단계",
+        "id": "4단계"
+      },
+      {
+        "depth": 3,
+        "text": "5단계",
+        "id": "5단계"
+      },
+      {
+        "depth": 2,
+        "text": "정리",
+        "id": "정리"
+      },
+      {
+        "depth": 2,
+        "text": "참고 자료",
+        "id": "참고-자료"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:56.506Z",
+    "wordCount": 1490,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "SBT가 뭔가요? Scala 프로젝트를 움직이는 빌드 도구 제대로 이해하기",
+    "description": "Scala를 처음 배우면 언어 문법보다 먼저 마주치는 게 하나 있다.바로 sbt다.터미널에서 sbt run, sbt test, sbt compile 같은 명령을 자주 보게 되는데,처음엔 그냥 “Scala 실행기인가?” 정도로 생각하기 쉽다.그런데 실제로는 그보다 훨씬 ",
+    "source": "https://velog.io/@pobi/SBT%EA%B0%80-%EB%AD%94%EA%B0%80%EC%9A%94-Scala-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%9B%80%EC%A7%81%EC%9D%B4%EB%8A%94-%EB%B9%8C%EB%93%9C-%EB%8F%84%EA%B5%AC-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0",
+    "source_slug": "SBT가-뭔가요-Scala-프로젝트를-움직이는-빌드-도구-제대로-이해하기",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-17T05:28:05.086Z",
+    "updated_at": "2026-03-23T00:42:06.162Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/9a2b9ed7-4021-4955-ab38-9ccf0ac660bc/image.png",
+    "tags": []
+  },
+  "content": "# SBT가 뭔가요? Scala 프로젝트를 움직이는 빌드 도구 제대로 이해하기\n\n![](https://velog.velcdn.com/images/pobi/post/9a2b9ed7-4021-4955-ab38-9ccf0ac660bc/image.png)\n\nScala를 처음 배우면 언어 문법보다 먼저 마주치는 게 하나 있다.  \n바로 `sbt`다.\n\n터미널에서 `sbt run`, `sbt test`, `sbt compile` 같은 명령을 자주 보게 되는데,  \n처음엔 그냥 “Scala 실행기인가?” 정도로 생각하기 쉽다.\n\n그런데 실제로는 그보다 훨씬 크다.  \nsbt는 단순 실행기가 아니라 **Scala 프로젝트의 빌드, 실행, 테스트, 의존성 관리, 패키징을 담당하는 중심 도구**다.\n\n이번 글에서는 아래 순서로 정리해보겠다.\n\n- sbt가 정확히 무엇인지\n- 왜 Scala 프로젝트에서 sbt가 중요한지\n- `build.sbt`는 무슨 파일인지\n- 의존성 관리와 증분 컴파일은 어떻게 되는지\n- 자주 쓰는 명령어는 무엇인지\n- 왜 sbt가 강력하지만 어렵게 느껴지는지\n\n---\n\n## 한 줄로 먼저 정의하면\n\n**sbt는 Scala와 Java 프로젝트를 빌드하고 관리하는 도구**다.\n\n조금 더 정확히 말하면, 다음 작업을 한데 묶어서 자동화해주는 시스템이다.\n\n- 소스 코드 컴파일\n- 테스트 실행\n- 애플리케이션 실행\n- 외부 라이브러리 다운로드\n- JAR 패키징\n- 멀티 프로젝트 빌드\n- 플러그인을 통한 기능 확장\n\n즉, Scala 프로젝트에서 `sbt`는 단순한 명령어가 아니라  \n**프로젝트를 실제로 굴리기 위한 운영 시스템**에 가깝다.\n\n---\n\n## 왜 빌드 도구가 필요한가\n\n작은 예제 하나만 실행할 때는 빌드 도구가 없어도 된다.\n\n예를 들어 파일 하나만 있다면 컴파일러를 직접 호출해도 된다.\n\n```bash\nscalac Main.scala\nscala Main\n```\n\n하지만 프로젝트가 조금만 커져도 문제가 생긴다.\n\n- 파일이 여러 개다\n- 테스트 코드가 따로 있다\n- 외부 라이브러리가 필요하다\n- 개발/테스트/배포 환경 설정이 다르다\n- 여러 모듈이 서로 의존한다\n- 반복적으로 컴파일과 테스트를 돌려야 한다\n\n이때 필요한 것이 빌드 도구다.  \nsbt는 이런 반복 작업을 표준화해서 처리해준다.\n\n---\n\n## sbt가 실제로 하는 일\n\nsbt가 하는 일을 실제 개발 흐름 기준으로 보면 이해가 쉽다.\n\n### 1) 컴파일\n\n```bash\nsbt compile\n```\n\nScala 소스를 컴파일해서 클래스 파일을 만든다.\n\n---\n\n### 2) 실행\n\n```bash\nsbt run\n```\n\n메인 클래스를 찾아 프로그램을 실행한다.\n\n---\n\n### 3) 테스트\n\n```bash\nsbt test\n```\n\n테스트 프레임워크와 연결된 테스트를 실행한다.\n\n---\n\n### 4) 의존성 다운로드\n\n```bash\nsbt update\n```\n\n`build.sbt`에 선언된 라이브러리를 저장소에서 받아온다.\n\n---\n\n### 5) 산출물 패키징\n\n```bash\nsbt package\n```\n\nJAR 같은 산출물을 만든다.\n\n---\n\n### 6) 정리\n\n```bash\nsbt clean\n```\n\n컴파일 결과물과 캐시 등 생성 파일을 정리한다.\n\n---\n\n## sbt 프로젝트는 보통 이렇게 생긴다\n\n보통 sbt 프로젝트는 아래 구조를 가진다.\n\n```text\nmy-project/\n├── build.sbt\n├── project/\n│   ├── build.properties\n│   └── plugins.sbt\n├── src/\n│   ├── main/\n│   │   ├── scala/\n│   │   ├── java/\n│   │   └── resources/\n│   └── test/\n│       ├── scala/\n│       ├── java/\n│       └── resources/\n└── target/\n```\n\n여기서 중요한 파일과 디렉터리는 다음과 같다.\n\n### `build.sbt`\n프로젝트의 핵심 빌드 정의 파일이다.\n\n여기에 주로 적는 것:\n\n- 프로젝트 이름\n- 버전\n- Scala 버전\n- 라이브러리 의존성\n- 컴파일 옵션\n- 테스트 옵션\n- 커스텀 task 설정\n\n---\n\n### `project/build.properties`\n이 빌드가 사용할 **sbt 버전**을 고정하는 파일이다.\n\n예:\n\n```properties\nsbt.version=1.10.10\n```\n\n즉, 팀원마다 로컬 launcher 버전이 조금 달라도  \n실제 빌드는 이 파일에 적힌 sbt 버전에 맞춰 일관되게 동작하도록 만든다.\n\n---\n\n### `project/plugins.sbt`\nsbt 플러그인을 추가하는 파일이다.\n\n예를 들면 아래처럼 플러그인을 붙일 수 있다.\n\n```scala\naddSbtPlugin(\"com.eed3si9n\" % \"sbt-assembly\" % \"2.3.1\")\n```\n\n---\n\n### `src/main/scala`\n실제 애플리케이션 코드가 들어가는 위치다.\n\n---\n\n### `src/test/scala`\n테스트 코드가 들어가는 위치다.\n\n---\n\n### `target/`\n컴파일 결과물, 패키지, 캐시, 문서 등 생성물이 쌓이는 위치다.\n\n---\n\n## `build.sbt`는 그냥 설정 파일이 아니다\n\n이 부분이 sbt를 이해할 때 가장 중요하다.\n\n많은 빌드 도구는 XML이나 YAML 같은 “설정 파일” 느낌이 강하다.  \n그런데 sbt는 조금 다르다.\n\n`sbt`의 `build.sbt`는 **Scala 기반 DSL**이다.  \n즉, 단순한 정적 설정이라기보다 **Scala 문법을 사용해 빌드를 정의하는 방식**이다.\n\n예를 들어 아주 기본적인 `build.sbt`는 이렇게 쓸 수 있다.\n\n```scala\nThisBuild / scalaVersion := \"3.3.1\"\n\nname := \"hello-sbt\"\nversion := \"0.1.0\"\n\nlibraryDependencies += \"org.typelevel\" %% \"cats-core\" % \"2.10.0\"\n```\n\n이 코드는 다음 의미를 가진다.\n\n- 이 빌드의 Scala 버전은 `3.3.1`\n- 프로젝트 이름은 `hello-sbt`\n- 프로젝트 버전은 `0.1.0`\n- `cats-core` 라이브러리를 의존성으로 추가\n\n여기서 중요한 점은 `build.sbt`가 “텍스트 설정”이 아니라  \n**타입이 있는 빌드 정의 코드**라는 점이다.\n\n그래서 장점도 있다.\n\n- 오타가 컴파일 오류로 잡히기 쉽다\n- 복잡한 빌드 로직을 표현할 수 있다\n- task와 setting을 재사용할 수 있다\n\n하지만 단점도 있다.\n\n- 처음 배우기 어렵다\n- 문법이 낯설다\n- 단순 설정 이상의 개념이 들어온다\n\n즉, sbt는 강력한 대신 러닝커브가 있다.\n\n---\n\n## 가장 작은 예제로 보는 sbt\n\n### 1. 프로젝트 생성\n\n```bash\nsbt new scala/scala-seed.g8\n```\n\n또는 직접 폴더를 만들고 `build.sbt`와 `src/main/scala/Main.scala`를 구성해도 된다.\n\n---\n\n### 2. `build.sbt`\n\n```scala\nThisBuild / scalaVersion := \"3.3.1\"\n\nname := \"hello-sbt\"\nversion := \"0.1.0\"\n```\n\n---\n\n### 3. `src/main/scala/Main.scala`\n\n```scala\n@main def hello(): Unit =\n  println(\"Hello, sbt!\")\n```\n\n---\n\n### 4. 실행\n\n```bash\nsbt run\n```\n\n이 흐름만 이해해도  \n**sbt가 “Scala 프로젝트를 하나의 앱으로 실행시키는 관제 도구”**라는 감이 온다.\n\n---\n\n## 의존성 관리는 왜 중요한가\n\n실무 프로젝트는 표준 라이브러리만으로 거의 끝나지 않는다.\n\n예를 들면 이런 것들이 필요하다.\n\n- JSON 처리\n- HTTP 서버\n- DB 접근\n- 로깅\n- 테스트 프레임워크\n- 비동기 처리\n\n이런 라이브러리를 수동으로 JAR 다운로드해서 넣기 시작하면 금방 관리가 망가진다.  \n그래서 sbt는 의존성을 선언적으로 관리한다.\n\n예:\n\n```scala\nlibraryDependencies += \"org.typelevel\" %% \"cats-core\" % \"2.10.0\"\n```\n\n테스트용 의존성은 보통 이렇게 쓴다.\n\n```scala\nlibraryDependencies += \"org.scalatest\" %% \"scalatest\" % \"3.2.19\" % Test\n```\n\n여기서 눈여겨볼 부분이 `%%`다.\n\n```scala\n\"org.typelevel\" %% \"cats-core\" % \"2.10.0\"\n```\n\n이 표기는 sbt가 현재 사용하는 Scala binary version에 맞춰  \n라이브러리 artifact 이름 뒤에 버전을 붙여서 해결하도록 도와준다.\n\n예를 들어 실제 저장소 쪽 이름은 대개 이런 식이 된다.\n\n```text\ncats-core_3\ncats-core_2.13\n```\n\n이런 식의 버전 매칭을 sbt가 대신 처리해주는 것이다.\n\n---\n\n## managed dependency와 unmanaged dependency\n\nsbt 문서를 보면 의존성은 크게 두 가지 방식이 있다.\n\n### 1) managed dependency\n`build.sbt`에 선언하고 저장소에서 자동 다운로드하는 방식\n\n```scala\nlibraryDependencies += \"org.typelevel\" %% \"cats-core\" % \"2.10.0\"\n```\n\n이 방식이 일반적이다.\n\n---\n\n### 2) unmanaged dependency\n`lib/` 디렉터리에 JAR 파일을 직접 넣는 방식\n\n```text\nlib/some-legacy-library.jar\n```\n\n특별한 이유가 없다면 대부분은 managed dependency를 쓴다.  \n실무에서는 버전 관리, 전이 의존성, 충돌 해결 때문에 자동 관리가 훨씬 낫다.\n\n---\n\n## sbt가 빠르게 느껴지는 이유: 증분 컴파일\n\nsbt를 이야기할 때 빠지지 않는 키워드가 **Zinc incremental compiler**다.\n\n핵심 아이디어는 단순하다.\n\n> 바뀐 파일만 다시 컴파일하고,  \n> 그 변경이 영향을 주는 파일만 최소한으로 재컴파일한다.\n\n예를 들어 `A.scala`만 고쳤다고 해서  \n프로젝트 전체를 매번 싹 다 다시 컴파일하면 느릴 수밖에 없다.\n\nsbt는 변경된 소스와 API 변화 여부를 추적해서  \n영향 범위를 계산한 뒤 필요한 부분만 다시 컴파일하려고 한다.\n\n그래서 수정 → 컴파일 → 테스트의 반복이 빨라진다.\n\n물론 Scala 자체가 타입 시스템이 강력해서 컴파일이 아주 가벼운 편은 아니지만,  \n증분 컴파일이 있기 때문에 일상 개발에서는 훨씬 현실적인 속도로 작업할 수 있다.\n\n---\n\n## sbt shell을 쓰는 이유\n\n초보자는 자주 이렇게 쓴다.\n\n```bash\nsbt compile\nsbt test\nsbt run\n```\n\n물론 가능하다.  \n하지만 일상 개발에서는 보통 **sbt shell**을 켜놓고 작업한다.\n\n```bash\nsbt\n```\n\n들어가면 이런 식이다.\n\n```text\nsbt:my-project>\n```\n\n여기서 계속 명령을 실행한다.\n\n```text\ncompile\ntest\nrun\n```\n\n왜 shell이 더 좋을까?\n\n- JVM을 매번 새로 띄우지 않아도 된다\n- JIT warm-up 비용을 덜 낸다\n- 반복 작업이 훨씬 빠르다\n- tab completion, history를 쓸 수 있다\n\n즉, 짧은 단발성 실행보다 **개발 세션 자체를 sbt 안에서 유지**하는 방식이 더 효율적이다.\n\n---\n\n## Continuous build: 저장할 때마다 다시 돌리기\n\nsbt의 꽤 유용한 기능 중 하나가 연속 실행이다.\n\n예를 들어:\n\n```text\n~compile\n```\n\n이렇게 해두면 소스 파일이 바뀔 때마다 다시 컴파일한다.\n\n테스트 주도 개발 스타일이라면 이런 것도 자주 쓴다.\n\n```text\n~testQuick\n```\n\n이건 변경된 코드와 관련 있는 테스트를 중심으로 빠르게 다시 실행하는 데 유용하다.\n\n즉, sbt는 단순히 “명령 한 번 실행”이 아니라  \n**변화를 감시하면서 반복적으로 작업을 돌리는 개발 루프**까지 지원한다.\n\n---\n\n## batch mode도 가능하지만, 자주 쓰진 않는다\n\n물론 아래처럼 한 줄로도 실행할 수 있다.\n\n```bash\nsbt clean compile \"testOnly example.MySpec\"\n```\n\n이런 방식은 CI나 스크립트에서는 편하다.\n\n하지만 로컬 개발에서는 매번 process를 새로 띄우기 때문에  \n보통 interactive shell보다 느리다.\n\n그래서 실무에서 day-to-day coding은 대개 shell 중심으로 간다.\n\n---\n\n## sbt가 독특한 이유 1: task와 setting이 다르다\n\nsbt가 처음 어렵게 느껴지는 가장 큰 이유 중 하나가  \n**task와 setting을 구분하는 모델** 때문이다.\n\n### setting\n프로젝트가 로드될 때 계산되고, 다시 reload되기 전까지는 고정되는 값\n\n예:\n\n```scala\nname := \"my-project\"\nscalaVersion := \"3.3.1\"\n```\n\n---\n\n### task\n실행할 때마다 다시 계산되는 작업\n\n예:\n\n```scala\ncompile\ntest\npackage\n```\n\n또는 직접 만들 수도 있다.\n\n```scala\nlazy val hello = taskKey[Unit](\"Prints hello\")\n\nhello := {\n  println(\"hello, sbt\")\n}\n```\n\n여기서 중요한 포인트:\n\n- setting은 “고정된 설정값”\n- task는 “실행 가능한 작업”\n\n이 차이를 이해하면 sbt 문법이 훨씬 덜 이상해 보인다.\n\n---\n\n## sbt가 독특한 이유 2: `.value`\n\nsbt 코드를 보다 보면 `.value`가 많이 보인다.\n\n예:\n\n```scala\nCompile / scalaSource := baseDirectory.value / \"src\"\n```\n\n혹은\n\n```scala\nlazy val printScalaVersion = taskKey[Unit](\"Print scala version\")\n\nprintScalaVersion := {\n  println(scalaVersion.value)\n}\n```\n\n이 `.value`는 다른 setting/task의 값을 참조한다는 뜻이다.\n\n즉, sbt는 “설정값과 작업들의 의존 그래프”를 만들고  \n그 그래프를 기준으로 실행 순서를 정한다.\n\n이 때문에 sbt는 단순 스크립트보다 더 구조적인 빌드 시스템처럼 동작한다.\n\n---\n\n## task graph가 중요한 이유\n\nsbt는 task dependency를 단순 함수 호출처럼 다루지 않는다.  \n의존 그래프를 만들고 그걸 바탕으로 실행한다.\n\n이 모델 덕분에 얻는 이점은 크다.\n\n- 의존 task를 먼저 실행\n- 서로 독립적인 task는 병렬 처리 가능\n- 같은 task dependency는 한 번만 실행\n- 중복 계산을 줄일 수 있음\n\n즉, sbt는 “명령을 순서대로 때려 넣는 도구”라기보다  \n**task graph를 계산하고 실행하는 엔진**에 가깝다.\n\n---\n\n## 멀티 프로젝트 빌드도 잘 지원한다\n\n실무에서는 프로젝트가 하나의 모듈로 끝나지 않는 경우가 많다.\n\n예를 들어:\n\n- `core`\n- `api`\n- `service`\n- `batch`\n\n이런 식으로 모듈을 나누고 서로 의존하게 만들 수 있다.\n\n예시:\n\n```scala\nlazy val common = project.in(file(\"common\"))\n\nlazy val api = project\n  .in(file(\"api\"))\n  .dependsOn(common)\n\nlazy val service = project\n  .in(file(\"service\"))\n  .dependsOn(common, api)\n\nlazy val root = project\n  .in(file(\".\"))\n  .aggregate(common, api, service)\n```\n\n이렇게 해두면 하나의 build 안에서 여러 서브프로젝트를 함께 관리할 수 있다.\n\n멀티 프로젝트 지원이 중요한 이유는 다음과 같다.\n\n- 공통 모듈 재사용\n- 빌드 구조를 명확히 분리\n- 배포 단위를 나누기 쉬움\n- 큰 코드베이스 관리가 편함\n\n---\n\n## 플러그인은 무엇인가\n\nsbt의 확장성은 플러그인에서 나온다.\n\n플러그인은 대체로 이런 역할을 한다.\n\n- 새로운 task 추가\n- 새로운 setting 추가\n- 특정 플랫폼/도구와 연동\n- 배포 파이프라인 자동화\n\n예를 들어 `sbt-assembly` 같은 플러그인은 fat JAR를 만드는 데 자주 쓰인다.\n\n`project/plugins.sbt`에 이렇게 추가한다.\n\n```scala\naddSbtPlugin(\"com.eed3si9n\" % \"sbt-assembly\" % \"2.3.1\")\n```\n\n그 후에는 플러그인이 제공하는 task를 사용할 수 있다.\n\n즉, sbt의 본체는 빌드 엔진이고,  \n실전 기능은 플러그인을 붙여서 넓혀가는 구조라고 이해하면 좋다.\n\n---\n\n## sbt가 강력하지만 어렵게 느껴지는 이유\n\n솔직히 말하면 sbt는 입문자에게 친절한 도구는 아니다.\n\n이유는 몇 가지가 있다.\n\n### 1) 설정 파일이 사실상 코드다\n단순 key-value 파일이 아니라 Scala 기반 DSL이다.\n\n### 2) 개념이 생각보다 많다\n- task\n- setting\n- scope\n- plugin\n- multi-project\n- aggregation\n- dependency graph\n\n### 3) 문법이 낯설다\n예:\n\n```scala\nCompile / scalaSource := baseDirectory.value / \"src\"\n```\n\n처음 보면 “이게 대체 무슨 문법이지?” 싶다.\n\n### 4) Scala 생태계 개념이 같이 들어온다\n의존성 선언, cross build, binary version 같은 개념이 같이 들어온다.\n\n하지만 반대로 말하면,  \n이런 개념을 한 번 이해하고 나면 sbt는 꽤 강력한 무기가 된다.\n\n---\n\n## 실무에서 자주 보는 명령어 정리\n\n아래 정도는 자주 쓴다.\n\n```bash\nsbt\n```\n\nsbt shell 시작\n\n```text\ncompile\n```\n\n컴파일\n\n```text\nrun\n```\n\n실행\n\n```text\ntest\n```\n\n전체 테스트 실행\n\n```text\ntestOnly example.MySpec\n```\n\n특정 테스트만 실행\n\n```text\ntestQuick\n```\n\n변경 영향이 있는 테스트 위주 실행\n\n```text\nclean\n```\n\n생성물 정리\n\n```text\npackage\n```\n\nJAR 패키징\n\n```text\nreload\n```\n\n빌드 정의 다시 로드\n\n```text\nprojects\n```\n\n현재 build의 프로젝트 목록 확인\n\n```text\nproject api\n```\n\n특정 서브프로젝트로 이동\n\n```text\ntasks\n```\n\n사용 가능한 task 목록 보기\n\n```text\nsettings\n```\n\n사용 가능한 setting 목록 보기\n\n```text\ninspect compile\n```\n\n특정 key/task를 자세히 보기\n\n---\n\n## sbt를 처음 배울 때 추천하는 접근법\n\n처음부터 sbt를 완벽하게 이해하려고 하면 오히려 어렵다.  \n보통은 아래 순서가 가장 낫다.\n\n### 1단계\n이 세 개만 먼저 익힌다.\n\n- `build.sbt`\n- `sbt run`\n- `sbt test`\n\n### 2단계\n의존성 추가를 익힌다.\n\n```scala\nlibraryDependencies += ...\n```\n\n### 3단계\nshell 모드와 `~compile`, `~testQuick`를 익힌다.\n\n### 4단계\n멀티 프로젝트와 플러그인을 익힌다.\n\n### 5단계\ntask, setting, scope, `.value`를 공부한다.\n\n이 순서가 좋은 이유는  \n**실무에 바로 필요한 것부터 익히고, 내부 모델은 나중에 이해할 수 있기 때문**이다.\n\n---\n\n## 정리\n\nsbt를 한 문장으로 다시 정리하면 이렇다.\n\n> **sbt는 Scala 프로젝트의 컴파일, 실행, 테스트, 의존성 관리, 패키징, 확장을 담당하는 빌드 도구다.**\n\n그리고 조금 더 깊게 보면 이렇게도 말할 수 있다.\n\n> **sbt는 `build.sbt`라는 Scala 기반 DSL 위에서 task graph를 구성하고,  \n> Coursier로 라이브러리를 해결하고, Zinc로 증분 컴파일을 수행하는 빌드 시스템이다.**\n\nScala를 제대로 쓰려면 문법만 알아서는 부족하다.  \n프로젝트를 실제로 굴리려면 결국 sbt를 이해해야 한다.\n\n처음엔 이상하고 복잡해 보여도,  \n한 번 구조를 이해하고 나면 “왜 Scala 프로젝트가 이렇게 움직이는지”가 보이기 시작한다.\nscala  <- 이새끼가 못뜬이유는 sbt지분도 큼 진짜 개싫음\n\n---\n\n## 참고 자료\n\n- [Scala 공식 문서 - Getting Started with Scala and sbt on the Command Line](https://docs.scala-lang.org/getting-started/sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html)\n- [sbt 공식 홈페이지](https://www.scala-sbt.org/)\n- [sbt Reference Manual - Build definition](https://www.scala-sbt.org/1.x/docs/Basic-Def.html)\n- [sbt Reference Manual - Running](https://www.scala-sbt.org/1.x/docs/Running.html)\n- [sbt Reference Manual - Directory structure](https://www.scala-sbt.org/1.x/docs/Directories.html)\n- [sbt Reference Manual - Library dependencies](https://www.scala-sbt.org/1.x/docs/Library-Dependencies.html)\n- [sbt Reference Manual - Triggered Execution](https://www.scala-sbt.org/1.x/docs/Triggered-Execution.html)\n- [sbt Reference Manual - Multi-project builds](https://www.scala-sbt.org/1.x/docs/Multi-Project.html)\n- [sbt Reference Manual - Using plugins](https://www.scala-sbt.org/1.x/docs/Using-Plugins.html)\n- [sbt Reference Manual - Custom settings and tasks](https://www.scala-sbt.org/1.x/docs/Custom-Settings.html)\n- [sbt Reference Manual - Understanding Incremental Recompilation](https://www.scala-sbt.org/1.x/docs/Understanding-Recompilation.html)"
+}

@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "id": "velog/코틀린-DSL-Domain-Specific-Language",
+    "relativePath": "velog/코틀린-DSL-Domain-Specific-Language.md",
+    "routePath": "velog/코틀린-DSL-Domain-Specific-Language",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "코틀린 DSL (Domain Specific Language)",
+    "description": "DSL(Domain Specific Language)은 특정 도메인이나 문제 영역에 특화된 언어입니다. 범용 프로그래밍 언어와 달리, DSL은 특정 작업을 더 쉽고 명확하게 표현하기 위해 설계됩니다.",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "코틀린 DSL (Domain Specific Language)",
+        "id": "코틀린-dsl-domain-specific-language"
+      },
+      {
+        "depth": 2,
+        "text": "1. DSL이란 무엇인가?",
+        "id": "1-dsl이란-무엇인가"
+      },
+      {
+        "depth": 3,
+        "text": "1.1 DSL의 정의",
+        "id": "11-dsl의-정의"
+      },
+      {
+        "depth": 3,
+        "text": "1.2 DSL의 종류",
+        "id": "12-dsl의-종류"
+      },
+      {
+        "depth": 3,
+        "text": "1.3 DSL의 장점",
+        "id": "13-dsl의-장점"
+      },
+      {
+        "depth": 2,
+        "text": "2. 코틀린이 DSL에 적합한 이유",
+        "id": "2-코틀린이-dsl에-적합한-이유"
+      },
+      {
+        "depth": 3,
+        "text": "2.1 코틀린의 DSL 지원 기능",
+        "id": "21-코틀린의-dsl-지원-기능"
+      },
+      {
+        "depth": 3,
+        "text": "2.2 타입 안전 빌더",
+        "id": "22-타입-안전-빌더"
+      },
+      {
+        "depth": 2,
+        "text": "3. DSL 만들기 - 기초",
+        "id": "3-dsl-만들기---기초"
+      },
+      {
+        "depth": 3,
+        "text": "3.1 간단한 DSL 예제",
+        "id": "31-간단한-dsl-예제"
+      },
+      {
+        "depth": 3,
+        "text": "3.2 중첩된 DSL 구조",
+        "id": "32-중첩된-dsl-구조"
+      },
+      {
+        "depth": 2,
+        "text": "4. 고급 DSL 기법",
+        "id": "4-고급-dsl-기법"
+      },
+      {
+        "depth": 3,
+        "text": "4.1 @DslMarker 어노테이션",
+        "id": "41-dslmarker-어노테이션"
+      },
+      {
+        "depth": 3,
+        "text": "4.2 invoke 컨벤션",
+        "id": "42-invoke-컨벤션"
+      },
+      {
+        "depth": 3,
+        "text": "4.3 위임 프로퍼티를 활용한 DSL",
+        "id": "43-위임-프로퍼티를-활용한-dsl"
+      },
+      {
+        "depth": 2,
+        "text": "5. 실전 DSL 예제",
+        "id": "5-실전-dsl-예제"
+      },
+      {
+        "depth": 3,
+        "text": "5.1 SQL DSL",
+        "id": "51-sql-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "5.2 JSON 빌더 DSL",
+        "id": "52-json-빌더-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "5.3 테스트 DSL (Behavior-Driven Development)",
+        "id": "53-테스트-dsl-behavior-driven-development"
+      },
+      {
+        "depth": 3,
+        "text": "5.4 Gradle Kotlin DSL 스타일",
+        "id": "54-gradle-kotlin-dsl-스타일"
+      },
+      {
+        "depth": 2,
+        "text": "6. 실제 프로젝트에서의 DSL 활용",
+        "id": "6-실제-프로젝트에서의-dsl-활용"
+      },
+      {
+        "depth": 3,
+        "text": "6.1 Exposed - 데이터베이스 DSL",
+        "id": "61-exposed---데이터베이스-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "6.2 Ktor - 웹 프레임워크 DSL",
+        "id": "62-ktor---웹-프레임워크-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "6.3 kotlinx.html - HTML DSL",
+        "id": "63-kotlinxhtml---html-dsl"
+      },
+      {
+        "depth": 2,
+        "text": "7. DSL 설계 베스트 프랙티스",
+        "id": "7-dsl-설계-베스트-프랙티스"
+      },
+      {
+        "depth": 3,
+        "text": "7.1 명확한 스코프 정의",
+        "id": "71-명확한-스코프-정의"
+      },
+      {
+        "depth": 3,
+        "text": "7.2 @DslMarker 사용",
+        "id": "72-dslmarker-사용"
+      },
+      {
+        "depth": 3,
+        "text": "7.3 일관된 네이밍 컨벤션",
+        "id": "73-일관된-네이밍-컨벤션"
+      },
+      {
+        "depth": 3,
+        "text": "7.4 타입 안전성 보장",
+        "id": "74-타입-안전성-보장"
+      },
+      {
+        "depth": 3,
+        "text": "7.5 적절한 기본값 제공",
+        "id": "75-적절한-기본값-제공"
+      },
+      {
+        "depth": 3,
+        "text": "7.6 문서화",
+        "id": "76-문서화"
+      },
+      {
+        "depth": 2,
+        "text": "8. 고급 패턴과 테크닉",
+        "id": "8-고급-패턴과-테크닉"
+      },
+      {
+        "depth": 3,
+        "text": "8.1 제네릭을 활용한 DSL",
+        "id": "81-제네릭을-활용한-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "8.2 확장 함수를 활용한 DSL 확장",
+        "id": "82-확장-함수를-활용한-dsl-확장"
+      },
+      {
+        "depth": 3,
+        "text": "8.3 조건부 DSL",
+        "id": "83-조건부-dsl"
+      },
+      {
+        "depth": 3,
+        "text": "8.4 체이닝 DSL",
+        "id": "84-체이닝-dsl"
+      },
+      {
+        "depth": 2,
+        "text": "9. 성능 고려사항",
+        "id": "9-성능-고려사항"
+      },
+      {
+        "depth": 3,
+        "text": "9.1 인라인 함수 사용",
+        "id": "91-인라인-함수-사용"
+      },
+      {
+        "depth": 3,
+        "text": "9.2 객체 재사용",
+        "id": "92-객체-재사용"
+      },
+      {
+        "depth": 3,
+        "text": "9.3 지연 초기화",
+        "id": "93-지연-초기화"
+      },
+      {
+        "depth": 2,
+        "text": "10. 테스팅",
+        "id": "10-테스팅"
+      },
+      {
+        "depth": 3,
+        "text": "10.1 DSL 유닛 테스트",
+        "id": "101-dsl-유닛-테스트"
+      },
+      {
+        "depth": 3,
+        "text": "10.2 DSL 통합 테스트",
+        "id": "102-dsl-통합-테스트"
+      },
+      {
+        "depth": 2,
+        "text": "11. 일반적인 실수와 해결방법",
+        "id": "11-일반적인-실수와-해결방법"
+      },
+      {
+        "depth": 3,
+        "text": "11.1 스코프 누수",
+        "id": "111-스코프-누수"
+      },
+      {
+        "depth": 3,
+        "text": "11.2 타입 추론 실패",
+        "id": "112-타입-추론-실패"
+      },
+      {
+        "depth": 3,
+        "text": "11.3 가변성 문제",
+        "id": "113-가변성-문제"
+      },
+      {
+        "depth": 2,
+        "text": "12. 결론",
+        "id": "12-결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:02.481Z",
+    "wordCount": 469,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "코틀린 DSL (Domain Specific Language) ",
+    "description": "DSL(Domain Specific Language)은 특정 도메인이나 문제 영역에 특화된 언어입니다. 범용 프로그래밍 언어와 달리, DSL은 특정 작업을 더 쉽고 명확하게 표현하기 위해 설계됩니다.",
+    "source": "https://velog.io/@pobi/%EC%BD%94%ED%8B%80%EB%A6%B0-DSL-Domain-Specific-Language",
+    "source_slug": "코틀린-DSL-Domain-Specific-Language",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-10-10T12:57:28.125Z",
+    "updated_at": "2026-03-20T13:13:54.300Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/1cca52b1-2fee-4a72-a7b3-c6f2c5a82cce/image.webp",
+    "tags": []
+  },
+  "content": "# 코틀린 DSL (Domain Specific Language) \n\n## 1. DSL이란 무엇인가?\n\n### 1.1 DSL의 정의\n\nDSL(Domain Specific Language)은 특정 도메인이나 문제 영역에 특화된 언어입니다. 범용 프로그래밍 언어와 달리, DSL은 특정 작업을 더 쉽고 명확하게 표현하기 위해 설계됩니다.\n\n**범용 언어 vs DSL:**\n\n- **범용 언어(GPL)**: Java, Python, C++ 등 - 모든 종류의 문제를 해결할 수 있도록 설계\n- **DSL**: SQL, HTML, CSS, Gradle 등 - 특정 도메인의 문제 해결에 최적화\n\n### 1.2 DSL의 종류\n\n**외부 DSL (External DSL):**\n\n- 독립적인 문법과 구문을 가진 언어\n- 별도의 파서와 인터프리터가 필요\n- 예: SQL, HTML, CSS, Regex\n\n**내부 DSL (Internal DSL):**\n\n- 호스트 언어(일반 프로그래밍 언어) 내부에서 작성\n- 호스트 언어의 문법을 활용\n- 별도의 파서 불필요\n- 예: Kotlin의 HTML DSL, Gradle Kotlin DSL\n\n### 1.3 DSL의 장점\n\n**가독성 향상:**\n\n```kotlin\n// 일반적인 코드\nval table = Table()\ntable.addRow(Row().apply {\n    addCell(Cell(\"Name\"))\n    addCell(Cell(\"Age\"))\n})\n\n// DSL을 사용한 코드\ntable {\n    row {\n        cell(\"Name\")\n        cell(\"Age\")\n    }\n}\n```\n\n**비개발자와의 협업:**\n\n- 비개발자도 이해하기 쉬운 코드\n- 비즈니스 로직을 명확하게 표현\n- 유지보수성 향상\n\n**생산성 증가:**\n\n- 보일러플레이트 코드 감소\n- 직관적인 API\n- 타입 안정성 보장\n\n## 2. 코틀린이 DSL에 적합한 이유\n\n### 2.1 코틀린의 DSL 지원 기능\n\n**1. 람다와 고차 함수:**\n\n```kotlin\nfun buildString(action: StringBuilder.() -> Unit): String {\n    val sb = StringBuilder()\n    sb.action()\n    return sb.toString()\n}\n\nval result = buildString {\n    append(\"Hello, \")\n    append(\"World!\")\n}\n```\n\n**2. 수신 객체 지정 람다 (Lambda with Receiver):**\n\n```kotlin\n// 일반 람다\nfun configure(config: () -> Unit) { }\n\n// 수신 객체 지정 람다\nfun configure(config: Configuration.() -> Unit) { }\n\nclass Configuration {\n    var timeout = 1000\n    var retries = 3\n}\n\nconfigure {\n    timeout = 5000  // this.timeout과 동일\n    retries = 5     // this.retries와 동일\n}\n```\n\n**3. 확장 함수:**\n\n```kotlin\nfun String.addQuotes(): String = \"\\\"$this\\\"\"\n\nval quoted = \"Hello\".addQuotes()  // \"Hello\"\n```\n\n**4. 중위 함수 (Infix Functions):**\n\n```kotlin\ninfix fun Int.pow(exponent: Int): Int {\n    return Math.pow(this.toDouble(), exponent.toDouble()).toInt()\n}\n\nval result = 2 pow 3  // 8\n```\n\n**5. 연산자 오버로딩:**\n\n```kotlin\ndata class Point(val x: Int, val y: Int) {\n    operator fun plus(other: Point) = Point(x + other.x, y + other.y)\n}\n\nval p1 = Point(1, 2)\nval p2 = Point(3, 4)\nval p3 = p1 + p2  // Point(4, 6)\n```\n\n### 2.2 타입 안전 빌더\n\n코틀린 DSL의 핵심은 타입 안전 빌더입니다. 컴파일 타임에 오류를 잡을 수 있어 안전합니다.\n\n```kotlin\nhtml {\n    head {\n        title { +\"My Page\" }\n    }\n    body {\n        h1 { +\"Welcome\" }\n        p { +\"This is a paragraph\" }\n    }\n}\n```\n\n## 3. DSL 만들기 - 기초\n\n### 3.1 간단한 DSL 예제\n\n**요구사항:** 이메일을 구성하는 DSL 만들기\n\n```kotlin\nclass Email {\n    var from: String = \"\"\n    var to: String = \"\"\n    var subject: String = \"\"\n    var body: String = \"\"\n    \n    override fun toString(): String {\n        return \"\"\"\n            From: $from\n            To: $to\n            Subject: $subject\n            \n            $body\n        \"\"\".trimIndent()\n    }\n}\n\nfun email(init: Email.() -> Unit): Email {\n    val email = Email()\n    email.init()\n    return email\n}\n\n// 사용 예시\nval myEmail = email {\n    from = \"[sender@example.com](mailto:sender@example.com)\"\n    to = \"[receiver@example.com](mailto:receiver@example.com)\"\n    subject = \"Hello\"\n    body = \"This is a test email\"\n}\n\nprintln(myEmail)\n```\n\n### 3.2 중첩된 DSL 구조\n\n더 복잡한 구조를 위해 중첩된 빌더를 만들 수 있습니다.\n\n```kotlin\nclass HtmlElement(val name: String) {\n    private val children = mutableListOf<HtmlElement>()\n    private val attributes = mutableMapOf<String, String>()\n    var text: String = \"\"\n    \n    fun attribute(name: String, value: String) {\n        attributes[name] = value\n    }\n    \n    fun <T: HtmlElement> child(element: T, init: T.() -> Unit): T {\n        element.init()\n        children.add(element)\n        return element\n    }\n    \n    override fun toString(): String = buildString {\n        append(\"<$name\")\n        attributes.forEach { (key, value) ->\n            append(\" $key=\\\"$value\\\"\")\n        }\n        append(\">\")\n        if (text.isNotEmpty()) {\n            append(text)\n        }\n        children.forEach { append(it) }\n        append(\"</$name>\")\n    }\n}\n\nclass Html : HtmlElement(\"html\") {\n    fun head(init: Head.() -> Unit) = child(Head(), init)\n    fun body(init: Body.() -> Unit) = child(Body(), init)\n}\n\nclass Head : HtmlElement(\"head\") {\n    fun title(init: Title.() -> Unit) = child(Title(), init)\n}\n\nclass Title : HtmlElement(\"title\")\n\nclass Body : HtmlElement(\"body\") {\n    fun h1(init: H1.() -> Unit) = child(H1(), init)\n    fun p(init: P.() -> Unit) = child(P(), init)\n    fun div(init: Div.() -> Unit) = child(Div(), init)\n}\n\nclass H1 : HtmlElement(\"h1\")\nclass P : HtmlElement(\"p\")\nclass Div : HtmlElement(\"div\")\n\nfun html(init: Html.() -> Unit): Html {\n    val html = Html()\n    html.init()\n    return html\n}\n\n// 사용 예시\nval page = html {\n    head {\n        title {\n            text = \"My Page\"\n        }\n    }\n    body {\n        h1 {\n            text = \"Welcome\"\n            attribute(\"class\", \"header\")\n        }\n        div {\n            attribute(\"id\", \"content\")\n            p {\n                text = \"This is a paragraph\"\n            }\n        }\n    }\n}\n\nprintln(page)\n```\n\n## 4. 고급 DSL 기법\n\n### 4.1 @DslMarker 어노테이션\n\n@DslMarker는 DSL 스코프를 제한하여 의도하지 않은 호출을 방지합니다.\n\n```kotlin\n@DslMarker\nannotation class HtmlDsl\n\n@HtmlDsl\nabstract class Tag(val name: String) {\n    private val children = mutableListOf<Tag>()\n    protected fun <T : Tag> initTag(tag: T, init: T.() -> Unit): T {\n        tag.init()\n        children.add(tag)\n        return tag\n    }\n}\n\n@HtmlDsl\nclass HTML : Tag(\"html\") {\n    fun head(init: Head.() -> Unit) = initTag(Head(), init)\n    fun body(init: Body.() -> Unit) = initTag(Body(), init)\n}\n\n@HtmlDsl\nclass Head : Tag(\"head\") {\n    fun title(init: Title.() -> Unit) = initTag(Title(), init)\n}\n\n@HtmlDsl\nclass Body : Tag(\"body\") {\n    fun div(init: Div.() -> Unit) = initTag(Div(), init)\n}\n\n@HtmlDsl\nclass Div : Tag(\"div\") {\n    fun p(init: P.() -> Unit) = initTag(P(), init)\n}\n\n@HtmlDsl\nclass P : Tag(\"p\")\n\n@HtmlDsl\nclass Title : Tag(\"title\")\n\n// @DslMarker 덕분에 이런 코드는 컴파일 에러\nhtml {\n    body {\n        div {\n            // 여기서 head를 호출하면 에러!\n            // head { }  // 컴파일 에러\n            p { }\n        }\n    }\n}\n```\n\n### 4.2 invoke 컨벤션\n\ninvoke 연산자를 오버로딩하면 객체를 함수처럼 호출할 수 있습니다.\n\n```kotlin\nclass Greeter(val greeting: String) {\n    operator fun invoke(name: String) {\n        println(\"$greeting, $name!\")\n    }\n}\n\nval hello = Greeter(\"Hello\")\nhello(\"World\")  // \"Hello, World!\"\n\n// DSL에 활용\nclass Router {\n    private val routes = mutableMapOf<String, () -> Unit>()\n    \n    operator fun String.invoke(handler: () -> Unit) {\n        routes[this] = handler\n    }\n    \n    fun handle(path: String) {\n        routes[path]?.invoke() ?: println(\"404 Not Found\")\n    }\n}\n\nfun router(init: Router.() -> Unit): Router {\n    val router = Router()\n    router.init()\n    return router\n}\n\nval myRouter = router {\n    \"/home\" {\n        println(\"Home page\")\n    }\n    \"/about\" {\n        println(\"About page\")\n    }\n}\n\nmyRouter.handle(\"/home\")   // \"Home page\"\nmyRouter.handle(\"/about\")  // \"About page\"\n```\n\n### 4.3 위임 프로퍼티를 활용한 DSL\n\n```kotlin\nimport [kotlin.properties](http://kotlin.properties).ReadWriteProperty\nimport kotlin.reflect.KProperty\n\nclass ValidatedProperty<T>(\n    private var value: T,\n    private val validator: (T) -> Boolean\n) : ReadWriteProperty<Any?, T> {\n    override fun getValue(thisRef: Any?, property: KProperty<*>): T = value\n    \n    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {\n        if (validator(value)) {\n            this.value = value\n        } else {\n            throw IllegalArgumentException(\"Invalid value for ${[property.name](http://property.name)}\")\n        }\n    }\n}\n\nfun <T> validated(initial: T, validator: (T) -> Boolean) =\n    ValidatedProperty(initial, validator)\n\nclass User {\n    var age: Int by validated(0) { it >= 0 && it <= 150 }\n    var email: String by validated(\"\") { it.contains(\"@\") }\n}\n\nval user = User()\nuser.age = 25        // OK\n[user.email](http://user.email) = \"[test@example.com](mailto:test@example.com)\"  // OK\n// user.age = -1     // IllegalArgumentException\n// [user.email](http://user.email) = \"invalid\"  // IllegalArgumentException\n```\n\n## 5. 실전 DSL 예제\n\n### 5.1 SQL DSL\n\n```kotlin\nclass SqlSelectBuilder {\n    private val columns = mutableListOf<String>()\n    private var tableName: String = \"\"\n    private val conditions = mutableListOf<String>()\n    private val orderByColumns = mutableListOf<String>()\n    private var limitValue: Int? = null\n    \n    fun select(vararg columns: String) {\n        this.columns.addAll(columns)\n    }\n    \n    fun from(table: String) {\n        this.tableName = table\n    }\n    \n    infix fun String.eq(value: Any) {\n        conditions.add(\"$this = '${value}'\")\n    }\n    \n    infix fun [String.like](http://String.like)(pattern: String) {\n        conditions.add(\"$this LIKE '$pattern'\")\n    }\n    \n    fun where(init: SqlSelectBuilder.() -> Unit) {\n        this.init()\n    }\n    \n    fun orderBy(vararg columns: String) {\n        orderByColumns.addAll(columns)\n    }\n    \n    fun limit(value: Int) {\n        limitValue = value\n    }\n    \n    fun build(): String = buildString {\n        append(\"SELECT \")\n        append(if (columns.isEmpty()) \"*\" else columns.joinToString(\", \"))\n        append(\" FROM $tableName\")\n        \n        if (conditions.isNotEmpty()) {\n            append(\" WHERE \")\n            append(conditions.joinToString(\" AND \"))\n        }\n        \n        if (orderByColumns.isNotEmpty()) {\n            append(\" ORDER BY \")\n            append(orderByColumns.joinToString(\", \"))\n        }\n        \n        limitValue?.let {\n            append(\" LIMIT $it\")\n        }\n    }\n}\n\nfun query(init: SqlSelectBuilder.() -> Unit): String {\n    val builder = SqlSelectBuilder()\n    builder.init()\n    return [builder.build](http://builder.build)()\n}\n\n// 사용 예시\nval sql = query {\n    select(\"id\", \"name\", \"email\")\n    from(\"users\")\n    where {\n        \"age\" eq 25\n        \"name\" like \"%John%\"\n    }\n    orderBy(\"name\", \"id\")\n    limit(10)\n}\n\nprintln(sql)\n// SELECT id, name, email FROM users WHERE age = '25' AND name LIKE '%John%' ORDER BY name, id LIMIT 10\n```\n\n### 5.2 JSON 빌더 DSL\n\n```kotlin\nabstract class JsonElement {\n    abstract fun render(): String\n}\n\nclass JsonObject : JsonElement() {\n    private val properties = mutableMapOf<String, JsonElement>()\n    \n    infix fun [String.to](http://String.to)(value: Any?) {\n        properties[this] = when (value) {\n            null -> JsonNull\n            is String -> JsonString(value)\n            is Number -> JsonNumber(value)\n            is Boolean -> JsonBoolean(value)\n            is JsonElement -> value\n            else -> JsonString(value.toString())\n        }\n    }\n    \n    fun obj(key: String, init: JsonObject.() -> Unit) {\n        val obj = JsonObject()\n        obj.init()\n        properties[key] = obj\n    }\n    \n    fun array(key: String, init: JsonArray.() -> Unit) {\n        val arr = JsonArray()\n        arr.init()\n        properties[key] = arr\n    }\n    \n    override fun render(): String {\n        return properties.entries.joinToString(\n            separator = \", \",\n            prefix = \"{\",\n            postfix = \"}\"\n        ) { (key, value) ->\n            \"\\\"$key\\\": ${value.render()}\"\n        }\n    }\n}\n\nclass JsonArray : JsonElement() {\n    private val elements = mutableListOf<JsonElement>()\n    \n    operator fun Any?.unaryPlus() {\n        elements.add(when (this) {\n            null -> JsonNull\n            is String -> JsonString(this)\n            is Number -> JsonNumber(this)\n            is Boolean -> JsonBoolean(this)\n            is JsonElement -> this\n            else -> JsonString(this.toString())\n        })\n    }\n    \n    fun obj(init: JsonObject.() -> Unit) {\n        val obj = JsonObject()\n        obj.init()\n        elements.add(obj)\n    }\n    \n    override fun render(): String {\n        return elements.joinToString(\n            separator = \", \",\n            prefix = \"[\",\n            postfix = \"]\"\n        ) { it.render() }\n    }\n}\n\nclass JsonString(private val value: String) : JsonElement() {\n    override fun render() = \"\\\"$value\\\"\"\n}\n\nclass JsonNumber(private val value: Number) : JsonElement() {\n    override fun render() = value.toString()\n}\n\nclass JsonBoolean(private val value: Boolean) : JsonElement() {\n    override fun render() = value.toString()\n}\n\nobject JsonNull : JsonElement() {\n    override fun render() = \"null\"\n}\n\nfun json(init: JsonObject.() -> Unit): JsonObject {\n    val obj = JsonObject()\n    obj.init()\n    return obj\n}\n\n// 사용 예시\nval jsonData = json {\n    \"name\" to \"John Doe\"\n    \"age\" to 30\n    \"isActive\" to true\n    \"email\" to null\n    \n    obj(\"address\") {\n        \"street\" to \"123 Main St\"\n        \"city\" to \"New York\"\n        \"zipCode\" to \"10001\"\n    }\n    \n    array(\"hobbies\") {\n        +\"reading\"\n        +\"swimming\"\n        +\"coding\"\n    }\n    \n    array(\"friends\") {\n        obj {\n            \"name\" to \"Alice\"\n            \"age\" to 28\n        }\n        obj {\n            \"name\" to \"Bob\"\n            \"age\" to 32\n        }\n    }\n}\n\nprintln(jsonData.render())\n```\n\n### 5.3 테스트 DSL (Behavior-Driven Development)\n\n```kotlin\nclass TestSuite(val name: String) {\n    private val tests = mutableListOf<Test>()\n    \n    fun test(description: String, block: TestContext.() -> Unit) {\n        tests.add(Test(description, block))\n    }\n    \n    fun run() {\n        println(\"\\n=== Running test suite: $name ===\")\n        var passed = 0\n        var failed = 0\n        \n        tests.forEach { test ->\n            try {\n                val context = TestContext()\n                test.block(context)\n                println(\"✓ ${test.description}\")\n                passed++\n            } catch (e: AssertionError) {\n                println(\"✗ ${test.description}: ${e.message}\")\n                failed++\n            }\n        }\n        \n        println(\"\\nResults: $passed passed, $failed failed\")\n    }\n}\n\nclass Test(val description: String, val block: TestContext.() -> Unit)\n\nclass TestContext {\n    infix fun <T> T.shouldBe(expected: T) {\n        if (this != expected) {\n            throw AssertionError(\"Expected $expected but got $this\")\n        }\n    }\n    \n    infix fun <T> T.shouldNotBe(expected: T) {\n        if (this == expected) {\n            throw AssertionError(\"Expected not to be $expected\")\n        }\n    }\n    \n    infix fun Boolean.shouldBe(expected: Boolean) {\n        if (this != expected) {\n            throw AssertionError(\"Expected $expected but got $this\")\n        }\n    }\n    \n    fun <T> T.shouldBeNull() {\n        if (this != null) {\n            throw AssertionError(\"Expected null but got $this\")\n        }\n    }\n    \n    fun <T> T.shouldNotBeNull() {\n        if (this == null) {\n            throw AssertionError(\"Expected not null\")\n        }\n    }\n}\n\nfun describe(name: String, init: TestSuite.() -> Unit): TestSuite {\n    val suite = TestSuite(name)\n    suite.init()\n    return suite\n}\n\n// 사용 예시\nval mathTests = describe(\"Math operations\") {\n    test(\"addition should work correctly\") {\n        val result = 2 + 2\n        result shouldBe 4\n    }\n    \n    test(\"subtraction should work correctly\") {\n        val result = 5 - 3\n        result shouldBe 2\n    }\n    \n    test(\"null handling\") {\n        val nullValue: String? = null\n        nullValue.shouldBeNull()\n        \n        val notNull: String? = \"hello\"\n        notNull.shouldNotBeNull()\n    }\n    \n    test(\"boolean assertions\") {\n        val isTrue = true\n        isTrue shouldBe true\n        \n        val isFalse = false\n        isFalse shouldBe false\n    }\n}\n\n[mathTests.run](http://mathTests.run)()\n```\n\n### 5.4 Gradle Kotlin DSL 스타일\n\n```kotlin\nclass Project {\n    var version: String = \"1.0.0\"\n    var group: String = \"\"\n    \n    private val dependencies = mutableListOf<Dependency>()\n    private val tasks = mutableMapOf<String, Task>()\n    \n    fun dependencies(init: DependencyHandler.() -> Unit) {\n        val handler = DependencyHandler()\n        handler.init()\n        dependencies.addAll(handler.getDependencies())\n    }\n    \n    fun tasks(init: TaskContainer.() -> Unit) {\n        val container = TaskContainer()\n        container.init()\n        tasks.putAll(container.getTasks())\n    }\n    \n    fun printConfiguration() {\n        println(\"Project Configuration:\")\n        println(\"  Group: $group\")\n        println(\"  Version: $version\")\n        println(\"\\nDependencies:\")\n        dependencies.forEach {\n            println(\"  ${it.scope}: ${it.notation}\")\n        }\n        println(\"\\nTasks:\")\n        tasks.forEach { (name, task) ->\n            println(\"  $name: ${task.description}\")\n        }\n    }\n}\n\ndata class Dependency(val scope: String, val notation: String)\n\nclass DependencyHandler {\n    private val dependencies = mutableListOf<Dependency>()\n    \n    fun implementation(notation: String) {\n        dependencies.add(Dependency(\"implementation\", notation))\n    }\n    \n    fun testImplementation(notation: String) {\n        dependencies.add(Dependency(\"testImplementation\", notation))\n    }\n    \n    fun api(notation: String) {\n        dependencies.add(Dependency(\"api\", notation))\n    }\n    \n    fun getDependencies() = dependencies\n}\n\nclass Task(val name: String, var description: String = \"\", val action: () -> Unit)\n\nclass TaskContainer {\n    private val tasks = mutableMapOf<String, Task>()\n    \n    fun register(name: String, init: Task.() -> Unit) {\n        val task = Task(name, \"\") { }\n        task.init()\n        tasks[name] = task\n    }\n    \n    fun getTasks() = tasks\n}\n\nfun project(init: Project.() -> Unit): Project {\n    val project = Project()\n    project.init()\n    return project\n}\n\n// 사용 예시\nval myProject = project {\n    group = \"com.example\"\n    version = \"2.0.0\"\n    \n    dependencies {\n        implementation(\"org.jetbrains.kotlin:kotlin-stdlib:1.9.0\")\n        implementation(\"[com.google](http://com.google).code.gson:gson:2.10.1\")\n        testImplementation(\"org.junit.jupiter:junit-jupiter:5.9.0\")\n        api(\"com.squareup.okhttp3:okhttp:4.11.0\")\n    }\n    \n    tasks {\n        register(\"clean\") {\n            description = \"Cleans the build directory\"\n        }\n        \n        register(\"build\") {\n            description = \"Builds the project\"\n        }\n        \n        register(\"test\") {\n            description = \"Runs the tests\"\n        }\n    }\n}\n\nmyProject.printConfiguration()\n```\n\n## 6. 실제 프로젝트에서의 DSL 활용\n\n### 6.1 Exposed - 데이터베이스 DSL\n\n\n```kotlin\n// Exposed DSL 예시\nobject Users : Table() {\n    val id = integer(\"id\").autoIncrement()\n    val name = varchar(\"name\", 50)\n    val email = varchar(\"email\", 100)\n    \n    override val primaryKey = PrimaryKey(id)\n}\n\n// 사용\ntransaction {\n    // Create\n    Users.insert {\n        it[name] = \"John Doe\"\n        it[email] = \"[john@example.com](mailto:john@example.com)\"\n    }\n    \n    // Read\n    [Users.select](http://Users.select) { [Users.name](http://Users.name) eq \"John Doe\" }\n        .forEach {\n            println(it[[Users.email](http://Users.email)])\n        }\n    \n    // Update\n    Users.update({ [Users.id](http://Users.id) eq 1 }) {\n        it[email] = \"[newemail@example.com](mailto:newemail@example.com)\"\n    }\n    \n    // Delete\n    Users.deleteWhere { [Users.id](http://Users.id) eq 1 }\n}\n```\n\n### 6.2 Ktor - 웹 프레임워크 DSL\n\n\n```kotlin\nfun Application.module() {\n    routing {\n        get(\"/\") {\n            call.respondText(\"Hello, World!\")\n        }\n        \n        route(\"/api\") {\n            get(\"/users\") {\n                call.respond(listOf(\"User1\", \"User2\"))\n            }\n            \n            post(\"/users\") {\n                val user = call.receive<User>()\n                call.respond(HttpStatusCode.Created, user)\n            }\n        }\n    }\n    \n    install(ContentNegotiation) {\n        json(Json {\n            prettyPrint = true\n            isLenient = true\n        })\n    }\n}\n```\n\n### 6.3 kotlinx.html - HTML DSL\n\n```kotlin\nimport kotlinx.html.*\nimport [kotlinx.html.stream](http://kotlinx.html.stream).createHTML\n\nval html = createHTML().html {\n    head {\n        title { +\"My Page\" }\n        link(rel = \"stylesheet\", href = \"/styles.css\")\n    }\n    body {\n        div(classes = \"container\") {\n            h1 { +\"Welcome\" }\n            \n            ul {\n                li { +\"Item 1\" }\n                li { +\"Item 2\" }\n                li { +\"Item 3\" }\n            }\n            \n            form(action = \"/submit\", method = [FormMethod.post](http://FormMethod.post)) {\n                input(type = InputType.text, name = \"username\") {\n                    placeholder = \"Enter username\"\n                }\n                input(type = InputType.password, name = \"password\") {\n                    placeholder = \"Enter password\"\n                }\n                button(type = ButtonType.submit) {\n                    +\"Login\"\n                }\n            }\n        }\n    }\n}\n```\n\n## 7. DSL 설계 베스트 프랙티스\n\n### 7.1 명확한 스코프 정의\n\n```kotlin\n// 나쁜 예 - 스코프가 불명확\nfun buildHtml(init: () -> Unit) {\n    // ...\n}\n\n// 좋은 예 - 명확한 수신 객체\nfun buildHtml(init: Html.() -> Unit) {\n    val html = Html()\n    html.init()\n}\n```\n\n### 7.2 @DslMarker 사용\n\n중첩된 DSL에서는 항상 @DslMarker를 사용하여 스코프를 제한하세요.\n\n```kotlin\n@DslMarker\nannotation class MyDsl\n\n@MyDsl\nclass OuterBuilder {\n    fun inner(init: InnerBuilder.() -> Unit) { }\n}\n\n@MyDsl\nclass InnerBuilder {\n    fun action() { }\n}\n```\n\n### 7.3 일관된 네이밍 컨벤션\n\n```kotlin\n// 빌더 함수는 동사나 명사로\nfun html(init: Html.() -> Unit)\nfun createServer(init: Server.() -> Unit)\n\n// 프로퍼티 설정은 명사로\nvar host: String\nvar port: Int\n\n// 액션은 동사로\nfun start()\nfun stop()\nfun restart()\n```\n\n### 7.4 타입 안전성 보장\n\n```kotlin\n// 타입을 명확하게 정의\nenum class HttpMethod {\n    GET, POST, PUT, DELETE\n}\n\nclass Route {\n    fun method(method: HttpMethod) { }\n}\n\n// 사용\nroute {\n    method(HttpMethod.GET)  // 타입 안전\n}\n```\n\n### 7.5 적절한 기본값 제공\n\n```kotlin\nclass ServerConfig {\n    var host: String = \"[localhost](http://localhost)\"\n    var port: Int = 8080\n    var timeout: Long = 30_000L\n    var maxConnections: Int = 100\n}\n\nfun server(init: ServerConfig.() -> Unit = {}): ServerConfig {\n    val config = ServerConfig()\n    config.init()\n    return config\n}\n\n// 모든 기본값 사용\nval server1 = server()\n\n// 일부만 오버라이드\nval server2 = server {\n    port = 9090\n}\n```\n\n### 7.6 문서화\n\n```kotlin\n/**\n * HTML 문서를 생성하는 DSL 빌더\n *\n * 사용 예:\n * ```\n * val page = html {\n *     head {\n *         title { +\"My Page\" }\n *     }\n *     body {\n *         h1 { +\"Hello World\" }\n *     }\n * }\n * ```\n */\nfun html(init: Html.() -> Unit): Html {\n    val html = Html()\n    html.init()\n    return html\n}\n```\n\n## 8. 고급 패턴과 테크닉\n\n### 8.1 제네릭을 활용한 DSL\n\n```kotlin\nclass DataBuilder<T> {\n    private val items = mutableListOf<T>()\n    \n    fun add(item: T) {\n        items.add(item)\n    }\n    \n    operator fun T.unaryPlus() {\n        items.add(this)\n    }\n    \n    fun build(): List<T> = items.toList()\n}\n\nfun <T> listOf(init: DataBuilder<T>.() -> Unit): List<T> {\n    val builder = DataBuilder<T>()\n    builder.init()\n    return [builder.build](http://builder.build)()\n}\n\n// 사용\nval numbers = listOf<Int> {\n    +1\n    +2\n    +3\n}\n\nval names = listOf<String> {\n    +\"Alice\"\n    +\"Bob\"\n    +\"Charlie\"\n}\n```\n\n### 8.2 확장 함수를 활용한 DSL 확장\n\n```kotlin\nclass HtmlBuilder {\n    private val elements = mutableListOf<String>()\n    \n    fun div(content: String) {\n        elements.add(\"<div>$content</div>\")\n    }\n    \n    fun getHtml() = elements.joinToString(\"\\n\")\n}\n\n// 기본 DSL\nfun html(init: HtmlBuilder.() -> Unit): String {\n    val builder = HtmlBuilder()\n    builder.init()\n    return builder.getHtml()\n}\n\n// 확장 함수로 기능 추가\nfun HtmlBuilder.bootstrap() {\n    div(\"<link rel='stylesheet' href='bootstrap.css'>\")\n}\n\nfun HtmlBuilder.container(init: HtmlBuilder.() -> Unit) {\n    div(\"<div class='container'>\")\n    init()\n    div(\"</div>\")\n}\n\n// 사용\nval page = html {\n    bootstrap()\n    container {\n        div(\"Content here\")\n    }\n}\n```\n\n### 8.3 조건부 DSL\n\n```kotlin\nclass ConditionalBuilder {\n    private val elements = mutableListOf<String>()\n    \n    fun String.onlyIf(condition: Boolean) {\n        if (condition) {\n            elements.add(this)\n        }\n    }\n    \n    fun String.unless(condition: Boolean) {\n        if (!condition) {\n            elements.add(this)\n        }\n    }\n    \n    fun getResult() = elements\n}\n\nfun buildList(init: ConditionalBuilder.() -> Unit): List<String> {\n    val builder = ConditionalBuilder()\n    builder.init()\n    return builder.getResult()\n}\n\n// 사용\nval isAdmin = true\nval isGuest = false\n\nval menu = buildList {\n    \"Home\" onlyIf true\n    \"Dashboard\" onlyIf isAdmin\n    \"Login\" unless isAdmin\n    \"Admin Panel\" onlyIf (isAdmin && !isGuest)\n}\n\nprintln(menu)  // [Home, Dashboard, Admin Panel]\n```\n\n### 8.4 체이닝 DSL\n\n```kotlin\nclass RequestBuilder {\n    private var url: String = \"\"\n    private val headers = mutableMapOf<String, String>()\n    private val params = mutableMapOf<String, String>()\n    private var body: String? = null\n    \n    fun url(url: String) = apply {\n        this.url = url\n    }\n    \n    fun header(key: String, value: String) = apply {\n        headers[key] = value\n    }\n    \n    fun param(key: String, value: String) = apply {\n        params[key] = value\n    }\n    \n    fun body(body: String) = apply {\n        this.body = body\n    }\n    \n    fun build(): String {\n        return \"\"\"\n            URL: $url\n            Headers: $headers\n            Params: $params\n            Body: $body\n        \"\"\".trimIndent()\n    }\n}\n\nfun request(init: RequestBuilder.() -> Unit): String {\n    val builder = RequestBuilder()\n    builder.init()\n    return [builder.build](http://builder.build)()\n}\n\n// 사용 - 체이닝 스타일\nval request1 = RequestBuilder()\n    .url(\"https://api.example.com/users\")\n    .header(\"Authorization\", \"Bearer token\")\n    .header(\"Content-Type\", \"application/json\")\n    .param(\"limit\", \"10\")\n    .param(\"offset\", \"0\")\n    .body(\"{\\\"name\\\": \\\"John\\\"}\")\n    .build()\n\n// 또는 DSL 스타일\nval request2 = request {\n    url(\"https://api.example.com/users\")\n    header(\"Authorization\", \"Bearer token\")\n    header(\"Content-Type\", \"application/json\")\n    param(\"limit\", \"10\")\n    body(\"{\\\"name\\\": \\\"John\\\"}\")\n}\n```\n\n## 9. 성능 고려사항\n\n### 9.1 인라인 함수 사용\n\n```kotlin\n// 람다 오버헤드 제거\ninline fun <T> List<T>.fastForEach(action: (T) -> Unit) {\n    for (element in this) action(element)\n}\n\n// DSL에 적용\ninline fun html(init: Html.() -> Unit): Html {\n    val html = Html()\n    html.init()\n    return html\n}\n```\n\n### 9.2 객체 재사용\n\n```kotlin\nclass StringBuilderPool {\n    private val pool = ArrayDeque<StringBuilder>()\n    \n    fun acquire(): StringBuilder {\n        return if (pool.isNotEmpty()) {\n            pool.removeLast().apply { clear() }\n        } else {\n            StringBuilder()\n        }\n    }\n    \n    fun release(sb: StringBuilder) {\n        if (pool.size < 10) {\n            pool.add(sb)\n        }\n    }\n}\n\n// DSL에서 사용\nfun buildString(init: StringBuilder.() -> Unit): String {\n    val sb = pool.acquire()\n    try {\n        sb.init()\n        return sb.toString()\n    } finally {\n        pool.release(sb)\n    }\n}\n```\n\n### 9.3 지연 초기화\n\n```kotlin\nclass LazyHtml {\n    private val elements by lazy { mutableListOf<HtmlElement>() }\n    \n    fun div(init: Div.() -> Unit) {\n        elements.add(Div().apply(init))\n    }\n    \n    fun render(): String {\n        return if (elements.isEmpty()) {\n            \"\"\n        } else {\n            elements.joinToString(\"\\n\") { it.render() }\n        }\n    }\n}\n```\n\n## 10. 테스팅\n\n### 10.1 DSL 유닛 테스트\n\n```kotlin\nimport org.junit.jupiter.api.Test\nimport org.junit.jupiter.api.Assertions.*\n\nclass HtmlDslTest {\n    @Test\n    fun `should build simple HTML`() {\n        val html = html {\n            head {\n                title { text = \"Test\" }\n            }\n            body {\n                h1 { text = \"Hello\" }\n            }\n        }\n        \n        val result = html.toString()\n        assertTrue(result.contains(\"<title>Test</title>\"))\n        assertTrue(result.contains(\"<h1>Hello</h1>\"))\n    }\n    \n    @Test\n    fun `should handle nested elements`() {\n        val html = html {\n            body {\n                div {\n                    p { text = \"Paragraph 1\" }\n                    p { text = \"Paragraph 2\" }\n                }\n            }\n        }\n        \n        val result = html.toString()\n        assertTrue(result.contains(\"<div>\"))\n        assertTrue(result.contains(\"<p>Paragraph 1</p>\"))\n        assertTrue(result.contains(\"<p>Paragraph 2</p>\"))\n    }\n}\n```\n\n### 10.2 DSL 통합 테스트\n\n```kotlin\nclass SqlDslIntegrationTest {\n    @Test\n    fun `should generate correct SQL query`() {\n        val sql = query {\n            select(\"name\", \"email\")\n            from(\"users\")\n            where {\n                \"age\" eq 25\n            }\n            limit(10)\n        }\n        \n        val expected = \"SELECT name, email FROM users WHERE age = '25' LIMIT 10\"\n        assertEquals(expected, sql)\n    }\n}\n```\n\n## 11. 일반적인 실수와 해결방법\n\n### 11.1 스코프 누수\n\n```kotlin\n// 문제\nhtml {\n    body {\n        div {\n            // 여기서 html 스코프에 접근 가능 (의도하지 않음)\n            head { }  // 잘못된 위치\n        }\n    }\n}\n\n// 해결: @DslMarker 사용\n@DslMarker\nannotation class HtmlDsl\n\n@HtmlDsl\nclass Html { }\n\n@HtmlDsl\nclass Body { }\n```\n\n### 11.2 타입 추론 실패\n\n```kotlin\n// 문제\nval builder = {\n    // 타입 추론 불가\n}\n\n// 해결: 명시적 타입 지정\nval builder: Html.() -> Unit = {\n    head { }\n    body { }\n}\n```\n\n### 11.3 가변성 문제\n\n```kotlin\n// 문제 - 외부에서 수정 가능\nclass Config {\n    val servers = mutableListOf<String>()\n}\n\n// 해결 - 불변 리스트 반환\nclass Config {\n    private val _servers = mutableListOf<String>()\n    val servers: List<String> get() = _servers.toList()\n    \n    fun addServer(server: String) {\n        _servers.add(server)\n    }\n}\n```\n\n## 12. 결론\n\n코틀린 DSL은 다음과 같은 특징을 가집니다:\n\n**장점:**\n\n- 높은 가독성\n- 타입 안전성\n- IDE 지원 (자동완성, 리팩토링)\n- 컴파일 타임 검증\n- 도메인 로직을 명확하게 표현\n\n**단점:**\n\n- 초기 학습 곡선\n- 과도한 사용 시 복잡도 증가\n- 디버깅이 어려울 수 있음\n\n**사용 시기:**\n\n- 반복적인 패턴이 많을 때\n- 설정이나 빌더 패턴이 필요할 때\n- 도메인 특화 언어가 필요할 때\n- 타입 안전성이 중요할 때\n\n**피해야 할 경우:**\n\n- 간단한 작업\n- 일회성 코드\n- 성능이 매우 중요한 경우\n\n코틀린 DSL은 개쩌는 도구입니다. 알아서 잘 사용하십시오."
+}

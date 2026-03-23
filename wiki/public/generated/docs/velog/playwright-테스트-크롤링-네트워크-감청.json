@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "id": "velog/playwright-테스트-크롤링-네트워크-감청",
+    "relativePath": "velog/playwright-테스트-크롤링-네트워크-감청.md",
+    "routePath": "velog/playwright-테스트-크롤링-네트워크-감청",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Playwright 실전: 테스트, 크롤링, 네트워크 관찰을 한 번에",
+    "description": "Playwright를 처음 보면 보통 “E2E 테스트 도구”로 들어온다. 그런데 조금만 더 써보면 느낌이 바뀐다. 이건 단순히 버튼 눌러보는 테스트 러너가 아니라, 브라우저를 재현 가능한 방식으로 조작하고, 페이지에서 데이터를 읽고, 네트워크까지 같이 관찰하는 도구에",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Playwright 실전: 테스트, 크롤링, 네트워크 관찰을 한 번에",
+        "id": "playwright-실전-테스트-크롤링-네트워크-관찰을-한-번에"
+      },
+      {
+        "depth": 1,
+        "text": "왜 Playwright가 실무형 도구인가",
+        "id": "왜-playwright가-실무형-도구인가"
+      },
+      {
+        "depth": 1,
+        "text": "1. 테스트: 클릭 자동화가 아니라 상태 검증",
+        "id": "1-테스트-클릭-자동화가-아니라-상태-검증"
+      },
+      {
+        "depth": 1,
+        "text": "2. 크롤링: HTML이 아니라 브라우저 결과를 읽는다",
+        "id": "2-크롤링-html이-아니라-브라우저-결과를-읽는다"
+      },
+      {
+        "depth": 1,
+        "text": "3. 네트워크 관찰",
+        "id": "3-네트워크-관찰"
+      },
+      {
+        "depth": 1,
+        "text": "4. 네트워크 가로채기",
+        "id": "4-네트워크-가로채기"
+      },
+      {
+        "depth": 1,
+        "text": "5. HAR 기반 API 모킹",
+        "id": "5-har-기반-api-모킹"
+      },
+      {
+        "depth": 1,
+        "text": "6. API + 브라우저 결합",
+        "id": "6-api--브라우저-결합"
+      },
+      {
+        "depth": 1,
+        "text": "7. Trace Viewer",
+        "id": "7-trace-viewer"
+      },
+      {
+        "depth": 1,
+        "text": "실무에서 가장 좋은 사용 패턴",
+        "id": "실무에서-가장-좋은-사용-패턴"
+      },
+      {
+        "depth": 3,
+        "text": "1. UI 테스트",
+        "id": "1-ui-테스트"
+      },
+      {
+        "depth": 3,
+        "text": "2. 브라우저 기반 크롤링",
+        "id": "2-브라우저-기반-크롤링"
+      },
+      {
+        "depth": 3,
+        "text": "3. 네트워크 관찰",
+        "id": "3-네트워크-관찰-1"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:58.499Z",
+    "wordCount": 331,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Playwright 실전: 테스트, 크롤링, 네트워크 관찰을 한 번에",
+    "description": "Playwright를 처음 보면 보통 “E2E 테스트 도구”로 들어온다. 그런데 조금만 더 써보면 느낌이 바뀐다. 이건 단순히 버튼 눌러보는 테스트 러너가 아니라, 브라우저를 재현 가능한 방식으로 조작하고, 페이지에서 데이터를 읽고, 네트워크까지 같이 관찰하는 도구에 ",
+    "source": "https://velog.io/@pobi/Playwright-%EC%8B%A4%EC%A0%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%AC%EB%A1%A4%EB%A7%81-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B4%80%EC%B0%B0%EC%9D%84-%ED%95%9C-%EB%B2%88%EC%97%90",
+    "source_slug": "Playwright-실전-테스트-크롤링-네트워크-관찰을-한-번에",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-09T08:45:10.367Z",
+    "updated_at": "2026-03-21T04:43:19.427Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/7bf824a5-8739-421c-83b2-e598681bcf62/image.png",
+    "tags": []
+  },
+  "content": "# Playwright 실전: 테스트, 크롤링, 네트워크 관찰을 한 번에\n\n![](https://velog.velcdn.com/images/pobi/post/7bf824a5-8739-421c-83b2-e598681bcf62/image.png)\n\nPlaywright를 처음 보면 보통 “E2E 테스트 도구”로 들어온다. 그런데 조금만 더 써보면 느낌이 바뀐다. 이건 단순히 버튼 눌러보는 테스트 러너가 아니라, **브라우저를 재현 가능한 방식으로 조작하고, 페이지에서 데이터를 읽고, 네트워크까지 같이 관찰하는 도구**에 가깝다.\n\n공식 문서도 Playwright Test를 테스트 러너·assertion·격리·병렬 실행·도구ing을 함께 제공하는 프레임워크로 설명하고, Chromium·WebKit·Firefox와 모바일 에뮬레이션까지 지원한다고 안내한다.\n\n그래서 실무에서는 도구를 셋으로 나눠 들고 갈 필요가 줄어든다.\n\n- 테스트 → Playwright\n- 간단한 브라우저 크롤링 → Playwright\n- API 요청 관찰 → Playwright\n\n네트워크 쪽도 별도 플러그인 없이 `page.route()`나 이벤트 리스너로 추적·수정·모킹할 수 있고, Trace Viewer로 DOM 스냅샷과 네트워크 타임라인까지 함께 볼 수 있다.\n\n---\n\n# 왜 Playwright가 실무형 도구인가\n\n브라우저 자동화가 자주 깨지는 이유는 보통 **페이지 상태를 기다리지 않기 때문**이다.\n\nPlaywright는 이 문제를 해결하기 위해 **locator 중심 구조**를 사용한다.\n\n공식 문서 기준 locator 특징:\n\n- auto-waiting\n- retry-ability\n- DOM 변경에도 안정적\n\n그리고 권장 locator도 CSS가 아니라 다음을 기준으로 한다.\n\n- role\n- text\n- test id\n\n즉 테스트 기준이 **개발자 DOM 구조가 아니라 사용자 경험**에 가깝다.\n\n---\n\n# 1. 테스트: 클릭 자동화가 아니라 상태 검증\n\nPlaywright 테스트의 핵심은\n\n> 무엇을 눌렀는가가 아니라  \n> **무엇이 보여야 하는가**\n\n예시 로그인 테스트\n\n```ts\nimport { test, expect } from '@playwright/test';\n\ntest('로그인 후 대시보드가 보여야 한다', async ({ page }) => {\n  await page.goto('https://example.com/login');\n\n  await page.getByLabel('이메일').fill('tester@example.com');\n  await page.getByLabel('비밀번호').fill('password123');\n\n  await page.getByRole('button', { name: '로그인' }).click();\n\n  await expect(\n    page.getByRole('heading', { name: '대시보드' })\n  ).toBeVisible();\n});\n```\n\n핵심 특징\n\n- role 기반 locator\n- assertion 기반 검증\n- auto waiting\n\n---\n\n# 2. 크롤링: HTML이 아니라 브라우저 결과를 읽는다\n\nPlaywright는 정적 HTML 파싱 도구가 아니다.\n\n**실제 브라우저 렌더링 결과**를 다룬다.\n\n페이지 DOM에서 데이터를 읽는 기본 방식\n\n```ts\nimport { chromium } from 'playwright';\n\n(async () => {\n  const browser = await chromium.launch();\n  const page = await browser.newPage();\n\n  await page.goto('https://example.com/news');\n\n  const titles = await page.locator('article h2').allInnerTexts();\n\n  console.log(titles);\n\n  await browser.close();\n})();\n```\n\n또는 브라우저 내부 JS 실행\n\n```ts\nconst data = await page.evaluate(() => {\n  return Array.from(document.querySelectorAll('article h2'))\n    .map(el => el.innerText);\n});\n```\n\n---\n\n# 3. 네트워크 관찰\n\nPlaywright는 **네트워크 이벤트도 직접 볼 수 있다**\n\n요청 흐름\n\n```\nrequest\nresponse\nrequestfinished\n```\n\n예시 API 응답 확인\n\n```ts\ntest('주문 생성 API 확인', async ({ page }) => {\n\n  await page.goto('https://example.com/cart');\n\n  const responsePromise =\n    page.waitForResponse('**/api/orders');\n\n  await page.getByRole('button', { name: '주문하기' }).click();\n\n  const response = await responsePromise;\n\n  expect(response.ok()).toBeTruthy();\n\n  const json = await response.json();\n\n  expect(json.status).toBe('created');\n\n});\n```\n\nUI + API 검증을 **같이 수행**할 수 있다.\n\n---\n\n# 4. 네트워크 가로채기\n\n요청을 중간에서 수정할 수도 있다.\n\n예시 이미지 요청 차단\n\n```ts\nawait page.route('**/*.{png,jpg,jpeg}', route =>\n  route.abort()\n);\n```\n\n응답 수정\n\n```ts\nawait page.route('**/api/profile', async route => {\n\n  const response = await route.fetch();\n\n  const data = await response.json();\n\n  data.plan = 'enterprise';\n\n  await route.fulfill({\n    response,\n    json: data,\n  });\n\n});\n```\n\n---\n\n# 5. HAR 기반 API 모킹\n\n실제 API 트래픽을 HAR로 저장해 재현할 수 있다.\n\n```ts\nawait page.routeFromHAR('api.har');\n```\n\n장점\n\n- flaky 테스트 감소\n- 외부 API 의존성 제거\n- 재현 가능한 테스트\n\n---\n\n# 6. API + 브라우저 결합\n\nPlaywright는 **API 클라이언트도 제공한다**\n\n`APIRequestContext`\n\nAPI로 로그인\n\n```ts\nconst request = await playwright.request.newContext();\n\nawait request.post('/login', {\n  data: {\n    email: 'tester@example.com',\n    password: 'password'\n  }\n});\n```\n\n그 상태 그대로 브라우저 테스트 가능\n\n---\n\n# 7. Trace Viewer\n\nPlaywright의 실무 강점 중 하나\n\nTrace Viewer\n\n볼 수 있는 것\n\n- 타임라인\n- DOM 스냅샷\n- 네트워크\n- 액션 로그\n\n실패 분석이 매우 빠르다.\n\n---\n\n# 실무에서 가장 좋은 사용 패턴\n\nPlaywright를 다음 세 가지로 같이 쓴다.\n\n### 1. UI 테스트\n\nrole / text locator 기반\n\n### 2. 브라우저 기반 크롤링\n\nevaluate / locator 활용\n\n### 3. 네트워크 관찰\n\nroute / response / HAR\n\n---\n\n# 결론\n\nPlaywright는 단순한 테스트 도구가 아니다.\n\n> **브라우저를 실험실처럼 다루는 도구**\n\n한 프레임워크에서\n\n- UI 검증\n- 데이터 수집\n- API 관찰\n- 네트워크 수정\n\n까지 가능하다.\n\n그래서 실무에서 Playwright를 쓰면  \n자동화 도구 스택이 훨씬 단순해진다."
+}

@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "id": "velog/openai-symphony-레포-분석-관점",
+    "relativePath": "velog/openai-symphony-레포-분석-관점.md",
+    "routePath": "velog/openai-symphony-레포-분석-관점",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "OpenAI Symphony 레포 분석: 에이전트를 ‘지시’하는 시대에서 ‘오케스트레이션’하는 시대로",
+    "description": "처음 openai/symphony를 보면 또 하나의 에이전트 프레임워크처럼 보인다. 그런데 README와 SPEC을 읽어보면 성격이 꽤 다르다. OpenAI는 Symphony를 “프로젝트 일을 격리된 자율 구현 실행으로 바꾸는 시스템”으로 설명한다.데모에서는 다음과 같",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "OpenAI Symphony 레포 분석: 에이전트를 ‘지시’하는 시대에서 ‘오케스트레이션’하는 시대로",
+        "id": "openai-symphony-레포-분석-에이전트를-지시하는-시대에서-오케스트레이션하는-시대로"
+      },
+      {
+        "depth": 1,
+        "text": "Symphony는 에이전트가 아니다",
+        "id": "symphony는-에이전트가-아니다"
+      },
+      {
+        "depth": 1,
+        "text": "작업 단위가 바뀐다",
+        "id": "작업-단위가-바뀐다"
+      },
+      {
+        "depth": 1,
+        "text": "WORKFLOW.md가 핵심이다",
+        "id": "workflowmd가-핵심이다"
+      },
+      {
+        "depth": 1,
+        "text": "Symphony의 구조",
+        "id": "symphony의-구조"
+      },
+      {
+        "depth": 3,
+        "text": "Issue polling",
+        "id": "issue-polling"
+      },
+      {
+        "depth": 3,
+        "text": "Workspace isolation",
+        "id": "workspace-isolation"
+      },
+      {
+        "depth": 3,
+        "text": "Agent execution",
+        "id": "agent-execution"
+      },
+      {
+        "depth": 3,
+        "text": "Retry policy",
+        "id": "retry-policy"
+      },
+      {
+        "depth": 3,
+        "text": "Status management",
+        "id": "status-management"
+      },
+      {
+        "depth": 1,
+        "text": "Symphony reference implementation",
+        "id": "symphony-reference-implementation"
+      },
+      {
+        "depth": 1,
+        "text": "실제 실행 흐름",
+        "id": "실제-실행-흐름"
+      },
+      {
+        "depth": 1,
+        "text": "중요한 설계 철학",
+        "id": "중요한-설계-철학"
+      },
+      {
+        "depth": 3,
+        "text": "1. Workspace isolation",
+        "id": "1-workspace-isolation"
+      },
+      {
+        "depth": 3,
+        "text": "2. Policy driven execution",
+        "id": "2-policy-driven-execution"
+      },
+      {
+        "depth": 3,
+        "text": "3. Retry system",
+        "id": "3-retry-system"
+      },
+      {
+        "depth": 3,
+        "text": "4. Stateless restart",
+        "id": "4-stateless-restart"
+      },
+      {
+        "depth": 1,
+        "text": "Symphony는 아직 실험 단계다",
+        "id": "symphony는-아직-실험-단계다"
+      },
+      {
+        "depth": 1,
+        "text": "현재 레포 상태",
+        "id": "현재-레포-상태"
+      },
+      {
+        "depth": 1,
+        "text": "왜 이 레포가 중요한가",
+        "id": "왜-이-레포가-중요한가"
+      },
+      {
+        "depth": 1,
+        "text": "내 해석",
+        "id": "내-해석"
+      },
+      {
+        "depth": 3,
+        "text": "1. Agent loop",
+        "id": "1-agent-loop"
+      },
+      {
+        "depth": 3,
+        "text": "2. Agent interface",
+        "id": "2-agent-interface"
+      },
+      {
+        "depth": 3,
+        "text": "3. Agent orchestration",
+        "id": "3-agent-orchestration"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:58.229Z",
+    "wordCount": 439,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "OpenAI Symphony 레포 분석: 에이전트를 ‘지시’하는 시대에서 ‘오케스트레이션’하는 시대로",
+    "description": "처음 openai/symphony를 보면 또 하나의 에이전트 프레임워크처럼 보인다. 그런데 README와 SPEC을 읽어보면 성격이 꽤 다르다. OpenAI는 Symphony를 “프로젝트 일을 격리된 자율 구현 실행으로 바꾸는 시스템”으로 설명한다.데모에서는 다음과 같",
+    "source": "https://velog.io/@pobi/OpenAI-Symphony-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EB%A5%BC-%EC%A7%80%EC%8B%9C%ED%95%98%EB%8A%94-%EC%8B%9C%EB%8C%80%EC%97%90%EC%84%9C-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98%ED%95%98%EB%8A%94-%EC%8B%9C%EB%8C%80%EB%A1%9C",
+    "source_slug": "OpenAI-Symphony-레포-분석-에이전트를-지시하는-시대에서-오케스트레이션하는-시대로",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-09T10:03:37.215Z",
+    "updated_at": "2026-03-22T22:42:09.635Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/e2717d85-bd48-40c5-84c2-bebb59f2589e/image.png",
+    "tags": []
+  },
+  "content": "# OpenAI Symphony 레포 분석: 에이전트를 ‘지시’하는 시대에서 ‘오케스트레이션’하는 시대로\n\n![](https://velog.velcdn.com/images/pobi/post/e2717d85-bd48-40c5-84c2-bebb59f2589e/image.png)\n\n처음 `openai/symphony`를 보면 또 하나의 에이전트 프레임워크처럼 보인다. 그런데 README와 SPEC을 읽어보면 성격이 꽤 다르다. OpenAI는 Symphony를 **“프로젝트 일을 격리된 자율 구현 실행으로 바꾸는 시스템”**으로 설명한다.\n\n데모에서는 다음과 같은 흐름이 나온다.\n\n- Linear 보드를 감시\n- 이슈가 생기면 에이전트를 실행\n- PR 생성\n- CI 결과 확인\n- 리뷰 피드백 반영\n- Proof of work 생성\n\n그리고 마지막에 승인되면 PR을 merge한다.\n\n핵심 문장은 이거다.\n\n> **“코딩 에이전트를 감독하는 대신, 팀이 일을 관리하게 만든다.”**\n\n이 문장은 생각보다 큰 변화를 말한다.\n\n지금까지 대부분의 에이전트 사용 방식은 이랬다.\n\n```\n프롬프트 작성\n→ 에이전트 실행\n→ 결과 확인\n→ 다시 수정 요청\n```\n\n즉 사람 중심이었다.\n\n하지만 Symphony가 제안하는 모델은 다르다.\n\n```\n이슈 생성\n→ 오케스트레이터 실행\n→ 에이전트 작업\n→ 결과 증명\n→ 사람 승인\n```\n\n즉 **에이전트를 지시하는 방식에서 운영하는 방식으로 이동한다.**\n\n---\n\n# Symphony는 에이전트가 아니다\n\nSymphony를 이해하려면  \n**무엇을 하는지보다 무엇을 하지 않는지**가 중요하다.\n\nSPEC 기준 Symphony는 이렇게 정의된다.\n\n> **long-running automation service**\n\n역할은 다음과 같다.\n\n- 이슈 트래커 감시\n- 작업 디스패치\n- 격리된 워크스페이스 생성\n- 에이전트 실행\n- 상태 관리\n- 재시도 관리\n\n중요한 점은 이것이다.\n\nSymphony는 **에이전트 자체가 아니다.**\n\n에이전트는 여전히 Codex 같은 시스템이 담당한다.\n\n구조를 단순화하면 이렇게 된다.\n\n```\nSymphony\n   ↓\nAgent Runner\n   ↓\nCodex / LLM Agent\n   ↓\nRepository\n```\n\n즉 Symphony는 **agent orchestrator**다.\n\n---\n\n# 작업 단위가 바뀐다\n\n기존 에이전트 사용 방식\n\n```\n프롬프트 단위\n```\n\nSymphony 방식\n\n```\n이슈 단위\n```\n\n이 변화는 생각보다 크다.\n\nSymphony에서 작업 단위는 다음 구조를 가진다.\n\n- Issue\n- Workspace\n- Agent session\n- Proof of work\n- Review\n- Merge\n\nSPEC 기준 주요 특징\n\n- 이슈 기반 실행\n- 격리된 워크스페이스\n- 상태 머신 기반 실행\n- 정책 기반 workflow\n\n---\n\n# WORKFLOW.md가 핵심이다\n\nSymphony의 가장 중요한 파일은\n\n```\nWORKFLOW.md\n```\n\n이다.\n\n이 파일은 다음 역할을 한다.\n\n- 실행 정책\n- 프롬프트 템플릿\n- 작업 규칙\n- 실행 환경 설정\n\n특징\n\n- YAML frontmatter\n- Markdown 설명\n- 레포 안에서 버전 관리\n\n즉 정책이 SaaS 콘솔이 아니라  \n**repository 안에 존재한다.**\n\n---\n\n# Symphony의 구조\n\nSymphony의 주요 기능\n\n### Issue polling\n\n주기적으로 이슈 트래커를 확인한다.\n\n### Workspace isolation\n\n이슈마다 별도 작업 공간을 만든다.\n\n### Agent execution\n\n에이전트를 실행한다.\n\n### Retry policy\n\n실패하면 재시도한다.\n\n### Status management\n\n작업 상태를 관리한다.\n\n---\n\n# Symphony reference implementation\n\n레퍼런스 구현은 다음 기술을 사용한다.\n\n- **Elixir / OTP**\n- Phoenix LiveView\n- Codex app-server\n\nElixir를 선택한 이유\n\n- 장기 실행 프로세스\n- 프로세스 감독\n- hot code reload\n\n즉 Symphony는 단순 CLI가 아니라  \n**서비스형 시스템**이다.\n\n---\n\n# 실제 실행 흐름\n\n예시 흐름\n\n```\nLinear issue 생성\n        ↓\nSymphony polling\n        ↓\nWorkspace 생성\n        ↓\nAgent Runner 실행\n        ↓\nCodex 작업\n        ↓\nProof of work 생성\n        ↓\nHuman Review\n        ↓\nMerge\n```\n\n이 구조는 단순 자동화보다  \n**개발 운영 모델**에 가깝다.\n\n---\n\n# 중요한 설계 철학\n\nSymphony는 몇 가지 중요한 설계를 가지고 있다.\n\n### 1. Workspace isolation\n\n이슈마다 별도 workspace.\n\n### 2. Policy driven execution\n\nWORKFLOW.md 기반 정책 실행.\n\n### 3. Retry system\n\nexponential backoff.\n\n### 4. Stateless restart\n\n서비스 재시작 복구.\n\n---\n\n# Symphony는 아직 실험 단계다\n\nREADME는 Symphony를 이렇게 설명한다.\n\n> **engineering preview**\n\n또한 reference implementation은\n\n> **evaluation only**\n\n로 표시되어 있다.\n\n즉 production-ready 도구가 아니라  \n**설계 개념을 공개한 상태**에 가깝다.\n\n---\n\n# 현재 레포 상태\n\nGitHub 기준\n\n- ⭐ 약 9.9k stars\n- 약 700 forks\n- 커밋 수 매우 적음\n- 릴리스 없음\n\n즉 관심도는 높지만  \n제품 자체는 아직 미니멀하다.\n\n---\n\n# 왜 이 레포가 중요한가\n\nSymphony가 중요한 이유는  \n기능이 아니라 **방향** 때문이다.\n\n지금까지\n\n```\n프롬프트 중심\n```\n\n앞으로\n\n```\n운영 시스템 중심\n```\n\n으로 이동한다.\n\n즉\n\n> 프롬프트 엔지니어링 → 오케스트레이션 엔지니어링\n\n---\n\n# 내 해석\n\nSymphony는 다음 세 가지를 보여준다.\n\n### 1. Agent loop\n\nCodex harness\n\n### 2. Agent interface\n\nApp Server\n\n### 3. Agent orchestration\n\nSymphony\n\n이 세 레이어가 합쳐지면\n\n```\nHuman\n ↓\nOrchestrator\n ↓\nAgent\n ↓\nTools\n```\n\n구조가 된다.\n\n---\n\n# 결론\n\n`openai/symphony`는 완성된 제품이 아니다.\n\n하지만 중요한 메시지를 던진다.\n\n> **이제 에이전트를 직접 지시하는 시대가 아니라  \n> 에이전트가 일하도록 시스템을 설계하는 시대다.**\n\n즉\n\n```\nPrompt engineering 시대\n→ Agent orchestration 시대\n```\n\nSymphony는 그 전환점을 보여주는 레포다.\n써보니까 linear 이슈에 codex할당하는거랑 크게 다르지는않은데 원하는대로 커스텀이 가능하다는 관점에서는 훨씬좋은것같다."
+}

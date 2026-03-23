@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "velog/algorithm-Merge-sort를-알아보자",
+    "relativePath": "velog/algorithm-Merge-sort를-알아보자.md",
+    "routePath": "velog/algorithm-Merge-sort를-알아보자",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "[\b algorithm] Merge sort를 알아보자",
+    "description": "이게 퀵보다 더 어려운듯 ㅇㅇ",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Merge sort란?",
+        "id": "merge-sort란"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:07.283Z",
+    "wordCount": 145,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "[\b algorithm] Merge sort를 알아보자",
+    "description": "이게 퀵보다 더 어려운듯 ㅇㅇ",
+    "source": "https://velog.io/@pobi/algorithm-Merge-sort%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90",
+    "source_slug": "algorithm-Merge-sort를-알아보자",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2024-11-13T03:15:50.406Z",
+    "updated_at": "2026-03-17T06:16:26.733Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/4057d1c9-4509-4a11-9894-a4b6e33e98f3/image.png",
+    "tags": []
+  },
+  "content": "# Merge sort란?\n> 합병 정렬 또는 병합 정렬(영어: merge sort 머지 소트[*])은 O(n log n) 비교 기반 정렬 알고리즘이다. 일반적인 방법으로 구현했을 때 이 정렬은 안정 정렬에 속하며, 분할 정복 알고리즘의 하나이다. 존 폰 노이만이 1945년에 개발했다.[1] 상향식 합병 정렬에 대한 자세한 설명과 분석은 1948년 초 헤르만 골드스타인과 폰 노이만의 보고서에 등장하였다.[2]\nhttps://ko.wikipedia.org/wiki/%ED%95%A9%EB%B3%91_%EC%A0%95%EB%A0%AC\n\nMerge Sort의 동작 원리\n이 정렬은 크게 세 가지 단계로 구성된다:\n\n분할: 정렬할 배열을 최대한 작게 쪼갠다.\n정복: 쪼갠 배열을 작은 단위부터 정렬한다.\n병합: 정렬된 배열들을 합쳐가면서 전체를 정렬된 상태로 만든다.\n\n![](https://velog.velcdn.com/images/pobi/post/8e7e67b8-c77d-4b5c-9191-a7581a9680c5/image.png)\n\n\n```\n#include <stdio.h>\nint sorted[100],count;\n\nvoid merge(int list[], int left,int mid, int right)\n{\n    int i,j,k,l;\n    i=left;\n    j=mid+1;\n    k=left;\n    while(i<=mid && j<=right)\n    {\n        if(list[i]<=list[j])\n        {\n            sorted[k++]=list[i++];\n        }\n        else\n        {\n            sorted[k++]=list[j++];\n        }\n    }\n    if(i>mid)\n    {\n        for(l=j; l<=right; l++)\n        {\n            sorted[k++]=list[l];\n        }\n    }\n    else\n    {\n        for(l=i; l<=mid; l++)\n        {\n            sorted[k++]=list[l];\n        }\n    }\n    for(l=left; l<=right; l++)\n    {\n        list[l]=sorted[l];\n    }\n}\n\nvoid mergesort(int list[], int left,int right)\n{\n    int mid;\n    if(left<right)\n    {\n        mid=(left+right)/2;\n        mergesort(list,left,mid);\n        mergesort(list,mid+1,right);\n        merge(list,left,mid,right);\n    }\n}\n\nint main()\n{\n    int list[4]={27,12,20,25};\n    mergesort(list,0,3);\n    for(int i=0; i<4; i++)\n    {\n        printf(\"%d \",list[i]);\n    }\n    return 0;\n}\n```\n**mergesort** 함수: 배열을 최소 단위로 쪼개는 부분이다.\n**mergesort는** 재귀 호출을 통해 배열을 절반으로 계속 쪼갠다. left < right인 동안 쪼개기를 반복하다가, 쪼개기가 끝나면 merge 함수로 넘어간다.\n\n**merge** 함수: 쪼갠 배열을 합치면서 정렬하는 부분이다.\n**merge** 함수는 두 부분으로 나눠진 배열을 작은 값부터 순서대로 정렬하며 병합한다. 배열의 왼쪽과 오른쪽을 비교해서 작은 값을 sorted 배열에 담고, 병합이 완료되면 원래 배열인 list에 복사해 넣는다."
+}

@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "velog/시리즈-목차-ai-실무-주제",
+    "relativePath": "velog/시리즈-목차-ai-실무-주제.md",
+    "routePath": "velog/시리즈-목차-ai-실무-주제",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "설명형 문체로 정리한 문서 목록",
+    "description": "아래 문서를 모두 설명 중심 문체로 정리했다. posthog 사용자 추적 실무가이드.md a2a 아키텍처 쉽게 이해하기.md clickhouse athena bigquery sql 비교.md",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "설명형 문체로 정리한 문서 목록",
+        "id": "설명형-문체로-정리한-문서-목록"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-08T13:48:30.384Z",
+    "wordCount": 83,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {},
+  "content": "# 설명형 문체로 정리한 문서 목록\n\n아래 문서를 모두 설명 중심 문체로 정리했다.\n\n- posthog-사용자-추적-실무가이드.md\n- a2a-아키텍처-쉽게-이해하기.md\n- clickhouse-athena-bigquery-sql-비교.md\n- intent-설계-실전.md\n- 카카오톡-로코프로토콜-개념정리.md\n- playwright-테스트-크롤링-네트워크-감청.md\n- apify-크롤링-액터-만들기-왜-유리한가.md\n- maestro-카톡백업-앱테스트-워크플로우.md\n- linear-데빈-연결-실무.md\n- 슬랙에서-여러-ai-호출하기.md\n- n8n은-왜-위대한가.md\n- openclaw-레포-분석-핵심정리.md\n- openai-symphony-레포-분석-관점.md\n- arrow-1.0-왜-중요한가.md\n- gpai-정리.md\n- kimi-거품론-팩트체크.md\n- paperclip-프로젝트-분석.md\n- chichibot-참고-카톡봇-만들기-실전가이드.md"
+}

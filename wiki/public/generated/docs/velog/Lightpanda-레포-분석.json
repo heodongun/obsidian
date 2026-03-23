@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "id": "velog/Lightpanda-레포-분석",
+    "relativePath": "velog/Lightpanda-레포-분석.md",
+    "routePath": "velog/Lightpanda-레포-분석",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Lightpanda 레포 분석",
+    "description": "lightpanda-io/browser를 처음 보면 꽤 눈에 들어온다.공식 README부터 Lightpanda를 헤드리스 용도로 처음부터 만든 오픈소스 브라우저라고 설명하고, JavaScript 실행, 일부 Web API 지원, 그리고 CDP를 통해 Playwright",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Lightpanda 레포 분석",
+        "id": "lightpanda-레포-분석"
+      },
+      {
+        "depth": 2,
+        "text": "확실히 빨라진 것 같긴 한데, 크롤링을 많이 안 해봤다면 체감은 생각보다 크지 않을 수도 있다",
+        "id": "확실히-빨라진-것-같긴-한데-크롤링을-많이-안-해봤다면-체감은-생각보다-크지-않을-수도-있다"
+      },
+      {
+        "depth": 1,
+        "text": "왜 Lightpanda는 빠르게 느껴질까",
+        "id": "왜-lightpanda는-빠르게-느껴질까"
+      },
+      {
+        "depth": 1,
+        "text": "Chrome이 느린 이유",
+        "id": "chrome이-느린-이유"
+      },
+      {
+        "depth": 1,
+        "text": "벤치마크 결과",
+        "id": "벤치마크-결과"
+      },
+      {
+        "depth": 1,
+        "text": "그런데 왜 체감은 덜할까",
+        "id": "그런데-왜-체감은-덜할까"
+      },
+      {
+        "depth": 3,
+        "text": "1. 네트워크가 병목",
+        "id": "1-네트워크가-병목"
+      },
+      {
+        "depth": 3,
+        "text": "2. 작업 규모가 작다",
+        "id": "2-작업-규모가-작다"
+      },
+      {
+        "depth": 3,
+        "text": "3. 크롤링 경험 차이",
+        "id": "3-크롤링-경험-차이"
+      },
+      {
+        "depth": 1,
+        "text": "현재 상태: 아직 Beta",
+        "id": "현재-상태-아직-beta"
+      },
+      {
+        "depth": 1,
+        "text": "설치 방법",
+        "id": "설치-방법"
+      },
+      {
+        "depth": 3,
+        "text": "Docker",
+        "id": "docker"
+      },
+      {
+        "depth": 3,
+        "text": "Puppeteer 연결",
+        "id": "puppeteer-연결"
+      },
+      {
+        "depth": 1,
+        "text": "누구에게 특히 유용할까",
+        "id": "누구에게-특히-유용할까"
+      },
+      {
+        "depth": 1,
+        "text": "체감이 작은 경우",
+        "id": "체감이-작은-경우"
+      },
+      {
+        "depth": 1,
+        "text": "결론",
+        "id": "결론"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:31:56.877Z",
+    "wordCount": 370,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Lightpanda 레포 분석  ",
+    "description": "lightpanda-io/browser를 처음 보면 꽤 눈에 들어온다.공식 README부터 Lightpanda를 헤드리스 용도로 처음부터 만든 오픈소스 브라우저라고 설명하고, JavaScript 실행, 일부 Web API 지원, 그리고 CDP를 통해 Playwright",
+    "source": "https://velog.io/@pobi/Lightpanda-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D",
+    "source_slug": "Lightpanda-레포-분석",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2026-03-14T04:45:04.545Z",
+    "updated_at": "2026-03-22T02:38:47.191Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/dae05d9a-0d63-456a-b833-258608e629fe/image.png",
+    "tags": []
+  },
+  "content": "# Lightpanda 레포 분석  \n\n![](https://velog.velcdn.com/images/pobi/post/dae05d9a-0d63-456a-b833-258608e629fe/image.png)\n\n## 확실히 빨라진 것 같긴 한데, 크롤링을 많이 안 해봤다면 체감은 생각보다 크지 않을 수도 있다\n\n`lightpanda-io/browser`를 처음 보면 꽤 눈에 들어온다.  \n공식 README부터 Lightpanda를 **헤드리스 용도로 처음부터 만든 오픈소스 브라우저**라고 설명하고, JavaScript 실행, 일부 Web API 지원, 그리고 **CDP를 통해 Playwright·Puppeteer·chromedp와 호환**된다고 말한다.\n\n게다가 핵심 홍보 문구도 강하다.\n\n> **Chrome보다 메모리는 9배 적게 쓰고, 실행은 11배 빠르다**\n\n그래서 처음 보면 이런 기대를 하게 된다.\n\n> “이거면 크롤링이나 브라우저 자동화가 엄청 가벼워지겠네?”\n\n그런데 내 감상은 조금 다르다.\n\n> **확실히 빨라진 것 같긴 한데, 크롤링을 아주 많이 해보지 않았다면 체감은 생각보다 크지 않을 수 있다.**\n\n이건 Lightpanda가 별로라는 뜻이 아니다.  \n오히려 반대다.\n\n**Lightpanda가 좋아 보이는 이유와, 그런데도 어떤 사람은 체감이 덜한 이유가 정확히 같이 존재한다.**\n\n---\n\n# 왜 Lightpanda는 빠르게 느껴질까\n\nLightpanda는 단순히 Chrome을 가볍게 만든 게 아니다.  \n아예 **헤드리스 자동화 목적만을 위해 새로 만든 브라우저**다.\n\n핵심 특징\n\n- Zig 기반 구현\n- 렌더링 파이프라인 최소화\n- 그래픽 UI 없음\n- CDP 호환\n\n즉\n\n```\n일반 브라우저\n→ UI + 렌더링 + 자동화\n\nLightpanda\n→ 자동화 중심 브라우저\n```\n\n이 차이가 성능 차이를 만든다.\n\n---\n\n# Chrome이 느린 이유\n\nChrome은 기본적으로\n\n```\n멀티프로세스\n렌더링 엔진\nUI 시스템\n보안 샌드박스\n```\n\n까지 포함된 브라우저다.\n\n즉 **사람이 사용하는 브라우저**다.\n\n반면 Lightpanda는\n\n```\nDOM\nJavaScript\n네트워크\n```\n\n같은 핵심 기능만 유지한다.\n\n그래서\n\n```\n메모리 사용 ↓\n프로세스 비용 ↓\n실행 속도 ↑\n```\n\n이 가능하다.\n\n---\n\n# 벤치마크 결과\n\n공식 벤치마크 기준\n\n```\nLightpanda vs Chrome\n```\n\n대략 이런 차이를 주장한다.\n\n- 실행 속도: **최대 11배**\n- 메모리 사용: **약 9배 감소**\n\n또 다른 테스트에서는\n\n```\n25개 병렬 작업\n```\n\n기준\n\n```\nLightpanda → 약 3~5초\nChrome → 약 40~46초\n```\n\n같은 결과도 제시한다.\n\n즉\n\n> 병렬 작업이 많아질수록 차이가 커진다.\n\n---\n\n# 그런데 왜 체감은 덜할까\n\n여기서 중요한 질문이 생긴다.\n\n> “왜 그렇게 빠르다는데 실제로는 크게 못 느끼지?”\n\n이유는 대부분 여기 있다.\n\n### 1. 네트워크가 병목\n\n많은 웹 자동화 작업은\n\n```\n네트워크 응답\nAPI latency\n서버 처리\n```\n\n가 더 느리다.\n\n즉 브라우저가 빨라도  \n페이지 자체가 느리면 차이가 작다.\n\n---\n\n### 2. 작업 규모가 작다\n\nLightpanda의 강점은\n\n```\n대규모 병렬\n```\n\n이다.\n\n예\n\n```\n수십 개\n수백 개\n브라우저 세션\n```\n\n이런 상황.\n\n하지만 보통 개인 프로젝트는\n\n```\n1~3개 페이지\n```\n\n정도만 처리한다.\n\n이 경우 체감이 작다.\n\n---\n\n### 3. 크롤링 경험 차이\n\n크롤링을 많이 해본 사람은 보통\n\n```\nChrome 50개\nPlaywright 세션 100개\n```\n\n같은 상황을 겪는다.\n\n이때는\n\n```\nCPU 폭발\n메모리 부족\n```\n\n이 생긴다.\n\nLightpanda의 장점은 **이 상황에서 드러난다.**\n\n---\n\n# 현재 상태: 아직 Beta\n\n여기서 중요한 현실 하나.\n\nLightpanda는 아직\n\n```\nBeta\n```\n\n상태다.\n\nREADME에도 이렇게 적혀 있다.\n\n- work in progress\n- 일부 Web API만 지원\n- 일부 사이트에서 오류 가능\n\n즉\n\n```\n완전한 Chrome 대체\n❌\n```\n\n보다는\n\n```\n고성능 헤드리스 브라우저 실험\n⭕\n```\n\n에 가깝다.\n\n---\n\n# 설치 방법\n\nLightpanda는 비교적 쉽게 실행할 수 있다.\n\n### Docker\n\n```bash\ndocker run -d -p 9222:9222 lightpanda/browser:nightly\n```\n\n---\n\n### Puppeteer 연결\n\n```javascript\nimport puppeteer from \"puppeteer-core\";\n\nconst browser = await puppeteer.connect({\n  browserWSEndpoint: \"ws://127.0.0.1:9222\",\n});\n```\n\n즉 기존 Puppeteer 코드도 꽤 재사용할 수 있다.\n\n---\n\n# 누구에게 특히 유용할까\n\nLightpanda는 이런 경우에 특히 좋다.\n\n```\n대규모 크롤링\nAI Agent 브라우징\n대량 자동화\n서버 비용 절감\n```\n\n예\n\n- 웹 데이터 수집\n- 테스트 자동화\n- LLM 웹 에이전트\n\n---\n\n# 체감이 작은 경우\n\n반대로 이런 경우는 체감이 작다.\n\n```\n페이지 몇 개 크롤링\n간단한 자동화\n네트워크 병목\n```\n\n즉 브라우저 성능보다\n\n```\n웹사이트 속도\n```\n\n가 더 느린 경우다.\n\n---\n\n# 결론\n\nLightpanda는 분명 흥미로운 프로젝트다.\n\n특히\n\n```\n대규모 자동화\n```\n\n환경에서는 상당히 매력적이다.\n\n하지만 동시에 이런 평가가 더 현실적이다.\n\n> **확실히 빨라진 것 같긴 한데,  \n> 크롤링을 많이 해보지 않았다면 체감은 생각보다 크지 않을 수도 있다.**\n\n그리고 한 가지 더.\n\n> **아직 Beta이기 때문에  \n> Chrome을 완전히 대체하기에는 조금 더 시간이 필요하다.**"
+}

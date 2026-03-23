@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "id": "velog/NASA는-C-코드를-이렇게-짠다고-C-코드-예시",
+    "relativePath": "velog/NASA는-C-코드를-이렇게-짠다고-C-코드-예시.md",
+    "routePath": "velog/NASA는-C-코드를-이렇게-짠다고-C-코드-예시",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "NASA는 C 코드를 이렇게 짠다고? - C 코드 예시",
+    "description": "NASA의 공식 C언어 가이드를 번역한 글입니다.",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "NASA는 C 코드를 이렇게 짠다고? - C 코드 예시",
+        "id": "nasa는-c-코드를-이렇게-짠다고---c-코드-예시"
+      },
+      {
+        "depth": 2,
+        "text": "9.1 Makefile",
+        "id": "91-makefile"
+      },
+      {
+        "depth": 1,
+        "text": "Makefile for UIX Testing ..",
+        "id": "makefile-for-uix-testing-"
+      },
+      {
+        "depth": 1,
+        "text": "J. Programmer",
+        "id": "j-programmer"
+      },
+      {
+        "depth": 1,
+        "text": "이 makefile은 8개의 다른 실행 파일을 빌드할 수 있습니다.",
+        "id": "이-makefile은-8개의-다른-실행-파일을-빌드할-수-있습니다"
+      },
+      {
+        "depth": 1,
+        "text": "실행 파일들은 동일한 코드와 라이브러리를 공유합니다.",
+        "id": "실행-파일들은-동일한-코드와-라이브러리를-공유합니다"
+      },
+      {
+        "depth": 1,
+        "text": "실행 파일을 위한 오브젝트 코드",
+        "id": "실행-파일을-위한-오브젝트-코드"
+      },
+      {
+        "depth": 1,
+        "text": "모든 실행 파일에 포함됨",
+        "id": "모든-실행-파일에-포함됨"
+      },
+      {
+        "depth": 1,
+        "text": "INCLUDE 경로",
+        "id": "include-경로"
+      },
+      {
+        "depth": 1,
+        "text": "라이브러리",
+        "id": "라이브러리"
+      },
+      {
+        "depth": 1,
+        "text": "실행 파일을 위한 컴파일",
+        "id": "실행-파일을-위한-컴파일"
+      },
+      {
+        "depth": 1,
+        "text": "DO NOT DELETE THIS LINE -- make depends on it.",
+        "id": "do-not-delete-this-line----make-depends-on-it"
+      },
+      {
+        "depth": 1,
+        "text": "[makedepend가",
+        "id": "makedepend가"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:02.863Z",
+    "wordCount": 720,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "NASA는 C 코드를 이렇게 짠다고? - C 코드 예시 ",
+    "description": "NASA의 공식 C언어 가이드를 번역한 글입니다.",
+    "source": "https://velog.io/@pobi/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-C-%EC%BD%94%EB%93%9C-%EC%98%88%EC%8B%9C",
+    "source_slug": "NASA는-C-코드를-이렇게-짠다고-C-코드-예시",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-10-08T04:51:41.182Z",
+    "updated_at": "2026-03-14T12:57:11.484Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/9f1f4255-1c08-47cb-992b-5f33b6b3d91d/image.png",
+    "tags": []
+  },
+  "content": "# NASA는 C 코드를 이렇게 짠다고? - C 코드 예시 \n\n다음 예시들은 이 문서에서 논의된 좋은 스타일의 많은 원칙들을 보여줍니다. 예시에는 다음이 포함됩니다:\n\n- Makefile: 여러 실행 파일을 효율적으로 빌드하는 메커니즘을 제공\n- .c 파일: 프로그램 파일 구성과 가독성 원칙을 보여줌\n- include 파일: 상수와 외부 변수의 명확하고 유지보수 가능한 정의 및 구성을 보여줌\n\n## 9.1 Makefile\n```makefile\n# Makefile for UIX Testing ..\n#\n# J. Programmer\n#\n# 이 makefile은 8개의 다른 실행 파일을 빌드할 수 있습니다.\n# 실행 파일들은 동일한 코드와 라이브러리를 공유합니다.\n#\n# 실행 파일을 위한 오브젝트 코드\n#\nINIT_OBJS = oi_seq_init.o oi_seq_drv_1.o\n\nGEN_SCREEN_OBJS = oi_seq_gen_screen_PRIVATE.o\\\n                  oi_seq_drv_1.o \\\n                  oi_seq_resize_pane.o\\\n                  oi_seq_get_pane_sizes_PRIVATE.o\\\n                  oi_seq_init.o\n\nFATAL_OBJS = oi_seq_drv_2.o\\\n             oi_seq_fatal_PRIVATE.o\n\nPROC_FOCUS_EVENTS_OBJS = oi_seq_drv_3.o\\\n                         oi_seq_proc_focus_events.o\n\nLOAD_OBJS = oi_seq_load_drv.o\\\n            oi_seq_load.o\\\n            print_seq.o\n\nSUB_BUILD_1 = \\\n    ol_seq_init.o\\\n    ol_seq_gen_screen_PRIVATE.o\\\n    ol_seq_resize_pane.o\\\n    om_seq_get_pane_sizes_PRIVATE.o\\\n    ol_seq_proc_focus_events.o\\\n    ol_seq_load.o\\\n    om_seq_change_exec_type.o\\\n    ol_seq_file_error_PRIVATE.o\\\n    om_seq_enable_sequence_PRIVATE.o\\\n    ol_seq_new_app_PRIVATE.o\\\n    ol_seq_prep_load.o\\\n    ol_seq_change_current_PRIVATE.o\\\n    ol_seq_set_detail_pane_PRIVATE.o\\\n    ol_seq_retrieve_detail_pane_PRIVATE.o\\\n    ol_seq_subbld_1.o\n\nSUB_BUILD_2 = \\\n    oz_seq_init.o\\\n    ol_seq_gen_screen_PRIVATE.o\\\n    ol_seq_proc_focus_events.o\\\n    ol_seq_quit.o\\\n    om_seq_seqcr_spawn_PRIVATE.o\\\n    ol_seq_seqcr_continue.o\\\n    ol_seq_seqcr_handle_sigchld.o\\\n    ol_seq_seqcr_start.o\\\n    oz_seq_seqcr_term.o\\\n    ol_seq_load.o\\\n    ol_seq_change_exec_type.o\\\n    ol_seq_file_error_PRIVATE.o\\\n    ol_seq_enable_sequence_PRIVATE.o\\\n    om_seq_new_app_PRIVATE.o\\\n    ol_seq_prep_load.o\\\n    oz_seq_change_current_PRIVATE.o\\\n    ol_seq_set_detail_pane_PRIVATE.o\\\n    om_seq_retrieve_detail_pane_PRIVATE.o\\\n    ol_seq_new.o\\\n    ol_seq_remove_app.o\\\n    ol_seq_check_seq_ui.o\\\n    ol_seq_seqcr_check_seq_PRIVATE.o\\\n    oz_seq_insert_app.o\\\n    ol_seq_reconfigure_pane_PRIVATE.o\\\n    ol_seq_subbld_2.o\n\nBUILD_2 = \\\n    ol_seq_change_current_PRIVATE.o\\\n    om_seq_change_exectype.o\\\n    ol_seq_enable_sequence_PRIVATE.o\\\n    ol_seq_fatal_PRIVATE.o\\\n    ol_seq_gen_screen_PRIVATE.o\\\n    oz_seq_init.o\\\n    oz_seq_load.o\\\n    ol_seq_new_app_PRIVATE.o\\\n    ol_seq_proc_focus_events.o\\\n    om_seq_quit.o\\\n    om_seq_retrieve_detail_pane_PRIVATE.o\\\n    ol_seq_save.o\\\n    ol_seq_set_detail_pane_PRIVATE.o\\\n    om_seq_seqcr_check_seq_PRIVATE.o\\\n    ol_seq_seqcr_continue.o\\\n    ol_seq_seqcr_handle_sigchld.o\\\n    om_seq_seqcr_spawn_PRIVATE.o\\\n    ol_seq_seqcr_start.o\\\n    om_seq_seqcr_term.o\\\n    om_seq_data.o\\\n    ol_seq_reconfigure_pane_PRIVATE.o\\\n    oi_seq_b2_stubs.o\\\n    oi_session_mgr_main.o\n\n# 모든 실행 파일에 포함됨\nOBJS = test_main.o oi_seq_data.o stubs.o\n\nINTERNAL_DEFINES = -DTEST_NO_NCSS\nDEFINES =\nDEBUG = -g\nCUSTOM_FLAGS = -posix -W3 -DXTFUNCPROTO -DFUNCPROTO\n\nCFLAGS = $(DEBUG) $(CUSTOM_FLAGS) $(INCDIR) $(DEFINES) \\\n         $(INTERNAL_DEFINES)\n\n# INCLUDE 경로\nINCDIR = -I/u/cmps3/UIX/dev/include \\\n         -I/u/cmps3/UIX/codebase5/sco/source\n\n# 라이브러리\nNCSS_LIBS = #-lncss_c -lrpcsvc -lrpc -lsocket\nXLIBS = -lXtXm_s -lXmu -lX11_s -lPW\nUIXLIBDIR = -L/u/cmps3/UIX/R1/lib/sco -L/u/cmps3/UIX/dev/lib/sco\nUIX_LIBS = -luixdiag -luixutil\nUIX_LIBS2 = -lmsgr\n\n# 실행 파일을 위한 컴파일\ntest_init: $(INIT_OBJS) $(OBJS)\n\t$(CC) -o test_init $(INIT_OBJS) $(OBJS) $(UIXLIBDIR) $(NCSS_LIBS)\\\n\t$(UIX_LIBS) $(XLIBS)\n\ntest_gen_screen: $(GEN_SCREEN_OBJS) $(OBJS)\n\t$(CC) -o test_gen_screen $(GEN_SCREEN_OBJS) $(OBJS) $(UIXLIBDIR)\\\n\t$(NCSS_LIBS) $(UIX_LIBS) $(XLIBS)\n\ntest_fatal: $(FATAL_OBJS) $(OBJS)\n\t$(CC) -o test_fatal $(FATAL_OBJS) $(OBJS) $(NCSS_LIBS) $(UIXLIBDIR)\\\n\t$(UIX_LIBS) $(XLIBS)\n\ntest_proc_focus_events: $(PROC_FOCUS_EVENTS_OBJS) $(OBJS)\n\t$(CC) -o test_proc_focus_events $(PROC_FOCUS_EVENTS_OBJS) $(OBJS)\\\n\t$(UIXLIBDIR) $(UIX_LIBS)\n\ntest_load: $(LOAD_OBJS) $(OBJS)\n\t$(CC) -o test_load $(LOAD_OBJS) $(OBJS)\\\n\t$(UIXLIBDIR) $(UIX_LIBS) $(XLIBS)\n\nsub_build_1: $(SUB_BUILD_1) $(OBJS)\n\t$(CC) -o $@ $(SUB_BUILD_1) $(OBJS) $(UIXLIBDIR) $(NCSS_LIBS)\\\n\t$(UIX_LIBS) $(XLIBS)\n\nsub_build_2: $(SUB_BUILD_2) $(OBJS)\n\techo $(SUB_BUILD_2)\n\t$(CC) -o $@ $(SUB_BUILD_2) $(OBJS) $(UIXLIBDIR) $(NCSS_LIBS)\\\n\t$(UIX_LIBS) $(XLIBS)\n\nbuild_2: $(BUILD_2)\n\t$(CC) -o $@ $(BUILD_2) $(UIXLIBDIR) $(NCSS_LIBS)\\\n\t$(UIX_LIBS) $(XLIBS)\n\nclean:\n\t/bin/rm $(INIT_OBJS) $(OBJS) $(GEN_SCREEN_OBJS) $(FATAL_OBJS)\\\n\t$(LOAD_OBJS) $(SUB_BUILD_1)\n\ndepend:\n\tmakedepend -- $(CFLAGS) -- \"/bin/ls *.c\"\n\n# DO NOT DELETE THIS LINE -- make depends on it.\n# [makedepend가"
+}

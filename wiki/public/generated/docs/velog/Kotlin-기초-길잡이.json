@@ -1,0 +1,678 @@
+{
+  "meta": {
+    "id": "velog/Kotlin-기초-길잡이",
+    "relativePath": "velog/Kotlin-기초-길잡이.md",
+    "routePath": "velog/Kotlin-기초-길잡이",
+    "folderSegments": [
+      "velog"
+    ],
+    "title": "Kotlin 기초 길잡이",
+    "description": "코틀린 기초 배웁시다",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Kotlin 기초 길잡이",
+        "id": "kotlin-기초-길잡이"
+      },
+      {
+        "depth": 2,
+        "text": "들어가며",
+        "id": "들어가며"
+      },
+      {
+        "depth": 2,
+        "text": "1. 변수와 타입",
+        "id": "1-변수와-타입"
+      },
+      {
+        "depth": 3,
+        "text": "val vs var: 변수 선언의 두 가지 방법",
+        "id": "val-vs-var-변수-선언의-두-가지-방법"
+      },
+      {
+        "depth": 4,
+        "text": "val - 값을 변경할 수 없는 변수 (불변)",
+        "id": "val---값을-변경할-수-없는-변수-불변"
+      },
+      {
+        "depth": 4,
+        "text": "var - 값을 변경할 수 있는 변수 (가변)",
+        "id": "var---값을-변경할-수-있는-변수-가변"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교"
+      },
+      {
+        "depth": 3,
+        "text": "기본 타입",
+        "id": "기본-타입"
+      },
+      {
+        "depth": 4,
+        "text": "숫자 타입",
+        "id": "숫자-타입"
+      },
+      {
+        "depth": 4,
+        "text": "문자열 타입",
+        "id": "문자열-타입"
+      },
+      {
+        "depth": 4,
+        "text": "Boolean 타입",
+        "id": "boolean-타입"
+      },
+      {
+        "depth": 3,
+        "text": "타입 추론",
+        "id": "타입-추론"
+      },
+      {
+        "depth": 3,
+        "text": "문자열 템플릿",
+        "id": "문자열-템플릿"
+      },
+      {
+        "depth": 4,
+        "text": "기본 사용법",
+        "id": "기본-사용법"
+      },
+      {
+        "depth": 4,
+        "text": "표현식 사용",
+        "id": "표현식-사용"
+      },
+      {
+        "depth": 4,
+        "text": "메서드 호출",
+        "id": "메서드-호출"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교-1"
+      },
+      {
+        "depth": 2,
+        "text": "2. 함수",
+        "id": "2-함수"
+      },
+      {
+        "depth": 3,
+        "text": "함수 선언",
+        "id": "함수-선언"
+      },
+      {
+        "depth": 4,
+        "text": "기본 문법",
+        "id": "기본-문법"
+      },
+      {
+        "depth": 4,
+        "text": "실제 예시",
+        "id": "실제-예시"
+      },
+      {
+        "depth": 4,
+        "text": "반환값이 없는 함수",
+        "id": "반환값이-없는-함수"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교-2"
+      },
+      {
+        "depth": 3,
+        "text": "단일 표현식 함수",
+        "id": "단일-표현식-함수"
+      },
+      {
+        "depth": 4,
+        "text": "기본 형태",
+        "id": "기본-형태"
+      },
+      {
+        "depth": 4,
+        "text": "다양한 예시",
+        "id": "다양한-예시"
+      },
+      {
+        "depth": 4,
+        "text": "복잡한 표현식도 가능",
+        "id": "복잡한-표현식도-가능"
+      },
+      {
+        "depth": 3,
+        "text": "기본 매개변수",
+        "id": "기본-매개변수"
+      },
+      {
+        "depth": 4,
+        "text": "여러 개의 기본값",
+        "id": "여러-개의-기본값"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시: API 클라이언트",
+        "id": "실전-예시-api-클라이언트"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교-3"
+      },
+      {
+        "depth": 3,
+        "text": "이름 있는 인자",
+        "id": "이름-있는-인자"
+      },
+      {
+        "depth": 4,
+        "text": "왜 유용할까요?",
+        "id": "왜-유용할까요"
+      },
+      {
+        "depth": 3,
+        "text": "가변 인자 (vararg)",
+        "id": "가변-인자-vararg"
+      },
+      {
+        "depth": 4,
+        "text": "기본 사용법",
+        "id": "기본-사용법-1"
+      },
+      {
+        "depth": 4,
+        "text": "숫자 합계 계산",
+        "id": "숫자-합계-계산"
+      },
+      {
+        "depth": 4,
+        "text": "다른 매개변수와 함께 사용",
+        "id": "다른-매개변수와-함께-사용"
+      },
+      {
+        "depth": 4,
+        "text": "배열을 vararg로 전달",
+        "id": "배열을-vararg로-전달"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시: SQL 쿼리",
+        "id": "실전-예시-sql-쿼리"
+      },
+      {
+        "depth": 2,
+        "text": "3. 제어 구조",
+        "id": "3-제어-구조"
+      },
+      {
+        "depth": 3,
+        "text": "if 표현식",
+        "id": "if-표현식"
+      },
+      {
+        "depth": 4,
+        "text": "기본 사용법",
+        "id": "기본-사용법-2"
+      },
+      {
+        "depth": 4,
+        "text": "if를 표현식으로 사용",
+        "id": "if를-표현식으로-사용"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-1"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교-4"
+      },
+      {
+        "depth": 3,
+        "text": "when 표현식",
+        "id": "when-표현식"
+      },
+      {
+        "depth": 4,
+        "text": "기본 사용법",
+        "id": "기본-사용법-3"
+      },
+      {
+        "depth": 4,
+        "text": "값 반환",
+        "id": "값-반환"
+      },
+      {
+        "depth": 4,
+        "text": "여러 값 처리",
+        "id": "여러-값-처리"
+      },
+      {
+        "depth": 4,
+        "text": "범위 사용",
+        "id": "범위-사용"
+      },
+      {
+        "depth": 4,
+        "text": "조건식 사용",
+        "id": "조건식-사용"
+      },
+      {
+        "depth": 4,
+        "text": "타입 체크",
+        "id": "타입-체크"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시: HTTP 상태 코드",
+        "id": "실전-예시-http-상태-코드"
+      },
+      {
+        "depth": 4,
+        "text": "Java switch와 비교",
+        "id": "java-switch와-비교"
+      },
+      {
+        "depth": 3,
+        "text": "for 루프",
+        "id": "for-루프"
+      },
+      {
+        "depth": 4,
+        "text": "기본 사용법",
+        "id": "기본-사용법-4"
+      },
+      {
+        "depth": 4,
+        "text": "리스트 순회",
+        "id": "리스트-순회"
+      },
+      {
+        "depth": 4,
+        "text": "Map 순회",
+        "id": "map-순회"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-2"
+      },
+      {
+        "depth": 3,
+        "text": "while 루프",
+        "id": "while-루프"
+      },
+      {
+        "depth": 4,
+        "text": "while",
+        "id": "while"
+      },
+      {
+        "depth": 4,
+        "text": "do-while",
+        "id": "do-while"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-3"
+      },
+      {
+        "depth": 3,
+        "text": "Range와 Progression",
+        "id": "range와-progression"
+      },
+      {
+        "depth": 4,
+        "text": "기본 Range",
+        "id": "기본-range"
+      },
+      {
+        "depth": 4,
+        "text": "Progression (진행)",
+        "id": "progression-진행"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-4"
+      },
+      {
+        "depth": 2,
+        "text": "4. 클래스와 객체",
+        "id": "4-클래스와-객체"
+      },
+      {
+        "depth": 3,
+        "text": "클래스 선언",
+        "id": "클래스-선언"
+      },
+      {
+        "depth": 4,
+        "text": "기본 클래스",
+        "id": "기본-클래스"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교-5"
+      },
+      {
+        "depth": 3,
+        "text": "Primary Constructor",
+        "id": "primary-constructor"
+      },
+      {
+        "depth": 4,
+        "text": "init 블록",
+        "id": "init-블록"
+      },
+      {
+        "depth": 4,
+        "text": "기본값 지정",
+        "id": "기본값-지정"
+      },
+      {
+        "depth": 3,
+        "text": "Secondary Constructor",
+        "id": "secondary-constructor"
+      },
+      {
+        "depth": 3,
+        "text": "프로퍼티 (getter/setter)",
+        "id": "프로퍼티-gettersetter"
+      },
+      {
+        "depth": 4,
+        "text": "기본 프로퍼티",
+        "id": "기본-프로퍼티"
+      },
+      {
+        "depth": 4,
+        "text": "커스텀 getter/setter",
+        "id": "커스텀-gettersetter"
+      },
+      {
+        "depth": 4,
+        "text": "계산된 프로퍼티",
+        "id": "계산된-프로퍼티"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-5"
+      },
+      {
+        "depth": 3,
+        "text": "Data Class",
+        "id": "data-class"
+      },
+      {
+        "depth": 4,
+        "text": "자동 생성되는 메서드들",
+        "id": "자동-생성되는-메서드들"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-6"
+      },
+      {
+        "depth": 4,
+        "text": "Java와 비교",
+        "id": "java와-비교-6"
+      },
+      {
+        "depth": 3,
+        "text": "Object 선언",
+        "id": "object-선언"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-7"
+      },
+      {
+        "depth": 3,
+        "text": "Companion Object",
+        "id": "companion-object"
+      },
+      {
+        "depth": 4,
+        "text": "팩토리 메서드 패턴",
+        "id": "팩토리-메서드-패턴"
+      },
+      {
+        "depth": 3,
+        "text": "Enum Class",
+        "id": "enum-class"
+      },
+      {
+        "depth": 4,
+        "text": "프로퍼티와 메서드가 있는 Enum",
+        "id": "프로퍼티와-메서드가-있는-enum"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-8"
+      },
+      {
+        "depth": 2,
+        "text": "5. Null Safety",
+        "id": "5-null-safety"
+      },
+      {
+        "depth": 3,
+        "text": "Nullable 타입 (?)",
+        "id": "nullable-타입-"
+      },
+      {
+        "depth": 4,
+        "text": "왜 중요한가?",
+        "id": "왜-중요한가"
+      },
+      {
+        "depth": 3,
+        "text": "Safe Call (?.)",
+        "id": "safe-call-"
+      },
+      {
+        "depth": 4,
+        "text": "체이닝",
+        "id": "체이닝"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-9"
+      },
+      {
+        "depth": 3,
+        "text": "Elvis Operator (?:)",
+        "id": "elvis-operator-"
+      },
+      {
+        "depth": 4,
+        "text": "함수와 함께 사용",
+        "id": "함수와-함께-사용"
+      },
+      {
+        "depth": 4,
+        "text": "예외 발생",
+        "id": "예외-발생"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-10"
+      },
+      {
+        "depth": 3,
+        "text": "Not-null Assertion (!!)",
+        "id": "not-null-assertion-"
+      },
+      {
+        "depth": 4,
+        "text": "언제 사용할까?",
+        "id": "언제-사용할까"
+      },
+      {
+        "depth": 4,
+        "text": "사용해도 되는 경우",
+        "id": "사용해도-되는-경우"
+      },
+      {
+        "depth": 3,
+        "text": "Safe Cast (as?)",
+        "id": "safe-cast-as"
+      },
+      {
+        "depth": 4,
+        "text": "when과 함께 사용",
+        "id": "when과-함께-사용"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-11"
+      },
+      {
+        "depth": 2,
+        "text": "6. 컬렉션",
+        "id": "6-컬렉션"
+      },
+      {
+        "depth": 3,
+        "text": "List",
+        "id": "list"
+      },
+      {
+        "depth": 4,
+        "text": "불변 List",
+        "id": "불변-list"
+      },
+      {
+        "depth": 4,
+        "text": "가변 List",
+        "id": "가변-list"
+      },
+      {
+        "depth": 4,
+        "text": "빈 리스트",
+        "id": "빈-리스트"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-12"
+      },
+      {
+        "depth": 3,
+        "text": "Set",
+        "id": "set"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-13"
+      },
+      {
+        "depth": 3,
+        "text": "Map",
+        "id": "map"
+      },
+      {
+        "depth": 4,
+        "text": "가변 Map",
+        "id": "가변-map"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-14"
+      },
+      {
+        "depth": 3,
+        "text": "filter",
+        "id": "filter"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-15"
+      },
+      {
+        "depth": 3,
+        "text": "map",
+        "id": "map-1"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-16"
+      },
+      {
+        "depth": 3,
+        "text": "forEach",
+        "id": "foreach"
+      },
+      {
+        "depth": 3,
+        "text": "any, all, none",
+        "id": "any-all-none"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-17"
+      },
+      {
+        "depth": 3,
+        "text": "first, last, find",
+        "id": "first-last-find"
+      },
+      {
+        "depth": 4,
+        "text": "실전 예시",
+        "id": "실전-예시-18"
+      },
+      {
+        "depth": 2,
+        "text": "마치며",
+        "id": "마치며"
+      }
+    ],
+    "tags": [],
+    "sourceKind": "velog",
+    "mtime": "2026-03-23T03:32:04.856Z",
+    "wordCount": 618,
+    "wikiLinks": [],
+    "backlinks": []
+  },
+  "frontmatter": {
+    "title": "Kotlin 기초 길잡이",
+    "description": "코틀린 기초 배웁시다",
+    "source": "https://velog.io/@pobi/Kotlin-%EA%B8%B0%EC%B4%88-%EA%B8%B8%EC%9E%A1%EC%9D%B4",
+    "source_slug": "Kotlin-기초-길잡이",
+    "author": "pobi",
+    "author_display_name": "포비",
+    "released_at": "2025-10-07T12:13:23.864Z",
+    "updated_at": "2026-03-22T12:53:24.899Z",
+    "thumbnail": "https://velog.velcdn.com/images/pobi/post/364e0974-523f-474b-9b7c-cd2c2f61944e/image.webp",
+    "tags": []
+  },
+  "content": "# Kotlin 기초 길잡이\n\n## 들어가며\n\nKotlin을 처음 배우는 분들을 위한 완벽 가이드입니다. 이 글에서는 Kotlin의 모든 기초 문법을 하나하나 자세히 설명하고, 실제로 어떻게 사용하는지 풍부한 예제와 함께 알아보겠습니다.\n\n특히 Java를 아시는 분들을 위해 Java와의 비교도 함께 제공합니다. Java를 모르신다면 그냥 Kotlin 부분만 보셔도 충분합니다!\n이 글은 제가 볼려고 만든 노션 그냥 복붙한거라서 가독성 구려도 이해해주세요\n\n---\n\n## 1. 변수와 타입\n\n### val vs var: 변수 선언의 두 가지 방법\n\nKotlin에서 변수를 선언하는 방법은 두 가지입니다: `val`과 `var`.\n\n#### val - 값을 변경할 수 없는 변수 (불변)\n\n`val`은 \"value\"의 약자로, **한 번 값을 할당하면 다시 변경할 수 없는 변수**입니다. Java의 `final`과 같다고 보면 됩니다.\n\n```kotlin\nval name = \"홍길동\"\nname = \"김철수\"  // 컴파일 에러! val은 재할당 불가능\n```\n\n**왜 val을 사용할까요?**\n\n프로그램의 안전성을 높이기 위해서입니다. 변수가 변경되지 않는다는 것을 보장하면, 버그가 줄어들고 코드를 이해하기 쉬워집니다. 그리고 나중에 나오겠지만 함수형 프로그래밍을 할때 필요해서 보통은 val을 사용합니다.\n\n```kotlin\n// 사용자 정보는 한 번 설정되면 바뀌지 않아야 함\nval userId = 12345\nval email = \"user@example.com\"\nval createdAt = LocalDateTime.now()\n\n// 이런 실수를 방지할 수 있습니다\n// userId = 99999  // 컴파일 에러!\n```\n\n#### var - 값을 변경할 수 있는 변수 (가변)\n\n`var`는 \"variable\"의 약자로, **값을 자유롭게 변경할 수 있는 변수**입니다.\n\n```kotlin\nvar count = 0\ncount = 1  // OK\ncount = 2  // OK\ncount = 100  // OK\n```\n\n**언제 var을 사용할까요?**\n\n값이 계속 변경되어야 하는 경우에만 사용합니다. 그렇게 권장되지는 않습니다.\n\n```kotlin\n// 반복문에서 값이 계속 변경됨\nvar sum = 0\nfor (i in 1..10) {\n    sum += i  // sum이 계속 변경됨\n}\nprintln(sum)  // 55\n\n// 상태가 변경되는 경우\nvar isLoggedIn = false\n// 로그인 후\nisLoggedIn = true\n```\n\n**핵심 원칙: 가능하면 val을 사용하고, 꼭 필요한 경우에만 var을 사용하세요!**\n\n#### Java와 비교\n\n```java\n// Java\nfinal String name = \"홍길동\";  // val과 같음\nString age = \"30\";  // var과 같음\n\n// Kotlin\nval name = \"홍길동\"\nvar age = \"30\"\n```\n\nKotlin이 훨씬 간결하죠? `final` 키워드를 매번 쓸 필요가 없고, 세미콜론도 필요 없습니다!\n\n### 기본 타입\n\nKotlin의 기본 타입들을 알아봅시다.\n\n#### 숫자 타입\n\n```kotlin\n// 정수\nval byte: Byte = 127           // -128 ~ 127\nval short: Short = 32767       // -32,768 ~ 32,767\nval int: Int = 2147483647      // -2^31 ~ 2^31-1\nval long: Long = 9223372036854775807L  // -2^63 ~ 2^63-1\n\n// 실수\nval float: Float = 3.14F       // 32비트 부동소수점\nval double: Double = 3.141592  // 64비트 부동소수점\n```\n\n**가장 많이 사용하는 타입:**\n- `Int`: 일반적인 정수\n- `Long`: 큰 정수 (끝에 L을 붙임)\n- `Double`: 소수점 숫자\n\n```kotlin\n// 실전 예시\nval age: Int = 25\nval population: Long = 51000000L\nval pi: Double = 3.141592\nval price: Double = 15900.99\n```\n\n#### 문자열 타입\n\n```kotlin\nval name: String = \"홍길동\"\nval message: String = \"안녕하세요\"\nval empty: String = \"\"\n```\n\n**여러 줄 문자열**\n\n```kotlin\nval multiLine = \"\"\"\n    첫 번째 줄\n    두 번째 줄\n    세 번째 줄\n\"\"\".trimIndent()\n\nprintln(multiLine)\n// 출력:\n// 첫 번째 줄\n// 두 번째 줄\n// 세 번째 줄\n```\n\n#### Boolean 타입\n\n```kotlin\nval isTrue: Boolean = true\nval isFalse: Boolean = false\n\n// 조건식의 결과도 Boolean\nval isAdult: Boolean = age >= 20\nval hasPermission: Boolean = userRole == \"ADMIN\"\n```\n\n### 타입 추론\n\nKotlin의 가장 멋진 기능 중 하나입니다! **타입을 명시하지 않아도 컴파일러가 자동으로 추론**합니다. 이게 독이 될지 득이 될지는 모르겠지만 저는 보통 타입을 명시합니다.\n\n```kotlin\n// 타입을 명시한 경우\nval name: String = \"홍길동\"\nval age: Int = 25\nval height: Double = 175.5\n\n// 타입 추론 - 같은 코드!\nval name = \"홍길동\"      // 컴파일러가 String으로 추론\nval age = 25            // 컴파일러가 Int로 추론\nval height = 175.5      // 컴파일러가 Double로 추론\n```\n\n**언제 타입을 명시할까요?**\n\n대부분의 경우 타입 추론에 맡기면 되지만, 다음 경우에는 명시하는 것이 좋습니다:\n\n```kotlin\n// 1. 나중에 초기화할 때\nvar email: String\n// ... 복잡한 로직\nemail = \"user@example.com\"\n\n// 2. 더 넓은 타입으로 선언하고 싶을 때\nval numbers: List<Int> = mutableListOf(1, 2, 3)  // MutableList가 아닌 List 타입\n\n// 3. 가독성을 위해 (선택적)\nval serverPort: Int = 8080  // 포트라는 것을 명확히\n```\n\n### 문자열 템플릿\n\n문자열 안에 변수나 표현식을 넣을 수 있는 강력한 기능입니다!\n\n#### 기본 사용법\n\n```kotlin\nval name = \"홍길동\"\nval age = 25\n\n// $ 기호로 변수 삽입\nval greeting = \"안녕하세요, $name님!\"\nprintln(greeting)  // 안녕하세요, 홍길동님!\n\nval info = \"나이: $age세\"\nprintln(info)  // 나이: 25세\n```\n\n#### 표현식 사용\n\n```kotlin\nval a = 10\nval b = 20\n\n// ${ } 안에 표현식 사용\nval result = \"합계: ${a + b}\"\nprintln(result)  // 합계: 30\n\nval message = \"${a}와 ${b}의 곱은 ${a * b}입니다\"\nprintln(message)  // 10와 20의 곱은 200입니다\n```\n\n#### 메서드 호출\n\n```kotlin\nval name = \"kotlin\"\n\n// 문자열 메서드 호출\nval upper = \"대문자: ${name.uppercase()}\"\nprintln(upper)  // 대문자: KOTLIN\n\nval length = \"길이: ${name.length}\"\nprintln(length)  // 길이: 6\n```\n\n#### 실전 예시\n\n```kotlin\n// 사용자 정보 출력\nval userId = 12345\nval userName = \"홍길동\"\nval userEmail = \"hong@example.com\"\nval loginCount = 42\n\nval userInfo = \"\"\"\n    ===== 사용자 정보 =====\n    ID: $userId\n    이름: $userName\n    이메일: $userEmail\n    로그인 횟수: $loginCount회\n    ====================\n\"\"\".trimIndent()\n\nprintln(userInfo)\n\n// API 요청 URL 생성\nval baseUrl = \"https://api.example.com\"\nval endpoint = \"users\"\nval id = 123\nval url = \"$baseUrl/$endpoint/$id\"\nprintln(url)  // https://api.example.com/users/123\n```\n\n#### Java와 비교\n\n```java\n// Java - 불편함\nString name = \"홍길동\";\nint age = 25;\nString greeting = \"안녕하세요, \" + name + \"님! 나이: \" + age + \"세\";\n\n// 또는\nString greeting = String.format(\"안녕하세요, %s님! 나이: %d세\", name, age);\n\n// Kotlin - 간편함!\nval greeting = \"안녕하세요, $name님! 나이: $age세\"\n```\n\n---\n\n## 2. 함수\n\n### 함수 선언\n\nKotlin에서 함수는 `fun` 키워드로 선언합니다.\n\n#### 기본 문법\n\n```kotlin\nfun 함수이름(매개변수: 타입): 반환타입 {\n    // 함수 본문\n    return 값\n}\n```\n\n#### 실제 예시\n\n```kotlin\n// 두 수를 더하는 함수\nfun add(a: Int, b: Int): Int {\n    return a + b\n}\n\nval result = add(10, 20)\nprintln(result)  // 30\n\n// 인사말을 반환하는 함수\nfun greet(name: String): String {\n    return \"안녕하세요, ${name}님!\"\n}\n\nprintln(greet(\"홍길동\"))  // 안녕하세요, 홍길동님!\n```\n\n#### 반환값이 없는 함수\n\n```kotlin\n// Unit은 \"반환값 없음\"을 의미 (Java의 void)\nfun printMessage(message: String): Unit {\n    println(message)\n}\n\n// Unit은 생략 가능\nfun printMessage(message: String) {\n    println(message)\n}\n\nprintMessage(\"안녕하세요!\")  // 안녕하세요!\n```\n\n#### Java와 비교\n\n```java\n// Java\npublic int add(int a, int b) {\n    return a + b;\n}\n\npublic void printMessage(String message) {\n    System.out.println(message);\n}\n\n// Kotlin - 더 간결!\nfun add(a: Int, b: Int): Int {\n    return a + b\n}\n\nfun printMessage(message: String) {\n    println(message)\n}\n```\n\n### 단일 표현식 함수\n\n함수 본문이 한 줄일 때 더 간결하게 작성할 수 있습니다!\n\n#### 기본 형태\n\n```kotlin\n// 일반 함수\nfun add(a: Int, b: Int): Int {\n    return a + b\n}\n\n// 단일 표현식 함수 - = 기호 사용!\nfun add(a: Int, b: Int): Int = a + b\n\n// 타입 추론으로 반환 타입도 생략 가능!\nfun add(a: Int, b: Int) = a + b\n```\n\n#### 다양한 예시\n\n```kotlin\n// 제곱 계산\nfun square(n: Int) = n * n\n\n// 문자열 길이 확인\nfun isLongString(str: String) = str.length > 10\n\n// 최댓값 계산\nfun max(a: Int, b: Int) = if (a > b) a else b\n\n// 이메일 검증\nfun isValidEmail(email: String) = email.contains(\"@\")\n\n// 할인가 계산\nfun calculateDiscount(price: Double, rate: Double) = price * (1 - rate)\n```\n\n#### 복잡한 표현식도 가능\n\n```kotlin\n// when 표현식\nfun getGrade(score: Int) = when {\n    score >= 90 -> \"A\"\n    score >= 80 -> \"B\"\n    score >= 70 -> \"C\"\n    score >= 60 -> \"D\"\n    else -> \"F\"\n}\n\nprintln(getGrade(85))  // B\n\n// 삼항 연산자 대체\nfun getStatus(isOnline: Boolean) = if (isOnline) \"온라인\" else \"오프라인\"\n\nprintln(getStatus(true))   // 온라인\nprintln(getStatus(false))  // 오프라인\n```\n\n**언제 단일 표현식 함수를 사용할까요?**\n- 함수 로직이 한 줄로 표현 가능할 때\n- 간단한 계산이나 변환 함수\n- 가독성이 해치지 않는 범위에서\n\n### 기본 매개변수\n\n매개변수에 기본값을 지정할 수 있습니다!\n\n```kotlin\n// 기본값 지정\nfun greet(name: String, greeting: String = \"안녕하세요\") {\n    println(\"$greeting, ${name}님!\")\n}\n\n// 호출\ngreet(\"홍길동\")                    // 안녕하세요, 홍길동님!\ngreet(\"김철수\", \"좋은 아침\")        // 좋은 아침, 김철수님!\n```\n\n#### 여러 개의 기본값\n\n```kotlin\nfun createUser(\n    name: String,\n    age: Int = 0,\n    email: String = \"\",\n    role: String = \"USER\"\n) {\n    println(\"이름: $name, 나이: $age, 이메일: $email, 권한: $role\")\n}\n\n// 다양한 방법으로 호출 가능\ncreateUser(\"홍길동\")\n// 이름: 홍길동, 나이: 0, 이메일: , 권한: USER\n\ncreateUser(\"김철수\", 25)\n// 이름: 김철수, 나이: 25, 이메일: , 권한: USER\n\ncreateUser(\"이영희\", 30, \"lee@example.com\")\n// 이름: 이영희, 나이: 30, 이메일: lee@example.com, 권한: USER\n```\n\n#### 실전 예시: API 클라이언트\n\n```kotlin\nfun fetchData(\n    url: String,\n    method: String = \"GET\",\n    timeout: Int = 30,\n    retryCount: Int = 3\n) {\n    println(\"URL: $url\")\n    println(\"Method: $method\")\n    println(\"Timeout: ${timeout}초\")\n    println(\"재시도 횟수: $retryCount\")\n}\n\n// 대부분의 경우 GET 요청\nfetchData(\"https://api.example.com/users\")\n// URL: https://api.example.com/users\n// Method: GET\n// Timeout: 30초\n// 재시도 횟수: 3\n\n// POST 요청이 필요할 때만 지정\nfetchData(\"https://api.example.com/users\", \"POST\")\n```\n\n#### Java와 비교\n\n```java\n// Java - 오버로딩으로 구현해야 함\npublic void greet(String name) {\n    greet(name, \"안녕하세요\");\n}\n\npublic void greet(String name, String greeting) {\n    System.out.println(greeting + \", \" + name + \"님!\");\n}\n\n// Kotlin - 하나의 함수로!\nfun greet(name: String, greeting: String = \"안녕하세요\") {\n    println(\"$greeting, ${name}님!\")\n}\n```\n\n### 이름 있는 인자\n\n매개변수 이름을 명시하여 함수를 호출할 수 있습니다!\n\n```kotlin\nfun createUser(name: String, age: Int, email: String, role: String) {\n    println(\"이름: $name, 나이: $age, 이메일: $email, 권한: $role\")\n}\n\n// 일반 호출 - 순서를 지켜야 함\ncreateUser(\"홍길동\", 25, \"hong@example.com\", \"USER\")\n\n// 이름 있는 인자 - 순서를 바꿔도 됨!\ncreateUser(\n    name = \"홍길동\",\n    age = 25,\n    email = \"hong@example.com\",\n    role = \"USER\"\n)\n\n// 순서를 바꿔도 OK\ncreateUser(\n    email = \"hong@example.com\",\n    name = \"홍길동\",\n    role = \"USER\",\n    age = 25\n)\n```\n\n#### 왜 유용할까요?\n\n**1. 가독성 향상**\n\n```kotlin\n// 무엇을 의미하는지 불명확\nconnectDatabase(\"localhost\", 5432, \"admin\", \"password123\", true, 30)\n\n// 명확함!\nconnectDatabase(\n    host = \"localhost\",\n    port = 5432,\n    username = \"admin\",\n    password = \"password123\",\n    useSSL = true,\n    timeout = 30\n)\n```\n\n**2. 일부 매개변수만 지정**\n\n```kotlin\nfun createAccount(\n    username: String,\n    password: String,\n    email: String = \"\",\n    phone: String = \"\",\n    newsletter: Boolean = false\n) { /* ... */ }\n\n// 필요한 것만 지정\ncreateAccount(\n    username = \"hong\",\n    password = \"secret123\",\n    email = \"hong@example.com\"\n    // phone과 newsletter는 기본값 사용\n)\n```\n\n**3. boolean 매개변수의 의미 명확화**\n\n```kotlin\n// 헷갈림\nsendEmail(\"user@example.com\", true, false, true)\n\n// 명확함!\nsendEmail(\n    to = \"user@example.com\",\n    includeAttachment = true,\n    isUrgent = false,\n    sendCopy = true\n)\n```\n\n### 가변 인자 (vararg)\n\n개수가 정해지지 않은 매개변수를 받을 수 있습니다!\n\n#### 기본 사용법\n\n```kotlin\nfun printAll(vararg messages: String) {\n    for (message in messages) {\n        println(message)\n    }\n}\n\n// 여러 개의 인자 전달\nprintAll(\"첫 번째\")\nprintAll(\"첫 번째\", \"두 번째\")\nprintAll(\"첫 번째\", \"두 번째\", \"세 번째\", \"네 번째\")\n```\n\n#### 숫자 합계 계산\n\n```kotlin\nfun sum(vararg numbers: Int): Int {\n    var total = 0\n    for (num in numbers) {\n        total += num\n    }\n    return total\n}\n\nprintln(sum(1, 2, 3))           // 6\nprintln(sum(10, 20, 30, 40))    // 100\nprintln(sum(5))                  // 5\n```\n\n#### 다른 매개변수와 함께 사용\n\n```kotlin\nfun log(level: String, vararg messages: String) {\n    println(\"[$level]\")\n    for (message in messages) {\n        println(\"  - $message\")\n    }\n}\n\nlog(\"INFO\", \"서버 시작\", \"포트 8080 리스닝\")\n// [INFO]\n//   - 서버 시작\n//   - 포트 8080 리스닝\n\nlog(\"ERROR\", \"데이터베이스 연결 실패\", \"재시도 중...\")\n// [ERROR]\n//   - 데이터베이스 연결 실패\n//   - 재시도 중...\n```\n\n#### 배열을 vararg로 전달\n\n```kotlin\nfun printNumbers(vararg numbers: Int) {\n    println(numbers.joinToString(\", \"))\n}\n\nval array = intArrayOf(1, 2, 3, 4, 5)\n\n// 배열을 풀어서 전달 (spread operator)\nprintNumbers(*array)  // 1, 2, 3, 4, 5\n```\n\n#### 실전 예시: SQL 쿼리\n\n```kotlin\nfun executeQuery(sql: String, vararg params: Any): List<Any> {\n    println(\"SQL: $sql\")\n    println(\"파라미터: ${params.joinToString(\", \")}\")\n    // 실제로는 데이터베이스 쿼리 실행\n    return emptyList()\n}\n\nexecuteQuery(\n    \"SELECT * FROM users WHERE age > ? AND city = ?\",\n    20,\n    \"서울\"\n)\n// SQL: SELECT * FROM users WHERE age > ? AND city = ?\n// 파라미터: 20, 서울\n```\n\n---\n\n## 3. 제어 구조\n\n### if 표현식\n\nKotlin의 `if`는 **표현식**입니다! 즉, 값을 반환할 수 있습니다.\n\n#### 기본 사용법\n\n```kotlin\nval age = 25\n\nif (age >= 20) {\n    println(\"성인입니다\")\n} else {\n    println(\"미성년자입니다\")\n}\n```\n\n#### if를 표현식으로 사용\n\n```kotlin\nval age = 25\nval status = if (age >= 20) \"성인\" else \"미성년자\"\nprintln(status)  // 성인\n\n// 복잡한 로직도 가능\nval grade = 85\nval result = if (grade >= 90) {\n    \"A학점\"\n} else if (grade >= 80) {\n    \"B학점\"\n} else if (grade >= 70) {\n    \"C학점\"\n} else {\n    \"D학점\"\n}\nprintln(result)  // B학점\n```\n\n#### 실전 예시\n\n```kotlin\n// 할인율 계산\nval purchaseAmount = 150000\nval discount = if (purchaseAmount >= 100000) 0.1 else 0.05\nval finalPrice = purchaseAmount * (1 - discount)\nprintln(\"최종 가격: $finalPrice원\")  // 최종 가격: 135000.0원\n\n// 사용자 권한 확인\nval userRole = \"ADMIN\"\nval canDelete = if (userRole == \"ADMIN\") true else false\n\n// 더 짧게\nval canDelete = userRole == \"ADMIN\"\n\n// API 응답 코드 처리\nval responseCode = 200\nval message = if (responseCode == 200) {\n    \"성공\"\n} else if (responseCode == 404) {\n    \"찾을 수 없음\"\n} else if (responseCode >= 500) {\n    \"서버 오류\"\n} else {\n    \"알 수 없는 오류\"\n}\n```\n\n#### Java와 비교\n\n```java\n// Java - if는 문장이지 표현식이 아님\nint age = 25;\nString status;\nif (age >= 20) {\n    status = \"성인\";\n} else {\n    status = \"미성년자\";\n}\n\n// 삼항 연산자 사용\nString status = (age >= 20) ? \"성인\" : \"미성년자\";\n\n// Kotlin - if가 표현식!\nval status = if (age >= 20) \"성인\" else \"미성년자\"\n```\n\n### when 표현식\n\n`when`은 Java의 `switch`를 훨씬 강력하게 만든 것입니다!\n\n#### 기본 사용법\n\n```kotlin\nval dayOfWeek = 3\n\nwhen (dayOfWeek) {\n    1 -> println(\"월요일\")\n    2 -> println(\"화요일\")\n    3 -> println(\"수요일\")\n    4 -> println(\"목요일\")\n    5 -> println(\"금요일\")\n    6 -> println(\"토요일\")\n    7 -> println(\"일요일\")\n    else -> println(\"잘못된 입력\")\n}\n// 수요일\n```\n\n#### 값 반환\n\n```kotlin\nval dayOfWeek = 3\nval dayName = when (dayOfWeek) {\n    1 -> \"월요일\"\n    2 -> \"화요일\"\n    3 -> \"수요일\"\n    4 -> \"목요일\"\n    5 -> \"금요일\"\n    6 -> \"토요일\"\n    7 -> \"일요일\"\n    else -> \"잘못된 입력\"\n}\nprintln(dayName)  // 수요일\n```\n\n#### 여러 값 처리\n\n```kotlin\nval dayOfWeek = 6\nval dayType = when (dayOfWeek) {\n    1, 2, 3, 4, 5 -> \"평일\"\n    6, 7 -> \"주말\"\n    else -> \"잘못된 입력\"\n}\nprintln(dayType)  // 주말\n```\n\n#### 범위 사용\n\n```kotlin\nval age = 25\nval category = when (age) {\n    in 0..12 -> \"어린이\"\n    in 13..19 -> \"청소년\"\n    in 20..64 -> \"성인\"\n    in 65..100 -> \"노인\"\n    else -> \"잘못된 나이\"\n}\nprintln(category)  // 성인\n```\n\n#### 조건식 사용\n\n```kotlin\nval score = 85\nval grade = when {\n    score >= 90 -> \"A\"\n    score >= 80 -> \"B\"\n    score >= 70 -> \"C\"\n    score >= 60 -> \"D\"\n    else -> \"F\"\n}\nprintln(grade)  // B\n\n// 복잡한 조건\nval temperature = 28\nval weather = when {\n    temperature < 0 -> \"매우 춥습니다\"\n    temperature < 10 -> \"춥습니다\"\n    temperature < 20 -> \"선선합니다\"\n    temperature < 30 -> \"따뜻합니다\"\n    else -> \"덥습니다\"\n}\nprintln(weather)  // 따뜻합니다\n```\n\n#### 타입 체크\n\n```kotlin\nfun describe(obj: Any): String = when (obj) {\n    is String -> \"문자열, 길이: ${obj.length}\"\n    is Int -> \"정수: $obj\"\n    is Double -> \"실수: $obj\"\n    is Boolean -> \"논리값: $obj\"\n    else -> \"알 수 없는 타입\"\n}\n\nprintln(describe(\"Hello\"))      // 문자열, 길이: 5\nprintln(describe(42))           // 정수: 42\nprintln(describe(3.14))         // 실수: 3.14\nprintln(describe(true))         // 논리값: true\n```\n\n#### 실전 예시: HTTP 상태 코드\n\n```kotlin\nfun handleResponse(statusCode: Int): String = when (statusCode) {\n    200 -> \"OK - 성공\"\n    201 -> \"Created - 리소스 생성됨\"\n    204 -> \"No Content - 내용 없음\"\n    400 -> \"Bad Request - 잘못된 요청\"\n    401 -> \"Unauthorized - 인증 필요\"\n    403 -> \"Forbidden - 권한 없음\"\n    404 -> \"Not Found - 찾을 수 없음\"\n    in 500..599 -> \"Server Error - 서버 오류\"\n    else -> \"Unknown - 알 수 없는 상태\"\n}\n\nprintln(handleResponse(200))  // OK - 성공\nprintln(handleResponse(404))  // Not Found - 찾을 수 없음\nprintln(handleResponse(503))  // Server Error - 서버 오류\n```\n\n#### Java switch와 비교\n\n```java\n// Java switch\nint dayOfWeek = 3;\nString dayName;\nswitch (dayOfWeek) {\n    case 1:\n        dayName = \"월요일\";\n        break;\n    case 2:\n        dayName = \"화요일\";\n        break;\n    case 3:\n        dayName = \"수요일\";\n        break;\n    default:\n        dayName = \"잘못된 입력\";\n        break;\n}\n\n// Kotlin when - 훨씬 간결!\nval dayName = when (dayOfWeek) {\n    1 -> \"월요일\"\n    2 -> \"화요일\"\n    3 -> \"수요일\"\n    else -> \"잘못된 입력\"\n}\n```\n\n### for 루프\n\nKotlin의 `for`는 Python처럼 간결합니다!\n\n#### 기본 사용법\n\n```kotlin\n// 1부터 5까지\nfor (i in 1..5) {\n    println(i)\n}\n// 1\n// 2\n// 3\n// 4\n// 5\n\n// 1부터 10까지, 2씩 증가\nfor (i in 1..10 step 2) {\n    println(i)\n}\n// 1\n// 3\n// 5\n// 7\n// 9\n\n// 10부터 1까지 역순\nfor (i in 10 downTo 1) {\n    println(i)\n}\n// 10\n// 9\n// ...\n// 1\n```\n\n#### 리스트 순회\n\n```kotlin\nval fruits = listOf(\"사과\", \"바나나\", \"오렌지\", \"포도\")\n\n// 요소만 순회\nfor (fruit in fruits) {\n    println(fruit)\n}\n\n// 인덱스와 함께 순회\nfor ((index, fruit) in fruits.withIndex()) {\n    println(\"$index: $fruit\")\n}\n// 0: 사과\n// 1: 바나나\n// 2: 오렌지\n// 3: 포도\n```\n\n#### Map 순회\n\n```kotlin\nval ages = mapOf(\n    \"홍길동\" to 25,\n    \"김철수\" to 30,\n    \"이영희\" to 28\n)\n\nfor ((name, age) in ages) {\n    println(\"$name: $age세\")\n}\n// 홍길동: 25세\n// 김철수: 30세\n// 이영희: 28세\n```\n\n#### 실전 예시\n\n```kotlin\n// 구구단 출력\nfun printMultiplicationTable(num: Int) {\n    for (i in 1..9) {\n        println(\"$num x $i = ${num * i}\")\n    }\n}\n\nprintMultiplicationTable(7)\n// 7 x 1 = 7\n// 7 x 2 = 14\n// ...\n// 7 x 9 = 63\n\n// 합계 계산\nfun calculateSum(numbers: List<Int>): Int {\n    var sum = 0\n    for (num in numbers) {\n        sum += num\n    }\n    return sum\n}\n\nprintln(calculateSum(listOf(1, 2, 3, 4, 5)))  // 15\n\n// 사용자 목록 처리\ndata class User(val id: Int, val name: String, val isActive: Boolean)\n\nval users = listOf(\n    User(1, \"홍길동\", true),\n    User(2, \"김철수\", false),\n    User(3, \"이영희\", true)\n)\n\nfor (user in users) {\n    if (user.isActive) {\n        println(\"활성 사용자: ${user.name}\")\n    }\n}\n// 활성 사용자: 홍길동\n// 활성 사용자: 이영희\n```\n\n### while 루프\n\n`while`은 Java와 거의 같습니다.\n\n#### while\n\n```kotlin\nvar count = 0\nwhile (count < 5) {\n    println(\"Count: $count\")\n    count++\n}\n// Count: 0\n// Count: 1\n// Count: 2\n// Count: 3\n// Count: 4\n```\n\n#### do-while\n\n```kotlin\nvar count = 0\ndo {\n    println(\"Count: $count\")\n    count++\n} while (count < 5)\n```\n\n#### 실전 예시\n\n```kotlin\n// 사용자 입력 받기 (시뮬레이션)\nfun readUserInput(): String {\n    var input = \"\"\n    while (input.isEmpty()) {\n        println(\"값을 입력하세요:\")\n        // input = readLine() ?: \"\"\n        input = \"test\"  // 예시를 위한 하드코딩\n    }\n    return input\n}\n\n// 재시도 로직\nfun connectToServer(maxRetries: Int): Boolean {\n    var retries = 0\n    var connected = false\n    \n    while (!connected && retries < maxRetries) {\n        println(\"서버 연결 시도... (${retries + 1}/$maxRetries)\")\n        \n        // 연결 시도\n        connected = tryConnect()  // 가상의 함수\n        \n        if (!connected) {\n            retries++\n            println(\"연결 실패. 재시도 중...\")\n        }\n    }\n    \n    return connected\n}\n```\n\n### Range와 Progression\n\nRange는 범위를 나타내는 강력한 도구입니다.\n\n#### 기본 Range\n\n```kotlin\n// 1부터 10까지 (10 포함)\nval range1 = 1..10\nprintln(5 in range1)  // true\nprintln(11 in range1)  // false\n\n// 1부터 10 미만 (10 미포함)\nval range2 = 1 until 10\nprintln(10 in range2)  // false\n\n// 문자도 가능!\nval alphabet = 'a'..'z'\nprintln('m' in alphabet)  // true\n```\n\n#### Progression (진행)\n\n```kotlin\n// 1부터 10까지, 2씩 증가\nval evenNumbers = 1..10 step 2\nfor (num in evenNumbers) {\n    println(num)\n}\n// 1, 3, 5, 7, 9\n\n// 10부터 1까지 역순\nval countdown = 10 downTo 1\nfor (num in countdown) {\n    println(num)\n}\n\n// 역순, 2씩 감소\nval oddReverse = 10 downTo 1 step 2\nfor (num in oddReverse) {\n    println(num)\n}\n// 10, 8, 6, 4, 2\n```\n\n#### 실전 예시\n\n```kotlin\n// 페이지 번호 생성\nfun generatePageNumbers(totalPages: Int): List<Int> {\n    return (1..totalPages).toList()\n}\n\nprintln(generatePageNumbers(5))  // [1, 2, 3, 4, 5]\n\n// 비밀번호 강도 체크\nfun checkPasswordStrength(password: String): String {\n    val hasUpperCase = password.any { it in 'A'..'Z' }\n    val hasLowerCase = password.any { it in 'a'..'z' }\n    val hasDigit = password.any { it in '0'..'9' }\n    val length = password.length\n    \n    return when {\n        length < 8 -> \"약함\"\n        hasUpperCase && hasLowerCase && hasDigit -> \"강함\"\n        (hasUpperCase || hasLowerCase) && hasDigit -> \"보통\"\n        else -> \"약함\"\n    }\n}\n\nprintln(checkPasswordStrength(\"abc\"))           // 약함\nprintln(checkPasswordStrength(\"Abc12345\"))      // 강함\nprintln(checkPasswordStrength(\"abcdefgh\"))      // 약함\n\n// 나이대 구분\nfun getAgeGroup(age: Int): String = when (age) {\n    in 0..12 -> \"어린이\"\n    in 13..19 -> \"청소년\"\n    in 20..34 -> \"청년\"\n    in 35..64 -> \"중년\"\n    else -> \"노년\"\n}\n\nprintln(getAgeGroup(25))  // 청년\n```\n\n---\n\n## 4. 클래스와 객체\n\n### 클래스 선언\n\nKotlin의 클래스는 훨씬 간결합니다!\n\n#### 기본 클래스\n\n```kotlin\nclass User {\n    var name: String = \"\"\n    var age: Int = 0\n    \n    fun introduce() {\n        println(\"안녕하세요, 제 이름은 ${name}이고 ${age}세입니다.\")\n    }\n}\n\n// 사용\nval user = User()\nuser.name = \"홍길동\"\nuser.age = 25\nuser.introduce()  // 안녕하세요, 제 이름은 홍길동이고 25세입니다.\n```\n\n#### Java와 비교\n\n```java\n// Java\npublic class User {\n    private String name;\n    private int age;\n    \n    public String getName() {\n        return name;\n    }\n    \n    public void setName(String name) {\n        this.name = name;\n    }\n    \n    public int getAge() {\n        return age;\n    }\n    \n    public void setAge(int age) {\n        this.age = age;\n    }\n    \n    public void introduce() {\n        System.out.println(\"안녕하세요, 제 이름은 \" + name + \"이고 \" + age + \"세입니다.\");\n    }\n}\n\n// Kotlin - 훨씬 간결!\nclass User {\n    var name: String = \"\"\n    var age: Int = 0\n    \n    fun introduce() {\n        println(\"안녕하세요, 제 이름은 ${name}이고 ${age}세입니다.\")\n    }\n}\n```\n\n### Primary Constructor\n\n생성자를 클래스 선언과 함께 정의할 수 있습니다!\n\n```kotlin\nclass User(val name: String, val age: Int) {\n    fun introduce() {\n        println(\"안녕하세요, 제 이름은 ${name}이고 ${age}세입니다.\")\n    }\n}\n\n// 사용\nval user = User(\"홍길동\", 25)\nuser.introduce()\n```\n\n#### init 블록\n\n```kotlin\nclass User(val name: String, val age: Int) {\n    init {\n        println(\"User 객체가 생성되었습니다: $name\")\n        require(age >= 0) { \"나이는 음수일 수 없습니다\" }\n    }\n}\n\nval user = User(\"홍길동\", 25)  // User 객체가 생성되었습니다: 홍길동\n// val invalid = User(\"김철수\", -5)  // 예외 발생!\n```\n\n#### 기본값 지정\n\n```kotlin\nclass User(\n    val name: String,\n    val age: Int = 0,\n    val email: String = \"\"\n) {\n    fun info() {\n        println(\"이름: $name, 나이: $age, 이메일: $email\")\n    }\n}\n\n// 다양한 방식으로 생성 가능\nval user1 = User(\"홍길동\")\nval user2 = User(\"김철수\", 30)\nval user3 = User(\"이영희\", 25, \"lee@example.com\")\nval user4 = User(name = \"박민수\", email = \"park@example.com\")\n```\n\n### Secondary Constructor\n\n추가 생성자를 정의할 수 있습니다.\n\n```kotlin\nclass User(val name: String, val age: Int) {\n    var email: String = \"\"\n    \n    // Secondary constructor\n    constructor(name: String, age: Int, email: String) : this(name, age) {\n        this.email = email\n    }\n    \n    fun info() {\n        println(\"이름: $name, 나이: $age, 이메일: $email\")\n    }\n}\n\nval user1 = User(\"홍길동\", 25)\nval user2 = User(\"김철수\", 30, \"kim@example.com\")\n```\n\n하지만 대부분의 경우 **기본값을 사용하는 것이 더 좋습니다!**\n\n```kotlin\n// 이게 더 낫습니다!\nclass User(\n    val name: String,\n    val age: Int,\n    val email: String = \"\"\n)\n```\n\n### 프로퍼티 (getter/setter)\n\nKotlin은 자동으로 getter/setter를 생성합니다!\n\n#### 기본 프로퍼티\n\n```kotlin\nclass User {\n    var name: String = \"\"  // getter와 setter 자동 생성\n    val id: Int = 0        // getter만 생성 (val이므로)\n}\n\nval user = User()\nuser.name = \"홍길동\"  // setter 호출\nprintln(user.name)   // getter 호출\n```\n\n#### 커스텀 getter/setter\n\n```kotlin\nclass User(private var _age: Int) {\n    var age: Int\n        get() = _age\n        set(value) {\n            if (value >= 0) {\n                _age = value\n            } else {\n                println(\"나이는 음수일 수 없습니다\")\n            }\n        }\n}\n\nval user = User(25)\nuser.age = 30  // OK\nuser.age = -5  // 나이는 음수일 수 없습니다\nprintln(user.age)  // 30\n```\n\n#### 계산된 프로퍼티\n\n```kotlin\nclass Rectangle(val width: Int, val height: Int) {\n    val area: Int\n        get() = width * height\n    \n    val perimeter: Int\n        get() = 2 * (width + height)\n}\n\nval rect = Rectangle(10, 20)\nprintln(\"면적: ${rect.area}\")       // 면적: 200\nprintln(\"둘레: ${rect.perimeter}\")  // 둘레: 60\n```\n\n#### 실전 예시\n\n```kotlin\nclass User(\n    val firstName: String,\n    val lastName: String,\n    private var _email: String\n) {\n    // 전체 이름 (계산된 프로퍼티)\n    val fullName: String\n        get() = \"$firstName $lastName\"\n    \n    // 이메일 (유효성 검증)\n    var email: String\n        get() = _email\n        set(value) {\n            if (value.contains(\"@\")) {\n                _email = value\n            } else {\n                throw IllegalArgumentException(\"올바른 이메일 형식이 아닙니다\")\n            }\n        }\n}\n\nval user = User(\"길동\", \"홍\", \"hong@example.com\")\nprintln(user.fullName)  // 길동 홍\nuser.email = \"newemail@example.com\"  // OK\n// user.email = \"invalid\"  // 예외 발생!\n```\n\n### Data Class\n\n데이터를 담는 클래스를 쉽게 만들 수 있습니다!\n\n```kotlin\ndata class User(\n    val id: Long,\n    val name: String,\n    val email: String\n)\n```\n\n이렇게만 작성해도 다음이 자동 생성됩니다:\n- `equals()` / `hashCode()`\n- `toString()`\n- `copy()` 메서드\n- `componentN()` 함수 (구조 분해)\n\n#### 자동 생성되는 메서드들\n\n```kotlin\ndata class User(val id: Long, val name: String, val email: String)\n\nval user1 = User(1, \"홍길동\", \"hong@example.com\")\nval user2 = User(1, \"홍길동\", \"hong@example.com\")\nval user3 = User(2, \"김철수\", \"kim@example.com\")\n\n// toString()\nprintln(user1)  // User(id=1, name=홍길동, email=hong@example.com)\n\n// equals()\nprintln(user1 == user2)  // true\nprintln(user1 == user3)  // false\n\n// copy()\nval user4 = user1.copy(name = \"이영희\")\nprintln(user4)  // User(id=1, name=이영희, email=hong@example.com)\n\n// 구조 분해\nval (id, name, email) = user1\nprintln(\"ID: $id, 이름: $name, 이메일: $email\")\n```\n\n#### 실전 예시\n\n```kotlin\n// API 응답\ndata class ApiResponse<T>(\n    val success: Boolean,\n    val data: T?,\n    val message: String\n)\n\n// 사용자 DTO\ndata class UserDto(\n    val id: Long,\n    val username: String,\n    val email: String,\n    val createdAt: String\n)\n\n// 페이징 응답\ndata class PageResponse<T>(\n    val content: List<T>,\n    val page: Int,\n    val size: Int,\n    val totalElements: Long\n)\n\nval response = ApiResponse(\n    success = true,\n    data = UserDto(1, \"hong\", \"hong@example.com\", \"2025-01-01\"),\n    message = \"성공\"\n)\n\nprintln(response)\n```\n\n#### Java와 비교\n\n```java\n// Java - 엄청 긴 코드\npublic class User {\n    private final Long id;\n    private final String name;\n    private final String email;\n    \n    public User(Long id, String name, String email) {\n        this.id = id;\n        this.name = name;\n        this.email = email;\n    }\n    \n    // getter 메서드들...\n    \n    @Override\n    public boolean equals(Object o) {\n        // 긴 구현...\n    }\n    \n    @Override\n    public int hashCode() {\n        // 구현...\n    }\n    \n    @Override\n    public String toString() {\n        // 구현...\n    }\n}\n\n// Kotlin - 단 3줄!\ndata class User(val id: Long, val name: String, val email: String)\n```\n\n### Object 선언\n\n싱글톤을 쉽게 만들 수 있습니다!\n\n```kotlin\nobject DatabaseConfig {\n    const val HOST = \"localhost\"\n    const val PORT = 5432\n    const val DATABASE = \"mydb\"\n    \n    fun getConnectionString(): String {\n        return \"jdbc:postgresql://$HOST:$PORT/$DATABASE\"\n    }\n}\n\n// 사용\nprintln(DatabaseConfig.HOST)\nprintln(DatabaseConfig.getConnectionString())\n```\n\n#### 실전 예시\n\n```kotlin\n// 로거\nobject Logger {\n    fun info(message: String) {\n        println(\"[INFO] $message\")\n    }\n    \n    fun error(message: String) {\n        println(\"[ERROR] $message\")\n    }\n    \n    fun debug(message: String) {\n        println(\"[DEBUG] $message\")\n    }\n}\n\nLogger.info(\"애플리케이션 시작\")\nLogger.error(\"데이터베이스 연결 실패\")\n\n// API 클라이언트\nobject ApiClient {\n    private const val BASE_URL = \"https://api.example.com\"\n    \n    fun get(endpoint: String): String {\n        return \"$BASE_URL/$endpoint\"\n    }\n}\n\nprintln(ApiClient.get(\"users/123\"))\n```\n\n### Companion Object\n\n클래스 내부에 정적 멤버를 만들 수 있습니다!\n\n```kotlin\nclass User(val id: Long, val name: String) {\n    companion object {\n        const val MIN_AGE = 0\n        const val MAX_AGE = 150\n        \n        fun create(name: String): User {\n            return User(System.currentTimeMillis(), name)\n        }\n    }\n}\n\n// 사용\nval user = User.create(\"홍길동\")\nprintln(User.MIN_AGE)\n```\n\n#### 팩토리 메서드 패턴\n\n```kotlin\nclass User private constructor(\n    val id: Long,\n    val name: String,\n    val email: String,\n    val role: String\n) {\n    companion object {\n        fun createRegularUser(name: String, email: String): User {\n            return User(\n                id = System.currentTimeMillis(),\n                name = name,\n                email = email,\n                role = \"USER\"\n            )\n        }\n        \n        fun createAdmin(name: String, email: String): User {\n            return User(\n                id = System.currentTimeMillis(),\n                name = name,\n                email = email,\n                role = \"ADMIN\"\n            )\n        }\n    }\n}\n\nval user = User.createRegularUser(\"홍길동\", \"hong@example.com\")\nval admin = User.createAdmin(\"관리자\", \"admin@example.com\")\n```\n\n### Enum Class\n\n열거형 클래스입니다.\n\n```kotlin\nenum class UserRole {\n    USER,\n    ADMIN,\n    MODERATOR\n}\n\nfun checkPermission(role: UserRole) {\n    when (role) {\n        UserRole.ADMIN -> println(\"모든 권한 있음\")\n        UserRole.MODERATOR -> println(\"일부 권한 있음\")\n        UserRole.USER -> println(\"기본 권한만 있음\")\n    }\n}\n\ncheckPermission(UserRole.ADMIN)  // 모든 권한 있음\n```\n\n#### 프로퍼티와 메서드가 있는 Enum\n\n```kotlin\nenum class OrderStatus(val description: String) {\n    PENDING(\"대기 중\"),\n    CONFIRMED(\"확인됨\"),\n    SHIPPED(\"배송 중\"),\n    DELIVERED(\"배송 완료\"),\n    CANCELLED(\"취소됨\");\n    \n    fun isCompleted(): Boolean {\n        return this == DELIVERED || this == CANCELLED\n    }\n}\n\nval status = OrderStatus.SHIPPED\nprintln(status.description)  // 배송 중\nprintln(status.isCompleted())  // false\n```\n\n#### 실전 예시\n\n```kotlin\nenum class HttpMethod {\n    GET, POST, PUT, DELETE, PATCH;\n    \n    fun requiresBody(): Boolean {\n        return this == POST || this == PUT || this == PATCH\n    }\n}\n\nenum class PaymentMethod(val displayName: String, val fee: Double) {\n    CREDIT_CARD(\"신용카드\", 0.03),\n    BANK_TRANSFER(\"계좌이체\", 0.0),\n    KAKAO_PAY(\"카카오페이\", 0.02),\n    NAVER_PAY(\"네이버페이\", 0.025);\n    \n    fun calculateFee(amount: Double): Double {\n        return amount * fee\n    }\n}\n\nval payment = PaymentMethod.CREDIT_CARD\nprintln(\"${payment.displayName} 수수료: ${payment.calculateFee(10000)}원\")\n// 신용카드 수수료: 300.0원\n```\n\n---\n\n## 5. Null Safety\n\nKotlin의 가장 강력한 기능 중 하나입니다!\n\n### Nullable 타입 (?)\n\nKotlin은 null이 될 수 있는 타입과 없는 타입을 구분합니다.\n\n```kotlin\n// null이 될 수 없는 타입\nvar name: String = \"홍길동\"\n// name = null  // 컴파일 에러!\n\n// null이 될 수 있는 타입\nvar nullableName: String? = \"홍길동\"\nnullableName = null  // OK\n```\n\n#### 왜 중요한가?\n\n```kotlin\n// Java에서 흔한 실수\n// String name = getUserName();\n// int length = name.length();  // name이 null이면 NullPointerException!\n\n// Kotlin\nval name: String? = getUserName()\n// val length = name.length  // 컴파일 에러! null일 수 있음\n```\n\n### Safe Call (?.)\n\nnull이 아닐 때만 메서드를 호출합니다.\n\n```kotlin\nval name: String? = \"홍길동\"\nval length = name?.length  // name이 null이 아니면 length 호출\n\nprintln(length)  // 3\n\nval nullName: String? = null\nval nullLength = nullName?.length\nprintln(nullLength)  // null\n```\n\n#### 체이닝\n\n```kotlin\ndata class Address(val city: String?)\ndata class User(val name: String?, val address: Address?)\n\nval user: User? = User(\"홍길동\", Address(\"서울\"))\n\n// 안전하게 깊은 프로퍼티 접근\nval city = user?.address?.city\nprintln(city)  // 서울\n\nval nullUser: User? = null\nval nullCity = nullUser?.address?.city\nprintln(nullCity)  // null\n```\n\n#### 실전 예시\n\n```kotlin\n// 데이터베이스에서 조회\nfun findUserById(id: Long): User? {\n    // 사용자를 찾지 못하면 null 반환\n    return null\n}\n\nval user = findUserById(123)\nval email = user?.email\nval upperEmail = user?.email?.uppercase()\n\nprintln(email)       // null\nprintln(upperEmail)  // null\n\n// API 응답 처리\ndata class ApiResponse(val data: UserData?)\ndata class UserData(val profile: Profile?)\ndata class Profile(val name: String?)\n\nval response: ApiResponse? = getApiResponse()\nval userName = response?.data?.profile?.name\nprintln(userName)  // null 또는 실제 이름\n```\n\n### Elvis Operator (?:)\n\nnull일 때 기본값을 제공합니다.\n\n```kotlin\nval name: String? = null\nval result = name ?: \"기본 이름\"\nprintln(result)  // 기본 이름\n\nval name2: String? = \"홍길동\"\nval result2 = name2 ?: \"기본 이름\"\nprintln(result2)  // 홍길동\n```\n\n#### 함수와 함께 사용\n\n```kotlin\nfun getUserName(id: Long): String? {\n    // 데이터베이스에서 조회\n    return null\n}\n\nval name = getUserName(123) ?: \"알 수 없음\"\nprintln(name)  // 알 수 없음\n```\n\n#### 예외 발생\n\n```kotlin\nfun getUser(id: Long): User {\n    return findUserById(id) ?: throw UserNotFoundException(\"User not found: $id\")\n}\n\n// 또는 require 사용\nfun processOrder(orderId: Long) {\n    val order = findOrder(orderId) ?: run {\n        Logger.error(\"주문을 찾을 수 없음: $orderId\")\n        return\n    }\n    \n    // order 처리...\n}\n```\n\n#### 실전 예시\n\n```kotlin\n// 설정 값 가져오기\nfun getConfig(key: String): String? {\n    // 설정에서 값 조회\n    return null\n}\n\nval host = getConfig(\"db.host\") ?: \"localhost\"\nval port = getConfig(\"db.port\")?.toIntOrNull() ?: 5432\nval timeout = getConfig(\"db.timeout\")?.toIntOrNull() ?: 30\n\nprintln(\"Database: $host:$port (timeout: ${timeout}s)\")\n// Database: localhost:5432 (timeout: 30s)\n\n// 사용자 정보 표시\nfun displayUserInfo(user: User?) {\n    val name = user?.name ?: \"알 수 없음\"\n    val email = user?.email ?: \"이메일 없음\"\n    val age = user?.age?.toString() ?: \"나이 정보 없음\"\n    \n    println(\"\"\"\n        이름: $name\n        이메일: $email\n        나이: $age\n    \"\"\".trimIndent())\n}\n```\n\n### Not-null Assertion (!!)\n\n\"이 값은 절대 null이 아니야!\"라고 단언합니다. **조심해서 사용하세요!**\n\n```kotlin\nval name: String? = \"홍길동\"\nval length: Int = name!!.length  // null이면 예외 발생!\nprintln(length)  // 3\n\nval nullName: String? = null\n// val badLength = nullName!!.length  // NullPointerException 발생!\n```\n\n#### 언제 사용할까?\n\n**거의 사용하지 마세요!** 정말 확실할 때만 사용합니다.\n\n```kotlin\n// 나쁜 예\nfun processUser(userId: Long) {\n    val user = findUserById(userId)!!  // 위험!\n    println(user.name)\n}\n\n// 좋은 예\nfun processUser(userId: Long) {\n    val user = findUserById(userId) ?: return\n    println(user.name)\n}\n```\n\n#### 사용해도 되는 경우\n\n```kotlin\n// lateinit과 함께 (나중에 초기화)\nclass UserService {\n    private lateinit var repository: UserRepository\n    \n    fun init(repository: UserRepository) {\n        this.repository = repository\n    }\n    \n    fun getUser(id: Long): User {\n        // 이미 init이 호출되었다고 확신\n        return repository.findById(id)!!\n    }\n}\n```\n\n하지만 이것보다는:\n\n```kotlin\nclass UserService(\n    private val repository: UserRepository  // 생성자에서 주입\n) {\n    fun getUser(id: Long): User? {\n        return repository.findById(id)\n    }\n}\n```\n\n### Safe Cast (as?)\n\n타입 캐스팅을 안전하게 합니다.\n\n```kotlin\nfun describe(obj: Any) {\n    // 일반 캐스팅 - 실패하면 예외\n    // val str: String = obj as String  // ClassCastException 가능\n    \n    // 안전한 캐스팅 - 실패하면 null\n    val str: String? = obj as? String\n    \n    if (str != null) {\n        println(\"문자열: $str (길이: ${str.length})\")\n    } else {\n        println(\"문자열이 아닙니다\")\n    }\n}\n\ndescribe(\"Hello\")   // 문자열: Hello (길이: 5)\ndescribe(42)        // 문자열이 아닙니다\ndescribe(true)      // 문자열이 아닙니다\n```\n\n#### when과 함께 사용\n\n```kotlin\nfun process(obj: Any) {\n    when (val converted = obj as? String) {\n        null -> println(\"문자열이 아닙니다\")\n        else -> println(\"문자열: $converted\")\n    }\n}\n\nprocess(\"Hello\")  // 문자열: Hello\nprocess(123)      // 문자열이 아닙니다\n```\n\n#### 실전 예시\n\n```kotlin\n// JSON 파싱\nfun parseValue(value: Any): String {\n    return when (val str = value as? String) {\n        null -> when (val num = value as? Number) {\n            null -> value.toString()\n            else -> num.toString()\n        }\n        else -> str\n    }\n}\n\n// API 응답 처리\ninterface ApiResponse\ndata class SuccessResponse(val data: Any) : ApiResponse\ndata class ErrorResponse(val message: String) : ApiResponse\n\nfun handleResponse(response: ApiResponse) {\n    when (val success = response as? SuccessResponse) {\n        null -> {\n            val error = response as ErrorResponse\n            println(\"에러: ${error.message}\")\n        }\n        else -> {\n            println(\"성공: ${success.data}\")\n        }\n    }\n}\n```\n\n---\n\n## 6. 컬렉션\n\nKotlin의 컬렉션은 불변(immutable)과 가변(mutable)을 구분합니다!\n\n### List\n\n#### 불변 List\n\n```kotlin\nval fruits = listOf(\"사과\", \"바나나\", \"오렌지\")\nprintln(fruits[0])     // 사과\nprintln(fruits.size)   // 3\n\n// fruits.add(\"포도\")  // 컴파일 에러! 불변 리스트\n```\n\n#### 가변 List\n\n```kotlin\nval mutableFruits = mutableListOf(\"사과\", \"바나나\", \"오렌지\")\nmutableFruits.add(\"포도\")\nmutableFruits.remove(\"바나나\")\nprintln(mutableFruits)  // [사과, 오렌지, 포도]\n```\n\n#### 빈 리스트\n\n```kotlin\nval emptyList = emptyList<String>()\nval mutableEmpty = mutableListOf<String>()\n```\n\n#### 실전 예시\n\n```kotlin\n// 사용자 목록\ndata class User(val id: Long, val name: String, val age: Int)\n\nval users = listOf(\n    User(1, \"홍길동\", 25),\n    User(2, \"김철수\", 30),\n    User(3, \"이영희\", 28)\n)\n\n// 인덱스 접근\nval firstUser = users[0]\nprintln(firstUser.name)  // 홍길동\n\n// 크기\nprintln(\"사용자 수: ${users.size}\")  // 사용자 수: 3\n\n// 포함 여부\nval hasUser = users.any { it.id == 2 }\nprintln(hasUser)  // true\n```\n\n### Set\n\n중복을 허용하지 않는 컬렉션입니다.\n\n```kotlin\nval numbers = setOf(1, 2, 3, 2, 1)\nprintln(numbers)  // [1, 2, 3] - 중복 제거됨\n\n// 가변 Set\nval mutableNumbers = mutableSetOf(1, 2, 3)\nmutableNumbers.add(4)\nmutableNumbers.add(2)  // 이미 있으므로 추가되지 않음\nprintln(mutableNumbers)  // [1, 2, 3, 4]\n```\n\n#### 실전 예시\n\n```kotlin\n// 태그 관리\nval tags = mutableSetOf<String>()\ntags.add(\"kotlin\")\ntags.add(\"programming\")\ntags.add(\"kotlin\")  // 중복, 추가되지 않음\nprintln(tags)  // [kotlin, programming]\n\n// 중복 제거\nval emails = listOf(\n    \"user1@example.com\",\n    \"user2@example.com\",\n    \"user1@example.com\"\n)\nval uniqueEmails = emails.toSet()\nprintln(uniqueEmails)  // [user1@example.com, user2@example.com]\n```\n\n### Map\n\n키-값 쌍을 저장합니다.\n\n```kotlin\nval ages = mapOf(\n    \"홍길동\" to 25,\n    \"김철수\" to 30,\n    \"이영희\" to 28\n)\n\nprintln(ages[\"홍길동\"])  // 25\nprintln(ages[\"박민수\"])  // null (없는 키)\n```\n\n#### 가변 Map\n\n```kotlin\nval mutableAges = mutableMapOf(\n    \"홍길동\" to 25,\n    \"김철수\" to 30\n)\n\nmutableAges[\"이영희\"] = 28\nmutableAges[\"홍길동\"] = 26  // 값 업데이트\n\nprintln(mutableAges)  // {홍길동=26, 김철수=30, 이영희=28}\n```\n\n#### 실전 예시\n\n```kotlin\n// 사용자 캐시\nval userCache = mutableMapOf<Long, User>()\nuserCache[1] = User(1, \"홍길동\", 25)\nuserCache[2] = User(2, \"김철수\", 30)\n\nval user = userCache[1]\nprintln(user?.name)  // 홍길동\n\n// 설정 관리\nval config = mapOf(\n    \"host\" to \"localhost\",\n    \"port\" to \"8080\",\n    \"database\" to \"mydb\"\n)\n\nval host = config[\"host\"] ?: \"127.0.0.1\"\nval port = config[\"port\"]?.toIntOrNull() ?: 8080\n\nprintln(\"Server: $host:$port\")  // Server: localhost:8080\n```\n\n### filter\n\n조건에 맞는 요소만 선택합니다.\n\n```kotlin\nval numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n\n// 짝수만 선택\nval evenNumbers = numbers.filter { it % 2 == 0 }\nprintln(evenNumbers)  // [2, 4, 6, 8, 10]\n\n// 5보다 큰 수\nval greaterThanFive = numbers.filter { it > 5 }\nprintln(greaterThanFive)  // [6, 7, 8, 9, 10]\n```\n\n#### 실전 예시\n\n```kotlin\ndata class User(val name: String, val age: Int, val isActive: Boolean)\n\nval users = listOf(\n    User(\"홍길동\", 25, true),\n    User(\"김철수\", 17, true),\n    User(\"이영희\", 30, false),\n    User(\"박민수\", 28, true)\n)\n\n// 활성 사용자만\nval activeUsers = users.filter { it.isActive }\nprintln(activeUsers.size)  // 3\n\n// 성인 사용자만\nval adults = users.filter { it.age >= 20 }\nprintln(adults.map { it.name })  // [홍길동, 이영희, 박민수]\n\n// 활성 성인 사용자\nval activeAdults = users.filter { it.isActive && it.age >= 20 }\nprintln(activeAdults.map { it.name })  // [홍길동, 박민수]\n```\n\n### map\n\n각 요소를 변환합니다.\n\n```kotlin\nval numbers = listOf(1, 2, 3, 4, 5)\n\n// 각 수를 제곱\nval squares = numbers.map { it * it }\nprintln(squares)  // [1, 4, 9, 16, 25]\n\n// 각 수를 문자열로\nval strings = numbers.map { \"숫자: $it\" }\nprintln(strings)  // [숫자: 1, 숫자: 2, 숫자: 3, 숫자: 4, 숫자: 5]\n```\n\n#### 실전 예시\n\n```kotlin\ndata class User(val id: Long, val name: String, val email: String)\ndata class UserDto(val name: String, val email: String)\n\nval users = listOf(\n    User(1, \"홍길동\", \"hong@example.com\"),\n    User(2, \"김철수\", \"kim@example.com\"),\n    User(3, \"이영희\", \"lee@example.com\")\n)\n\n// Entity를 DTO로 변환\nval userDtos = users.map { user ->\n    UserDto(user.name, user.email)\n}\n\n// 이름만 추출\nval names = users.map { it.name }\nprintln(names)  // [홍길동, 김철수, 이영희]\n\n// 이메일 도메인 추출\nval domains = users.map { it.email.substringAfter(\"@\") }\nprintln(domains)  // [example.com, example.com, example.com]\n```\n\n### forEach\n\n각 요소에 대해 작업을 수행합니다.\n\n```kotlin\nval fruits = listOf(\"사과\", \"바나나\", \"오렌지\")\n\nfruits.forEach { fruit ->\n    println(\"과일: $fruit\")\n}\n// 과일: 사과\n// 과일: 바나나\n// 과일: 오렌지\n\n// 인덱스와 함께\nfruits.forEachIndexed { index, fruit ->\n    println(\"$index: $fruit\")\n}\n// 0: 사과\n// 1: 바나나\n// 2: 오렌지\n```\n\n### any, all, none\n\n조건을 검사합니다.\n\n```kotlin\nval numbers = listOf(1, 2, 3, 4, 5)\n\n// 하나라도 조건을 만족하는가?\nval hasEven = numbers.any { it % 2 == 0 }\nprintln(hasEven)  // true\n\n// 모두 조건을 만족하는가?\nval allPositive = numbers.all { it > 0 }\nprintln(allPositive)  // true\n\n// 하나도 조건을 만족하지 않는가?\nval noneNegative = numbers.none { it < 0 }\nprintln(noneNegative)  // true\n```\n\n#### 실전 예시\n\n```kotlin\ndata class User(val name: String, val age: Int, val isVerified: Boolean)\n\nval users = listOf(\n    User(\"홍길동\", 25, true),\n    User(\"김철수\", 17, false),\n    User(\"이영희\", 30, true)\n)\n\n// 미성년자가 있는가?\nval hasMinor = users.any { it.age < 20 }\nprintln(hasMinor)  // true\n\n// 모두 인증되었는가?\nval allVerified = users.all { it.isVerified }\nprintln(allVerified)  // false\n\n// 비활성 사용자가 없는가?\nval noInactive = users.none { !it.isVerified }\nprintln(noInactive)  // false\n```\n\n### first, last, find\n\n요소를 찾습니다.\n\n```kotlin\nval numbers = listOf(1, 2, 3, 4, 5)\n\n// 첫 번째 요소\nval first = numbers.first()\nprintln(first)  // 1\n\n// 마지막 요소\nval last = numbers.last()\nprintln(last)  // 5\n\n// 조건에 맞는 첫 번째 요소\nval firstEven = numbers.first { it % 2 == 0 }\nprintln(firstEven)  // 2\n\n// 조건에 맞는 요소 찾기 (없으면 null)\nval found = numbers.find { it > 3 }\nprintln(found)  // 4\n\nval notFound = numbers.find { it > 10 }\nprintln(notFound)  // null\n\n// 조건에 맞는 첫 번째 (없으면 null)\nval firstOrNull = numbers.firstOrNull { it > 10 }\nprintln(firstOrNull)  // null\n```\n\n#### 실전 예시\n\n```kotlin\ndata class Order(val id: Long, val userId: Long, val amount: Double, val status: String)\n\nval orders = listOf(\n    Order(1, 100, 15000.0, \"COMPLETED\"),\n    Order(2, 100, 25000.0, \"PENDING\"),\n    Order(3, 200, 30000.0, \"COMPLETED\")\n)\n\n// 특정 사용자의 첫 주문\nval firstOrder = orders.first { it.userId == 100L }\nprintln(firstOrder.amount)  // 15000.0\n\n// 완료된 주문 찾기\nval completedOrder = orders.find { it.status == \"COMPLETED\" }\nprintln(completedOrder?.id)  // 1\n\n// 취소된 주문 찾기 (없음)\nval cancelledOrder = orders.find { it.status == \"CANCELLED\" }\nprintln(cancelledOrder)  // null\n\n// 가장 비싼 주문\nval maxOrder = orders.maxByOrNull { it.amount }\nprintln(maxOrder?.amount)  // 30000.0\n```\n\n---\n\n## 마치며\n\n여기까지 Kotlin의 기초 문법을 모두 배웠습니다! \n\n**핵심 내용 정리:**\n\n1. **변수**: `val`(불변)을 기본으로, 필요할 때만 `var`(가변)\n2. **함수**: 간결한 문법, 단일 표현식, 기본 매개변수\n3. **제어 구조**: `if`와 `when`은 표현식, 강력한 Range\n4. **클래스**: Primary constructor, Data class로 간결하게\n5. **Null Safety**: `?`, `?.`, `?:` 로 안전하게\n6. **컬렉션**: 불변/가변 구분, 강력한 함수형 연산\n\n이제 이 기초를 바탕으로 더 고급 기능들을 배울 준비가 되었습니다!\n\n**다음 단계:**\n- Extension Functions\n- Scope Functions (let, apply, also)\n- Coroutines\n- 고급 컬렉션 연산\n\n즐거운 Kotlin 여정 되세요!"
+}

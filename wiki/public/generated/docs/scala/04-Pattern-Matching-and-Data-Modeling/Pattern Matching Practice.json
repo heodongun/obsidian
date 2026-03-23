@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "id": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice",
+    "relativePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice.md",
+    "routePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching Practice",
+    "folderSegments": [
+      "scala",
+      "04-Pattern-Matching-and-Data-Modeling"
+    ],
+    "title": "Pattern Matching Practice (8 questions)",
+    "description": "| Keyword | Answer | | | | | closed states | |",
+    "headings": [
+      {
+        "depth": 1,
+        "text": "Pattern Matching Practice (8 questions)",
+        "id": "pattern-matching-practice-8-questions"
+      },
+      {
+        "depth": 2,
+        "text": "Related Concepts",
+        "id": "related-concepts"
+      },
+      {
+        "depth": 2,
+        "text": "Question 1 - Match [recall]",
+        "id": "question-1---match-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 2 - Closed World [recall]",
+        "id": "question-2---closed-world-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 3 - Data Node [recall]",
+        "id": "question-3---data-node-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 4 - Exhaustiveness [recall]",
+        "id": "question-4---exhaustiveness-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 5 - ADT [recall]",
+        "id": "question-5---adt-recall"
+      },
+      {
+        "depth": 2,
+        "text": "Question 6 - Refactor Status [application]",
+        "id": "question-6---refactor-status-application"
+      },
+      {
+        "depth": 2,
+        "text": "Question 7 - String Flags [analysis]",
+        "id": "question-7---string-flags-analysis"
+      },
+      {
+        "depth": 2,
+        "text": "Question 8 - Pattern Matching Benefit [analysis]",
+        "id": "question-8---pattern-matching-benefit-analysis"
+      }
+    ],
+    "tags": [
+      "practice",
+      "pattern-matching",
+      "adt"
+    ],
+    "sourceKind": "scala",
+    "mtime": "2026-03-12T02:50:19.605Z",
+    "wordCount": 267,
+    "wikiLinks": [
+      {
+        "label": "Pattern Matching and ADTs",
+        "target": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "heading": null,
+        "resolved": true
+      }
+    ],
+    "backlinks": [
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/00-Dashboard/MOC - Scala Study Map",
+        "title": "Scala Study Map",
+        "relativePath": "scala/00-Dashboard/MOC - Scala Study Map.md"
+      },
+      {
+        "routePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs",
+        "title": "Pattern Matching and ADTs (★★★)",
+        "relativePath": "scala/04-Pattern-Matching-and-Data-Modeling/Pattern Matching and ADTs.md"
+      }
+    ]
+  },
+  "frontmatter": {
+    "source_pdf": [
+      "sources/official/scala-tour-ko/pattern-matching.md",
+      "sources/books/essential-scala.pdf",
+      "sources/official/scala3-book/types-introduction.md"
+    ],
+    "part": [
+      "Tour pattern matching",
+      "Essential Scala ch3-4",
+      "Scala 3 types intro"
+    ],
+    "keywords": [
+      "practice",
+      "pattern-matching",
+      "adt"
+    ]
+  },
+  "content": "# Pattern Matching Practice (8 questions)\n\n#practice #oop-modeling\n\n## Related Concepts\n\n- [Pattern Matching and ADTs](#/docs/scala/04-Pattern-Matching-and-Data-Modeling/Pattern%20Matching%20and%20ADTs)\n\n> [!hint]- 핵심 패턴 (클릭하여 보기)\n> | Keyword | Answer |\n> |---------|--------|\n> | closed states | **`sealed trait`** |\n> | immutable data | **`case class`** |\n> | branching by shape | **`match`** |\n\n## Question 1 - Match [recall]\n> Scala에서 값의 구조를 기준으로 분기하는 대표 문법은 무엇인가?\n\n> [!answer]- 정답 보기\n> `match`를 사용하는 패턴 매칭이다.\n\n## Question 2 - Closed World [recall]\n> 가능한 상태가 고정된 도메인을 표현할 때 자주 쓰는 핵심 선언은 무엇인가?\n\n> [!answer]- 정답 보기\n> `sealed trait` 선언이다.\n\n## Question 3 - Data Node [recall]\n> 패턴 매칭에 특히 잘 맞는 데이터 생성자는 무엇인가?\n\n> [!answer]- 정답 보기\n> `case class`다.\n\n## Question 4 - Exhaustiveness [recall]\n> sealed 계열과 패턴 매칭을 함께 쓰면 얻는 큰 장점은 무엇인가?\n\n> [!answer]- 정답 보기\n> 누락된 분기(exhaustiveness)를 컴파일러가 점검해 준다.\n\n## Question 5 - ADT [recall]\n> ADT 접근의 핵심 목적을 한 문장으로 말하면 무엇인가?\n\n> [!answer]- 정답 보기\n> 도메인의 가능한 경우의 수를 타입으로 명시하고 안전하게 다루는 것이다.\n\n## Question 6 - Refactor Status [application]\n> 주문 상태를 `\"pending\"`, `\"paid\"`, `\"cancelled\"` 문자열로 관리 중이다. 어떤 타입 모델로 바꾸는 것이 좋은가?\n\n> [!answer]- 정답 보기\n> `sealed trait OrderStatus`와 case object/case class 조합으로 바꾸는 것이 좋다.\n\n## Question 7 - String Flags [analysis]\n> 문자열 플래그 방식이 ADT보다 취약한 이유를 하나 설명하라.\n\n> [!answer]- 정답 보기\n> 오타나 누락 분기를 컴파일 시점에 막아주지 못해 런타임 버그가 생기기 쉽다.\n\n## Question 8 - Pattern Matching Benefit [analysis]\n> 복잡한 if/else 체인보다 패턴 매칭이 읽기 쉬운 이유를 설명하라.\n\n> [!answer]- 정답 보기\n> 값의 형태와 분기 로직이 한곳에 모여 있어, 어떤 경우를 처리하는지 구조적으로 드러나기 때문이다.\n\n> [!summary]- 패턴 요약 (클릭하여 보기)\n> | Keyword | Answer |\n> |---------|--------|\n> | domain states | **sealed trait ADT** |\n> | branch by structure | **match** |\n> | immutable payload | **case class** |"
+}
