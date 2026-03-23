@@ -1,0 +1,184 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "StudyWiki" [ref=e7] [cursor=pointer]:
+        - /url: "#/"
+      - generic [ref=e8]: write/**
+    - generic [ref=e9]: Updated 0시간 전
+    - generic [ref=e10]:
+      - button "Overview" [ref=e11] [cursor=pointer]
+      - button "Dark" [ref=e12] [cursor=pointer]
+  - generic [ref=e13]:
+    - complementary [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Last indexed
+        - strong [ref=e17]: 2026. 3. 23. 오후 1:59
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Search wiki
+          - generic [ref=e21]: /
+        - textbox "Search wiki /" [ref=e23]:
+          - /placeholder: 제목, 경로, 태그로 검색
+      - link "Overview" [ref=e24] [cursor=pointer]:
+        - /url: "#/"
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Navigation" [level=3] [ref=e27]
+          - generic [ref=e28]: "182"
+        - button "> scala" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: ">"
+          - generic [ref=e32]: scala
+        - button "> velog" [ref=e34] [cursor=pointer]:
+          - generic [ref=e35]: ">"
+          - generic [ref=e36]: velog
+    - main [ref=e37]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - paragraph [ref=e41]: Overview
+          - heading "Study Wiki" [level=1] [ref=e42]
+          - paragraph [ref=e43]: "`write/**` 전체를 정적 위키로 인덱싱하고, Velog 아카이브와 일반 노트를 같은 탐색 흐름 안에서 읽을 수 있게 구성했습니다. DeepWiki처럼 문서가 중심이 되고 탐색 패널이 조용히 보조하는 레이아웃으로 정리했습니다."
+          - generic [ref=e44]:
+            - generic [ref=e45]: 182 notes
+            - generic [ref=e46]: 2 collections
+            - generic [ref=e47]: 107,679 words
+        - group [ref=e48]:
+          - generic "> Relevant collections" [ref=e49] [cursor=pointer]
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - strong [ref=e52]: velog
+              - generic [ref=e53]: 155 indexed notes
+            - generic [ref=e54]:
+              - strong [ref=e55]: scala
+              - generic [ref=e56]: 27 indexed notes
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - heading "Latest updates" [level=2] [ref=e59]
+            - generic [ref=e60]: mtime 기준
+          - generic [ref=e61]:
+            - link "여름방학 회고록 학교 ai공모전을 준비하는 도중 우리의 서비스를 앱으로 만들면 굉장히 편리하고 좋을것같아서 html과 css과 js를 사용하여 앱을 만드는 신기한 기술이였다.그래서 우리는 cordova를 사용하여 공모전에 낼 앱을 만들기 시작했다.하지만 그 과정에서 한가지 문제가 생겨 velog 1시간 전" [ref=e62] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%ED%9A%8C%EA%B3%A0%EB%A1%9D-inqd1g5e"
+              - generic [ref=e63]:
+                - strong [ref=e64]: 여름방학 회고록
+                - paragraph [ref=e65]: 학교 ai공모전을 준비하는 도중 우리의 서비스를 앱으로 만들면 굉장히 편리하고 좋을것같아서 html과 css과 js를 사용하여 앱을 만드는 신기한 기술이였다.그래서 우리는 cordova를 사용하여 공모전에 낼 앱을 만들기 시작했다.하지만 그 과정에서 한가지 문제가 생겨
+              - generic [ref=e66]:
+                - generic [ref=e67]: velog
+                - generic [ref=e68]: 1시간 전
+            - link "건우쌤과의 달콤쌉싸름한 정규화 이야기 건우쌤과 함께 알아보는 정규화 이야기정규화는 현재의 우리에게는 굉장히 어려운 개념이지만 이해한데로 열심히 해보자관계형 데이터베이스의 설계에서 중복을 최소화하게 데이터를 구조화하는 프로세스를 정규화(Normalization)라고 한다. 이렇게 사전적인 정의가 되어있지만 velog 1시간 전" [ref=e69] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B1%B4%EC%9A%B0%EC%8C%A4%EA%B3%BC%EC%9D%98-%EB%8B%AC%EC%BD%A4%EC%8C%89%EC%8B%B8%EB%A6%84%ED%95%9C-%EC%A0%95%EA%B7%9C%ED%99%94-%EC%9D%B4%EC%95%BC%EA%B8%B0"
+              - generic [ref=e70]:
+                - strong [ref=e71]: 건우쌤과의 달콤쌉싸름한 정규화 이야기
+                - paragraph [ref=e72]: 건우쌤과 함께 알아보는 정규화 이야기정규화는 현재의 우리에게는 굉장히 어려운 개념이지만 이해한데로 열심히 해보자관계형 데이터베이스의 설계에서 중복을 최소화하게 데이터를 구조화하는 프로세스를 정규화(Normalization)라고 한다. 이렇게 사전적인 정의가 되어있지만
+              - generic [ref=e73]:
+                - generic [ref=e74]: velog
+                - generic [ref=e75]: 1시간 전
+            - link "git과 github에 대해 git과 github에대해 velog 1시간 전" [ref=e76] [cursor=pointer]:
+              - /url: "#/docs/velog/git%EA%B3%BC-github%EC%97%90-%EB%8C%80%ED%95%B4"
+              - generic [ref=e77]:
+                - strong [ref=e78]: git과 github에 대해
+                - paragraph [ref=e79]: git과 github에대해
+              - generic [ref=e80]:
+                - generic [ref=e81]: velog
+                - generic [ref=e82]: 1시간 전
+            - link "\"귀여운 태영 선배님에게 배우는 DB 정규화 마법!\" -플로이 1차시- (태영 선배의 뒷모습이다.)\"예수 어째서 회의를 시작하지 않는거지?\"\"아직 태영님께서 오시지 않았다\"태영선배와 슈퍼맨은 한때 내기를 걸고 싸운 적이 있다. 내기의 내용은, 싸움에서 진 사람은 바지 위에 자기 팬티를 입고 다녀야 한다는 것이었다119는 비상시에 태영선배에 velog 1시간 전" [ref=e83] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B7%80%EC%97%AC%EC%9A%B4-%ED%83%9C%EC%98%81-%EC%84%A0%EB%B0%B0%EB%8B%98%EC%97%90%EA%B2%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-DB-%EC%A0%95%EA%B7%9C%ED%99%94-%EB%A7%88%EB%B2%95-%ED%94%8C%EB%A1%9C%EC%9D%B4-1%EC%B0%A8%EC%8B%9C-"
+              - generic [ref=e84]:
+                - strong [ref=e85]: "\"귀여운 태영 선배님에게 배우는 DB 정규화 마법!\" -플로이 1차시-"
+                - paragraph [ref=e86]: (태영 선배의 뒷모습이다.)"예수 어째서 회의를 시작하지 않는거지?""아직 태영님께서 오시지 않았다"태영선배와 슈퍼맨은 한때 내기를 걸고 싸운 적이 있다. 내기의 내용은, 싸움에서 진 사람은 바지 위에 자기 팬티를 입고 다녀야 한다는 것이었다119는 비상시에 태영선배에
+              - generic [ref=e87]:
+                - generic [ref=e88]: velog
+                - generic [ref=e89]: 1시간 전
+            - link "교내 해커톤의 회고록 우리 학교에서는 2일동안 교육을 진행하고 2일동안 교내 해커톤을 진행하였다.난 이 해커톤에 대한 나의 생각과 아쉬움을 적어보려한다.전부 나의 개인적인 생각이다.크게 이렇게 4가지를 배웠다.우리는 저 4가지를 배우고난뒤 바로 강당으로 간뒤 간단한 아이스브레이킹과 함께 교 velog 1시간 전" [ref=e90] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B5%90%EB%82%B4-%ED%95%B4%EC%BB%A4%ED%86%A4%EC%9D%98-%ED%9A%8C%EA%B3%A0%EB%A1%9D"
+              - generic [ref=e91]:
+                - strong [ref=e92]: 교내 해커톤의 회고록
+                - paragraph [ref=e93]: 우리 학교에서는 2일동안 교육을 진행하고 2일동안 교내 해커톤을 진행하였다.난 이 해커톤에 대한 나의 생각과 아쉬움을 적어보려한다.전부 나의 개인적인 생각이다.크게 이렇게 4가지를 배웠다.우리는 저 4가지를 배우고난뒤 바로 강당으로 간뒤 간단한 아이스브레이킹과 함께 교
+              - generic [ref=e94]:
+                - generic [ref=e95]: velog
+                - generic [ref=e96]: 1시간 전
+            - 'link "자바 여행 1차시 이 글은 철저히 나의 기준에 맞춰서 만들어진것이다.그리고 C를 어느정도 안다는 가정하에 이해할수있을것이다.JDK ⊃ JRE ⊃ JVMJDK: 자바 애플리케이션을 개발하기 위한 도구와 라이브러리.JRE: 자바 애플리케이션을 실행하기 위한 환경.JVM: 자바 바이트코드를 velog 1시간 전" [ref=e97] [cursor=pointer]':
+              - /url: "#/docs/velog/%EC%9E%90%EB%B0%94-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C"
+              - generic [ref=e98]:
+                - strong [ref=e99]: 자바 여행 1차시
+                - paragraph [ref=e100]: "이 글은 철저히 나의 기준에 맞춰서 만들어진것이다.그리고 C를 어느정도 안다는 가정하에 이해할수있을것이다.JDK ⊃ JRE ⊃ JVMJDK: 자바 애플리케이션을 개발하기 위한 도구와 라이브러리.JRE: 자바 애플리케이션을 실행하기 위한 환경.JVM: 자바 바이트코드를"
+              - generic [ref=e101]:
+                - generic [ref=e102]: velog
+                - generic [ref=e103]: 1시간 전
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - heading "Deep reads" [level=2] [ref=e107]
+              - generic [ref=e108]: 긴 문서 우선
+            - generic [ref=e109]:
+              - link "스프린트를 알아보자 스프린트의 기본 개념애자일과 스크럼의 이해스프린트의 구성 요소스프린트 프로세스 상세 가이드효율적인 스프린트 운영을 위한 핵심 전략스프린트 실패 요인과 해결 방법스프린트 관리 도구와 활용법스프린트 성과 측정과 개선조직별 스프린트 적용 사례스프린트 도입 및 정착 로드맵스프 27 min 5,973 words" [ref=e110] [cursor=pointer]:
+                - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A6%B0%ED%8A%B8Sprint-%EC%A2%85%ED%95%A9-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%EC%95%A0%EC%9E%90%EC%9D%BC-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC"
+                - generic [ref=e111]:
+                  - strong [ref=e112]: 스프린트를 알아보자
+                  - paragraph [ref=e113]: 스프린트의 기본 개념애자일과 스크럼의 이해스프린트의 구성 요소스프린트 프로세스 상세 가이드효율적인 스프린트 운영을 위한 핵심 전략스프린트 실패 요인과 해결 방법스프린트 관리 도구와 활용법스프린트 성과 측정과 개선조직별 스프린트 적용 사례스프린트 도입 및 정착 로드맵스프
+                - generic [ref=e114]:
+                  - generic [ref=e115]: 27 min
+                  - generic [ref=e116]: 5,973 words
+              - link "블록체인을 알아보자 2024년을 살아가는 현대인이라면 블록체인이라는 단어를 한 번쯤 들어본 적이 있을 것입니다. 비트코인, 이더리움, NFT, DeFi 등 다양한 용어들이 미디어에 등장하면서 블록체인은 더 이상 전문가만의 영역이 아니게 되었습니다. 하지만 블록체인이 정확히 무엇이고, 어떻 17 min 3,675 words" [ref=e117] [cursor=pointer]:
+                - /url: "#/docs/velog/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+                - generic [ref=e118]:
+                  - strong [ref=e119]: 블록체인을 알아보자
+                  - paragraph [ref=e120]: 2024년을 살아가는 현대인이라면 블록체인이라는 단어를 한 번쯤 들어본 적이 있을 것입니다. 비트코인, 이더리움, NFT, DeFi 등 다양한 용어들이 미디어에 등장하면서 블록체인은 더 이상 전문가만의 영역이 아니게 되었습니다. 하지만 블록체인이 정확히 무엇이고, 어떻
+                - generic [ref=e121]:
+                  - generic [ref=e122]: 17 min
+                  - generic [ref=e123]: 3,675 words
+              - 'link "풍요의 역설: 선택이 많아질수록 우리는 왜 더 불행해지는가 현대 사회를 살아가는 우리는 인류 역사상 가장 풍요로운 시대에 살고 있다. 슈퍼마켓에 가면 수백 종류의 시리얼이 진열되어 있고, 넷플릭스에서는 수만 개의 영화와 드라마를 선택할 수 있으며, 온라인 쇼핑몰에서는 같은 제품의 수십 가지 변형을 비교할 수 있다. 스마트폰 앱 12 min 2,557 words" [ref=e124] [cursor=pointer]':
+                - /url: "#/docs/velog/%ED%92%8D%EC%9A%94%EC%9D%98-%EC%97%AD%EC%84%A4-%EC%84%A0%ED%83%9D%EC%9D%B4-%EB%A7%8E%EC%95%84%EC%A7%88%EC%88%98%EB%A1%9D-%EC%9A%B0%EB%A6%AC%EB%8A%94-%EC%99%9C-%EB%8D%94-%EB%B6%88%ED%96%89%ED%95%B4%EC%A7%80%EB%8A%94%EA%B0%80-jt31hr1l"
+                - generic [ref=e125]:
+                  - strong [ref=e126]: "풍요의 역설: 선택이 많아질수록 우리는 왜 더 불행해지는가"
+                  - paragraph [ref=e127]: 현대 사회를 살아가는 우리는 인류 역사상 가장 풍요로운 시대에 살고 있다. 슈퍼마켓에 가면 수백 종류의 시리얼이 진열되어 있고, 넷플릭스에서는 수만 개의 영화와 드라마를 선택할 수 있으며, 온라인 쇼핑몰에서는 같은 제품의 수십 가지 변형을 비교할 수 있다. 스마트폰 앱
+                - generic [ref=e128]:
+                  - generic [ref=e129]: 12 min
+                  - generic [ref=e130]: 2,557 words
+              - 'link "Remix를 알아보자: Ethereum 스마트 컨트랙트 개발의 필수 도구 Ethereum 블록체인에서 스마트 컨트랙트를 개발하려고 생각 중이라면, Remix IDE는 당신이 알아야 할 가장 강력한 도구입니다. 설치 없이 브라우저에서 바로 접근할 수 있으며, 코드 작성부터 배포까지 모든 것을 한 곳에서 처리할 수 있습니다. 이 글에서는 Rem 12 min 2,553 words" [ref=e131] [cursor=pointer]':
+                - /url: "#/docs/velog/Remix%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-Ethereum-%EC%8A%A4%EB%A7%88%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%9E%99%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EC%9D%98-%ED%95%84%EC%88%98-%EB%8F%84%EA%B5%AC-g4ydb9pa"
+                - generic [ref=e132]:
+                  - strong [ref=e133]: "Remix를 알아보자: Ethereum 스마트 컨트랙트 개발의 필수 도구"
+                  - paragraph [ref=e134]: Ethereum 블록체인에서 스마트 컨트랙트를 개발하려고 생각 중이라면, Remix IDE는 당신이 알아야 할 가장 강력한 도구입니다. 설치 없이 브라우저에서 바로 접근할 수 있으며, 코드 작성부터 배포까지 모든 것을 한 곳에서 처리할 수 있습니다. 이 글에서는 Rem
+                - generic [ref=e135]:
+                  - generic [ref=e136]: 12 min
+                  - generic [ref=e137]: 2,553 words
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - heading "Velog archive" [level=2] [ref=e140]
+              - generic [ref=e141]: 최근 동기화
+            - generic [ref=e142]:
+              - link "여름방학 회고록 학교 ai공모전을 준비하는 도중 우리의 서비스를 앱으로 만들면 굉장히 편리하고 좋을것같아서 html과 css과 js를 사용하여 앱을 만드는 신기한 기술이였다.그래서 우리는 cordova를 사용하여 공모전에 낼 앱을 만들기 시작했다.하지만 그 과정에서 한가지 문제가 생겨 1시간 전 0 tags" [ref=e143] [cursor=pointer]:
+                - /url: "#/docs/velog/%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%ED%9A%8C%EA%B3%A0%EB%A1%9D-inqd1g5e"
+                - generic [ref=e144]:
+                  - strong [ref=e145]: 여름방학 회고록
+                  - paragraph [ref=e146]: 학교 ai공모전을 준비하는 도중 우리의 서비스를 앱으로 만들면 굉장히 편리하고 좋을것같아서 html과 css과 js를 사용하여 앱을 만드는 신기한 기술이였다.그래서 우리는 cordova를 사용하여 공모전에 낼 앱을 만들기 시작했다.하지만 그 과정에서 한가지 문제가 생겨
+                - generic [ref=e147]:
+                  - generic [ref=e148]: 1시간 전
+                  - generic [ref=e149]: 0 tags
+              - link "건우쌤과의 달콤쌉싸름한 정규화 이야기 건우쌤과 함께 알아보는 정규화 이야기정규화는 현재의 우리에게는 굉장히 어려운 개념이지만 이해한데로 열심히 해보자관계형 데이터베이스의 설계에서 중복을 최소화하게 데이터를 구조화하는 프로세스를 정규화(Normalization)라고 한다. 이렇게 사전적인 정의가 되어있지만 1시간 전 0 tags" [ref=e150] [cursor=pointer]:
+                - /url: "#/docs/velog/%EA%B1%B4%EC%9A%B0%EC%8C%A4%EA%B3%BC%EC%9D%98-%EB%8B%AC%EC%BD%A4%EC%8C%89%EC%8B%B8%EB%A6%84%ED%95%9C-%EC%A0%95%EA%B7%9C%ED%99%94-%EC%9D%B4%EC%95%BC%EA%B8%B0"
+                - generic [ref=e151]:
+                  - strong [ref=e152]: 건우쌤과의 달콤쌉싸름한 정규화 이야기
+                  - paragraph [ref=e153]: 건우쌤과 함께 알아보는 정규화 이야기정규화는 현재의 우리에게는 굉장히 어려운 개념이지만 이해한데로 열심히 해보자관계형 데이터베이스의 설계에서 중복을 최소화하게 데이터를 구조화하는 프로세스를 정규화(Normalization)라고 한다. 이렇게 사전적인 정의가 되어있지만
+                - generic [ref=e154]:
+                  - generic [ref=e155]: 1시간 전
+                  - generic [ref=e156]: 0 tags
+              - link "git과 github에 대해 git과 github에대해 1시간 전 0 tags" [ref=e157] [cursor=pointer]:
+                - /url: "#/docs/velog/git%EA%B3%BC-github%EC%97%90-%EB%8C%80%ED%95%B4"
+                - generic [ref=e158]:
+                  - strong [ref=e159]: git과 github에 대해
+                  - paragraph [ref=e160]: git과 github에대해
+                - generic [ref=e161]:
+                  - generic [ref=e162]: 1시간 전
+                  - generic [ref=e163]: 0 tags
+              - link "\"귀여운 태영 선배님에게 배우는 DB 정규화 마법!\" -플로이 1차시- (태영 선배의 뒷모습이다.)\"예수 어째서 회의를 시작하지 않는거지?\"\"아직 태영님께서 오시지 않았다\"태영선배와 슈퍼맨은 한때 내기를 걸고 싸운 적이 있다. 내기의 내용은, 싸움에서 진 사람은 바지 위에 자기 팬티를 입고 다녀야 한다는 것이었다119는 비상시에 태영선배에 1시간 전 0 tags" [ref=e164] [cursor=pointer]:
+                - /url: "#/docs/velog/%EA%B7%80%EC%97%AC%EC%9A%B4-%ED%83%9C%EC%98%81-%EC%84%A0%EB%B0%B0%EB%8B%98%EC%97%90%EA%B2%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-DB-%EC%A0%95%EA%B7%9C%ED%99%94-%EB%A7%88%EB%B2%95-%ED%94%8C%EB%A1%9C%EC%9D%B4-1%EC%B0%A8%EC%8B%9C-"
+                - generic [ref=e165]:
+                  - strong [ref=e166]: "\"귀여운 태영 선배님에게 배우는 DB 정규화 마법!\" -플로이 1차시-"
+                  - paragraph [ref=e167]: (태영 선배의 뒷모습이다.)"예수 어째서 회의를 시작하지 않는거지?""아직 태영님께서 오시지 않았다"태영선배와 슈퍼맨은 한때 내기를 걸고 싸운 적이 있다. 내기의 내용은, 싸움에서 진 사람은 바지 위에 자기 팬티를 입고 다녀야 한다는 것이었다119는 비상시에 태영선배에
+                - generic [ref=e168]:
+                  - generic [ref=e169]: 1시간 전
+                  - generic [ref=e170]: 0 tags
+    - complementary [ref=e171]:
+      - generic [ref=e172]:
+        - heading "On this page" [level=3] [ref=e173]
+        - paragraph [ref=e174]: 왼쪽 탐색 패널에서 문서를 열면 여기서 아웃라인과 연결 문서를 볼 수 있습니다.

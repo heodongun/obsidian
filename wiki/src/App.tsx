@@ -198,153 +198,105 @@ function useSearchResults(index: ContentIndex | null, query: string) {
 
 function HomePage({ docs }: { docs: DocMeta[] }) {
   const recentDocs = docs.slice(0, 6);
-  const featuredDoc = recentDocs[0] || null;
   const latestVelog = docs.filter((doc) => doc.sourceKind === "velog").slice(0, 4);
   const sourceStats = useMemo(() => getSourceStats(docs).slice(0, 6), [docs]);
   const deepReads = useMemo(() => [...docs].sort((left, right) => right.wordCount - left.wordCount).slice(0, 4), [docs]);
   const totalWords = useMemo(() => docs.reduce((sum, doc) => sum + doc.wordCount, 0), [docs]);
 
   return (
-    <div className="page-shell home-shell">
-      <section className="hero-panel hero-panel-vault">
-        <div className="hero-panel-copy">
-          <p className="eyebrow">Workspace</p>
-          <h1>Obsidian 같은 질감으로 읽는 정적 Study Vault</h1>
-          <p className="hero-copy">
-            폴더 탐색, 위키링크, 백링크, Velog 아카이브를 하나의 작업 공간처럼 정리했습니다. 카드형 랜딩이 아니라
-            실제 노트 앱처럼 탐색과 읽기가 자연스럽게 이어지도록 화면 리듬을 다시 잡았습니다.
+    <div className="page-shell">
+      <div className="document-card overview-card">
+        <header className="document-header overview-header">
+          <p className="page-kicker">Overview</p>
+          <h1>Study Wiki</h1>
+          <p className="document-summary">
+            `write/**` 전체를 정적 위키로 인덱싱하고, Velog 아카이브와 일반 노트를 같은 탐색 흐름 안에서 읽을 수 있게
+            구성했습니다. DeepWiki처럼 문서가 중심이 되고 탐색 패널이 조용히 보조하는 레이아웃으로 정리했습니다.
           </p>
-          <div className="hero-actions">
-            {featuredDoc ? (
-              <Link className="cta-button" to={buildDocRoute(featuredDoc.routePath)}>
-                최근 노트 열기
-              </Link>
-            ) : null}
-            {latestVelog[0] ? (
-              <Link className="ghost-button hero-secondary-action" to={buildDocRoute(latestVelog[0].routePath)}>
-                최신 Velog 보기
-              </Link>
-            ) : null}
+          <div className="document-meta-strip">
+            <span className="meta-chip">{docs.length} notes</span>
+            <span className="meta-chip">{sourceStats.length} collections</span>
+            <span className="meta-chip">{formatWordCount(totalWords)} words</span>
           </div>
-        </div>
+        </header>
 
-        {featuredDoc ? (
-          <Link to={buildDocRoute(featuredDoc.routePath)} className="hero-feature-card">
-            <div className="hero-feature-header">
-              <span className="eyebrow">Featured Note</span>
-              <span className="hero-feature-time">{formatRelativeDate(featuredDoc.mtime)}</span>
-            </div>
-            <strong>{featuredDoc.title}</strong>
-            <p>{featuredDoc.description}</p>
-            <div className="hero-feature-meta">
-              <span>{featuredDoc.sourceKind}</span>
-              <span>{estimateReadMinutes(featuredDoc.wordCount)} min read</span>
-              <span>{featuredDoc.headings.length} sections</span>
-            </div>
-          </Link>
-        ) : null}
-      </section>
+        <details className="document-foldout" open>
+          <summary>Relevant collections</summary>
+          <div className="foldout-grid">
+            {sourceStats.map((item) => (
+              <div key={item.sourceKind} className="foldout-item">
+                <strong>{item.sourceKind}</strong>
+                <span>{item.count} indexed notes</span>
+              </div>
+            ))}
+          </div>
+        </details>
 
-      <section className="insight-band">
-        <div className="metric-card metric-card-strong">
-          <span className="metric-value">{docs.length}</span>
-          <span className="metric-label">Indexed Notes</span>
-        </div>
-        <div className="metric-card">
-          <span className="metric-value">{sourceStats.length}</span>
-          <span className="metric-label">Collections</span>
-        </div>
-        <div className="metric-card">
-          <span className="metric-value">{latestVelog.length ? latestVelog.length : 0}</span>
-          <span className="metric-label">Latest Velog Shelf</span>
-        </div>
-        <div className="metric-card">
-          <span className="metric-value">{formatWordCount(totalWords)}</span>
-          <span className="metric-label">Readable Words</span>
-        </div>
-      </section>
-
-      <section className="dashboard-grid">
-        <div className="dashboard-card dashboard-card-tall">
-          <div className="card-header">
-            <h2>Fresh Notes</h2>
+        <section className="content-section">
+          <div className="content-section-header">
+            <h2>Latest updates</h2>
             <span>mtime 기준</span>
           </div>
-          <div className="stack-list">
+          <div className="article-link-list">
             {recentDocs.map((doc) => (
-              <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="stack-item stack-item-rich">
+              <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="article-link-row">
                 <div>
                   <strong>{doc.title}</strong>
                   <p>{doc.description}</p>
                 </div>
-                <div className="stack-meta">
+                <div className="row-meta">
                   <span>{doc.sourceKind}</span>
                   <span>{formatRelativeDate(doc.mtime)}</span>
                 </div>
               </Link>
             ))}
           </div>
-        </div>
+        </section>
 
-        <div className="dashboard-card">
-          <div className="card-header">
-            <h2>Collections</h2>
-            <span>source kind 기준</span>
-          </div>
-          <div className="space-grid">
-            {sourceStats.map((item) => (
-              <div key={item.sourceKind} className="space-card">
-                <strong>{item.sourceKind}</strong>
-                <p>{item.count}개 문서</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        <section className="content-grid">
+          <section className="content-section">
+            <div className="content-section-header">
+              <h2>Deep reads</h2>
+              <span>긴 문서 우선</span>
+            </div>
+            <div className="article-link-list compact">
+              {deepReads.map((doc) => (
+                <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="article-link-row">
+                  <div>
+                    <strong>{doc.title}</strong>
+                    <p>{doc.description}</p>
+                  </div>
+                  <div className="row-meta">
+                    <span>{estimateReadMinutes(doc.wordCount)} min</span>
+                    <span>{formatWordCount(doc.wordCount)} words</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
 
-      <section className="dashboard-grid dashboard-grid-secondary">
-        <div className="dashboard-card">
-          <div className="card-header">
-            <h2>Deep Reads</h2>
-            <span>긴 문서 우선</span>
-          </div>
-          <div className="shelf-list">
-            {deepReads.map((doc) => (
-              <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="shelf-item">
-                <div>
-                  <strong>{doc.title}</strong>
-                  <p>{doc.description}</p>
-                </div>
-                <div className="shelf-meta">
-                  <span>{estimateReadMinutes(doc.wordCount)} min</span>
-                  <span>{formatWordCount(doc.wordCount)} words</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="dashboard-card">
-          <div className="card-header">
-            <h2>Velog Archive</h2>
-            <span>최근 동기화</span>
-          </div>
-          <div className="shelf-list">
-            {latestVelog.map((doc) => (
-              <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="shelf-item">
-                <div>
-                  <strong>{doc.title}</strong>
-                  <p>{doc.description}</p>
-                </div>
-                <div className="shelf-meta">
-                  <span>{formatRelativeDate(doc.mtime)}</span>
-                  <span>{doc.tags.length} tags</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+          <section className="content-section">
+            <div className="content-section-header">
+              <h2>Velog archive</h2>
+              <span>최근 동기화</span>
+            </div>
+            <div className="article-link-list compact">
+              {latestVelog.map((doc) => (
+                <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="article-link-row">
+                  <div>
+                    <strong>{doc.title}</strong>
+                    <p>{doc.description}</p>
+                  </div>
+                  <div className="row-meta">
+                    <span>{formatRelativeDate(doc.mtime)}</span>
+                    <span>{doc.tags.length} tags</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </section>
+      </div>
     </div>
   );
 }
@@ -413,8 +365,6 @@ function Sidebar({
   currentRoute,
   query,
   onQueryChange,
-  theme,
-  onThemeToggle,
   mobileOpen,
   onMobileClose,
 }: {
@@ -422,14 +372,10 @@ function Sidebar({
   currentRoute: string;
   query: string;
   onQueryChange: (value: string) => void;
-  theme: ThemeMode;
-  onThemeToggle: () => void;
   mobileOpen: boolean;
   onMobileClose: () => void;
 }) {
   const searchResults = useSearchResults(index, query);
-  const recentDocs = index.docs.slice(0, 5);
-  const sourceStats = useMemo(() => getSourceStats(index.docs).slice(0, 4), [index.docs]);
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(() => {
     const paths = new Set<string>();
     const currentSegments = currentRoute.split("/");
@@ -466,46 +412,14 @@ function Sidebar({
 
   return (
     <aside className={`sidebar ${mobileOpen ? "is-open" : ""}`}>
-      <div className="sidebar-header">
-        <div>
-          <p className="eyebrow">Vault</p>
-          <h2>Study Wiki</h2>
-        </div>
-        <button type="button" className="theme-toggle" onClick={onThemeToggle}>
-          {theme === "light" ? "Dark" : "Light"}
-        </button>
-      </div>
-
-      <div className="sidebar-spotlight">
-        <div className="sidebar-topline">
-          <Link
-            to="/"
-            className={`vault-home-link ${currentRoute ? "" : "is-active"}`}
-            onClick={onMobileClose}
-          >
-            Dashboard
-          </Link>
-          <span className="sidebar-updated">{formatRelativeDate(index.generatedAt)}</span>
-        </div>
-        <div className="sidebar-stat-row">
-          <div>
-            <strong>{index.docCount}</strong>
-            <span>notes</span>
-          </div>
-          <div>
-            <strong>{sourceStats.length}</strong>
-            <span>spaces</span>
-          </div>
-          <div>
-            <strong>{index.docs.filter((doc) => doc.sourceKind === "velog").length}</strong>
-            <span>velog</span>
-          </div>
-        </div>
+      <div className="sidebar-header compact">
+        <p className="sidebar-label">Last indexed</p>
+        <strong>{formatAbsoluteDate(index.generatedAt)}</strong>
       </div>
 
       <label className="search-box">
         <div className="search-head">
-          <span className="search-label">Quick Find</span>
+          <span className="search-label">Search wiki</span>
           <span className="search-shortcut">/</span>
         </div>
         <div className="search-input-wrap">
@@ -522,6 +436,14 @@ function Sidebar({
         </div>
       </label>
 
+      <Link
+        to="/"
+        className={`sidebar-overview-link ${currentRoute ? "" : "is-active"}`}
+        onClick={onMobileClose}
+      >
+        Overview
+      </Link>
+
       {query.trim() ? (
         <section className="sidebar-section">
           <div className="section-header">
@@ -533,7 +455,7 @@ function Sidebar({
               <Link
                 key={doc.id}
                 to={buildDocRoute(doc.routePath)}
-                className={`stack-item ${currentRoute === doc.routePath ? "is-active" : ""}`}
+                className={`stack-item search-result-item ${currentRoute === doc.routePath ? "is-active" : ""}`}
                 onClick={onMobileClose}
               >
                 <div>
@@ -545,51 +467,11 @@ function Sidebar({
             ))}
           </div>
         </section>
-      ) : (
-        <>
-          <section className="sidebar-section">
-            <div className="section-header">
-              <h3>Recent</h3>
-              <span>{recentDocs.length}</span>
-            </div>
-            <div className="stack-list compact">
-              {recentDocs.map((doc) => (
-                <Link
-                  key={doc.id}
-                  to={buildDocRoute(doc.routePath)}
-                  className={`stack-item ${currentRoute === doc.routePath ? "is-active" : ""}`}
-                  onClick={onMobileClose}
-                >
-                  <div>
-                    <strong>{doc.title}</strong>
-                    <p>{doc.sourceKind}</p>
-                  </div>
-                  <span>{formatRelativeDate(doc.mtime)}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <section className="sidebar-section">
-            <div className="section-header">
-              <h3>Spaces</h3>
-              <span>{sourceStats.length}</span>
-            </div>
-            <div className="source-pill-grid">
-              {sourceStats.map((item) => (
-                <div key={item.sourceKind} className="source-pill">
-                  <span>{item.sourceKind}</span>
-                  <strong>{item.count}</strong>
-                </div>
-              ))}
-            </div>
-          </section>
-        </>
-      )}
+      ) : null}
 
       <section className="sidebar-section grow">
         <div className="section-header">
-          <h3>Explorer</h3>
+          <h3>Navigation</h3>
           <span>{index.docCount}</span>
         </div>
         <TreeSection
@@ -604,7 +486,7 @@ function Sidebar({
   );
 }
 
-function RightRail({ activeDocument }: { activeDocument: DocumentPayload | null }) {
+function RightRail({ activeDocument, index }: { activeDocument: DocumentPayload | null; index: ContentIndex }) {
   const [activeHeadingId, setActiveHeadingId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -649,24 +531,54 @@ function RightRail({ activeDocument }: { activeDocument: DocumentPayload | null 
   }, [activeDocument]);
 
   if (!activeDocument) {
+    const sourceStats = getSourceStats(index.docs).slice(0, 4);
+    const recentDocs = index.docs.slice(0, 4);
+
     return (
       <aside className="right-rail">
-        <div className="right-card right-card-hero">
-          <p className="eyebrow">Overview</p>
-          <h3>문서를 열면 여기서 구조와 연결성을 확인합니다</h3>
-          <p>
-            아웃라인, 백링크, 읽는 흐름을 이 패널에 모았습니다. 큰 화면에서는 상시 보이고, 작은 화면에서는 본문 아래로
-            이어져서 끊기지 않게 보입니다.
-          </p>
-          <div className="rail-stat-grid">
-            <div className="rail-stat">
-              <span>Mode</span>
-              <strong>Overview</strong>
-            </div>
-            <div className="rail-stat">
-              <span>Focus</span>
-              <strong>Explore</strong>
-            </div>
+        <div className="right-card subtle-card">
+          <h3>Vault snapshot</h3>
+          <div className="right-meta-list">
+            <span>Indexed</span>
+            <strong>{formatAbsoluteDate(index.generatedAt)}</strong>
+            <span>Notes</span>
+            <strong>{index.docCount}</strong>
+            <span>Collections</span>
+            <strong>{sourceStats.length}</strong>
+          </div>
+        </div>
+
+        <div className="right-card subtle-card">
+          <div className="section-header">
+            <h3>Collections</h3>
+            <span>{sourceStats.length}</span>
+          </div>
+          <div className="stack-list compact">
+            {sourceStats.map((item) => (
+              <div key={item.sourceKind} className="stack-item">
+                <div>
+                  <strong>{item.sourceKind}</strong>
+                  <p>{item.count} indexed notes</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="right-card">
+          <div className="section-header">
+            <h3>Recently updated</h3>
+            <span>{recentDocs.length}</span>
+          </div>
+          <div className="stack-list compact">
+            {recentDocs.map((doc) => (
+              <Link key={doc.id} to={buildDocRoute(doc.routePath)} className="stack-item">
+                <div>
+                  <strong>{doc.title}</strong>
+                  <p>{formatRelativeDate(doc.mtime)}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </aside>
@@ -677,33 +589,26 @@ function RightRail({ activeDocument }: { activeDocument: DocumentPayload | null 
 
   return (
     <aside className="right-rail">
-      <div className="right-card right-card-hero">
-        <p className="eyebrow">Now Reading</p>
-        <h3>{activeDocument.meta.title}</h3>
-        <div className="rail-stat-grid">
-          <div className="rail-stat">
-            <span>Read</span>
-            <strong>{estimateReadMinutes(activeDocument.meta.wordCount)} min</strong>
-          </div>
-          <div className="rail-stat">
-            <span>Links</span>
-            <strong>{activeDocument.meta.backlinks.length + activeDocument.meta.wikiLinks.length}</strong>
-          </div>
-          <div className="rail-stat">
-            <span>Updated</span>
-            <strong>{formatRelativeDate(activeDocument.meta.mtime)}</strong>
-          </div>
+      <div className="right-card subtle-card">
+        <h3>Document info</h3>
+        <div className="right-meta-list">
+          <span>Updated</span>
+          <strong>{formatRelativeDate(activeDocument.meta.mtime)}</strong>
+          <span>Read time</span>
+          <strong>{estimateReadMinutes(activeDocument.meta.wordCount)} min</strong>
+          <span>Connections</span>
+          <strong>{activeDocument.meta.backlinks.length + activeDocument.meta.wikiLinks.length}</strong>
         </div>
         {sourceLink ? (
-          <a className="hero-link-button" href={sourceLink} target="_blank" rel="noreferrer">
+          <a className="inline-action" href={sourceLink} target="_blank" rel="noreferrer">
             Open original source
           </a>
         ) : null}
       </div>
 
-      <div className="right-card">
+      <div className="right-card toc-card">
         <div className="section-header">
-          <h3>Outline</h3>
+          <h3>On this page</h3>
           <span>{activeDocument.meta.headings.length}</span>
         </div>
         <div className="toc-list">
@@ -726,7 +631,7 @@ function RightRail({ activeDocument }: { activeDocument: DocumentPayload | null 
         </div>
       </div>
 
-      <div className="right-card">
+      <div className="right-card subtle-card">
         <div className="section-header">
           <h3>Backlinks</h3>
           <span>{activeDocument.meta.backlinks.length}</span>
@@ -847,47 +752,25 @@ function DocumentPage({
   return (
     <div className="page-shell">
       <div className="document-card">
-        <header className="document-hero">
-          <div className="document-hero-copy">
-            <div className="document-kicker-row">
-              <span className="status-pill">{docMeta.sourceKind}</span>
-              <span className="status-pill subtle">{docMeta.folderSegments[0] || "write"}</span>
-            </div>
-            <h1>{docMeta.title}</h1>
-            <p>{docMeta.description}</p>
-            {docMeta.tags.length ? (
-              <div className="tag-row">
-                {docMeta.tags.map((tag) => (
-                  <span key={tag} className="tag-chip">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            ) : null}
+        <header className="document-header">
+          <p className="page-kicker">{docMeta.sourceKind}</p>
+          <h1>{docMeta.title}</h1>
+          <p className="document-summary">{docMeta.description}</p>
+          <div className="document-meta-strip">
+            <span className="meta-chip">{formatRelativeDate(docMeta.mtime)}</span>
+            <span className="meta-chip">{formatWordCount(docMeta.wordCount)} words</span>
+            <span className="meta-chip">{docMeta.headings.length} sections</span>
+            <span className="meta-chip">{docMeta.backlinks.length} backlinks</span>
           </div>
-
-          <div className="document-hero-panel">
-            <div className="hero-detail">
-              <span>Updated</span>
-              <strong>{formatRelativeDate(docMeta.mtime)}</strong>
-              <small>{formatAbsoluteDate(docMeta.mtime)}</small>
+          {docMeta.tags.length ? (
+            <div className="tag-row">
+              {docMeta.tags.map((tag) => (
+                <span key={tag} className="tag-chip">
+                  {tag}
+                </span>
+              ))}
             </div>
-            <div className="hero-detail">
-              <span>Read time</span>
-              <strong>{estimateReadMinutes(docMeta.wordCount)} min</strong>
-              <small>{formatWordCount(docMeta.wordCount)} words</small>
-            </div>
-            <div className="hero-detail">
-              <span>Connections</span>
-              <strong>{docMeta.backlinks.length + docMeta.wikiLinks.length}</strong>
-              <small>{docMeta.headings.length} sections</small>
-            </div>
-            {sourceLink ? (
-              <a className="hero-link-button" href={sourceLink} target="_blank" rel="noreferrer">
-                Open original source
-              </a>
-            ) : null}
-          </div>
+          ) : null}
         </header>
 
         <div className="document-meta-bar">
@@ -904,6 +787,30 @@ function DocumentPage({
             <span title={formatAbsoluteDate(docMeta.mtime)}>{formatRelativeDate(docMeta.mtime)}</span>
           </div>
         </div>
+
+        <details className="document-foldout">
+          <summary>Relevant note details</summary>
+          <div className="foldout-grid foldout-grid-details">
+            <div className="foldout-item">
+              <strong>Path</strong>
+              <span>{docMeta.relativePath}</span>
+            </div>
+            <div className="foldout-item">
+              <strong>Collection</strong>
+              <span>{docMeta.sourceKind}</span>
+            </div>
+            <div className="foldout-item">
+              <strong>Updated</strong>
+              <span>{formatAbsoluteDate(docMeta.mtime)}</span>
+            </div>
+            {sourceLink ? (
+              <a className="foldout-item foldout-item-link" href={sourceLink} target="_blank" rel="noreferrer">
+                <strong>Source</strong>
+                <span>Open original source</span>
+              </a>
+            ) : null}
+          </div>
+        </details>
 
         <article className="markdown-body">
           <MarkdownView content={displayContent} />
@@ -922,6 +829,7 @@ function WikiShell({ index, theme, onThemeToggle }: { index: ContentIndex; theme
   const currentRoute = location.pathname.startsWith("/docs/")
     ? decodeURIComponent(location.pathname.replace(/^\/docs\//, ""))
     : "";
+  const activeSourceLink = getSourceLink(activeDocument);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -931,49 +839,58 @@ function WikiShell({ index, theme, onThemeToggle }: { index: ContentIndex; theme
   }, [location.pathname]);
 
   return (
-    <div className="app-shell">
-      <Sidebar
-        index={index}
-        currentRoute={currentRoute}
-        query={query}
-        onQueryChange={setQuery}
-        theme={theme}
-        onThemeToggle={onThemeToggle}
-        mobileOpen={mobileOpen}
-        onMobileClose={() => setMobileOpen(false)}
-      />
-
-      {mobileOpen ? <button type="button" className="sidebar-scrim" onClick={() => setMobileOpen(false)} /> : null}
-
-      <main className="main-panel">
-        <div className="main-toolbar">
-          <div className="toolbar-group">
-            <button type="button" className="mobile-menu-button" onClick={() => setMobileOpen(true)}>
-              Explorer
-            </button>
-            <button type="button" className="ghost-button" onClick={() => navigate("/")}>
-              Dashboard
-            </button>
-            <div className="toolbar-context">
-              <span>{activeDocument ? "Now reading" : "Workspace overview"}</span>
-              <strong>{activeDocument ? activeDocument.meta.title : "Study Wiki"}</strong>
-            </div>
-          </div>
-          <div className="toolbar-group">
-            <span className="toolbar-hint">{index.generatedAt ? `Updated ${formatRelativeDate(index.generatedAt)}` : ""}</span>
-            <span className="toolbar-badge">
-              {activeDocument ? `${estimateReadMinutes(activeDocument.meta.wordCount)} min read` : `${index.docCount} notes`}
-            </span>
-          </div>
+    <div className="app-frame">
+      <div className="app-top-strip" />
+      <header className="app-header">
+        <div className="app-brand">
+          <Link to="/" className="app-brand-title">
+            StudyWiki
+          </Link>
+          <span className="app-brand-context">{activeDocument ? activeDocument.meta.relativePath : "write/**"}</span>
         </div>
-        <Routes>
-          <Route path="/" element={<HomePage docs={index.docs} />} />
-          <Route path="/docs/*" element={<DocumentPage index={index} onDocumentChange={setActiveDocument} />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
 
-      <RightRail activeDocument={activeDocument} />
+        <div className="app-header-status">{index.generatedAt ? `Updated ${formatRelativeDate(index.generatedAt)}` : ""}</div>
+
+        <div className="app-header-actions">
+          <button type="button" className="mobile-menu-button" onClick={() => setMobileOpen(true)}>
+            Menu
+          </button>
+          <button type="button" className={`header-button ${activeDocument ? "" : "is-active"}`} onClick={() => navigate("/")}>
+            Overview
+          </button>
+          {activeSourceLink ? (
+            <a className="header-button" href={activeSourceLink} target="_blank" rel="noreferrer">
+              Original
+            </a>
+          ) : null}
+          <button type="button" className="header-button" onClick={onThemeToggle}>
+            {theme === "light" ? "Dark" : "Light"}
+          </button>
+        </div>
+      </header>
+
+      <div className="app-shell">
+        <Sidebar
+          index={index}
+          currentRoute={currentRoute}
+          query={query}
+          onQueryChange={setQuery}
+          mobileOpen={mobileOpen}
+          onMobileClose={() => setMobileOpen(false)}
+        />
+
+        {mobileOpen ? <button type="button" className="sidebar-scrim" onClick={() => setMobileOpen(false)} /> : null}
+
+        <main className="main-panel">
+          <Routes>
+            <Route path="/" element={<HomePage docs={index.docs} />} />
+            <Route path="/docs/*" element={<DocumentPage index={index} onDocumentChange={setActiveDocument} />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+
+        <RightRail activeDocument={activeDocument} index={index} />
+      </div>
     </div>
   );
 }

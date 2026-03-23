@@ -1,0 +1,508 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "StudyWiki" [ref=e7] [cursor=pointer]:
+        - /url: "#/"
+      - generic [ref=e8]: write/**
+    - generic [ref=e9]: Updated 0시간 전
+    - generic [ref=e10]:
+      - button "Overview" [ref=e11] [cursor=pointer]
+      - button "Dark" [ref=e12] [cursor=pointer]
+  - generic [ref=e13]:
+    - complementary [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Last indexed
+        - strong [ref=e17]: 2026. 3. 23. 오후 1:59
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Search wiki
+          - generic [ref=e21]: /
+        - textbox "Search wiki /" [ref=e23]:
+          - /placeholder: 제목, 경로, 태그로 검색
+      - link "Overview" [ref=e24] [cursor=pointer]:
+        - /url: "#/"
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Navigation" [level=3] [ref=e27]
+          - generic [ref=e28]: "182"
+        - button "> scala" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: ">"
+          - generic [ref=e32]: scala
+        - generic [ref=e33]:
+          - button "v velog" [ref=e175] [cursor=pointer]:
+            - generic [ref=e35]: v
+            - generic [ref=e36]: velog
+          - generic [ref=e176]:
+            - link "\"귀여운 태영 선배님에게 배우는 DB 정규화 마법!\" -플로이 1차시-" [ref=e177] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B7%80%EC%97%AC%EC%9A%B4-%ED%83%9C%EC%98%81-%EC%84%A0%EB%B0%B0%EB%8B%98%EC%97%90%EA%B2%8C-%EB%B0%B0%EC%9A%B0%EB%8A%94-DB-%EC%A0%95%EA%B7%9C%ED%99%94-%EB%A7%88%EB%B2%95-%ED%94%8C%EB%A1%9C%EC%9D%B4-1%EC%B0%A8%EC%8B%9C-"
+              - generic [ref=e179]: "\"귀여운 태영 선배님에게 배우는 DB 정규화 마법!\" -플로이 1차시-"
+            - link "[\b algorithm ] Dijkstra Algorithm" [ref=e180] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Dijkstra-Algorithm"
+              - generic [ref=e182]: "[\b algorithm ] Dijkstra Algorithm"
+            - link "[\b algorithm ] Topological Sorting" [ref=e183] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Topological-Sorting"
+              - generic [ref=e185]: "[\b algorithm ] Topological Sorting"
+            - link "[\b algorithm] 라플라스 전개" [ref=e186] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-%EB%9D%BC%ED%94%8C%EB%9D%BC%EC%8A%A4-%EC%A0%84%EA%B0%9C"
+              - generic [ref=e188]: "[\b algorithm] 라플라스 전개"
+            - link "[\b algorithm] 병행 프로세스 관련 알고리즘" [ref=e189] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-%EB%B3%91%ED%96%89-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B4%80%EB%A0%A8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"
+              - generic [ref=e191]: "[\b algorithm] 병행 프로세스 관련 알고리즘"
+            - link "[\b algorithm] 이진탐색을 해보자" [ref=e192] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89%EC%9D%84-%ED%95%B4%EB%B3%B4%EC%9E%90"
+              - generic [ref=e194]: "[\b algorithm] 이진탐색을 해보자"
+            - link "[\b algorithm] Hash를 알아보자" [ref=e195] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Hash%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e197]: "[\b algorithm] Hash를 알아보자"
+            - link "[\b algorithm] Kruskal Algorithm" [ref=e198] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Kruskal-Algorithm"
+              - generic [ref=e200]: "[\b algorithm] Kruskal Algorithm"
+            - link "[\b algorithm] Merge sort를 알아보자" [ref=e201] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Merge-sort%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e203]: "[\b algorithm] Merge sort를 알아보자"
+            - link "[\b algorithm] Quicksort에 대해서 알아보자" [ref=e204] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Quicksort%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e206]: "[\b algorithm] Quicksort에 대해서 알아보자"
+            - link "[\b algorithm] Union-Find 알고리즘을 정석적으로 풀어보자" [ref=e207] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Union-Find-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A0%95%EC%84%9D%EC%A0%81%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90"
+              - generic [ref=e209]: "[\b algorithm] Union-Find 알고리즘을 정석적으로 풀어보자"
+            - link "[\b algorithm] Union-Find 알고리즘을 dfs로 뻘짓을 하며 풀어보자" [ref=e210] [cursor=pointer]:
+              - /url: "#/docs/velog/algorithm-Union-Find-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-dfs%EB%A1%9C-%EB%BB%98%EC%A7%93%EC%9D%84-%ED%95%98%EB%A9%B0-%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90"
+              - generic [ref=e212]: "[\b algorithm] Union-Find 알고리즘을 dfs로 뻘짓을 하며 풀어보자"
+            - link "[혼공컴] 데이터" [ref=e213] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%98%BC%EA%B3%B5%EC%BB%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0"
+              - generic [ref=e215]: "[혼공컴] 데이터"
+            - link "[혼공컴] 명령어" [ref=e216] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%98%BC%EA%B3%B5%EC%BB%B4-%EB%AA%85%EB%A0%B9%EC%96%B4"
+              - generic [ref=e218]: "[혼공컴] 명령어"
+            - link "[혼공컴] 컴퓨터 구조를 알아야하는 이유 + 큰그림" [ref=e219] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%98%BC%EA%B3%B5%EC%BB%B4-%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0%EB%A5%BC-%EC%95%8C%EC%95%84%EC%95%BC%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-%ED%81%B0%EA%B7%B8%EB%A6%BC"
+              - generic [ref=e221]: "[혼공컴] 컴퓨터 구조를 알아야하는 이유 + 큰그림"
+            - link "[혼공컴] CISC와 RISC" [ref=e222] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%98%BC%EA%B3%B5%EC%BB%B4-CISC%EC%99%80-RISC"
+              - generic [ref=e224]: "[혼공컴] CISC와 RISC"
+            - link "[혼공컴] CPU의 작동원리" [ref=e225] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%98%BC%EA%B3%B5%EC%BB%B4-CPU%EC%9D%98-%EC%9E%91%EB%8F%99%EC%9B%90%EB%A6%AC-9uiantax"
+              - generic [ref=e227]: "[혼공컴] CPU의 작동원리"
+            - 'link "가능성의 중독: 무한한 선택이 만드는 현대인의 딜레마" [ref=e228] [cursor=pointer]':
+              - /url: "#/docs/velog/%EA%B0%80%EB%8A%A5%EC%84%B1%EC%9D%98-%EC%A4%91%EB%8F%85-%EB%AC%B4%ED%95%9C%ED%95%9C-%EC%84%A0%ED%83%9D%EC%9D%B4-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%98%84%EB%8C%80%EC%9D%B8%EC%9D%98-%EB%94%9C%EB%A0%88%EB%A7%88"
+              - generic [ref=e230]: "가능성의 중독: 무한한 선택이 만드는 현대인의 딜레마"
+            - link "건우쌤과의 네트워크 시간" [ref=e231] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B1%B4%EC%9A%B0%EC%8C%A4%EA%B3%BC%EC%9D%98-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%8B%9C%EA%B0%84"
+              - generic [ref=e233]: 건우쌤과의 네트워크 시간
+            - link "건우쌤과의 달콤쌉싸름한 정규화 이야기" [ref=e234] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B1%B4%EC%9A%B0%EC%8C%A4%EA%B3%BC%EC%9D%98-%EB%8B%AC%EC%BD%A4%EC%8C%89%EC%8B%B8%EB%A6%84%ED%95%9C-%EC%A0%95%EA%B7%9C%ED%99%94-%EC%9D%B4%EC%95%BC%EA%B8%B0"
+              - generic [ref=e236]: 건우쌤과의 달콤쌉싸름한 정규화 이야기
+            - link "교내 해커톤의 회고록" [ref=e237] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B5%90%EB%82%B4-%ED%95%B4%EC%BB%A4%ED%86%A4%EC%9D%98-%ED%9A%8C%EA%B3%A0%EB%A1%9D"
+              - generic [ref=e239]: 교내 해커톤의 회고록
+            - link "그냥 CMD에 쳐봤다가 풀린 suninatas Proc 8" [ref=e240] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B7%B8%EB%83%A5-CMD%EC%97%90-%EC%B3%90%EB%B4%A4%EB%8B%A4%EA%B0%80-%ED%92%80%EB%A6%B0-suninatas-Proc-8"
+              - generic [ref=e242]: 그냥 CMD에 쳐봤다가 풀린 suninatas Proc 8
+            - link "극한의 최적화를 하려면 주석도 지우고 파일도 하나로 합치는 게 맞을까?" [ref=e243] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B7%B9%ED%95%9C%EC%9D%98-%EC%B5%9C%EC%A0%81%ED%99%94%EB%A5%BC-%ED%95%98%EB%A0%A4%EB%A9%B4-%EC%A3%BC%EC%84%9D%EB%8F%84-%EC%A7%80%EC%9A%B0%EA%B3%A0-%ED%8C%8C%EC%9D%BC%EB%8F%84-%ED%95%98%EB%82%98%EB%A1%9C-%ED%95%A9%EC%B9%98%EB%8A%94-%EA%B2%8C-%EB%A7%9E%EC%9D%84%EA%B9%8C"
+              - generic [ref=e245]: 극한의 최적화를 하려면 주석도 지우고 파일도 하나로 합치는 게 맞을까?
+            - link "기술을 분석하면서 내가 더 중요하게 보게 된 것들" [ref=e246] [cursor=pointer]:
+              - /url: "#/docs/velog/%EA%B8%B0%EC%88%A0%EC%9D%84-%EB%B6%84%EC%84%9D%ED%95%98%EB%A9%B4%EC%84%9C-%EB%82%B4%EA%B0%80-%EB%8D%94-%EC%A4%91%EC%9A%94%ED%95%98%EA%B2%8C-%EB%B3%B4%EA%B2%8C-%EB%90%9C-%EA%B2%83%EB%93%A4"
+              - generic [ref=e248]: 기술을 분석하면서 내가 더 중요하게 보게 된 것들
+            - link "너가 하고 있는 발표는 \"잘못되었다\"" [ref=e249] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%84%88%EA%B0%80-%ED%95%98%EA%B3%A0-%EC%9E%88%EB%8A%94-%EB%B0%9C%ED%91%9C%EB%8A%94-%EC%9E%98%EB%AA%BB%EB%90%98%EC%97%88%EB%8B%A4"
+              - generic [ref=e251]: 너가 하고 있는 발표는 "잘못되었다"
+            - link "네트워크 - 네트워크 기본" [ref=e252] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8"
+              - generic [ref=e254]: 네트워크 - 네트워크 기본
+            - link "네트워크 - 도커 네트워크" [ref=e255] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%8F%84%EC%BB%A4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC"
+              - generic [ref=e257]: 네트워크 - 도커 네트워크
+            - link "당신도 면접 통과할수있다 - OS편" [ref=e258] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%8B%B9%EC%8B%A0%EB%8F%84-%EB%A9%B4%EC%A0%91-%ED%86%B5%EA%B3%BC%ED%95%A0%EC%88%98%EC%9E%88%EB%8B%A4-OS%ED%8E%B8-vvqdwwik"
+              - generic [ref=e260]: 당신도 면접 통과할수있다 - OS편
+            - link "당신은 당신을 잘 아는가?" [ref=e261] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%8B%B9%EC%8B%A0%EC%9D%80-%EB%8B%B9%EC%8B%A0%EC%9D%84-%EC%9E%98-%EC%95%84%EB%8A%94%EA%B0%80"
+              - generic [ref=e263]: 당신은 당신을 잘 아는가?
+            - link "댕글링 포인터(Dangling Pointer)를 알아보자" [ref=e264] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%8C%95%EA%B8%80%EB%A7%81-%ED%8F%AC%EC%9D%B8%ED%84%B0Dangling-Pointer%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e266]: 댕글링 포인터(Dangling Pointer)를 알아보자
+            - link "데빈(Devin), 이건 그냥 코드 도우미가 아니라 ‘AI 개발자’에 더 가깝다" [ref=e267] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%8D%B0%EB%B9%88Devin-%EC%9D%B4%EA%B1%B4-%EA%B7%B8%EB%83%A5-%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9A%B0%EB%AF%B8%EA%B0%80-%EC%95%84%EB%8B%88%EB%9D%BC-AI-%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%97%90-%EB%8D%94-%EA%B0%80%EA%B9%9D%EB%8B%A4"
+              - generic [ref=e269]: 데빈(Devin), 이건 그냥 코드 도우미가 아니라 ‘AI 개발자’에 더 가깝다
+            - link "도커를 자바라 - ver 근찬쌤" [ref=e270] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%8F%84%EC%BB%A4%EB%A5%BC-%EC%9E%90%EB%B0%94%EB%9D%BC-ver-%EA%B7%BC%EC%B0%AC%EC%8C%A4"
+              - generic [ref=e272]: 도커를 자바라 - ver 근찬쌤
+            - link "모든 개발자를 위한 HTTP 웹 기본 지식 - 1" [ref=e273] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%AA%A8%EB%93%A0-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-HTTP-%EC%9B%B9-%EA%B8%B0%EB%B3%B8-%EC%A7%80%EC%8B%9D-1"
+              - generic [ref=e275]: 모든 개발자를 위한 HTTP 웹 기본 지식 - 1
+            - link "모든 개발자를 위한 HTTP 웹 기본 지식 - 2" [ref=e276] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%AA%A8%EB%93%A0-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-HTTP-%EC%9B%B9-%EA%B8%B0%EB%B3%B8-%EC%A7%80%EC%8B%9D-2"
+              - generic [ref=e278]: 모든 개발자를 위한 HTTP 웹 기본 지식 - 2
+            - link "문학적 프로그래밍에 대하여" [ref=e279] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%AC%B8%ED%95%99%EC%A0%81-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC"
+              - generic [ref=e281]: 문학적 프로그래밍에 대하여
+            - link "백엔드 개발자가 Kotlin을 미친 듯이 파고 있는 이유" [ref=e282] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%B0%B1%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EA%B0%80-Kotlin%EC%9D%84-%EB%AF%B8%EC%B9%9C-%EB%93%AF%EC%9D%B4-%ED%8C%8C%EA%B3%A0-%EC%9E%88%EB%8A%94-%EC%9D%B4%EC%9C%A0"
+              - generic [ref=e284]: 백엔드 개발자가 Kotlin을 미친 듯이 파고 있는 이유
+            - link "백엔드 개발자에게 SQL과 ORM은 어떤 의미인가?" [ref=e285] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%B0%B1%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%97%90%EA%B2%8C-SQL%EA%B3%BC-ORM%EC%9D%80-%EC%96%B4%EB%96%A4-%EC%9D%98%EB%AF%B8%EC%9D%B8%EA%B0%80"
+              - generic [ref=e287]: 백엔드 개발자에게 SQL과 ORM은 어떤 의미인가?
+            - link "백엔드 필수 웹서버, WAS, API서버, RestAPI, Restful API를 알아보자" [ref=e288] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%B0%B1%EC%97%94%EB%93%9C-%ED%95%84%EC%88%98-%EC%9B%B9%EC%84%9C%EB%B2%84-WAS-API%EC%84%9C%EB%B2%84-RestAPI-Restful-API%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e290]: 백엔드 필수 웹서버, WAS, API서버, RestAPI, Restful API를 알아보자
+            - link "블록체인을 알아보자" [ref=e291] [cursor=pointer]:
+              - /url: "#/docs/velog/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e293]: 블록체인을 알아보자
+            - 'link "빼빼로 데이 특집: 나만의 디지털 빼빼로 만들기" [ref=e294] [cursor=pointer]':
+              - /url: "#/docs/velog/%EB%B9%BC%EB%B9%BC%EB%A1%9C-%EB%8D%B0%EC%9D%B4-%ED%8A%B9%EC%A7%91-%EB%82%98%EB%A7%8C%EC%9D%98-%EB%94%94%EC%A7%80%ED%84%B8-%EB%B9%BC%EB%B9%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0"
+              - generic [ref=e296]: "빼빼로 데이 특집: 나만의 디지털 빼빼로 만들기"
+            - link "설명형 문체로 정리한 문서 목록" [ref=e297] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8B%9C%EB%A6%AC%EC%A6%88-%EB%AA%A9%EC%B0%A8-ai-%EC%8B%A4%EB%AC%B4-%EC%A3%BC%EC%A0%9C"
+              - generic [ref=e299]: 설명형 문체로 정리한 문서 목록
+            - link "스프린트를 알아보자" [ref=e300] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A6%B0%ED%8A%B8Sprint-%EC%A2%85%ED%95%A9-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%EC%95%A0%EC%9E%90%EC%9D%BC-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC"
+              - generic [ref=e302]: 스프린트를 알아보자
+            - link "스프링 여행 1차시" [ref=e303] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C"
+              - generic [ref=e305]: 스프링 여행 1차시
+            - link "스프링 여행 2차시" [ref=e306] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%97%AC%ED%96%89-2%EC%B0%A8%EC%8B%9C-b2fyhoyi"
+              - generic [ref=e308]: 스프링 여행 2차시
+            - link "스프링 여행 3차시 - 스프링빈" [ref=e309] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81-3%EC%B0%A8%EC%8B%9C-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B9%88"
+              - generic [ref=e311]: 스프링 여행 3차시 - 스프링빈
+            - link "스프링 여행 4차시 - solid" [ref=e312] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%97%AC%ED%96%89-4%EC%B0%A8%EC%8B%9C-solid"
+              - generic [ref=e314]: 스프링 여행 4차시 - solid
+            - link "스프링 여행 5차시 - Singleton" [ref=e315] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%97%AC%ED%96%89-5%EC%B0%A8%EC%8B%9C-Singleton"
+              - generic [ref=e317]: 스프링 여행 5차시 - Singleton
+            - link "스프링을 만지자(이상한거 아님) - 2일차 - 파일구조(src)" [ref=e318] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%84-%EB%A7%8C%EC%A7%80%EC%9E%90%EC%9D%B4%EC%83%81%ED%95%9C%EA%B1%B0-%EC%95%84%EB%8B%98-2%EC%9D%BC%EC%B0%A8-%ED%8C%8C%EC%9D%BC%EA%B5%AC%EC%A1%B0src"
+              - generic [ref=e320]: 스프링을 만지자(이상한거 아님) - 2일차 - 파일구조(src)
+            - link "스프링을 만지자(이상한뜻 맞음) - 3일차" [ref=e321] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%84-%EB%A7%8C%EC%A7%80%EC%9E%90%EC%9D%B4%EC%83%81%ED%95%9C%EB%9C%BB-%EB%A7%9E%EC%9D%8C-3%EC%9D%BC%EC%B0%A8"
+              - generic [ref=e323]: 스프링을 만지자(이상한뜻 맞음) - 3일차
+            - link "스프링을 만지자(이상한뜻 아님) - 1일차" [ref=e324] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%84-%EB%A7%8C%EC%A7%80%EC%9E%90%EC%9D%B4%EC%83%81%ED%95%9C%EB%9C%BB-%EC%95%84%EB%8B%98-1%EC%9D%BC%EC%B0%A8"
+              - generic [ref=e326]: 스프링을 만지자(이상한뜻 아님) - 1일차
+            - link "알러직의 목적지는 서울" [ref=e327] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%95%8C%EB%9F%AC%EC%A7%81%EC%9D%98-%EB%AA%A9%EC%A0%81%EC%A7%80%EB%8A%94-%EC%84%9C%EC%9A%B8"
+              - generic [ref=e329]: 알러직의 목적지는 서울
+            - link "엘릭서(Elixir)는 뭐하는 놈일까?" [ref=e330] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%97%98%EB%A6%AD%EC%84%9CElixir%EB%8A%94-%EB%AD%90%ED%95%98%EB%8A%94-%EB%86%88%EC%9D%BC%EA%B9%8C"
+              - generic [ref=e332]: 엘릭서(Elixir)는 뭐하는 놈일까?
+            - link "여름방학 회고록" [ref=e333] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%ED%9A%8C%EA%B3%A0%EB%A1%9D-inqd1g5e"
+              - generic [ref=e335]: 여름방학 회고록
+            - link "여름방학 회고록" [ref=e336] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%97%AC%EB%A6%84%EB%B0%A9%ED%95%99-%ED%9A%8C%EA%B3%A0%EB%A1%9D"
+              - generic [ref=e338]: 여름방학 회고록
+            - link "온더룩을 나와서, 그래도 참 좋았던 시간에 대해" [ref=e339] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%98%A8%EB%8D%94%EB%A3%A9%EC%9D%84-%EB%82%98%EC%99%80%EC%84%9C-%EA%B7%B8%EB%9E%98%EB%8F%84-%EC%B0%B8-%EC%A2%8B%EC%95%98%EB%8D%98-%EC%8B%9C%EA%B0%84%EC%97%90-%EB%8C%80%ED%95%B4"
+              - generic [ref=e341]: 온더룩을 나와서, 그래도 참 좋았던 시간에 대해
+            - link "요즘 CLI 툴이 계속 나오는 이유" [ref=e342] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9A%94%EC%A6%98-CLI-%ED%88%B4%EC%9D%B4-%EA%B3%84%EC%86%8D-%EB%82%98%EC%98%A4%EB%8A%94-%EC%9D%B4%EC%9C%A0"
+              - generic [ref=e344]: 요즘 CLI 툴이 계속 나오는 이유
+            - link "우리는 시뮬레이션 안에 존재하는가" [ref=e345] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9A%B0%EB%A6%AC%EB%8A%94-%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98-%EC%95%88%EC%97%90-%EC%A1%B4%EC%9E%AC%ED%95%98%EB%8A%94%EA%B0%80"
+              - generic [ref=e347]: 우리는 시뮬레이션 안에 존재하는가
+            - link "운영체제를 알아보자 - 1" [ref=e348] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e350]: 운영체제를 알아보자 - 1
+            - link "운영체제를 알아보자 - 2" [ref=e351] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-2"
+              - generic [ref=e353]: 운영체제를 알아보자 - 2
+            - link "이 두 사이트를 보고 새삼 무서워진 이유" [ref=e354] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9D%B4-%EB%91%90-%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%A5%BC-%EB%B3%B4%EA%B3%A0-%EC%83%88%EC%82%BC-%EB%AC%B4%EC%84%9C%EC%9B%8C%EC%A7%84-%EC%9D%B4%EC%9C%A0"
+              - generic [ref=e356]: 이 두 사이트를 보고 새삼 무서워진 이유
+            - link "이더리움의 Solidity를 알아보자" [ref=e357] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80%EC%9D%98-Solidity%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e359]: 이더리움의 Solidity를 알아보자
+            - link "자바 여행 1차시" [ref=e360] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9E%90%EB%B0%94-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C"
+              - generic [ref=e362]: 자바 여행 1차시
+            - link "자바 여행 1차시 - 객체 알아보기" [ref=e363] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9E%90%EB%B0%94-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C-%EA%B0%9D%EC%B2%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0"
+              - generic [ref=e365]: 자바 여행 1차시 - 객체 알아보기
+            - link "자바 여행 2차시 - 부모" [ref=e366] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9E%90%EB%B0%94-%EC%97%AC%ED%96%89-2%EC%B0%A8%EC%8B%9C-%EB%B6%80%EB%AA%A8"
+              - generic [ref=e368]: 자바 여행 2차시 - 부모
+            - link "자바를 자바라 - 근찬쌤ver" [ref=e369] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%9E%90%EB%B0%94%EB%A5%BC-%EC%9E%90%EB%B0%94%EB%9D%BC-%EA%B7%BC%EC%B0%AC%EC%8C%A4ver"
+              - generic [ref=e371]: 자바를 자바라 - 근찬쌤ver
+            - link "질문만 던지면 데이터가 답한다, Table Agentic이 보여준 데이터 분석의 다음 단계" [ref=e372] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%A7%88%EB%AC%B8%EB%A7%8C-%EB%8D%98%EC%A7%80%EB%A9%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80-%EB%8B%B5%ED%95%9C%EB%8B%A4-Table-Agentic%EC%9D%B4-%EB%B3%B4%EC%97%AC%EC%A4%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%EC%9D%98-%EB%8B%A4%EC%9D%8C-%EB%8B%A8%EA%B3%84"
+              - generic [ref=e374]: 질문만 던지면 데이터가 답한다, Table Agentic이 보여준 데이터 분석의 다음 단계
+            - 'link "카카오톡 LOCO 프로토콜 설명: 개념, 사용 이유, 운영 관점" [ref=e375] [cursor=pointer]':
+              - /url: "#/docs/velog/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EB%A1%9C%EC%BD%94%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EA%B0%9C%EB%85%90%EC%A0%95%EB%A6%AC"
+              - generic [ref=e377]: "카카오톡 LOCO 프로토콜 설명: 개념, 사용 이유, 운영 관점"
+            - link "카카오톡 LOCO 프로토콜, 도대체 뭐고 왜 쓰는 걸까?" [ref=e378] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-LOCO-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EB%8F%84%EB%8C%80%EC%B2%B4-%EB%AD%90%EA%B3%A0-%EC%99%9C-%EC%93%B0%EB%8A%94-%EA%B1%B8%EA%B9%8C"
+              - generic [ref=e380]: 카카오톡 LOCO 프로토콜, 도대체 뭐고 왜 쓰는 걸까?
+            - 'link "카톡봇 4컴포넌트 상세: NotificationListener/SessionManager/BotManager/SessionReplier" [ref=e381] [cursor=pointer]':
+              - /url: "#/docs/velog/%EC%B9%B4%ED%86%A1%EB%B4%87-%ED%95%B5%EC%8B%AC-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%83%81%EC%84%B8%EC%84%A4%EB%AA%85"
+              - generic [ref=e383]: "카톡봇 4컴포넌트 상세: NotificationListener/SessionManager/BotManager/SessionReplier"
+            - link "카톡봇 구조 설명 (알림이용)" [ref=e384] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%B9%B4%ED%86%A1%EB%B4%87-%EA%B5%AC%EC%A1%B0-%EC%84%A4%EB%AA%85-%EC%95%8C%EB%A6%BC%EC%9D%B4%EC%9A%A9"
+              - generic [ref=e386]: 카톡봇 구조 설명 (알림이용)
+            - 'link "카톡봇 실전 가이드: 앱 구조와 운영 아이디어" [ref=e387] [cursor=pointer]':
+              - /url: "#/docs/velog/chichibot-%EC%B0%B8%EA%B3%A0-%EC%B9%B4%ED%86%A1%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%8B%A4%EC%A0%84%EA%B0%80%EC%9D%B4%EB%93%9C"
+              - generic [ref=e389]: "카톡봇 실전 가이드: 앱 구조와 운영 아이디어"
+            - 'link "카톡봇 핵심 아키텍처 가이드: 입력-세션-실행-회신" [ref=e390] [cursor=pointer]':
+              - /url: "#/docs/velog/%EC%B9%B4%ED%86%A1%EB%B4%87-%ED%95%B5%EC%8B%AC-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B0%80%EC%9D%B4%EB%93%9C"
+              - generic [ref=e392]: "카톡봇 핵심 아키텍처 가이드: 입력-세션-실행-회신"
+            - link "코틀린 DSL (Domain Specific Language)" [ref=e393] [cursor=pointer]:
+              - /url: "#/docs/velog/%EC%BD%94%ED%8B%80%EB%A6%B0-DSL-Domain-Specific-Language"
+              - generic [ref=e395]: 코틀린 DSL (Domain Specific Language)
+            - link "타인에이아이 최종합격 후기 하지만 많이 늦음을 곁드린" [ref=e396] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%83%80%EC%9D%B8%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4-%EC%B5%9C%EC%A2%85%ED%95%A9%EA%B2%A9-%ED%9B%84%EA%B8%B0-%ED%95%98%EC%A7%80%EB%A7%8C-%EB%A7%8E%EC%9D%B4-%EB%8A%A6%EC%9D%8C%EC%9D%84-%EA%B3%81%EB%93%9C%EB%A6%B0"
+              - generic [ref=e398]: 타인에이아이 최종합격 후기 하지만 많이 늦음을 곁드린
+            - 'link "풍요의 역설: 선택이 많아질수록 우리는 왜 더 불행해지는가" [ref=e399] [cursor=pointer]':
+              - /url: "#/docs/velog/%ED%92%8D%EC%9A%94%EC%9D%98-%EC%97%AD%EC%84%A4-%EC%84%A0%ED%83%9D%EC%9D%B4-%EB%A7%8E%EC%95%84%EC%A7%88%EC%88%98%EB%A1%9D-%EC%9A%B0%EB%A6%AC%EB%8A%94-%EC%99%9C-%EB%8D%94-%EB%B6%88%ED%96%89%ED%95%B4%EC%A7%80%EB%8A%94%EA%B0%80-jt31hr1l"
+              - generic [ref=e401]: "풍요의 역설: 선택이 많아질수록 우리는 왜 더 불행해지는가"
+            - link "한글로 코딩하는 언어, Han을 살펴보다" [ref=e402] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%95%9C%EA%B8%80%EB%A1%9C%20%EC%BD%94%EB%94%A9%ED%95%98%EB%8A%94%20%EC%96%B8%EC%96%B4%2C%20Han%EC%9D%84%20%EC%82%B4%ED%8E%B4%EB%B3%B4%EB%8B%A4"
+              - generic [ref=e404]: 한글로 코딩하는 언어, Han을 살펴보다
+            - link "현실을 모방하던 것들이 언젠가 현실을 대신하기 시작하면" [ref=e405] [cursor=pointer]:
+              - /url: "#/docs/velog/%ED%98%84%EC%8B%A4%EC%9D%84-%EB%AA%A8%EB%B0%A9%ED%95%98%EB%8D%98-%EA%B2%83%EB%93%A4%EC%9D%B4-%EC%96%B8%EC%A0%A0%EA%B0%80-%ED%98%84%EC%8B%A4%EC%9D%84-%EB%8C%80%EC%8B%A0%ED%95%98%EA%B8%B0-%EC%8B%9C%EC%9E%91%ED%95%98%EB%A9%B4"
+              - generic [ref=e407]: 현실을 모방하던 것들이 언젠가 현실을 대신하기 시작하면
+            - link "A2A(Agent2Agent) 아키텍처 설명" [ref=e408] [cursor=pointer]:
+              - /url: "#/docs/velog/A2AAgent2Agent-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%84%A4%EB%AA%85"
+              - generic [ref=e410]: A2A(Agent2Agent) 아키텍처 설명
+            - 'link "A2A(Agent2Agent) 아키텍처 설명: 역할, 계약, 운영까지" [ref=e411] [cursor=pointer]':
+              - /url: "#/docs/velog/a2a-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0"
+              - generic [ref=e413]: "A2A(Agent2Agent) 아키텍처 설명: 역할, 계약, 운영까지"
+            - link "Agent Safehouse, 거품일까?" [ref=e414] [cursor=pointer]:
+              - /url: "#/docs/velog/Agent-Safehouse-%EA%B1%B0%ED%92%88%EC%9D%BC%EA%B9%8C-k3w787qx"
+              - generic [ref=e416]: Agent Safehouse, 거품일까?
+            - link "AI Spark Camp 처음부터 끝까지" [ref=e417] [cursor=pointer]:
+              - /url: "#/docs/velog/AI-Spark-Camp-%EC%B2%98%EC%9D%8C%EB%B6%80%ED%84%B0-%EB%81%9D%EA%B9%8C%EC%A7%80"
+              - generic [ref=e419]: AI Spark Camp 처음부터 끝까지
+            - 'link "Apify : 왜 로컬에서 직접 크롤링하지 않고 Actor로 운영하는가" [ref=e420] [cursor=pointer]':
+              - /url: "#/docs/velog/Apify-%EC%99%9C-%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C-%EC%A7%81%EC%A0%91-%ED%81%AC%EB%A1%A4%EB%A7%81%ED%95%98%EC%A7%80-%EC%95%8A%EA%B3%A0-Actor%EB%A1%9C-%EC%9A%B4%EC%98%81%ED%95%98%EB%8A%94%EA%B0%80"
+              - generic [ref=e422]: "Apify : 왜 로컬에서 직접 크롤링하지 않고 Actor로 운영하는가"
+            - 'link "Apify Actor 설명: 왜 로컬 크롤링보다 운영이 쉬워지는가" [ref=e423] [cursor=pointer]':
+              - /url: "#/docs/velog/apify-%ED%81%AC%EB%A1%A4%EB%A7%81-%EC%95%A1%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%99%9C-%EC%9C%A0%EB%A6%AC%ED%95%9C%EA%B0%80"
+              - generic [ref=e425]: "Apify Actor 설명: 왜 로컬 크롤링보다 운영이 쉬워지는가"
+            - 'link "Arrow 1.0 설명: AI로 로고를 만들고 실무에 쓰는 방법" [ref=e426] [cursor=pointer]':
+              - /url: "#/docs/velog/Arrow-1.0-%EC%84%A4%EB%AA%85-AI%EB%A1%9C-%EB%A1%9C%EA%B3%A0%EB%A5%BC-%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%A4%EB%AC%B4%EC%97%90-%EC%93%B0%EB%8A%94-%EB%B0%A9%EB%B2%95"
+              - generic [ref=e428]: "Arrow 1.0 설명: AI로 로고를 만들고 실무에 쓰는 방법"
+            - 'link "Arrow 1.0(QuiverAI) 설명: SVG 생성으로 로고 작업 실무화" [ref=e429] [cursor=pointer]':
+              - /url: "#/docs/velog/arrow-1.0-%EC%99%9C-%EC%A4%91%EC%9A%94%ED%95%9C%EA%B0%80"
+              - generic [ref=e431]: "Arrow 1.0(QuiverAI) 설명: SVG 생성으로 로고 작업 실무화"
+            - link "autoAddJosa - 한국어 조사 자동 처리 라이브러리" [ref=e432] [cursor=pointer]:
+              - /url: "#/docs/velog/autoAddJosa-%ED%95%9C%EA%B5%AD%EC%96%B4-%EC%A1%B0%EC%82%AC-%EC%9E%90%EB%8F%99-%EC%B2%98%EB%A6%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC"
+              - generic [ref=e434]: autoAddJosa - 한국어 조사 자동 처리 라이브러리
+            - link "autoresearch 이게 뭐야?" [ref=e435] [cursor=pointer]:
+              - /url: "#/docs/velog/autoresearch-%EC%9D%B4%EA%B2%8C-%EB%AD%90%EC%95%BC"
+              - generic [ref=e437]: autoresearch 이게 뭐야?
+            - link "ChatGPT가 강아지 암을 고쳤다? — Rosie 사례를 조금 더 정확하게 읽어보기" [ref=e438] [cursor=pointer]:
+              - /url: "#/docs/velog/ChatGPT%EA%B0%80%20%EA%B0%95%EC%95%84%EC%A7%80%20%EC%95%94%EC%9D%84%20%EA%B3%A0%EC%B3%A4%EB%8B%A4%3F%20%E2%80%94%20Rosie%20%EC%82%AC%EB%A1%80%EB%A5%BC%20%EC%A1%B0%EA%B8%88%20%EB%8D%94%20%EC%A0%95%ED%99%95%ED%95%98%EA%B2%8C%20%EC%9D%BD%EC%96%B4%EB%B3%B4%EA%B8%B0"
+              - generic [ref=e440]: ChatGPT가 강아지 암을 고쳤다? — Rosie 사례를 조금 더 정확하게 읽어보기
+            - link "Chronos - Kotlin의 날짜/시간을 우아하게 다루는 법" [ref=e441] [cursor=pointer]:
+              - /url: "#/docs/velog/Chronos-Kotlin%EC%9D%98-%EB%82%A0%EC%A7%9C%EC%8B%9C%EA%B0%84%EC%9D%84-%EC%9A%B0%EC%95%84%ED%95%98%EA%B2%8C-%EB%8B%A4%EB%A3%A8%EB%8A%94-%EB%B2%95"
+              - generic [ref=e443]: Chronos - Kotlin의 날짜/시간을 우아하게 다루는 법
+            - 'link "ClickHouse vs Athena SQL vs BigQuery SQL: 진짜 실무 선택 가이드" [ref=e444] [cursor=pointer]':
+              - /url: "#/docs/velog/ClickHouse-vs-Athena-SQL-vs-BigQuery-SQL-%EC%A7%84%EC%A7%9C-%EC%8B%A4%EB%AC%B4-%EC%84%A0%ED%83%9D-%EA%B0%80%EC%9D%B4%EB%93%9C"
+              - generic [ref=e446]: "ClickHouse vs Athena SQL vs BigQuery SQL: 진짜 실무 선택 가이드"
+            - 'link "ClickHouse vs Athena vs BigQuery: 실무 선택과 비용/성능 균형" [ref=e447] [cursor=pointer]':
+              - /url: "#/docs/velog/clickhouse-athena-bigquery-sql-%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD"
+              - generic [ref=e449]: "ClickHouse vs Athena vs BigQuery: 실무 선택과 비용/성능 균형"
+            - 'link "Cloudflare의 `/crawl`" [ref=e450] [cursor=pointer]':
+              - /url: "#/docs/velog/Cloudflare%EC%9D%98-crawl"
+              - generic [ref=e452]: "Cloudflare의 `/crawl`"
+            - link "CodeSpeak는 무슨 언어일까? 코드 대신 스펙을 유지하는 AI 시대의 프로그래밍 언어" [ref=e453] [cursor=pointer]:
+              - /url: "#/docs/velog/CodeSpeak%EB%8A%94-%EB%AC%B4%EC%8A%A8-%EC%96%B8%EC%96%B4%EC%9D%BC%EA%B9%8C-%EC%BD%94%EB%93%9C-%EB%8C%80%EC%8B%A0-%EC%8A%A4%ED%8E%99%EC%9D%84-%EC%9C%A0%EC%A7%80%ED%95%98%EB%8A%94-AI-%EC%8B%9C%EB%8C%80%EC%9D%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%96%B8%EC%96%B4"
+              - generic [ref=e455]: CodeSpeak는 무슨 언어일까? 코드 대신 스펙을 유지하는 AI 시대의 프로그래밍 언어
+            - link "Cordova깔기" [ref=e456] [cursor=pointer]:
+              - /url: "#/docs/velog/Cordova%EA%B9%94%EA%B8%B0"
+              - generic [ref=e458]: Cordova깔기
+            - link "Cotor이란?" [ref=e459] [cursor=pointer]:
+              - /url: "#/docs/velog/Cotor%EC%9D%B4%EB%9E%80"
+              - generic [ref=e461]: Cotor이란?
+            - link "Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기" [ref=e462] [cursor=pointer]:
+              - /url: "#/docs/velog/Defuddle%2C%20%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C%20%E2%80%98%EB%B3%B8%EB%AC%B8%EB%A7%8C%E2%80%99%20%EB%82%A8%EA%B8%B0%EB%8A%94%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%B6%94%EC%B6%9C%EA%B8%B0"
+              - generic [ref=e464]: Defuddle, 웹페이지에서 ‘본문만’ 남기는 콘텐츠 추출기
+            - link "git과 github에 대해" [ref=e465] [cursor=pointer]:
+              - /url: "#/docs/velog/git%EA%B3%BC-github%EC%97%90-%EB%8C%80%ED%95%B4"
+              - generic [ref=e467]: git과 github에 대해
+            - link "Gitleaks와 TruffleHog를 쉽게 이해하기" [ref=e468] [cursor=pointer]:
+              - /url: "#/docs/velog/Gitleaks%EC%99%80-TruffleHog%EB%A5%BC-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0"
+              - generic [ref=e470]: Gitleaks와 TruffleHog를 쉽게 이해하기
+            - 'link "GPAI 정리: 범용 AI 시대의 제품/운영/거버넌스" [ref=e471] [cursor=pointer]':
+              - /url: "#/docs/velog/gpai-%EC%A0%95%EB%A6%AC"
+              - generic [ref=e473]: "GPAI 정리: 범용 AI 시대의 제품/운영/거버넌스"
+            - link "Implicit, explicit을 알아보자" [ref=e474] [cursor=pointer]:
+              - /url: "#/docs/velog/Implicit-explicit%EC%9D%84-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e476]: Implicit, explicit을 알아보자
+            - 'link "Intent 설계 실전: 정확도보다 실패 흐름을 설계하라" [ref=e477] [cursor=pointer]':
+              - /url: "#/docs/velog/intent-%EC%84%A4%EA%B3%84-%EC%8B%A4%EC%A0%84"
+              - generic [ref=e479]: "Intent 설계 실전: 정확도보다 실패 흐름을 설계하라"
+            - link "JSONRepair - LLM 시대의 필수 JSON 복구 라이브러리" [ref=e480] [cursor=pointer]:
+              - /url: "#/docs/velog/JSONRepair-LLM-%EC%8B%9C%EB%8C%80%EC%9D%98-%ED%95%84%EC%88%98-JSON-%EB%B3%B5%EA%B5%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC"
+              - generic [ref=e482]: JSONRepair - LLM 시대의 필수 JSON 복구 라이브러리
+            - 'link "Kimi 거품론 팩트체크: 여론이 아니라 실측으로 판단하기" [ref=e483] [cursor=pointer]':
+              - /url: "#/docs/velog/kimi-%EA%B1%B0%ED%92%88%EB%A1%A0-%ED%8C%A9%ED%8A%B8%EC%B2%B4%ED%81%AC"
+              - generic [ref=e485]: "Kimi 거품론 팩트체크: 여론이 아니라 실측으로 판단하기"
+            - link "Kimi AI거품인듯?" [ref=e486] [cursor=pointer]:
+              - /url: "#/docs/velog/Kimi-AI%EA%B1%B0%ED%92%88%EC%9D%B8%EB%93%AF"
+              - generic [ref=e488]: Kimi AI거품인듯?
+            - link "Kotlin 기초 길잡이" [ref=e489] [cursor=pointer]:
+              - /url: "#/docs/velog/Kotlin-%EA%B8%B0%EC%B4%88-%EA%B8%B8%EC%9E%A1%EC%9D%B4"
+              - generic [ref=e491]: Kotlin 기초 길잡이
+            - link "Kotlin 예제 코드" [ref=e492] [cursor=pointer]:
+              - /url: "#/docs/velog/Kotlin-%EC%98%88%EC%A0%9C-%EC%BD%94%EB%93%9C"
+              - generic [ref=e494]: Kotlin 예제 코드
+            - link "Kotlin 중급 길잡이" [ref=e495] [cursor=pointer]:
+              - /url: "#/docs/velog/Kotlin-%EC%A4%91%EA%B8%89-%EA%B8%B8%EC%9E%A1%EC%9D%B4"
+              - generic [ref=e497]: Kotlin 중급 길잡이
+            - link "Ktor Tutorial 프로젝트" [ref=e498] [cursor=pointer]:
+              - /url: "#/docs/velog/Ktor-Tutorial-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8"
+              - generic [ref=e500]: Ktor Tutorial 프로젝트
+            - link "Lightpanda 레포 분석" [ref=e501] [cursor=pointer]:
+              - /url: "#/docs/velog/Lightpanda-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D"
+              - generic [ref=e503]: Lightpanda 레포 분석
+            - 'link "Linear + Codex 연동 실무: 이슈에서 PR까지 자동화" [ref=e504] [cursor=pointer]':
+              - /url: "#/docs/velog/Linear-Codex-%EC%97%B0%EB%8F%99-%EC%8B%A4%EB%AC%B4-%EC%9D%B4%EC%8A%88%EC%97%90%EC%84%9C-PR%EA%B9%8C%EC%A7%80-%EC%9E%90%EB%8F%99%ED%99%94"
+              - generic [ref=e506]: "Linear + Codex 연동 실무: 이슈에서 PR까지 자동화"
+            - 'link "Linear + Devin 연동 실무: 이슈에서 PR까지 자동화" [ref=e507] [cursor=pointer]':
+              - /url: "#/docs/velog/linear-%EB%8D%B0%EB%B9%88-%EC%97%B0%EA%B2%B0-%EC%8B%A4%EB%AC%B4"
+              - generic [ref=e509]: "Linear + Devin 연동 실무: 이슈에서 PR까지 자동화"
+            - link "LLM의 그럴듯함에 속지마라" [ref=e510] [cursor=pointer]:
+              - /url: "#/docs/velog/LLM%EC%9D%98-%EA%B7%B8%EB%9F%B4%EB%93%AF%ED%95%A8%EC%97%90-%EC%86%8D%EC%A7%80%EB%A7%88%EB%9D%BC"
+              - generic [ref=e512]: LLM의 그럴듯함에 속지마라
+            - 'link "Maestro 실무 가이드: 모바일 자동화를 테스트 가능한 절차로" [ref=e513] [cursor=pointer]':
+              - /url: "#/docs/velog/maestro-%EC%B9%B4%ED%86%A1%EB%B0%B1%EC%97%85-%EC%95%B1%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9B%8C%ED%81%AC%ED%94%8C%EB%A1%9C%EC%9A%B0"
+              - generic [ref=e515]: "Maestro 실무 가이드: 모바일 자동화를 테스트 가능한 절차로"
+            - 'link "Maestro: 모바일 자동화를 테스트 가능한 절차로 바꾸는 법" [ref=e516] [cursor=pointer]':
+              - /url: "#/docs/velog/Maestro-%EC%8B%A4%EB%AC%B4-%EA%B0%80%EC%9D%B4%EB%93%9C-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9E%90%EB%8F%99%ED%99%94%EB%A5%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%A0%88%EC%B0%A8%EB%A1%9C-%EB%B0%94%EA%BE%B8%EB%8A%94-%EB%B2%95"
+              - generic [ref=e518]: "Maestro: 모바일 자동화를 테스트 가능한 절차로 바꾸는 법"
+            - link "Meta가 jemalloc에 다시 투자하는 이유" [ref=e519] [cursor=pointer]:
+              - /url: "#/docs/velog/Meta%EA%B0%80%20jemalloc%EC%97%90%20%EB%8B%A4%EC%8B%9C%20%ED%88%AC%EC%9E%90%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0%20%E2%80%94%20%EB%B3%B4%EC%9D%B4%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EC%9D%B8%ED%94%84%EB%9D%BC%EB%A5%BC%20%EB%8B%A4%EC%8B%9C%20%EB%8B%A4%EB%93%AC%EA%B2%A0%EB%8B%A4%EB%8A%94%20%EC%84%A0%EC%96%B8"
+              - generic [ref=e521]: Meta가 jemalloc에 다시 투자하는 이유
+            - 'link "n8n은 왜 강한가: 자동화를 자산으로 만드는 구조" [ref=e522] [cursor=pointer]':
+              - /url: "#/docs/velog/n8n%EC%9D%80-%EC%99%9C-%EC%9C%84%EB%8C%80%ED%95%9C%EA%B0%80"
+              - generic [ref=e524]: "n8n은 왜 강한가: 자동화를 자산으로 만드는 구조"
+            - link "NASA는 C 코드를 이렇게 짠다고? - 파일 조직" [ref=e525] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%ED%8C%8C%EC%9D%BC-%EC%A1%B0%EC%A7%81"
+              - generic [ref=e527]: NASA는 C 코드를 이렇게 짠다고? - 파일 조직
+            - link "NASA는 C 코드를 이렇게 짠다고? - 데이터 타입, 연산자, 표현식" [ref=e528] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%EC%B1%95%ED%84%B0-6-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%EC%97%B0%EC%82%B0%EC%9E%90-%ED%91%9C%ED%98%84%EC%8B%9DData-Types-Operators-and-Expressions"
+              - generic [ref=e530]: NASA는 C 코드를 이렇게 짠다고? - 데이터 타입, 연산자, 표현식
+            - link "NASA는 C 코드를 이렇게 짠다고? - 번역 후기" [ref=e531] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%EB%B2%88%EC%97%AD-%ED%9B%84%EA%B8%B0"
+              - generic [ref=e533]: NASA는 C 코드를 이렇게 짠다고? - 번역 후기
+            - link "NASA는 C 코드를 이렇게 짠다고? - 서문" [ref=e534] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA-C-STYLE-GUIDE-1"
+              - generic [ref=e536]: NASA는 C 코드를 이렇게 짠다고? - 서문
+            - link "NASA는 C 코드를 이렇게 짠다고? - 소개, 가독성 및 유지보수성" [ref=e537] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA-C-STYLE-GUIDE-12"
+              - generic [ref=e539]: NASA는 C 코드를 이렇게 짠다고? - 소개, 가독성 및 유지보수성
+            - link "NASA는 C 코드를 이렇게 짠다고? - 입력과 출력" [ref=e540] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%EC%9E%85%EB%A0%A5%EA%B3%BC-%EC%B6%9C%EB%A0%A5"
+              - generic [ref=e542]: NASA는 C 코드를 이렇게 짠다고? - 입력과 출력
+            - link "NASA는 C 코드를 이렇게 짠다고? - 제어 구조" [ref=e543] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%EC%A0%9C%EC%96%B4-%EA%B5%AC%EC%A1%B0Control-Structures"
+              - generic [ref=e545]: NASA는 C 코드를 이렇게 짠다고? - 제어 구조
+            - link "NASA는 C 코드를 이렇게 짠다고? - 프로그램 구성" [ref=e546] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EA%B5%AC%EC%84%B1"
+              - generic [ref=e548]: NASA는 C 코드를 이렇게 짠다고? - 프로그램 구성
+            - link "NASA는 C 코드를 이렇게 짠다고? - 함수 구성" [ref=e549] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-%ED%95%A8%EC%88%98-%EA%B5%AC%EC%84%B1"
+              - generic [ref=e551]: NASA는 C 코드를 이렇게 짠다고? - 함수 구성
+            - link "NASA는 C 코드를 이렇게 짠다고? - C 코드 예시" [ref=e552] [cursor=pointer]:
+              - /url: "#/docs/velog/NASA%EB%8A%94-C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9D%B4%EB%A0%87%EA%B2%8C-%EC%A7%A0%EB%8B%A4%EA%B3%A0-C-%EC%BD%94%EB%93%9C-%EC%98%88%EC%8B%9C"
+              - generic [ref=e554]: NASA는 C 코드를 이렇게 짠다고? - C 코드 예시
+            - link "NullClaw, 작은 런타임으로 다시 짜는 AI 에이전트 인프라" [ref=e555] [cursor=pointer]:
+              - /url: "#/docs/velog/NullClaw%2C%20%EC%9E%91%EC%9D%80%20%EB%9F%B0%ED%83%80%EC%9E%84%EC%9C%BC%EB%A1%9C%20%EB%8B%A4%EC%8B%9C%20%EC%A7%9C%EB%8A%94%20AI%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%9D%B8%ED%94%84%EB%9D%BC"
+              - generic [ref=e557]: NullClaw, 작은 런타임으로 다시 짜는 AI 에이전트 인프라
+            - link "Omni 레포 분석" [ref=e558] [cursor=pointer]:
+              - /url: "#/docs/velog/Omni-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D"
+              - generic [ref=e560]: Omni 레포 분석
+            - 'link "OpenAI Symphony 레포 분석: 에이전트를 ‘지시’하는 시대에서 ‘오케스트레이션’하는 시대로" [ref=e561] [cursor=pointer]':
+              - /url: "#/docs/velog/openai-symphony-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D-%EA%B4%80%EC%A0%90"
+              - generic [ref=e563]: "OpenAI Symphony 레포 분석: 에이전트를 ‘지시’하는 시대에서 ‘오케스트레이션’하는 시대로"
+            - 'link "OpenAI Symphony 심층 조사: “에이전트 관리”가 아니라 “업무 오케스트레이션”으로 가는 구조" [ref=e564] [cursor=pointer]':
+              - /url: "#/docs/velog/openai-symphony-%EB%A0%88%ED%8F%AC-%EC%8B%AC%EC%B8%B5-%EC%A1%B0%EC%82%AC"
+              - generic [ref=e566]: "OpenAI Symphony 심층 조사: “에이전트 관리”가 아니라 “업무 오케스트레이션”으로 가는 구조"
+            - link "openai/symphony는 지금은 쓰지 마세요" [ref=e567] [cursor=pointer]:
+              - /url: "#/docs/velog/openaisymphony%EB%8A%94-%EC%A7%80%EA%B8%88%EC%9D%80-%EC%93%B0%EC%A7%80-%EB%A7%88%EC%84%B8%EC%9A%94"
+              - generic [ref=e569]: openai/symphony는 지금은 쓰지 마세요
+            - 'link "OpenClaw 레포 분석: 개인 비서를 만드는 프로젝트인가, 로컬 에이전트 운영체제인가" [ref=e570] [cursor=pointer]':
+              - /url: "#/docs/velog/OpenClaw-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D-%EA%B0%9C%EC%9D%B8-%EB%B9%84%EC%84%9C%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%B8%EA%B0%80-%EB%A1%9C%EC%BB%AC-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%9D%B8%EA%B0%80"
+              - generic [ref=e572]: "OpenClaw 레포 분석: 개인 비서를 만드는 프로젝트인가, 로컬 에이전트 운영체제인가"
+            - 'link "OpenClaw 레포 분석: 실행형 에이전트 관점에서 읽기" [ref=e573] [cursor=pointer]':
+              - /url: "#/docs/velog/openclaw-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D-%ED%95%B5%EC%8B%AC%EC%A0%95%EB%A6%AC"
+              - generic [ref=e575]: "OpenClaw 레포 분석: 실행형 에이전트 관점에서 읽기"
+            - link "page-agent 분석" [ref=e576] [cursor=pointer]:
+              - /url: "#/docs/velog/page-agent-%EB%B6%84%EC%84%9D"
+              - generic [ref=e578]: page-agent 분석
+            - link "Paperclip 프로젝트 분석" [ref=e579] [cursor=pointer]:
+              - /url: "#/docs/velog/paperclip-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B6%84%EC%84%9D"
+              - generic [ref=e581]: Paperclip 프로젝트 분석
+            - 'link "Playwright 실전: 테스트, 크롤링, 네트워크 관찰을 한 번에" [ref=e582] [cursor=pointer]':
+              - /url: "#/docs/velog/playwright-%ED%85%8C%EC%8A%A4%ED%8A%B8-%ED%81%AC%EB%A1%A4%EB%A7%81-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B0%90%EC%B2%AD"
+              - generic [ref=e584]: "Playwright 실전: 테스트, 크롤링, 네트워크 관찰을 한 번에"
+            - link "Popover API" [ref=e585] [cursor=pointer]:
+              - /url: "#/docs/velog/Popover-API"
+              - generic [ref=e587]: Popover API
+            - 'link "PostHog 실무 가이드: 추적이 아니라 제품 개선 루프 만들기" [ref=e588] [cursor=pointer]':
+              - /url: "#/docs/velog/posthog-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%B6%94%EC%A0%81-%EC%8B%A4%EB%AC%B4%EA%B0%80%EC%9D%B4%EB%93%9C"
+              - generic [ref=e590]: "PostHog 실무 가이드: 추적이 아니라 제품 개선 루프 만들기"
+            - 'link "PostHog: 분석 도구가 아니라 제품 엔지니어의 운영체제에 가깝다" [ref=e591] [cursor=pointer]':
+              - /url: "#/docs/velog/PostHog-%EB%B6%84%EC%84%9D-%EB%8F%84%EA%B5%AC%EA%B0%80-%EC%95%84%EB%8B%88%EB%9D%BC-%EC%A0%9C%ED%92%88-%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EC%9D%98-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%97%90-%EA%B0%80%EA%B9%9D%EB%8B%A4"
+              - generic [ref=e593]: "PostHog: 분석 도구가 아니라 제품 엔지니어의 운영체제에 가깝다"
+            - 'link "Remix를 알아보자: Ethereum 스마트 컨트랙트 개발의 필수 도구" [ref=e594] [cursor=pointer]':
+              - /url: "#/docs/velog/Remix%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-Ethereum-%EC%8A%A4%EB%A7%88%ED%8A%B8-%EC%BB%A8%ED%8A%B8%EB%9E%99%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EC%9D%98-%ED%95%84%EC%88%98-%EB%8F%84%EA%B5%AC-g4ydb9pa"
+              - generic [ref=e596]: "Remix를 알아보자: Ethereum 스마트 컨트랙트 개발의 필수 도구"
+            - link "Rust 여행 1차시 - 여행계획" [ref=e597] [cursor=pointer]:
+              - /url: "#/docs/velog/Rust-%EC%97%AC%ED%96%89-1%EC%B0%A8%EC%8B%9C-%EC%97%AC%ED%96%89%EA%B3%84%ED%9A%8D"
+              - generic [ref=e599]: Rust 여행 1차시 - 여행계획
+            - link "Rust여행 2차시 - 핵심개념" [ref=e600] [cursor=pointer]:
+              - /url: "#/docs/velog/Rust%EC%97%AC%ED%96%89-2%EC%B0%A8%EC%8B%9C-%ED%95%B5%EC%8B%AC%EA%B0%9C%EB%85%90"
+              - generic [ref=e602]: Rust여행 2차시 - 핵심개념
+            - link "SBT가 뭔가요? Scala 프로젝트를 움직이는 빌드 도구 제대로 이해하기" [ref=e603] [cursor=pointer]:
+              - /url: "#/docs/velog/SBT%EA%B0%80-%EB%AD%94%EA%B0%80%EC%9A%94-Scala-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%9B%80%EC%A7%81%EC%9D%B4%EB%8A%94-%EB%B9%8C%EB%93%9C-%EB%8F%84%EA%B5%AC-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0"
+              - generic [ref=e605]: SBT가 뭔가요? Scala 프로젝트를 움직이는 빌드 도구 제대로 이해하기
+            - link "Scrapling 레포 분석" [ref=e606] [cursor=pointer]:
+              - /url: "#/docs/velog/Scrapling-%EB%A0%88%ED%8F%AC-%EB%B6%84%EC%84%9D"
+              - generic [ref=e608]: Scrapling 레포 분석
+            - link "Sepolia로 내 NFT를 배포해보자" [ref=e609] [cursor=pointer]:
+              - /url: "#/docs/velog/Sepolia%EB%A1%9C-%EB%82%B4-NFT%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%B4%EB%B3%B4%EC%9E%90"
+              - generic [ref=e611]: Sepolia로 내 NFT를 배포해보자
+            - link "Slack에서 다양한 AI 호출하기 (폰으로 일시키기)" [ref=e612] [cursor=pointer]:
+              - /url: "#/docs/velog/Slack%EC%97%90%EC%84%9C-%EB%8B%A4%EC%96%91%ED%95%9C-AI-%ED%98%B8%EC%B6%9C%ED%95%98%EA%B8%B0-%ED%8F%B0%EC%9C%BC%EB%A1%9C-%EC%9D%BC%EC%8B%9C%ED%82%A4%EA%B8%B0"
+              - generic [ref=e614]: Slack에서 다양한 AI 호출하기 (폰으로 일시키기)
+            - 'link "Slack에서 여러 AI 호출하기: 재미와 생산성을 같이 잡는 운영법" [ref=e615] [cursor=pointer]':
+              - /url: "#/docs/velog/%EC%8A%AC%EB%9E%99%EC%97%90%EC%84%9C-%EC%97%AC%EB%9F%AC-ai-%ED%98%B8%EC%B6%9C%ED%95%98%EA%B8%B0"
+              - generic [ref=e617]: "Slack에서 여러 AI 호출하기: 재미와 생산성을 같이 잡는 운영법"
+            - link "sleep(1)은 누가 1초를 세고 있을까?" [ref=e618] [cursor=pointer]:
+              - /url: "#/docs/velog/sleep1%EC%9D%80-%EB%88%84%EA%B0%80-1%EC%B4%88%EB%A5%BC-%EC%84%B8%EA%B3%A0-%EC%9E%88%EC%9D%84%EA%B9%8C"
+              - generic [ref=e620]: sleep(1)은 누가 1초를 세고 있을까?
+            - link "SOLID를 알아보자" [ref=e621] [cursor=pointer]:
+              - /url: "#/docs/velog/SOLID%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e623]: SOLID를 알아보자
+            - link "Spring Boot vs Ktor" [ref=e624] [cursor=pointer]:
+              - /url: "#/docs/velog/Spring-Boot-vs-Ktor"
+              - generic [ref=e626]: Spring Boot vs Ktor
+            - link "Swagger에 대해 알아보자" [ref=e627] [cursor=pointer]:
+              - /url: "#/docs/velog/Swagger%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90"
+              - generic [ref=e629]: Swagger에 대해 알아보자
+            - link "TUI도 이제 Figma처럼? TUI Studio가 흥미로운 이유" [ref=e630] [cursor=pointer]:
+              - /url: "#/docs/velog/TUI%EB%8F%84-%EC%9D%B4%EC%A0%9C-Figma%EC%B2%98%EB%9F%BC-TUI-Studio%EA%B0%80-%ED%9D%A5%EB%AF%B8%EB%A1%9C%EC%9A%B4-%EC%9D%B4%EC%9C%A0"
+              - generic [ref=e632]: TUI도 이제 Figma처럼? TUI Studio가 흥미로운 이유
+            - 'link "Unsloth Studio 정리: 로컬에서 모델 실행부터 파인튜닝, 데이터셋 생성, 배포까지 한 번에" [ref=e633] [cursor=pointer]':
+              - /url: "#/docs/velog/Unsloth%20Studio%20%EC%A0%95%EB%A6%AC%20%E2%80%94%20%EB%A1%9C%EC%BB%AC%EC%97%90%EC%84%9C%20%EB%AA%A8%EB%8D%B8%20%EC%8B%A4%ED%96%89%EB%B6%80%ED%84%B0%20%ED%8C%8C%EC%9D%B8%ED%8A%9C%EB%8B%9D%2C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B%20%EC%83%9D%EC%84%B1%2C%20%EB%B0%B0%ED%8F%AC%EA%B9%8C%EC%A7%80%20%ED%95%9C%20%EB%B2%88%EC%97%90"
+              - generic [ref=e635]: "Unsloth Studio 정리: 로컬에서 모델 실행부터 파인튜닝, 데이터셋 생성, 배포까지 한 번에"
+            - link "Xcode에 Claude 내장, 진짜 중요한 건 자동완성이 아니라 “에이전트 런타임”이 됐다는 점" [ref=e636] [cursor=pointer]:
+              - /url: "#/docs/velog/Xcode%EC%97%90-Claude-%EB%82%B4%EC%9E%A5-%EC%A7%84%EC%A7%9C-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B1%B4-%EC%9E%90%EB%8F%99%EC%99%84%EC%84%B1%EC%9D%B4-%EC%95%84%EB%8B%88%EB%9D%BC-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EB%9F%B0%ED%83%80%EC%9E%84%EC%9D%B4-%EB%90%90%EB%8B%A4%EB%8A%94-%EC%A0%90"
+              - generic [ref=e638]: Xcode에 Claude 내장, 진짜 중요한 건 자동완성이 아니라 “에이전트 런타임”이 됐다는 점
+            - link "XML은 왜 다시 봐야 할까? — 복잡한 규칙을 다루는 순간, XML은 ‘싼 DSL’이 된다" [ref=e639] [cursor=pointer]:
+              - /url: "#/docs/velog/XML%EC%9D%80%20%EC%99%9C%20%EB%8B%A4%EC%8B%9C%20%EB%B4%90%EC%95%BC%20%ED%95%A0%EA%B9%8C%20%E2%80%94%20%EB%B3%B5%EC%9E%A1%ED%95%9C%20%EA%B7%9C%EC%B9%99%EC%9D%84%20%EB%8B%A4%EB%A3%A8%EB%8A%94%20%EC%88%9C%EA%B0%84%2C%20XML%EC%9D%80%20%E2%80%98%EC%8B%BC%20DSL%E2%80%99%EC%9D%B4%20%EB%90%9C%EB%8B%A4"
+              - generic [ref=e641]: XML은 왜 다시 봐야 할까? — 복잡한 규칙을 다루는 순간, XML은 ‘싼 DSL’이 된다
+    - main [ref=e37]:
+      - generic [ref=e643]:
+        - paragraph [ref=e644]: Loading
+        - heading "문서를 읽어오는 중입니다." [level=2] [ref=e645]
+    - complementary [ref=e171]:
+      - generic [ref=e172]:
+        - heading "On this page" [level=3] [ref=e173]
+        - paragraph [ref=e174]: 왼쪽 탐색 패널에서 문서를 열면 여기서 아웃라인과 연결 문서를 볼 수 있습니다.
