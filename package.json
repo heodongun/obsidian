@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "concurrently -k -n content,ui -c cyan,green \"npm:content:watch\" \"vite --config wiki/vite.config.ts\"",
     "build": "npm run content:build && vite build --config wiki/vite.config.ts",
+    "deploy": "wrangler deploy",
     "preview": "vite preview --config wiki/vite.config.ts",
     "check": "tsc --noEmit",
     "content:build": "node scripts/build-content.cjs",
@@ -42,6 +43,7 @@
     "@vitejs/plugin-react": "^4.5.2",
     "concurrently": "^9.1.2",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "wrangler": "^4.76.0"
   }
 }
