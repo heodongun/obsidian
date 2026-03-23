@@ -1,0 +1,195 @@
+{
+  "main": {
+    "id": "6c85a9871a495625",
+    "type": "split",
+    "children": [
+      {
+        "id": "4e1090b30288f6c6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "405899f7a48822bc",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "새 탭"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5beed2b9f9515bca",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f4f1162eeafd7e1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9042cbe83db534b5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "ed5d5b5a587e53d7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "8631a602aed01337",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "854aacd037b7e83e",
+    "type": "split",
+    "children": [
+      {
+        "id": "0764fd8567e2d45e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "be7ba3fe6c31a311",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "백링크"
+            }
+          },
+          {
+            "id": "ff7d442f283a8f29",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
+          },
+          {
+            "id": "c9076cf25ec3b785",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "f773870c6c45b08a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "9fbbe8fe24581b47",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "405899f7a48822bc",
+  "lastOpenFiles": [
+    "01-Scala-Basics/Basics and Expressions.md",
+    "00-Background information/scala의 계층적 구조.md",
+    "00-Background information/Scala가 한때 Java를 이길 뻔했던 이유.md",
+    "00-Background information/sbt란?.md",
+    "00-Background information/왜 Scala 컴파일이 느린가.md",
+    "00-Background information/왜 Cats , ZIO 가 새로운 언어처럼 보이나.md",
+    "00-Background information/왜 지금은 Rust, Go, Kotlin에 밀렸나.md",
+    "00-Background information/왜 Scala 개발자들이 sbt를 싫어하는지.md",
+    "02-OOP-Modeling/Classes and Traits.md",
+    "01-Scala-Basics/Basics Practice.md",
+    "00-Dashboard/Exam Traps.md",
+    "00-Background information",
+    "00-Dashboard/MOC - Scala Study Map.md"
+  ]
+}
